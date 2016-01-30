@@ -1,0 +1,3 @@
+allow init configfs:dir { write add_name create };
+allow init configfs:file { write };
+allow init configfs:lnk_file { create };

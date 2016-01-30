@@ -1,0 +1,7 @@
+# for krfcommd command
+allow kernel self:capability net_bind_service;
+
+# for kdevtmpfs command
+allow kernel self:capability mknod;
+allow kernel device:dir { write add_name };
+allow kernel device:chr_file { create setattr getattr};

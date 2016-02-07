@@ -1,0 +1,9 @@
+ccflags-y +=    -I$(srctree)/drivers/hisi/mntn
+ccflags-y +=    -I$(srctree)/drivers/hisi/ipc_hi6xxx
+ccflags-y +=    -I$(srctree)/drivers/hisi/modem_hi6xxx/drv/acore/rfile/
+ccflags-y +=    -I$(srctree)/drivers/tzdriver
+obj-y		+= mntn_ccore.o
+obj-y		+= reset_ccore.o
+obj-y		+= reset_sub_ccore.o
+obj-y		+= reset_ccoreloader.o
+obj-$(CONFIG_TZDRIVER) += load_image.o

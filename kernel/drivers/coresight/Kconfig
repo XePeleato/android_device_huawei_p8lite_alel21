@@ -1,0 +1,51 @@
+config HISI_CS
+	bool "CoreSight tracing"
+	help
+	  Enables support for CoreSight tracing. This uses CoreSight trace
+	  components and buses to support both hardware (eg. processor ETM)
+	  and hardware assisted software instrumentation based (eg. STM)
+	  tracing.
+
+	  For production builds, you should probably say 'N' here to avoid
+	  potential power, performance and memory penalty.
+
+config HISI_CS_STM_DEFAULT_ENABLE
+	bool "Turn on CoreSight STM tracing by default"
+	depends on HISI_CS
+	help
+	  Turns on CoreSight STM tracing (hardware assisted software
+	  instrumentation based tracing) by default. Otherwise, tracing is
+	  disabled by default but can be enabled via sysfs.
+
+	  For production builds, you should probably say 'N' here to avoid
+	  potential power, performance and memory penalty.
+
+config HISI_CS_ETM_DEFAULT_ENABLE
+	bool "Turn on CoreSight ETM tracing by default"
+	depends on HISI_CS
+	help
+	  Turns on CoreSight ETM tracing (processor tracing) by default.
+	  Otherwise, tracing is disabled by default but can be enabled via
+	  sysfs.
+
+	  For production builds, you should probably say 'N' here to avoid
+	  potential power, performance and memory penalty.
+
+config HISI_CS_ETM_PCSAVE_DEFAULT_ENABLE
+	bool "Turn on PC saving by default"
+	depends on HISI_CS
+	help
+	  Turns on program counter saving on reset by default. Otherwise,
+	  PC saving is disabled by default but can be enabled via sysfs.
+
+	  For production builds, you should probably say 'N' here to avoid
+	  potential power penalty.
+
+config CONTROL_TRACE
+	tristate "Turn on to control tracing"
+	help
+	  Builds module to abort tracing on a user space data, instruction
+	  or prefetch abort.
+
+	  For production builds, you should probably say 'N' here to avoid
+	  potential power, performance and memory penalty.

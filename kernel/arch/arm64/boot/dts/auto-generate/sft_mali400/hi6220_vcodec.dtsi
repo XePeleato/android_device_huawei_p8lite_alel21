@@ -1,0 +1,44 @@
+/*
+ *  Copyright (C) 2012-2014 Hisilicon
+ *
+ *  This program is free software; you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License version 2 as
+ *  publishhed by the Free Software Foundation.
+ */
+
+/ {
+	/*VPU配置*/
+	cnm_vpu: cnm_vpu@F4311000 {
+		compatible = "hisi,cnm_vpu";
+		reg = <0xF4311000 0x1000>;    /*VPU的寄存器首地址及寻址空间*/
+		interrupts = <0 111 0x4>;     /*VPU中断号*/
+		/*VPU相关时钟及相应名称：GPUPLL时钟源、MEDPLL时钟源、MEDPLL时钟源门控、VPU pclk、VPU aclk、VPU core clk*/
+		clocks = <&clk_gpupll_src &clk_medpll_src &clk_medpll_src_gated &pclk_codec_vpu &aclk_codec_vpu &clk_codec_vpu>;
+		clock-names = "CLK_GPUPLL_SRC", "CLK_MEDPLL_SRC", "CLK_MEDPLL_SRC_GATED", "PCLK_CODEC_VPU","ACLK_CODEC_VPU","CLK_CODEC_VPU";
+
+		/*VDEC_VDD-supply  = <&buck3>;*/
+
+		VPU_CORE_CLOCK_FREQ = <20000000>;   /*VPU CORE时钟的频率，单位Hz*/
+		VPU_AXI_CLOCK_FREQ  = <40000000>;   /*VPU AXI时钟的频率，单位Hz*/
+		VPU_WAIT_TIMEOUT_COEFF = <10>;      /*VPU等待编解码中断上报的时延系数，如果超时则表示VPU编解码超时失败*/
+		VPU_SRAM_ALLOC_TIMEOUT = <1000>;    /*VPU申请SRAM的等待时延，单位ms，如果超时则申请失败*/
+	};
+
+	/*JPU配置*/
+	cnm_jpu: cnm_jpu@0xF4310000 {
+		compatible = "hisi,cnm_jpu";
+		reg = <0xF4310000 0x1000>;    /*JPU的寄存器首地址及寻址空间*/
+		interrupts = <0 112 0x4>;     /*JPU中断号*/
+		/*JPU相关时钟及相应名称：MEDPLL时钟源、MEDPLL时钟源门控、JPU pclk、JPU aclk、VPU core clk*/
+		clocks = <&clk_medpll_src &clk_medpll_src_gated &pclk_codec_jpeg &aclk_codec_jpeg &clk_codec_jpeg>;
+		clock-names = "CLK_MEDPLL_SRC", "CLK_MEDPLL_SRC_GATED", "PCLK_CODEC_JPEG", "ACLK_CODEC_JPEG","CLK_CODEC_JPEG";
+
+		/*VENC_VDD-supply  = <&buck3>;*/
+		
+		JPU_CORE_CLOCK_FREQ = <40000000>;   /*JPU CORE时钟的频率，单位Hz*/
+		JPU_WAIT_TIMEOUT_COEFF = <10>;      /*JPU等待编解码中断上报的时延系数，如果超时则表示JPU编解码超时失败*/
+	};
+
+     
+};
+

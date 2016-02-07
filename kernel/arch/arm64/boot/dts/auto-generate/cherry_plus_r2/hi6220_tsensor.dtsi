@@ -1,0 +1,60 @@
+/{
+    /*Tsensor温度保护驱动*/
+	thermal {
+		compatible = "hisilicon,hi6xxx-tsensor-driver";
+		tsensor-enable = <1>;                            /*温度保护是否使能*/
+		tsensor-num = <4>;                               /*Tsensor测点个数*/
+		temp-offset = <2>;								 /*温度偏移*/
+		acpu-freq-limit-num = <4>;                       /*Acpu频率限制profile个数*/
+		acpu-freq-limit-table = <960000 729000 432000 208000>;  /*Acpu限频调节档位，KHz*/
+		acpu-freq-default-limit = <432000>;	         /*acpu限频值*/
+		gpu-freq-limit-num = <1>;                        /*Gpu频率限制profile个数*/
+		gpu-freq-limit-table = <250>;            /*Gpu频率限制profile，MHz*/
+		gpu-freq-default-limit = <250>;	                 /*gpu限频值*/
+		tsensor-monitor-period = <500>;
+		
+		acpu_c1: temp@a1 {
+		    compatible = "hisilicon,hi6xxx-tsensor0";
+		    tsensor-type   = <0x1>;                      /*该Tsensor测点类型，0对应ACPU_CLUSTER0, 1对应ACPU_CLUSTER1, 2对应GPU; 3---local*/
+			tsensor-sel    = <1>;                        /*该Tsensor类型对应IP中Select需填入的值*/
+			tsensor-lag-value = <10>;                    /*该测点的滞回温度*/
+			tsensor-thres-value = <100>;                 /*该测点的告警温度*/
+			tsensor-reset-value = <110>;                 /*该测点的复位温度*/
+			tsensor-alarm-count = <2>;                   /*该测点告警计数，计数达到该值才进行启动温度保护*/
+			tsensor-recover-count = <10>;                /*该测试恢复计数，计数达到该值才进行取消温度保护*/
+		};
+
+		acpu_c0: temp@a2 {
+		    compatible = "hisilicon,hi6xxx-tsensor1";
+		    tsensor-type   = <0x0>;
+			tsensor-sel    = <2>;
+			tsensor-lag-value = <10>;
+			tsensor-thres-value = <100>;
+			tsensor-reset-value = <110>;
+			tsensor-alarm-count = <2>;
+			tsensor-recover-count = <10>;
+		};
+		
+		gpu: temp@a3 {
+		    compatible = "hisilicon,hi6xxx-tsensor2";
+		    tsensor-type   = <0x2>;
+			tsensor-sel    = <3>;
+			tsensor-lag-value = <10>;
+			tsensor-thres-value = <95>;
+			tsensor-reset-value = <110>;
+			tsensor-alarm-count = <2>;
+			tsensor-recover-count = <10>;
+		};
+		
+		local: temp@a4 {
+		    compatible = "hisilicon,hi6xxx-tsensor3";
+		    tsensor-type   = <0x3>;
+			tsensor-sel    = <0x0>;
+			tsensor-lag-value = <10>;
+			tsensor-thres-value = <85>;
+			tsensor-reset-value = <110>;
+			tsensor-alarm-count = <2>;
+			tsensor-recover-count = <10>;
+		};
+	};
+};

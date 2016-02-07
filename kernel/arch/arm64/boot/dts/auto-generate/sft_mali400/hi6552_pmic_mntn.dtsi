@@ -1,0 +1,144 @@
+/******************************************************************************
+
+                  版权所有 (C), 2001-2011, 华为技术有限公司
+
+ ******************************************************************************
+ 
+  This is an AUTO GENERATED file ! DON'T MODIFY MANUAL! 
+  文 件 名   : %(filename)s
+  生成日期   : %(year)d年%(month)d月%(day)d日
+  
+******************************************************************************/
+
+/ {
+	pmic: pmic@F8000000 {
+		pmic_mntn: pmic_mntn@a0 {
+					compatible = "hisilicon,hi6552-pmic-mntn";
+					hisilicon,np-regs = <0x11 0x09>;
+					hisilicon,irq-regs = <0x03 0x03>;
+					hisilicon,record-regs = <0x0b 0x06>;
+					hisilicon,data-width = <8>;
+					hisilicon,otmp-set = <2>;
+					interrupt-parent = <&pmic>;
+					interrupts = <10 0>, <0 0>;
+					interrupt-names = "socp", "otmp";
+
+					SMPL@a1 {
+					compatible = "hisilicon,hi6552-pmic-mntn-smpl";
+					hisilicon,smpl-ctrl-en = <0x0>;
+					hisilicon,smpl-ctrl-time = <0x2>;   /*0->0.5s  1->1.0s  2->1.5s  3->2.0s*/
+					hisilicon,smpl-ctrl-en-reg = <0xF8 0x0 0x1>;
+					hisilicon,smpl-ctrl-time-reg = <0xF8 0x1 0x2>;
+					hisilicon,smpl-ctrl-record-reg = <0xFF 0x0 0x1>;
+					};
+					
+					IRQ1@a1 {
+					compatible = "hisilicon,hi6552-pmic-mntn-event0x3";
+					hisilicon,inacceptable-event = <0x00>;
+					hisilicon,event-bit-name = "otmp_d1r","vsys_2p5_r","vsys_uv_d3r","vsys_6p0_d200ur","pwron_d4sr","pwron_d20f","pwron_d20r";
+					};
+	
+					IRQ2@a1 {
+					compatible = "hisilicon,hi6552-pmic-mntn-event0x4";
+					hisilicon,inacceptable-event = <0x00>;
+					hisilicon,event-bit-name = "vbus_det_3p6_d20f","vbus_det_3p6_d20r","ocp_scp_r";
+					};
+					
+					IRQ3@a1 {
+					compatible = "hisilicon,hi6552-pmic-mntn-event0x5";
+					hisilicon,inacceptable-event = <0x00>;
+					hisilicon,event-bit-name = "tcxo_clk_sel_r","tcxo_clk_sel_f","dcxo_clk_sel_r","dcxo_clk_sel_f","alarm_on";
+					};
+					
+					SCP_BUCK_RECORD1@a1 {
+					compatible = "hisilicon,hi6552-pmic-mntn-event0xb";
+					hisilicon,inacceptable-event = <0x0F>;
+					hisilicon,event-bit-name = "scp_buck01","scp_buck2","scp_buck3","scp_buck4";
+					};
+					
+					OCP_BUCK_RECORD1@a1 {
+					compatible = "hisilicon,hi6552-pmic-mntn-event0xc";
+					hisilicon,inacceptable-event = <0x1F>;
+					hisilicon,event-bit-name = "ocp_buck1","ocp_buck2","ocp_buck3","ocp_buck4","ocp_buck0";
+					};
+					
+					OCP_LDO1_8_RECORD2@a1 {
+					compatible = "hisilicon,hi6552-pmic-mntn-event0xd";
+					hisilicon,inacceptable-event = <0xFF>;
+					hisilicon,event-bit-name = "ocp_ldo1","ocp_ldo2","ocp_ldo3","ocp_ldo4","ocp_ldo5","ocp_ldo6","ocp_ldo7","ocp_ldo8";
+					};
+	
+					OCP_LDO16_9_RECORD3@a1 {
+					compatible = "hisilicon,hi6552-pmic-mntn-event0xe";
+					hisilicon,inacceptable-event = <0xF8>;
+					hisilicon,event-bit-name = "ocp_ldo9","ocp_ldo10","ocp_ldo11","ocp_ldo12","ocp_ldo13","ocp_ldo14","ocp_ldo15","ocp_ldo16";
+					};
+					
+					OCP_LDO22_17_RECORD4@a1 {
+					compatible = "hisilicon,hi6552-pmic-mntn-event0xf";
+					hisilicon,inacceptable-event = <0x3F>;
+					hisilicon,event-bit-name = "ocp_ldo17","ocp_ldo18","ocp_ldo19","ocp_ldo20","ocp_ldo21","ocp_ldo22";
+					};
+					
+					OCP_CLASSD_LVS2_RECORD5@a1 {
+					compatible = "hisilicon,hi6552-pmic-mntn-event0x10";
+					hisilicon,inacceptable-event = <0x07>;
+					hisilicon,event-bit-name = "ocp_lvs2","ocp_classd","scp_pmua";
+					};
+					
+					NP_IRQ1_RECORD@a1 {
+					compatible = "hisilicon,hi6552-pmic-mntn-event0x11";
+					hisilicon,inacceptable-event = <0x11>;
+					hisilicon,event-bit-name = "np_otmp_d1r","np_hreset_n_f","np_vsys_2p5_r","np_vsys_uv_d3r","np_vsys_6p0_d200ur","np_pwron_d4sr","np_pwron_d20f","np_pwron_d20r";
+					};
+	
+					NP_IRQ2_RECORD@a1 {
+					compatible = "hisilicon,hi6552-pmic-mntn-event0x12";
+					hisilicon,inacceptable-event = <0x80>;
+					hisilicon,event-bit-name = "np_vbat_vcoin_sel","np_vbus_det_3p6_d150r","np_vbus_det_3p6_d20f","np_vbus_det_3p6_d20r","np_pwron_restart","np_pwron_dnsr","np_pwron_d500r","np_otmp150_d1r";
+					};
+					
+					NP_IRQ3_RECORD@a1 {
+					compatible = "hisilicon,hi6552-pmic-mntn-event0x13";
+					hisilicon,inacceptable-event = <0x00>;
+					hisilicon,event-bit-name = "np_tcxo_clk_sel_r","np_tcxo_clk_sel_f","np_dcxo_clk_sel_r","np_dcxo_clk_sel_f","np_alarm_on","np_pwr_hold_2d_pwrn","np_pwr_hold_2d_pwrd";
+					};
+					
+					NP_SCP_RECORD1@a1 {
+					compatible = "hisilicon,hi6552-pmic-mntn-event0x14";
+					hisilicon,inacceptable-event = <0x0F>;
+					hisilicon,event-bit-name = "np_scp_buck01","np_scp_buck2","np_scp_buck3","np_scp_buck4";
+					};
+					
+					NP_OCP_RECORD1@a1 {
+					compatible = "hisilicon,hi6552-pmic-mntn-event0x15";
+					hisilicon,inacceptable-event = <0x1F>;
+					hisilicon,event-bit-name = "np_ocp_buck1","np_ocp_buck2","np_ocp_buck3","np_ocp_buck4","np_ocp_buck0";
+					};
+	
+					NP_OCP_RECORD2@a1 {
+					compatible = "hisilicon,hi6552-pmic-mntn-event0x16";
+					hisilicon,inacceptable-event = <0xFF>;
+					hisilicon,event-bit-name = "np_ocp_ldo1","np_ocp_ldo2","np_ocp_ldo3","np_ocp_ldo4","np_ocp_ldo5","np_ocp_ldo6","np_ocp_ldo7","np_ocp_ldo8";
+					};
+						
+					NP_OCP_RECORD3@a1 {
+					compatible = "hisilicon,hi6552-pmic-mntn-event0x17";
+					hisilicon,inacceptable-event = <0xF8>;
+					hisilicon,event-bit-name = "np_ocp_ldo9","np_ocp_ldo10","np_ocp_ldo11","np_ocp_ldo12","np_ocp_ldo13","np_ocp_ldo14","np_ocp_ldo15","np_ocp_ldo16";
+					};
+					
+					NP_OCP_RECORD4@a1 {
+					compatible = "hisilicon,hi6552-pmic-mntn-event0x18";
+					hisilicon,inacceptable-event = <0x3F>;
+					hisilicon,event-bit-name = "np_ocp_ldo17","np_ocp_ldo18","np_ocp_ldo19","np_ocp_ldo20","np_ocp_ldo21","np_ocp_ldo22";
+					};
+	
+					NP_OCP_RECORD5@a1 {
+					compatible = "hisilicon,hi6552-pmic-mntn-event0x19";
+					hisilicon,inacceptable-event = <0x07>;
+					hisilicon,event-bit-name = "np_ocp_lvs2","np_ocp_classd","np_scp_pmua";
+					};	
+		};
+	};
+};

@@ -1,0 +1,11 @@
+
+/{
+        fb@f4100000 {
+			compatible = "hisilicon,hi6210-fb";
+			reg = <0xf4100000 0x10000>;                             /* ADE的基地址 ：0xf4100000 偏移量：0x10000 */
+			interrupts = <0 114 4>,<0 115 4>;                       /* ADE 的中断号：114 ； LDI 的中断号：115 */
+			is_hi6210 = <0>;                                        /* chipset是否为HI6210，0：否， 1：是 */
+			board_is_sft = <1>;                                     /* 平台是否为SFT，      0：否， 1：是 */ 
+			status = "ok";
+	};
+};

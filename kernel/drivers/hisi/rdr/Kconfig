@@ -1,0 +1,43 @@
+menu "Kernel run data recorder menu"
+
+config HISI_RDR
+	bool "kernel run data recorder"
+	depends on SYSFS
+	default n
+	help
+	  This module can record some data about kernel internal info.
+	  Include:
+	  the task switch,
+	  interrupts switch,
+	  arm exception info,
+	  etc ...
+
+config HISI_RDR_TEST
+	bool "test unit for kernel run data recorder"
+	depends on SYSFS && HISI_RDR
+	default y
+	help
+	  This module can test RDR function ...
+	  Include:
+	  dataabort,
+	  etc
+
+config HISI_RDR_SWITCH
+	bool "task switch, interrupts switch, system call switch setting"
+	depends on SYSFS && HISI_RDR
+	default n
+	help
+	  This module can open or close task switch, int_switch, system call switch
+	  Includes:
+	  interrupts switch,
+	  system call switch,
+	  task_switch
+	  if select n,then trace these options.
+	  if select y,then stop trace.
+
+config HIFI_RESET
+	bool "hifi reset switch"
+	default n
+	help
+	  hifi reset
+endmenu

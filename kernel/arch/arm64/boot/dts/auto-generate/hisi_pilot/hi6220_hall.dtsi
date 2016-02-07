@@ -1,0 +1,30 @@
+/*
+ * Copyright (c) 2012-2013, The Linux Foundation. All rights reserved.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 2 and
+ * only version 2 as published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ */
+
+/{
+	hall0 {
+		compatible = "hall,sensor";
+		/*the order is fixed,you can't change,always n pole first and s pole behind*/
+		/*if the device has only one 8789,the you only have to set hall0,and the hall_type is 2*/
+		hall0_north_pole = <&gpio2 3 0>;
+		hall0_south_pole = <&gpio0 6 0>;
+		hall_id = <0>;
+		/*how many poles,2 is for one hall and 4 is for two hall*/
+		hall_type = <2>;
+		hall0_north_wake_up_flag = <16384>;
+		hall0_south_wake_up_flag = <16384>;
+		hall0_x_coordinate = <3>;
+		hall0_y_coordinate = <120>;
+		status = "ok";
+	};
+};

@@ -1,0 +1,32 @@
+
+/{  
+	mali:mali@f4080000 {
+		compatible = "hisilicon,mali_gpu";
+		/*reg = <0xf4080000 0x9100>;*/               /*GPU寄存器首地址0xf4080000  长度为0x9100*/
+		/*reg = <0xf4081000 0x200>,<0xf4080000 0x100>,<0xf4083000 0x100>,<0xf4088000 0x1100>,<0xf4084000 0x100>;*/
+		/*interrupts = <0 110 4>,<0 110 4>,<0 110 4>,<0 110 4>;*/
+		clocks = <&clk_g3d>,<&pclk_g3d>;         /*GPU用到的时钟名字：clk_g3d是GPU core时钟；pclk_g3d是配置口时钟*/
+		clock-names  = "clk_g3d","pclk_g3d";
+		G3D_PD_VDD-supply  = <&mtcmos5>;         /*GPU由BUCK2上面的mtcmos5控制上下电*/
+		status = "ok";                           /*该字段驱动加载时用到*/
+		mali_def_freq = <500>;                   /*GPU上电时默认core时钟频率为500M*/
+		pclk_freq = <144>;                       /*GPU上电时配置口时钟频率为144M*/
+		dfs_steps = <3>;                         /*调频属性：调频的步长,2表示2个档位*/
+		dfs_lockprf = <2>;                       /*调频属性：GPU默认的锁频档位为最高档，档位从0开始，1为最高档*/
+		dfs_limit_max_prf = <2>;                 /*调频属性：最大限频档位，用于频率限制*/
+		dfs_profile_num = <3>;                   /*调频属性：档位个数*/
+		dfs_profiles = <250 3 0>,<400 2 1>,<500 1 0>;  /*调频属性：档位配置，意义：<频率 分频比 时钟源ID>，0表示GPUPLL，1表示SYSPLL*/
+		mali_type = <2>;                         /*GPU 硬件属性，0为MALI400-MP1，1为MALI400-MP2，2为MALI450-MP4*/
+		};
+
+	gpu_devfreq@0 {
+		compatible = "hisilicon,gpu_devfreq";
+		operating-points = <
+			/* kHz uV */
+			250000	0
+			400000  0
+			500000  0
+		>;
+		status = "ok";
+                };
+};

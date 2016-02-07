@@ -1,0 +1,165 @@
+/ {
+
+	memory {		
+		device_type = "memory";		
+		reg = <0x07400000 0x78c00000>;		
+	};		
+
+	reserved-memory {
+		#address-cells = <1>;
+		#size-cells = <1>;
+		ranges;
+
+		/* Framebuffer 25MB */
+		framebuffer_reserved: framebuffer@3e700000 {
+			reg = <0x3e700000 0x01900000>;
+			status = "ok";
+		};
+
+		/* SecureOS 16MB or 32MB */
+		secureos_reserved: secureos@3c700000 {
+			reg = <0x3c700000 0x01000000>;
+			status = "ok";
+			no-map;
+		};
+
+		/* Pstore 1MB */
+		pstore_reserved: pstore@3c600000 {
+			reg = <0x3c600000 0x00100000>;
+			status = "ok";
+			no-map;
+		};
+
+		/* Modem log 50MB */
+		mdmlog_reserved: mdmlog@39400000 {
+			reg = <0x39400000 0x03200000>;
+			status = "no";
+			no-map;
+		};
+		kerneldump_reserved: kerneldump@60000000 {
+			reg = <0x60000000 0x15000000>;
+			status = "no";
+		};
+        srecorder_reserved: srecorder@39200000 {
+            reg = <0x39200000 0x00200000>;
+            status = "ok";
+            no-map;
+        };
+	};
+
+	ramoops {
+		compatible = "ramoops";
+		reg = <0x3c600000 0x100000>;
+		record-size = <0x20000>;
+		console-size = <0x80000>;
+		ftrace-size = <0x0>;
+		dump-oops = <0x1>;
+	};
+
+	hisi_ion_iommu@0{
+		compatible = "hisi,hi6xxx-ion-iommu";
+
+		/*FRAME BUFFER堆*/
+		heap_fb@0 {
+			/*堆名*/
+			heap-name = "fb";
+			/*堆基地址*/
+			heap-base = <0x3e700000>;
+			/*堆大小*/
+			heap-size = <0x01900000>;
+			/*堆类型*/
+			heap-type = "reserved";
+		};
+
+		/*VPU堆*/
+		heap_vpu@0 {
+			/*堆名*/
+			heap-name = "vpu";
+			/*堆基地址*/
+			heap-base = <0x0>;
+			/*堆大小*/
+			heap-size = <0x0>;
+			/*堆类型*/
+			heap-type = "reserved";
+		};
+
+		/*JPU堆*/
+		heap_jpu@0 {
+			/*堆名*/
+			heap-name = "jpu";
+			/*堆基地址*/
+			heap-base = <0x0>;
+			/*堆大小*/
+			heap-size = <0x0>;
+			/*堆类型*/
+			heap-type = "reserved";
+		};
+
+		/*GRALLOC堆*/
+		heap_gralloc@0 {
+			/*堆名*/
+			heap-name = "gralloc-iommu";
+			/*堆基地址*/
+			heap-base = <0x0>;
+			/*堆大小*/
+			heap-size = <0x38000000>;
+			/*堆类型*/
+			heap-type = "ion_iommu";
+		};
+
+		/*OVERLAY堆*/
+		heap_overlay@0 {
+			/*堆名*/
+			heap-name = "overlay";
+			/*堆基地址*/
+			heap-base = <0x0>;
+			/*堆大小*/
+			heap-size = <0x0>;
+			/*堆类型*/
+			heap-type = "reserved";
+		};
+
+		/*SYSTEM User堆*/
+		heap_sys_user@0 {
+			/*堆名*/
+			heap-name = "sys_user";
+			/*堆基地址*/
+			heap-base = <0x0>;
+			/*堆大小*/
+			heap-size = <0x0>;
+			/*堆类型*/
+			heap-type = "ion_system";
+		};
+
+		/*SYSTEM Contig堆*/
+		heap_sys_contig@0 {
+			/*堆名*/
+			heap-name = "sys_contig";
+			/*堆基地址*/
+			heap-base = <0x0>;
+			/*堆大小*/
+			heap-size = <0x0>;
+			/*堆类型*/
+			heap-type = "ion_system_contig";
+		};
+	};
+
+	smmu:smmus@f4210000 {
+		compatible = "hisi,hi6xxx-smmu";
+		#address-cells = <1>;
+		#size-cells = <0>;
+		/*IOMMU寄存器地址,大小*/
+		reg = <0xf4210000 0x1000>;
+		/*IOMMU中断号*/
+		interrupts = <0 113 2>;
+		/*IOMMU时钟对象*/
+		clocks = <&clk_mmu>,<&clk_med_mmu>,<&pclk_codec_vpu_src>;
+		/*IOMMU时钟名*/
+		clock-names = "clk_mmu","clk_med_mmu","pclk_codec_vpu_src";
+		hisi,smmu-version = <0x2>;
+		hisi,smmu-l0-cache = "disable";
+		/*ddr-size iodomain page-size reserve*/
+		hisi,smmu-ctrl = <0x1a2>;
+		hisi,smmu-iodomain = <0x2000 0x38000000 0x2000 0x2000>;
+	};
+};

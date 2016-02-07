@@ -1,0 +1,46 @@
+/*
+ *  Copyright (C) 2014 Hisilicon Ltd.
+ *  Author: Yu Wei <yuwei3@huawei.com>
+ *
+ *  This program is free software; you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License version 2 as
+ *  publishhed by the Free Software Foundation.
+ */
+
+/{
+	/* ddr devfreq*/
+	    /*ddr 最小票节点*/
+        ddr_min: ddrfreq {
+		compatible = "hisilicon,ddr_devfreq";
+				/*所选父时钟节点*/
+                clocks = <&clk_ddr_min_stub &clk_ddr_freq_stub>;
+				/*所选调频种类ID*/
+                pm_qos_class = "memory_tput";
+		/*所支持频点*/
+		operating-points = <
+			/* kHz uV */
+			150000	0
+			266000	0
+			400000  0
+			533000  0
+		>;
+		status = "ok";
+	};
+		/*ddr 最大票节点*/
+        ddr_max: ddrfreq_up_threshold {
+                compatible = "hisilicon,ddr_devfreq_up_threshold";
+				/*所选父时钟节点*/
+                clocks = <&clk_ddr_max_stub &clk_ddr_freq_stub>;
+				/*所选调频种类ID*/
+                pm_qos_class = "memory_tput_up_threshold";
+				/*所支持频点*/
+                operating-points = <
+			/* kHz uV */
+			150000	0
+			266000	0
+			400000  0
+			533000  0
+		>;
+		status = "ok";
+	};
+};

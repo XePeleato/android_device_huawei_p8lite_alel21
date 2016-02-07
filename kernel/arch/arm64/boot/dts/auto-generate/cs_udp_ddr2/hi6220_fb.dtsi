@@ -1,0 +1,21 @@
+
+/{
+        fb@f4100000 {
+			compatible = "hisilicon,hi6210-fb";
+			reg = <0xf4100000 0x10000>;                             /* ADE的基地址 ：0xf4100000 偏移量：0x10000 */
+			interrupts = <0 114 4>,<0 115 4>;                       /* ADE 的中断号：114 ； LDI 的中断号：115 */
+			is_hi6210 = <0>;                                        /* chipset是否为HI6210，0：否， 1：是 */
+			board_is_sft = <0>;                                     /* 平台是否为SFT，      0：否， 1：是 */
+
+			lcd_type = <0>;                                         /* FHD屏通过lcd_type来进行识别(1: FHD_TYPE, 0: HD_TYPE) */
+
+			product_id = <0x00>;                                    /*产品通过product_id来进行区分（0x00:CherryPlus, 0x10:Shine,  0x20:Alice）*/
+			/* 屏通过下面的pin_id来进行识别 */
+			gpio_lcd_id0 = <54>;
+			gpio_lcd_id0_pull = <0xF70109C8>;
+			gpio_lcd_id1 = <56>;
+			gpio_lcd_id1_pull = <0xF70109D0>;
+
+			status = "ok";
+		};
+};

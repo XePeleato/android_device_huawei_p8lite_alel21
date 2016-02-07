@@ -1,0 +1,7 @@
+/ {
+	bq_bci_battery:battery {
+		compatible = "huawei,bq_bci_battery";
+		status = "disabled";
+	};
+};
+

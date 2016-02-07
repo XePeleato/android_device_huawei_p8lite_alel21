@@ -1,0 +1,39 @@
+/*
+ *  Copyright (C) 2012-2014 Hisilicon
+ *
+ *  This program is free software; you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License version 2 as
+ *  publishhed by the Free Software Foundation.
+ */
+
+/{
+	mtcmos:mtcmos@f7410000 {
+		compatible = "hisilicon,hi6xxx-mtcmos-driver";
+		hisilicon,mtcmos-steady-us = <15>; /*电源开关稳定时长*/
+		hisilicon,mtcmos-nn-time-numb = <0>;/*保留未使用*/
+		hisilicon,mtcmos-sc-on-base  = <0xf7800000>;
+		hisilicon,mtcmos-acpu-on-base = <0xf65a0000>;
+		/*每一路电路的结构是一致的，描述请见第一个*/
+		mtcmos5: regulator@a5{
+			compatible = "hisilicon,hi6xxx-regulator-mtcmos";
+			regulator-name = "MTCMOS-G3D";/*regulator名字*/
+			hisilicon,valid-ops-mask = <0x8>;/*电源类型*/
+			hisilicon,regulator-type = <4>;/*电路类型*/
+			hisilicon,ctrl-regs = <0x830 0x834 0x83c>;/*控制寄存器*/
+			hisilicon,ctrl-data = <1 0x1>;/*控制BIT位*/
+			hisilicon,num_consumer_supplies = <1>;/*用户个数*/
+			hisilicon,consumer-supplies = "g3d";/*用户列表*/
+		};		
+		mtcmos6: regulator@a6{
+			compatible = "hisilicon,hi6xxx-regulator-mtcmos";
+			regulator-name = "MTCMOS-CODECISP";
+			hisilicon,valid-ops-mask = <0x8>;
+			hisilicon,regulator-type = <4>;
+			hisilicon,ctrl-regs = <0x830 0x834 0x83c>;
+			hisilicon,ctrl-data = <2 0x1>;
+			hisilicon,num_consumer_supplies = <1>;
+			hisilicon,consumer-supplies = "soc_med";
+		};		
+			
+	}; /*end of mtcmos*/
+};

@@ -1,0 +1,1 @@
+source "drivers/gpu/arm/mali4_32/r4p1_01rel0/Kconfig"

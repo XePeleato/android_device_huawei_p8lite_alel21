@@ -1,0 +1,9 @@
+menu "JPEG decode support"
+
+config JPEG_CODEC
+    #depends on ANDROID_PMEM
+    tristate "Support for hisi k3 Jpeg dec processor"
+    default n
+    help
+        The decode device provides decode function for Jpeg
+endmenu

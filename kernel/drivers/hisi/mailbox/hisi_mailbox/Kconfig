@@ -1,0 +1,51 @@
+comment "hi3xxx ipc MailBox driver"
+config HI3XXX_MAILBOX
+	bool "hi3xxx ipc MailBox driver"
+	default n
+	help
+	  hi3xxx ipc MailBox driver
+	  
+comment "hi6xxx ipc MailBox driver"
+config HI6XXX_MAILBOX
+	bool "hi6xxx ipc MailBox driver"
+	default n
+	help
+	  hi6xxx ipc MailBox driver
+
+comment "hisi ipc mailboxes debugfs user"
+config HISI_MAILBOX_DEBUGFS
+	bool "hisi ipc mailboxes debugfs user"
+	depends on (HI3XXX_MAILBOX || HI6XXX_MAILBOX) && DEBUG_FS
+	default n
+	help
+	  HiIPCV230 ipc mailboxes debugfs user
+
+comment "hisi ipc MailBox driver performance debug"
+config HISI_MAILBOX_PERFORMANCE_DEBUG
+	bool "hisi ipc MailBox driver performance debug"
+	depends on (HI3XXX_MAILBOX || HI6XXX_MAILBOX)
+	default n
+	help
+	  Print tts of sending task, if config is set y
+
+comment "hi3xxx kernel API about remote processor communication"
+config HI3XXX_RPROC
+	bool "hi3xxx ipc kernel API"
+	default n
+	help
+	  hi3xxx kernel API about remote processor communication
+	  
+comment "hi6xxx kernel API about remote processor communication"
+config HI6XXX_RPROC
+	bool "hi6xxx ipc kernel API"
+	default n
+	help
+	  hi6xxx kernel API about remote processor communication
+
+comment "hisi rproc kernel API debugfs"
+config HISI_RPROC_DEBUGFS
+	bool "hisi rproc kernel API debugfs"
+	depends on (HI3XXX_RPROC || HI6XXX_RPROC) && DEBUG_FS
+	default n
+	help
+	  debug for hisi_rproc

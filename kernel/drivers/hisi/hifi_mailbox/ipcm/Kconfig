@@ -1,0 +1,8 @@
+menu "Hifi mailbox driver"
+
+config HIFI_IPC
+     bool "k3 multicore ipc driver"
+     default n
+     help
+          k3 multicore ipc driver.
+endmenu

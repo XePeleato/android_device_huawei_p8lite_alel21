@@ -1,0 +1,10 @@
+menuconfig VIDEO_HI6210_CODEC
+    tristate "Hi6210 Support C&M Video Codec Drivers"
+    default n
+    ---help---
+      This is the codec driver based on hi6210.
+
+if VIDEO_HI6210_CODEC
+source "drivers/vcodec/chipmedia/vpu/Kconfig"
+endif
+

@@ -1,0 +1,14 @@
+#
+# Huawei's public serial driver and the protocol
+# drivers (BT, FM and GNSS)
+#
+
+config HW_PS
+	tristate "huawei public serial driver"
+	default n
+	help
+	  This enables the public serial driver for Huawei
+	  BT / FM / GNSS chips. This enables protocol drivers
+	  to register themselves and send data, the responses
+	  are returned to relevant protocol drivers based on their
+	  packet types.

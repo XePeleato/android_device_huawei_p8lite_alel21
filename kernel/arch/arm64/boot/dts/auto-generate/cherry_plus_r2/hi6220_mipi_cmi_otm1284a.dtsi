@@ -1,0 +1,40 @@
+ 
+ /{
+	/*CMI panel driver, otm1284a IC*/
+	cmiotm:cmi-otm1284a{
+		compatible = "hisilicon,mipi-cmi-otm1284a";
+		/*clocks*/
+		clocks = <&clk_ade_core>,<&aclk_codec_jpeg_src>,<&pclk_dsi>,<&clk_ade_pix>,<&clk_syspll_src>,<&clk_medpll_src>;
+		/*clock name*/
+		clock-names  = "clk_ade_core","aclk_codec_jpeg_src","pclk_dsi","clk_ade_pix","clk_syspll_src","clk_medpll_src";			
+		/*ade pixel clock rate*/
+		ade_pixel_clk_rate = <75000000>;
+		/*ade core clock rate*/
+		ade_core_clk_rate = <360000000>;
+		/*media_noc clock rate*/
+		media_noc_clk_rate = <288000000>;
+		/*dsi bit clock rate*/
+		dsi_bit_clk_rate = <486>;
+		/*lcd reset gpio*/
+		lcd_reset_gpio = <&gpio_lcd_rst_n>;
+		/*lcd backlight supply*/
+		lcd_backlight-supply = <&schg_boost2>;
+		/*lcd bias vcc*/
+		vcc_lcdbias-supply = <&schg_boost4>;
+		/*lcd vsn supply*/
+		lcd_vsn-supply = <&schg_cpn1>;
+		/*lcd vsp supply*/
+		lcd_vsp-supply = <&schg_ldo3>;
+		/*pin mux control name*/
+		pinctrl-names = "default", "idle";
+		/*pin mux control0*/
+		pinctrl-0 = <&gpio027_pmx_func			
+			&gpio027_cfg_func>;
+		/*pin mux control1*/				
+		pinctrl-1 = <&gpio027_pmx_idle			
+			&gpio027_cfg_idle>;
+		/*enable or disable status, enable-ok,disable-disable*/	
+		status = "disable";
+	};
+};
+

@@ -1,0 +1,12 @@
+config MALI_DEVICE
+	bool "mali device"
+	help
+
+if ARCH_HI6XXX
+source "drivers/gpu/arm/mali4_32/Kconfig"
+source "drivers/gpu/arm/mali4_64/Kconfig"
+endif
+
+if ARCH_HI3XXX
+source "drivers/gpu/arm/malit6_64/Kconfig"
+endif

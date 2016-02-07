@@ -1,0 +1,52 @@
+/*****************************************
+Generated Time : 2014-07-14-19-44
+Author         : s00249479
+Tool Version   : V1.0
+*****************************************/
+/ {
+     pmx0: pinmux@F7010000 {
+            compatible = "pinctrl-single", "pinctrl-single0";
+            reg = <0xF7010000 0x27c>;
+            #address-cells = <1>;
+            #size-cells = <1>;
+            #gpio-range-cells = <3>;
+            ranges;
+
+            pinctrl-single,register-width = <32>;
+            pinctrl-single,function-mask = <7>;
+            pinctrl-single,gpio-range = <
+                            &range 0  1  1
+                            &range 2  24  1
+                            &range 28  8  1
+                            &range 43  21  1
+                            &range 74  6  1
+                            &range 80  42  0
+                            &range 122  1  1
+                            &range 126  33  1
+                            >;
+
+               range: gpio-range {
+                    #pinctrl-single,gpio-range-cells = <3>;
+                };
+        };
+
+     pmx1: pinmux@F7010800 {
+            compatible = "pinconf-single", "pinctrl-single1";
+            reg = <0xF7010800 0x28c>;
+            #address-cells = <1>;
+            #size-cells = <1>;
+            ranges;
+
+            pinctrl-single,register-width = <32>;
+        };
+
+     pmx2: pinmux@F8001800 {
+            compatible = "pinconf-single", "pinctrl-single2";
+            reg = <0xF8001800 0x78>;
+            #address-cells = <1>;
+            #size-cells = <1>;
+            ranges;
+
+            pinctrl-single,register-width = <32>;
+        };
+};

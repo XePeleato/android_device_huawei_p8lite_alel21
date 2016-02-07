@@ -1,0 +1,7 @@
+/ {
+        hisi_coul_drv_test:hisi_coul {
+                compatible = "hisi_coul_drv_test";
+                status = "disable";
+       };
+};
+

@@ -1,0 +1,35 @@
+config HISILICON_PLATFORM_NOC
+	bool "Support HiSilicon NOC"
+	default n
+	help
+	  This driver supports HiSilicon HiXXX NOC,
+	  including hisilicon noc driver.
+
+config HISI_NOC
+	bool "Support HiSilicon Hisi NOC"
+	default n
+	help
+	  This driver supports HiSilicon Hi6XXX NOC,
+	  including hisilicon noc driver.
+	  
+config HISI_NOC_HI6220_PLATFORM
+	depends on HISI_NOC
+	bool "Support HiSilicon Hisi NOC"
+	default n
+	help
+	   platform
+	   
+config HISI_NOC_HI3635_PLATFORM
+	depends on HISI_NOC
+	bool "Support HiSilicon Hisi NOC"
+	default n
+	help
+	   platform
+	   
+config HISI_NOC_HI3650_PLATFORM
+	depends on HISI_NOC
+	bool "Support HiSilicon Hisi NOC"
+	default n
+	help
+	   platform	   
+

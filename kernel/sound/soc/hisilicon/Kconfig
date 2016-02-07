@@ -1,0 +1,28 @@
+menu "SoC Audio support for HI3630"
+
+config SND_SOC_PCM_HI3630
+	tristate "SoC Audio support for HI3630"
+	help
+	  Say y to enable this option for HI3630 I2S audio support.
+
+config SND_HI3630_HI6401
+	tristate "Hi3630-Hi6401 sound support"
+	help
+	  Say y to enable sound support for Hi3630-Hi6401
+	  
+config SND_HI3630_HI6402
+	tristate "Hi3630-Hi6402 sound support"
+	help
+	  Say y to enable sound support for Hi3630-Hi6402
+
+config SND_SOC_PCM_HI6210
+	tristate "SoC Audio support for HI6210"
+	help
+		Enable this option for HI6210 APB audio support.
+config SND_HI6210_HISSC
+	tristate "Hi6210-Hissc sound support"
+	help
+		This option enables sound support for Hi6210-Hissc.
+		ssc mean Soc-Smartstar Codec.
+endmenu
+

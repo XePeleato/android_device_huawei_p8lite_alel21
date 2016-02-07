@@ -1,0 +1,6 @@
+config HI6XXX_MAILBOX_MULTICORE
+	bool "Kirin620 mailbox part for multicore support"
+	depends on HI6XXX_MODEM_MULTICORE && HI6XXX_IPC_MULTICORE
+	default n
+	help
+	  Say yes here to support the Kirin620 mailbox part for multicore lib

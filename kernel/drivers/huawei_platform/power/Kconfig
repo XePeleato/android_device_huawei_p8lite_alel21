@@ -1,0 +1,5 @@
+source "drivers/huawei_platform/power/charger/Kconfig"
+source "drivers/huawei_platform/power/hw_kstate/Kconfig"
+source "drivers/huawei_platform/power/ate/Kconfig"
+source "drivers/huawei_platform/power/bastet/Kconfig"
+source "drivers/huawei_platform/power/smpl/Kconfig"

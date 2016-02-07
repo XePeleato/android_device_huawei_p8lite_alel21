@@ -1,0 +1,49 @@
+/ {
+	touchscreen {
+		compatible = "huawei,touchscreen";
+		bus_type = "i2c";
+		bus_id = <1>;
+		product = "cherry";
+		has_virtualkey = <1>;
+		lcd_full = <1375>;
+		virtual_keys = /* KeyCode CenterX CenterY Width Height */
+		/* KEY_BACK */
+		<158 142 1342 150 100
+		/* KEY_HOME(172) */
+		172 360 1342 150 100
+		/* KEY_MENU */
+		139 578 1342 150 100>;
+		support_chip_name = "synaptics";
+		synaptics: touchscreen@70 {
+			compatible = "synaptics";
+			/*0-S3207, 1-S3350, 2-3320*/
+			ic_type = <0>;
+			x_max = <2200>;
+			y_max = <3800>;
+			x_max_mt = <720>;
+			y_max_mt = <1280>;
+			unite_cap_test_interface =<0>;
+			report_rate_test =<0>;
+			vci_gpio_type = <1>;
+			vci_regulator_type = <0>;
+			vddio_gpio_type = <1>;
+			vddio_regulator_type = <0>;
+			vci_ctrl_gpio = <&gpio2 4 0>;
+			vddio_ctrl_gpio = <&gpio2 4 0>;
+			slave_address = <0x70>;
+			pinctrl-names = "default", "idle";
+			pinctrl-0 = <&gpio084_pmx_func
+			&gpio084_cfg_func
+			&gpio008_cfg_func>;
+			pinctrl-1 = <&gpio084_pmx_idle
+			&gpio084_cfg_idle
+			&gpio008_cfg_idle>;
+			synaptics-vdd-supply;
+			synaptics-io-supply;
+			reset_gpio = <&gpio10 4 0>;
+			attn_gpio = <&gpio1 0 0>;
+			irq_config = <3>;
+			algo_id = <1>;
+		};
+	};
+};

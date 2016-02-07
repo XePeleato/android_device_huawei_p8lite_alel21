@@ -1,0 +1,30 @@
+/*
+ *  Copyright (C) 2014 Hisilicon Ltd.
+ *  Author: Bintian Wang <bintian.wang@huawei.com>
+ *
+ *  This program is free software; you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License version 2 as
+ *  publishhed by the Free Software Foundation.
+ */
+
+/dts-v1/;
+/* NOTE:
+ * The last reserved memory base is used in fastboot
+ * Which should be the least reseve value
+ */
+
+/include/ "fastboot.dtsi"
+/include/ "hi6220_cs_udp_ddr3_config.dtsi"
+/include/ "hi6220_cs_udp_fhd_ddr3_pin.dtsi"
+/include/ "hi6220_cs_udp_fhd_ddr3_gpio_logic.dtsi"
+/include/ "hi6220_cs_udp_fhd_ddr3_pmic.dtsi"
+/include/ "hi6220_cs_udp_fhd_ddr3_charger.dtsi"
+/ {
+	hisi,boardid = <0 0 7 3>;
+	hisi,boardname = "hi6220_cs_udp_fhd_ddr3";
+
+	fb@f4100000 {
+		compatible = "hisilicon,hi6210-fb";
+		product_id = <0x30>;
+	};
+};

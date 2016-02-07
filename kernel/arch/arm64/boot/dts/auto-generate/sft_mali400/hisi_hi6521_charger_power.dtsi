@@ -1,0 +1,236 @@
+/*
+ *  Copyright (C) 2012-2014 Hisilicon
+ *
+ *  This program is free software; you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License version 2 as
+ *  publishhed by the Free Software Foundation.
+ */
+
+/ {
+	scharger_power {
+		compatible = "hisilicon,hi6xxx-scharger-driver";
+		
+		schg_boost1: regulator@1 {
+			compatible = "hisilicon,hi6xxx-regulator-scharger";				
+			regulator-name = "schg_boost1";		
+			regulator-min-microvolt = <0>;
+			regulator-max-microvolt = <0>;
+			/*regulator-always-on;*/
+			hisilicon,valid-modes-mask = <0x2>;
+			hisilicon,valid-ops-mask = <0xd>;
+			hisilicon,initial-mode = <0x2>;			
+			hisilicon,regulator-type = <0x6>;
+			
+			hisilicon,off-on-delay = <0>;
+			hisilicon,ctrl-regs = <0x12 0x12 0x12>;
+			hisilicon,ctrl-data = <3 0x01>;
+			hisilicon,hisi-scharger-regulator-id = <0>;
+		};
+		
+		schg_boost2: regulator@2{
+			compatible = "hisilicon,hi6xxx-regulator-scharger";				
+			regulator-name = "schg_boost2";		
+			regulator-min-microvolt = <0>;
+			regulator-max-microvolt = <0>;
+			/*regulator-always-on;*/
+			hisilicon,valid-modes-mask = <0x2>;
+			hisilicon,valid-ops-mask = <0xd>;
+			hisilicon,initial-mode = <0x2>;			
+			hisilicon,regulator-type = <0x6>;
+			
+			hisilicon,off-on-delay = <0>;
+			hisilicon,ctrl-regs = <0x12 0x12 0x12>;
+			hisilicon,ctrl-data = <2 0x01>;
+			hisilicon,hisi-scharger-regulator-id = <1>;
+		};
+
+		schg_boost3: regulator@3{
+			compatible = "hisilicon,hi6xxx-regulator-scharger";				
+			regulator-name = "schg_boost3";		
+			regulator-min-microvolt = <3200000>;
+			regulator-max-microvolt = <5500000>;
+			/*regulator-always-on;*/
+			hisilicon,valid-modes-mask = <0x2>;
+			hisilicon,valid-ops-mask = <0xd>;
+			hisilicon,initial-mode = <0x2>;			
+			hisilicon,regulator-type = <0x6>;
+			
+			hisilicon,off-on-delay = <0>;
+			hisilicon,ctrl-regs = <0x11 0x11 0x11>;
+			hisilicon,ctrl-data = <3 0x01>;
+			hisilicon,hisi-scharger-regulator-id = <2>;
+			hisilicon,vset-regs = <0x5f>;
+			hisilicon,vset-data = <0 0x05>;			
+			hisilicon,regulator-n-vol = <24>;
+			hisilicon,vset-table = 	<5500000>, <5400000>,<5300000>,<5200000>,<5100000>,<5000000>,
+									<4900000>, <4800000>,<4700000>,<4600000>,<4500000>,<4400000>,
+									<4300000>, <4200000>,<4100000>,<4000000>,<3900000>,<3800000>,
+									<3700000>, <3600000>,<3500000>,<3400000>,<3300000>,<3200000>;
+		};
+
+		schg_source1: regulator@4{
+			compatible = "hisilicon,hi6xxx-regulator-scharger";				
+			regulator-name = "schg_source1";		
+			regulator-min-microvolt = <125000>;
+			regulator-max-microvolt = <1500000>;
+			/*regulator-always-on;*/
+			hisilicon,valid-modes-mask = <0x2>;
+			hisilicon,valid-ops-mask = <0xe>;
+			hisilicon,initial-mode = <0x2>;			
+			hisilicon,regulator-type = <0x6>;
+			
+			hisilicon,off-on-delay = <0>;
+			hisilicon,ctrl-regs = <0x11 0x11 0x11>;
+			hisilicon,ctrl-data = <4 0x01>;
+			hisilicon,hisi-scharger-regulator-id = <3>;
+			hisilicon,vset-regs = <0x66>;
+			hisilicon,vset-data = <3 0x04>;			
+			hisilicon,regulator-n-vol = <12>;
+			hisilicon,vset-table = <125000>, <250000>,<375000>,<500000>,<625000>,<750000>,
+									<875000>, <1000000>,<1125000>,<1250000>,<1375000>,<1500000>;
+																		
+		};
+
+		schg_source2: regulator@5{
+			compatible = "hisilicon,hi6xxx-regulator-scharger";				
+			regulator-name = "schg_source2";		
+			regulator-min-microvolt = <50000>;
+			regulator-max-microvolt = <100000>;
+			/*regulator-always-on;*/
+			hisilicon,valid-modes-mask = <0x2>;
+			hisilicon,valid-ops-mask = <0xe>;
+			hisilicon,initial-mode = <0x2>;			
+			hisilicon,regulator-type = <0x6>;
+			
+			hisilicon,off-on-delay = <0>;
+			hisilicon,ctrl-regs = <0x11 0x11 0x11>;
+			hisilicon,ctrl-data = <5 0x01>;
+			hisilicon,hisi-scharger-regulator-id = <4>;
+			hisilicon,vset-regs = <0x66>;
+			hisilicon,vset-data = <0 0x03>;			
+			hisilicon,regulator-n-vol = <8>;
+			hisilicon,vset-table = <50000>, <100000>,<150000>,<200000>,
+									<250000>, <300000>,<350000>,<400000>;
+		};
+
+		schg_boost4: regulator@6{
+			compatible = "hisilicon,hi6xxx-regulator-scharger";				
+			regulator-name = "schg_boost4";		
+			regulator-min-microvolt = <4000000>;
+			regulator-max-microvolt = <6000000>;
+			/*regulator-always-on;*/
+			hisilicon,valid-modes-mask = <0x2>;
+			hisilicon,valid-ops-mask = <0xd>;
+			hisilicon,initial-mode = <0x2>;			
+			hisilicon,regulator-type = <0x6>;
+			
+			hisilicon,off-on-delay = <0>;
+			hisilicon,ctrl-regs = <0x11 0x11 0x11>;
+			hisilicon,ctrl-data = <2 0x01>;
+			hisilicon,hisi-scharger-regulator-id = <5>;
+			hisilicon,vset-regs = <0x26>;
+			hisilicon,vset-data = <0 0x05>;			
+			hisilicon,regulator-n-vol = <21>;
+			hisilicon,vset-table = <4000000>, <4100000>,<4200000>,<4300000>,<4400000>,<4500000>,
+									<4600000>, <4700000>,<4800000>,<4900000>,<5000000>,<5100000>,
+									<5200000>, <5300000>,<5400000>,<5500000>,<5600000>,<5700000>,
+									<5800000>, <5900000>,<6000000>;
+		};
+
+		schg_ldo3: regulator@7{
+			compatible = "hisilicon,hi6xxx-regulator-scharger";				
+			regulator-name = "schg_ldo3";		
+			regulator-min-microvolt = <4000000>;
+			regulator-max-microvolt = <6000000>;
+			/*regulator-always-on;*/
+			hisilicon,valid-modes-mask = <0x2>;
+			hisilicon,valid-ops-mask = <0xd>;
+			hisilicon,initial-mode = <0x2>;			
+			hisilicon,regulator-type = <0x6>;
+			
+			hisilicon,off-on-delay = <0>;
+			hisilicon,ctrl-regs = <0x11 0x11 0x11>;
+			hisilicon,ctrl-data = <1 0x01>;
+			hisilicon,hisi-scharger-regulator-id = <6>;
+			hisilicon,vset-regs = <0x34>;
+			hisilicon,vset-data = <0 0x05>;			
+			hisilicon,regulator-n-vol = <21>;
+			hisilicon,vset-table = <4000000>, <4100000>,<4200000>,<4300000>,<4400000>,<4500000>,
+									<4600000>, <4700000>,<4800000>,<4900000>,<5000000>,<5100000>,
+									<5200000>, <5300000>,<5400000>,<5500000>,<5600000>,<5700000>,
+									<5800000>, <5900000>,<6000000>;
+		};
+
+		schg_cpn1: regulator@8{
+			compatible = "hisilicon,hi6xxx-regulator-scharger";				
+			regulator-name = "schg_cpn1";		
+			regulator-min-microvolt = <4000000>;
+			regulator-max-microvolt = <6000000>;
+			/*regulator-always-on;*/
+			hisilicon,valid-modes-mask = <0x2>;
+			hisilicon,valid-ops-mask = <0xd>;
+			hisilicon,initial-mode = <0x2>;			
+			hisilicon,regulator-type = <0x6>;
+			
+			hisilicon,off-on-delay = <0>;
+			hisilicon,ctrl-regs = <0x11 0x11 0x11>;
+			hisilicon,ctrl-data = <0 0x01>;
+			hisilicon,hisi-scharger-regulator-id = <7>;
+			hisilicon,vset-regs = <0x2E>;
+			hisilicon,vset-data = <2 0x05>;			
+			hisilicon,regulator-n-vol = <21>;
+			hisilicon,vset-table = <4000000>, <4100000>,<4200000>,<4300000>,<4400000>,<4500000>,
+									<4600000>, <4700000>,<4800000>,<4900000>,<5000000>,<5100000>,
+									<5200000>, <5300000>,<5400000>,<5500000>,<5600000>,<5700000>,
+									<5800000>, <5900000>,<6000000>;
+		};
+
+		schg_ldo1: regulator@9{
+			compatible = "hisilicon,hi6xxx-regulator-scharger";				
+			regulator-name = "schg_ldo1";		
+			regulator-min-microvolt = <1500000>;
+			regulator-max-microvolt = <3300000>;
+			/*regulator-always-on;*/
+			hisilicon,valid-modes-mask = <0x2>;
+			hisilicon,valid-ops-mask = <0xd>;
+			hisilicon,initial-mode = <0x2>;			
+			hisilicon,regulator-type = <0x6>;
+			
+			hisilicon,off-on-delay = <0>;
+			hisilicon,ctrl-regs = <0x12 0x12 0x12>;
+			hisilicon,ctrl-data = <1 0x01>;
+			hisilicon,hisi-scharger-regulator-id = <8>;
+			hisilicon,vset-regs = <0x35>;
+			hisilicon,vset-data = <4 0x04>;			
+			hisilicon,regulator-n-vol = <16>;
+			hisilicon,vset-table = <1500000>, <1600000>,<1700000>,<1800000>,<1900000>,<2000000>,
+									<2200000>, <2400000>,<2600000>,<2700000>,<2800000>,<2900000>,
+									<3000000>, <3100000>,<3200000>,<3300000>;
+
+		};
+
+		schg_ldo2: regulator@10{
+			compatible = "hisilicon,hi6xxx-regulator-scharger";				
+			regulator-name = "schg_ldo2";		
+			regulator-min-microvolt = <1500000>;
+			regulator-max-microvolt = <3300000>;
+			/*regulator-always-on;*/
+			hisilicon,valid-modes-mask = <0x2>;
+			hisilicon,valid-ops-mask = <0xd>;
+			hisilicon,initial-mode = <0x2>;			
+			hisilicon,regulator-type = <0x6>;
+			
+			hisilicon,off-on-delay = <0>;
+			hisilicon,ctrl-regs = <0x12 0x12 0x12>;
+			hisilicon,ctrl-data = <0 0x01>;
+			hisilicon,hisi-scharger-regulator-id = <9>;
+			hisilicon,vset-regs = <0x35>;
+			hisilicon,vset-data = <0 0x04>;			
+			hisilicon,regulator-n-vol = <16>;
+			hisilicon,vset-table = <1500000>, <1600000>,<1700000>,<1800000>,<1900000>,<2000000>,
+									<2200000>, <2400000>,<2600000>,<2700000>,<2800000>,<2900000>,
+									<3000000>, <3100000>,<3200000>,<3300000>;
+		};
+		
+	}; /* end of scharger power type*/
+};

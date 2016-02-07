@@ -1,0 +1,2 @@
+
+source "drivers/hisi/modem_hi6xxx/drv/acore/Kconfig"

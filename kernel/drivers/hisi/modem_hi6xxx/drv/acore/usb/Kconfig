@@ -1,0 +1,5 @@
+config HISILICON_PLATFORM_USB
+	bool "Hisilicon platform usb support"
+	default n
+	help
+	  Say yes here to support the hisilicon platform usb

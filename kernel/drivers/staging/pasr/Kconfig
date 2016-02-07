@@ -1,0 +1,28 @@
+config ARCH_HAS_PASR
+	bool
+
+config PASR
+	bool "DDR Partial Array Self-Refresh"
+	depends on ARCH_HAS_PASR
+	---help---
+	  PASR consists on masking the refresh of unused segments or banks
+	  when DDR is in self-refresh state.
+
+config HI6210_PASR
+	bool "HI6210 PASR driver"
+	def_bool y
+	depends on (PASR && ARCH_HI6XXX)
+	---help---
+	  PASR support for Hi6210 & Hi6220 board.
+
+config HI3635_PASR
+	bool "HI3635 PASR driver"
+	def_bool y
+	depends on (PASR && ARCH_HI3XXX)
+	---help---
+	  PASR support for Hi3635 board.
+
+config PASR_DEBUG
+	bool "Add PASR debug prints"
+	def_bool y
+	depends on PASR

@@ -1,0 +1,19 @@
+config POWER_HUAWEI_S
+        bool "security device module"
+        default n
+config BATTERY_COULOMB_TEST_INTERFACE_S
+	bool "coulomb test interface"
+	default n
+config BATTERY_HISI_HI6421V300_S
+	bool "hisi hi6421v300"
+	default n
+config BATTERY_HISI_COUL_S
+        bool "hisi coul"
+        default n
+config BATTERY_HISI_COUL_TEST_S
+        bool "hisi coul test"
+        default n
+config BQ_BCI_BATTERY_S
+        bool "bq bci bqttery"
+        default n
+

@@ -1,0 +1,16 @@
+config HI110X_WIFI_ENABLE
+	bool
+
+config HI1101_WIFI
+	tristate "Hisilicon 1101 wireless cards support"
+	depends on MMC && WLAN && MMC
+	default n
+	select HI110X_WIFI_ENABLE
+	---help---
+	This module adds support for wireless adapters based on
+	Hisilicon 1101 chipset.
+
+	This driver uses the kernel's wireless extensions subsystem.
+
+	If you choose to build a module, it'll be called dhd. Say M if
+        unsure.

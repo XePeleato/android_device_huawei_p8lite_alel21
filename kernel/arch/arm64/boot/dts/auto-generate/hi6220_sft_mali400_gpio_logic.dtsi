@@ -1,0 +1,215 @@
+/ {
+    gpio_bbit_flag_sft:gpio_bbit_flag_sft {
+        gpios = <&gpio0 0 0>;
+    };
+    gpio_lcddrv_en_5_sft:gpio_lcddrv_en_5_sft {
+        gpios = <&gpio0 4 0>;
+    };
+    gpio_mipi_cam_1_2v_en_sft:gpio_mipi_cam_1_2v_en_sft {
+        gpios = <&gpio0 6 0>;
+    };
+    gpio_mipi_cam_1_05v_en_sft:gpio_mipi_cam_1_05v_en_sft {
+        gpios = <&gpio0 7 0>;
+    };
+    gpio_v_up_sft:gpio_v_up_sft {
+        gpios = <&gpio1 2 0>;
+    };
+    gpio_v_dn_sft:gpio_v_dn_sft {
+        gpios = <&gpio1 3 0>;
+    };
+    gpio_menu_sft:gpio_menu_sft {
+        gpios = <&gpio1 4 0>;
+    };
+    gpio_gps_blank_sft:gpio_gps_blank_sft {
+        gpios = <&gpio2 0 0>;
+    };
+    gpio_gps_cal_req_sft:gpio_gps_cal_req_sft {
+        gpios = <&gpio2 1 0>;
+    };
+    gpio_wlan_p_en:gpio_wlan_p_en {
+        gpios = <&gpio2 3 0>;
+    };
+    gpio_w_host_wakup_ap_sft:gpio_w_host_wakup_ap_sft {
+        gpios = <&gpio2 4 0>;
+    };
+    gpio_bt_reset_sft:gpio_bt_reset_sft {
+        gpios = <&gpio2 5 0>;
+    };
+    gpio_bt_clk_req_sft:gpio_bt_clk_req_sft {
+        gpios = <&gpio2 6 0>;
+    };
+    gpio_bt_p_en_sft:gpio_bt_p_en_sft {
+        gpios = <&gpio2 7 0>;
+    };
+    gpio_ap_wake_bt_sft:gpio_ap_wake_bt_sft {
+        gpios = <&gpio3 0 0>;
+    };
+    gpio_bt_wake_ap_sft:gpio_bt_wake_ap_sft {
+        gpios = <&gpio3 1 0>;
+    };
+    gpio_wlan_bt_1_8v_en_sft:gpio_wlan_bt_1_8v_en_sft {
+        gpios = <&gpio3 2 0>;
+    };
+    gpio_gps_host_req_sft:gpio_gps_host_req_sft {
+        gpios = <&gpio3 3 0>;
+    };
+    gpio_gps_syn_sft:gpio_gps_syn_sft {
+        gpios = <&gpio3 4 0>;
+    };
+    gpio_gps_rst_sft:gpio_gps_rst_sft {
+        gpios = <&gpio3 5 0>;
+    };
+    gpio_gps_1_8v_en_sft:gpio_gps_1_8v_en_sft {
+        gpios = <&gpio3 6 0>;
+    };
+    gpio_gps_lan_en_sft:gpio_gps_lan_en_sft {
+        gpios = <&gpio3 7 0>;
+    };
+    gpio_pmu_rsout_n_sft:gpio_pmu_rsout_n_sft {
+        gpios = <&gpio4 0 0>;
+    };
+    gpio_pmu_res_n_sft:gpio_pmu_res_n_sft {
+        gpios = <&gpio4 1 0>;
+    };
+    gpio_pmu_pwr_hold_sft:gpio_pmu_pwr_hold_sft {
+        gpios = <&gpio4 2 0>;
+    };
+    gpio_sysclk_en_sft:gpio_sysclk_en_sft {
+        gpios = <&gpio4 3 0>;
+    };
+    gpio_conn_clk_e_sft:gpio_conn_clk_e_sft {
+        gpios = <&gpio4 4 0>;
+    };
+    gpio_pmu_enperi_sft:gpio_pmu_enperi_sft {
+        gpios = <&gpio4 5 0>;
+    };
+    gpio_pmu_irq_n_sft:gpio_pmu_irq_n_sft {
+        gpios = <&gpio4 6 0>;
+    };
+    gpio_nfc_clk_en_sft:gpio_nfc_clk_en_sft {
+        gpios = <&gpio4 7 0>;
+    };
+    gpio_vlcd_drv_en_sft:gpio_vlcd_drv_en_sft {
+        gpios = <&gpio5 0 0>;
+    };
+    gpio_cam_flash_sft:gpio_cam_flash_sft {
+        gpios = <&gpio5 1 0>;
+    };
+    gpio_mipi_tp2_85_en_sft:gpio_mipi_tp2_85_en_sft {
+        gpios = <&gpio5 4 0>;
+    };
+    gpio_mipi_tp1_8_en_sft:gpio_mipi_tp1_8_en_sft {
+        gpios = <&gpio5 5 0>;
+    };
+    gpio_tp_irq_sft:gpio_tp_irq_sft {
+        gpios = <&gpio5 6 0>;
+    };
+    gpio_tp_reset_sft:gpio_tp_reset_sft {
+        gpios = <&gpio5 7 0>;
+    };
+    gpio_sft_wled_pwm_sft:gpio_sft_wled_pwm_sft {
+        gpios = <&gpio6 0 0>;
+    };
+    gpio_flash_storb_sft:gpio_flash_storb_sft {
+        gpios = <&gpio6 1 0>;
+    };
+    gpio_flash_torch_sft:gpio_flash_torch_sft {
+        gpios = <&gpio6 2 0>;
+    };
+    gpio_schg_int_sft:gpio_schg_int_sft {
+        gpios = <&gpio6 3 0>;
+    };
+    gpio_chg_cen_sft:gpio_chg_cen_sft {
+        gpios = <&gpio6 4 0>;
+    };
+    gpio_schg_reset_sft:gpio_schg_reset_sft {
+        gpios = <&gpio6 5 0>;
+    };
+    gpio_ldo1v8_en_sft:gpio_ldo1v8_en_sft {
+        gpios = <&gpio6 6 0>;
+    };
+    gpio_usim2_leve_en_sft:gpio_usim2_leve_en_sft {
+        gpios = <&gpio7 0 0>;
+    };
+    gpio_usim1_leve_en_sft:gpio_usim1_leve_en_sft {
+        gpios = <&gpio7 1 0>;
+    };
+    gpio_usim2_mode_sel_sft:gpio_usim2_mode_sel_sft {
+        gpios = <&gpio7 2 0>;
+    };
+    gpio_usim1_mode_sel_sft:gpio_usim1_mode_sel_sft {
+        gpios = <&gpio7 3 0>;
+    };
+    gpio_usim1_det_sft:gpio_usim1_det_sft {
+        gpios = <&gpio7 6 0>;
+    };
+    gpio_usim2_det_sft:gpio_usim2_det_sft {
+        gpios = <&gpio7 7 0>;
+    };
+    gpio_flash_strb_sft:gpio_flash_strb_sft {
+        gpios = <&gpio8 0 0>;
+    };
+    gpio_mipi_cam_vmp_en_sft:gpio_mipi_cam_vmp_en_sft {
+        gpios = <&gpio8 1 0>;
+    };
+    gpio_mipi_cam2_85v_en_sft:gpio_mipi_cam2_85v_en_sft {
+        gpios = <&gpio8 2 0>;
+    };
+    gpio_mipi_cam1_8v_en_sft:gpio_mipi_cam1_8v_en_sft {
+        gpios = <&gpio8 3 0>;
+    };
+    gpio_flash_mask_sft:gpio_flash_mask_sft {
+        gpios = <&gpio8 4 0>;
+    };
+    gpio_13m_pmic_mcamif_id_sft:gpio_13m_pmic_mcamif_id_sft {
+        gpios = <&gpio8 7 0>;
+    };
+    gpio_mipi_lcd_1_8v_en_sft:gpio_mipi_lcd_1_8v_en_sft {
+        gpios = <&gpio9 0 0>;
+    };
+    gpio_1m_cam_id_sft:gpio_1m_cam_id_sft {
+        gpios = <&gpio9 2 0>;
+    };
+    gpio_8_13m_cam_id_sft:gpio_8_13m_cam_id_sft {
+        gpios = <&gpio9 3 0>;
+    };
+    gpio_mipi_lcd_id0_sft:gpio_mipi_lcd_id0_sft {
+        gpios = <&gpio9 5 0>;
+    };
+    gpio_mipi_lcd_id1_sft:gpio_mipi_lcd_id1_sft {
+        gpios = <&gpio9 6 0>;
+    };
+    gpio_lcd_reset_sft:gpio_lcd_reset_sft {
+        gpios = <&gpio9 7 0>;
+    };
+    gpio_sd_leve_en_sft:gpio_sd_leve_en_sft {
+        gpios = <&gpio10 0 0>;
+    };
+    gpio_sd_det_sft:gpio_sd_det_sft {
+        gpios = <&gpio10 1 0>;
+    };
+    gpio_sd_wp_sft:gpio_sd_wp_sft {
+        gpios = <&gpio10 2 0>;
+    };
+    gpio_nfc_p_en_sft:gpio_nfc_p_en_sft {
+        gpios = <&gpio10 4 0>;
+    };
+    gpio_nfc_clk_req_sft:gpio_nfc_clk_req_sft {
+        gpios = <&gpio10 5 0>;
+    };
+    gpio_nfc_dl_sft:gpio_nfc_dl_sft {
+        gpios = <&gpio10 6 0>;
+    };
+    gpio_nfc_irq_sft:gpio_nfc_irq_sft {
+        gpios = <&gpio10 7 0>;
+    };
+    gpio_usb_1_1v_en_sft:gpio_usb_1_1v_en_sft {
+        gpios = <&gpio11 0 0>;
+    };
+    gpio_usb_2_5v_en_sft:gpio_usb_2_5v_en_sft {
+        gpios = <&gpio11 1 0>;
+    };
+    gpio_usb_3_3v_en_sft:gpio_usb_3_3v_en_sft {
+        gpios = <&gpio11 2 0>;
+    };
+};

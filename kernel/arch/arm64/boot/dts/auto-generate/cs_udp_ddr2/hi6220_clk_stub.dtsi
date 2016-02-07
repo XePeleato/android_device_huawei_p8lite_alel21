@@ -1,0 +1,86 @@
+/******************************************************************************
+
+                  版权所有 (C), 2001-2011, 华为技术有限公司
+
+ ******************************************************************************
+
+  This is an stub file !  Just for DDR ACPU GPU!
+  文 件 名   : hi6210_clk_stub.dtsi
+  生成日期   : 2014年3月24日
+
+******************************************************************************/
+
+
+/ {
+	fake_clk_syspll: fake_clk_syspll {
+		compatible = "fixed-clock";
+		#clock-cells = <0>;
+		/*打桩系统源时钟频率：       900000000*/
+		clock-frequency = <900000000>;
+		/*打桩系统源时钟名称：       fake_clk_syspll*/
+		clock-output-names = "fake_clk_syspll";
+	};
+	fake_clk_ddrpll: fake_clk_ddrpll {
+		compatible = "fixed-clock";
+		#clock-cells = <0>;
+		/*打桩ddr源时钟频率：       533000000*/	
+		clock-frequency = <533000000>;
+		/*打桩ddr源时钟名称：       fake_clk_ddrpll*/	
+		clock-output-names = "fake_clk_ddrpll";
+	};
+	clk_ddr_freq_stub: clk_ddr_freq_stub {
+		compatible = "hisilicon,hi6xxx-clk-stub";
+		#clock-cells = <0>;
+		/*ddr freq的时钟源：     fake_clk_ddrpll*/
+		clocks = <&fake_clk_ddrpll>;
+		/*ddr freq对应的设备id:  5*/
+		hisilicon,hi6210-xfreq-devid = <5>;
+		/*ddr freq的名称：       clk_ddr_freq_stub*/
+		clock-output-names = "clk_ddr_freq_stub";
+	};
+	
+	clk_ddr_max_stub: clk_ddr_max_stub {
+		compatible = "hisilicon,hi6xxx-clk-stub";
+		#clock-cells = <0>;
+		/*ddr最大票的时钟源：    fake_clk_ddrpll*/
+		clocks = <&fake_clk_ddrpll>;
+		/*ddr最大票对应的设备id: 4*/
+		hisilicon,hi6210-xfreq-devid = <4>;
+		/*ddr最大票的名称：      clk_ddr_max_stub*/
+		clock-output-names = "clk_ddr_max_stub";
+	};
+	
+	clk_ddr_min_stub: clk_ddr_min_stub {
+		compatible = "hisilicon,hi6xxx-clk-stub";
+		#clock-cells = <0>;
+		/*ddr最小票的时钟源：    fake_clk_ddrpll*/
+		clocks = <&fake_clk_ddrpll>;
+		/*ddr最小票对应的设备id: 3*/
+		hisilicon,hi6210-xfreq-devid = <3>;
+		/*ddr最小票的名称：      clk_ddr_min_stub*/
+		clock-output-names = "clk_ddr_min_stub";
+	};
+
+	clk_g3d_stub: clk_g3d_stub {
+		compatible = "hisilicon,hi6xxx-clk-stub";
+		#clock-cells = <0>;
+		/*GPU的时钟源：         fake_clk_syspll*/
+		clocks = <&fake_clk_syspll>;
+		/*GPU对应的设备id:      2*/
+		hisilicon,hi6210-xfreq-devid = <2>;
+		/*GPU的名称：           clk_g3d_stub*/
+		clock-output-names = "clk_g3d_stub";
+	};
+
+	clk_acpu_stub: clk_acpu_stub {
+		compatible = "hisilicon,hi6xxx-clk-stub";
+		#clock-cells = <0>;
+		/*ACPU的时钟源：       fake_clk_syspll*/
+		clocks = <&fake_clk_syspll>;
+		/*ACPU对应的设备id:    0*/
+		hisilicon,hi6210-xfreq-devid = <0>;
+		/*ACPU的名称：         clk_acpu_stub*/
+		clock-output-names = "clk_acpu_stub";
+	};
+	
+};

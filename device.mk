@@ -32,7 +32,7 @@ $(call inherit-product-if-exists, frameworks/native/build/tablet-dalvik-heap.mk)
 #                        $(LOCAL_PATH)/preboot/fip.bin:boot/fip.bin)
 
 # Set custom settings
-DEVICE_PACKAGE_OVERLAYS := device/HUAWEI/hi6210sft/overlay
+#DEVICE_PACKAGE_OVERLAYS := device/HUAWEI/hi6210sft/overlay
 
 # Add openssh support for remote debugging and job submission
 PRODUCT_PACKAGES += ssh sftp scp sshd ssh-keygen sshd_config start-ssh uim wpa_supplicant
@@ -82,16 +82,6 @@ PRODUCT_COPY_FILES += $(call add-to-product-copy-files-if-exists,\
                         frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml)
 
 #Copy Graphics binaries
-PRODUCT_COPY_FILES := \
-                       vendor/mali/64bit/libGLES_mali.so:system/lib64/egl/libGLES_mali.so\
-                       vendor/mali/64bit/gralloc.hi6210sft.so:system/lib64/hw/gralloc.hi6210sft.so\
-                       vendor/mali/32bit/libGLES_mali.so:system/lib/egl/libGLES_mali.so \
-                       vendor/bin/surfaceflinger:system/bin/surfaceflinger\
-                       vendor/lib/hw/hwcomposer.default.so:system/lib/hw/hwcomposer.default.so\
-                       vendor/lib/hw/hwcomposer.hi6210sft.so:system/lib/hw/hwcomposer.hi6210sft.so\
-                       vendor/lib64/hw/hwcomposer.hi6210sft.so:system/lib64/hw/hwcomposer.hi6210sft.so\
-                       vendor/lib64/hw/hwcomposer.default.so:system/lib64/hw/hwcomposer.default.so\
-                       vendor/mali/32bit/gralloc.hi6210sft.so:system/lib/hw/gralloc.hi6210sft.so
 
 # Include BT modules
 $(call inherit-product-if-exists, hardware/ti/wpan/ti-wpan-products.mk)

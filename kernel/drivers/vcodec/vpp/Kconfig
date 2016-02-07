@@ -1,0 +1,5 @@
+config HIK3_VPP
+    tristate "vpp driver"
+    default n
+    ---help---
+        This is the vpp driver

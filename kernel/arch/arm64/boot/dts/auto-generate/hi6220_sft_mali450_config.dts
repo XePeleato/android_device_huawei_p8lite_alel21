@@ -1,0 +1,31 @@
+/*
+ *  Copyright (C) 2014 Hisilicon Ltd.
+ *  Author: Bintian Wang <bintian.wang@huawei.com>
+ *
+ *  This program is free software; you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License version 2 as
+ *  publishhed by the Free Software Foundation.
+ */
+
+/dts-v1/;
+/* NOTE:
+ * The last reserved memory base is used in fastboot
+ * Which should be the least reseve value
+ */
+
+/include/ "./sft_mali450/hi6xxx_gpio_logic.dtsi"
+/include/ "fastboot.dtsi"
+/include/ "hi6220_sft_mali400_config.dtsi"
+///include/ "hi6220_sft_mali450_gpio_logic.dtsi"
+///include/ "hi6220_sft_mali450_pin.dtsi"
+/ {
+	hisi,boardid = <1 0 0 1>;
+	hisi,boardname = "hi6220_sft_mali450";
+
+	/*video&camera common config*/
+	video_config: video_config {
+		support_isp = <0>; /*0---not support isp; 1---support isp*/
+		support_vpu = <0>; /*0---not support vpu; 1---support vpu*/
+		support_jpu = <0>; /*0---not support jpu; 1---support jpu*/
+	};
+};

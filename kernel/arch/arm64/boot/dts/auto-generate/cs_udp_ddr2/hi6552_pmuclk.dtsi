@@ -1,0 +1,117 @@
+/******************************************************************************
+
+                  版权所有 (C), 2001-2011, 华为技术有限公司
+
+ ******************************************************************************
+ 
+  This is an AUTO GENERATED file ! DON'T MODIFY MANUAL! 
+  文 件 名   : hi6210-clk.dtsi
+  生成日期   : 2014年6月9日
+  
+******************************************************************************/
+
+
+/ {
+
+	CK32: CK32 {
+		compatible = "fixed-clock";
+		#clock-cells = <0>;
+		clock-frequency = <32000>;
+		clock-frequency-hi6553 = <32764>;
+		clock-output-names = "CK32";
+	};
+	
+	CK19M2: CK19M2 {
+		compatible = "fixed-clock";
+		#clock-cells = <0>;
+		clock-frequency = <19200000>;
+		clock-output-names = "CK19M2";
+	};
+	
+	ao_sctrl: ao_sctrl {
+		status = "disabled";
+
+	};
+
+	sctrl: sctrl{
+		status = "disabled";
+
+	};
+
+	media_sctrl: media_sctrl {
+		status = "disabled";
+
+	};
+
+	pmctrl: pmctrl {
+		status = "disabled";
+
+	};
+
+    pmic: pmic@F8000000 {
+        status = "disabled";
+
+		CK32B: CK32B {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&CK32>;
+			rw;
+			hisilicon,hi6xxx-clkgate = <0x1c 0x40>;
+			clock-output-names = "CK32B";
+		};
+		
+		CK32C: CK32C {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&CK32>;
+			rw;
+			hisilicon,hi6xxx-clkgate = <0x1c 0x20>;
+			clock-output-names = "CK32C";
+		};
+		
+		CK19M2_CONN: CK19M2_CONN {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&CK19M2>;
+			hisilicon,hi6xxx-clkgate = <0x35 0x4>;
+			hisilicon,hi6xxx-clkgate-hi6553 = <0x35 0x2>;
+			clock-output-names = "CK19M2_CONN";
+		};
+		
+		CK19M2_BB: CK19M2_BB {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&CK19M2>;
+			hisilicon,hi6xxx-clkgate = <0x35 0x2>;
+			hisilicon,hi6xxx-clkgate-hi6553 = <0x35 0x1>;
+			clock-output-names = "CK19M2_BB";
+		};
+		
+		CK19M2_NFC: CK19M2_NFC {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&CK19M2>;
+			hisilicon,hi6xxx-clkgate = <0x35 0x1>;
+			hisilicon,hi6xxx-clkgate-hi6553 = <0x35 0x4>;
+			clock-output-names = "CK19M2_NFC";
+		};
+		
+		CK19M2_RF1: CK19M2_RF1 {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&CK19M2>;
+			hisilicon,hi6xxx-clkgate = <0x35 0x8>;
+			clock-output-names = "CK19M2_RF1";
+		};
+		
+		CK19M2_RF2: CK19M2_RF2 {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&CK19M2>;
+			hisilicon,hi6xxx-clkgate = <0x35 0x10>;
+			clock-output-names = "CK19M2_RF2";
+		};
+		
+	};
+
+};

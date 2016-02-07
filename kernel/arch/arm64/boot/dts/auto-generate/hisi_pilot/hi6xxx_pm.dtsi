@@ -1,0 +1,22 @@
+/ {
+	pm_general:lpgeneral {
+		compatible = "hisilicon,hi6xxxx-pm-general";
+		status = "ok";
+	};
+
+	pm_asleep:asleep {
+		compatible = "hisilicon,hi6xxxx-pm-asleep";
+		status = "ok";
+	};
+
+	pm_busdfs:busdfs {
+		compatible = "hisilicon,hi6xxxx-pm-busdfs";
+		status = "ok";
+	};
+
+	pm_buslow:buslow {
+		compatible = "hisilicon,hi6xxxx-pm-buslow";
+		status = "ok";
+	};
+
+};

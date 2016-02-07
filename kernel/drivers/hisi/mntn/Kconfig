@@ -1,0 +1,12 @@
+config HISILICON_PLATFORM_MAINTAIN
+	bool "Hisilicon platform maintain module support"
+	default n
+	help
+	  Say yes here to support the hisilicon platform maintain module 
+
+config HISILICON_PLATFORM_HISI_EASYSHELL
+	bool "Support HiSilicon Hi6XXX Easy Shell"
+	default n
+	help
+	  This driver supports HiSilicon HiXXX SOC,
+	  including easy shell, etc.

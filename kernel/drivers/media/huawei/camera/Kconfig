@@ -1,0 +1,16 @@
+comment "Huawei Camera"
+
+source "drivers/media/huawei/camera/isp/Kconfig"
+source "drivers/media/huawei/camera/sensor/Kconfig"
+
+menuconfig HUAWEI_CAMERA_USE_EXTISP
+    bool "Huawei external ISP support"
+    default n
+    select SPI
+    help
+        Say Y here to enable external ISP for Huawei camera
+
+if HUAWEI_CAMERA_USE_EXTISP
+source "drivers/media/huawei/camera/extisp/Kconfig"
+endif
+

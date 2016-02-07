@@ -1,0 +1,36 @@
+/*
+ *  Copyright (C) 2012-2014 Hisilicon
+ *
+ *  This program is free software; you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License version 2 as
+ *  publishhed by the Free Software Foundation.
+ */
+
+/ {
+	/*video&camera common config*/
+	video_config: video_config {
+		compatible = "hisi,video_config";
+
+		/*define in enum video_chip_id, need include file video_config.h.
+			0: VIDEO_HI6210
+			1: VIDEO_HI6220  */
+		chip_id = <1>;
+
+		/*define in enum video_board_type, need include file video_config.h.
+			 0:   VIDEO_BOARD_TYPE_BBIT
+			 1:   VIDEO_BOARD_TYPE_SFT
+			 2:   VIDEO_BOARD_TYPE_ASIC
+			 3:   VIDEO_BOARD_TYPE_MAX    */
+		board_type = <1>;
+	};
+
+	/*video harden config*/
+	video_harden: video_harden {
+		compatible = "hisi,video_harden";
+
+		/*video harden power is mtcmos6*/
+		SOC_MED_PD_VDD-supply  = <&mtcmos6>;
+	};
+     
+};
+

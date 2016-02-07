@@ -1,0 +1,46 @@
+/{
+	hisi_noc@0 { /*hi6xxx noc dts*/
+		#address-cells = <1>;
+		#size-cells = <1>;
+		ranges;
+		compatible = "hisilicon,hi6220-noc";
+
+		sysnoc_err_probe@F9000000 { /*sysnoc总线上err_probe模块*/
+			compatible = "hisilicon,hi6xxx-noc-node","hisilicon,sysnoc-service-base-addr";
+			bus-name = "sys_noc_bus";
+			reg = <0xF9000000 0x3000>;
+			eprobe-hwirq = <0>;/*区分noc各功能模块标号    err_probe模块*/
+			eprobe-offset = <0x0>;/*node相对基地址偏移    没有偏移*/
+			eprobe-autoenable;/*自动挂载节点匹配字    自动挂载*/
+			interrupts-num = <74>;/*中断号    74*/
+		};
+
+		sysnoc_packet_probe@F9002000 { /*sysnoc总线上packet_probe模块*/
+			compatible = "hisilicon,hi6xxx-noc-node";
+			bus-name = "sys_noc_bus";
+			reg = <0xF9002000 0x3000>;
+			eprobe-hwirq = <2>;/*区分noc各功能模块标号    packet_probe模块*/
+			eprobe-offset = <0x0>;/*node相对基地址偏移    没有偏移*/
+			eprobe-autoenable;/*自动挂载节点匹配字    自动挂载*/
+			interrupts-num = <81>;/*中断号    81*/
+		};
+                medianoc_err_probe@F4520000 { /*medianoc总线上err_probe模块*/
+			compatible = "hisilicon,hi6xxx-noc-node","hisilicon,media-service-base-addr";
+			bus-name = "media_noc_bus";
+			reg = <0xF4520000 0x3000>;
+			eprobe-hwirq = <1>;/*区分noc各功能模块标号    err_probe模块*/
+			eprobe-offset = <0x0>;/*node相对基地址偏移    没有偏移*/
+			eprobe-autoenable;/*自动挂载节点匹配字    自动挂载*/
+			interrupts-num = <75>;/*中断号    75*/
+		};
+		medianoc_packet_probe@F4522000 {/*medianoc总线 packet_probe模块*/
+			compatible = "hisilicon,hi6xxx-noc-node";
+			bus-name = "media_noc_bus";
+			reg = <0xF4522000 0x3000>;
+			eprobe-hwirq = <3>;/*区分noc各功能模块标号    packet_probe模块*/
+			eprobe-offset = <0x0>;/*node相对基地址偏移    没有偏移*/
+			eprobe-autoenable;/*自动挂载节点匹配字    自动挂载*/
+			interrupts-num = <83>;/*中断号   83*/
+		};
+	}; /* end of hisi_noc */
+};

@@ -1,0 +1,91 @@
+/*
+ * Hisilicon Ltd. HI6XXX SoC
+ *
+ * Copyright (C) 2012-2014 Hisilicon Ltd.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 2 as
+ * publishhed by the Free Software Foundation.
+ */
+
+ /{
+	hi6xxx_mdev {
+		compatible = "hisilicon,hi6xxx_mdev";
+
+		/*
+		 * <remote_processor_type: meaning>
+		 * <0: ACPU>;
+		 * <1: CCPU>;
+		 * <2: MCU>;
+		 * <3: HIFI>;
+		 * <4: BBE16>;
+		 *
+		 * <remote_processor_name, remote_processor_type>
+		 * <"HI6XXX_ACPU",	0>;
+		 * <"HI6XXX_CCPU",	1>;
+		 * <"HI6XXX_LPM3",	2>;
+		 * <"HI6XXX_HIFI",	3>;
+		 * <"HI6XXX_BBE16",	4>;
+		 */
+		remote_processor_num = <5>;
+		remote_processor_name = "HI6XXX_ACPU",
+				"HI6XXX_CCPU",
+				"HI6XXX_LPM3",
+				"HI6XXX_HIFI",
+				"HI6XXX_BBE16";
+		remote_processor_type = <0 1 2 3 4>;
+		capability = <8>;
+
+		/*
+		 * "func"
+		 * <mbox_type, is_src_mbox, is_des_mbox>;
+		 */
+		mailboxes = <4>;
+		mailbox-0 {
+			compatible = "hi6xxx_mdev,rx-mailbox-fast";
+			func = <1 0 1>;
+			src_remote_processor_name = "HI6XXX_LPM3";
+			des_remote_processor_name = "HI6XXX_ACPU";
+			src_remote_processor_type = <2>;
+			des_remote_processor_type = <0>;
+			ack_bit = <1>;
+			data_bit = <10>;
+			index = <0>;
+		};
+
+		mailbox-1 {
+			compatible = "hi6xxx_mdev,tx-mailbox-fast";
+			func = <1 1 0>;
+			src_remote_processor_name = "HI6XXX_ACPU";
+			des_remote_processor_name = "HI6XXX_LPM3";
+			src_remote_processor_type = <0>;
+			des_remote_processor_type = <2>;
+			ack_bit = <11>;
+			data_bit = <0>;
+			index = <1>;
+		};
+
+		mailbox-2 {
+			compatible = "hi6xxx_mdev,tx-mailbox-fast";
+			func = <1 1 0>;
+			src_remote_processor_name = "HI6XXX_ACPU";
+			des_remote_processor_name = "HI6XXX_HIFI";
+			src_remote_processor_type = <0>;
+			des_remote_processor_type = <3>;
+			ack_bit = <15>;
+			data_bit = <10>;
+			index = <2>;
+		};
+		mailbox-3 {
+			compatible = "hi6xxx_mdev,rx-mailbox-fast";
+			func = <1 0 1>;
+			src_remote_processor_name = "HI6XXX_HIFI";
+			des_remote_processor_name = "HI6XXX_ACPU";
+			src_remote_processor_type = <3>;
+			des_remote_processor_type = <0>;
+			ack_bit = <9>;
+			data_bit = <16>;
+			index = <3>;
+		};
+	};
+ };

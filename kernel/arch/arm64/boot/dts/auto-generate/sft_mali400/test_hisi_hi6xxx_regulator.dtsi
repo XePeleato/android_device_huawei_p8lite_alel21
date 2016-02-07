@@ -1,0 +1,42 @@
+/*
+ *  Copyright (C) 2012-2014 Hisilicon
+ *
+ *  This program is free software; you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License version 2 as
+ *  publishhed by the Free Software Foundation.
+ */
+
+/ {
+	test_regulator: test_regulator@f000{
+		compatible = "hisilicon,test-hi6xxx-regulator-driver";
+		hisilicon,test-hi6xxx-regulator = "test_hi6xxx_regulator";
+		hisilicon,test-hi6xxx-regulator-numb = <34>;
+		buck2-supply = <&buck2>;
+		ldo1-supply = <&ldo1>;	
+		ldo2-supply = <&ldo2>;
+		ldo5-supply = <&ldo5>;
+		ldo7-supply = <&ldo7>;
+		ldo9-supply = <&ldo9>;
+		ldo10-supply = <&ldo10>;
+		ldo11-supply = <&ldo11>;
+		ldo13-supply = <&ldo13>;
+		ldo14-supply = <&ldo14>;
+		ldo15-supply = <&ldo15>;
+		ldo16-supply = <&ldo16>;
+		ldo17-supply = <&ldo17>;
+		ldo19-supply = <&ldo19>;
+		ldo20-supply = <&ldo20>;
+		ldo21-supply = <&ldo21>;
+		ldo22-supply = <&ldo22>;
+		schg_boost1-supply =<&schg_boost1>;
+		schg_boost2-supply =<&schg_boost2>;
+		schg_boost3-supply =<&schg_boost3>;
+		schg_source1-supply =<&schg_source1>;
+		schg_source2-supply =<&schg_source2>;
+		schg_boost4-supply =<&schg_boost4>;
+		schg_ldo3-supply =<&schg_ldo3>;
+		schg_cpn1-supply =<&schg_cpn1>;
+		schg_ldo1-supply =<&schg_ldo1>;
+		schg_ldo2-supply =<&schg_ldo2>;
+	};
+};

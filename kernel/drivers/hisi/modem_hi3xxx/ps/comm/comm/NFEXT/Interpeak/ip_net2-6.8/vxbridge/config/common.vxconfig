@@ -1,0 +1,18 @@
+comment "Component BRIDGE preselected - required by  Component WLAN"
+        depends on COMPONENT_IPWLAN
+
+
+config  COMPONENT_BRIDGE
+        bool "Enable BRIDGE"
+        default y
+        depends on !FEATURE_IPNET_INET6_ONLY  && MSP_KERNEL
+        help
+            This option enables simple learning bridge.
+
+config COMPONENT_IPFIREWALL_SUPPORT
+       bool "Enable firewall support" 
+       default n
+       depends on COMPONENT_BRIDGE
+       select COMPONENT_IPFIREWALL
+       help
+            This option enables ipfirewall filtering support in the bridge.

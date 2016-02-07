@@ -1,0 +1,8 @@
+/{
+	/*add empty node here*/
+
+	bq_bci_battery:battery{};	/*battery: 6*/
+	smmu:smmus@f4210000{};		/*smmu: 13*/
+	hisi_ion_iommu@0{};		/*smmu: 52*/
+	pmic: pmic@F8000000{};		/*pmic: 162*/
+};

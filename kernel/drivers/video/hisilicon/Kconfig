@@ -1,0 +1,11 @@
+config FB_HI3620
+	tristate "Hisilicon Hi3620 Frame Buffer support"
+	depends on FB && ARCH_HS
+	select FB_CFB_FILLRECT
+	select FB_CFB_COPYAREA
+	select FB_CFB_IMAGEBLIT
+	select FB_MODE_HELPERS
+	select VIDEOMODE_HELPERS
+	help
+	  This is the frame buffer device driver for the Hisilicon Hi3620 LCD
+	  controller.

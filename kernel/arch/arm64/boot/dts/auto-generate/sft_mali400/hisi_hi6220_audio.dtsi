@@ -1,0 +1,51 @@
+/*
+ *  Copyright (C) 2013 Hisilicon Ltd.
+ *
+ *  This program is free software; you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License version 2 as
+ *  publishhed by the Free Software Foundation.
+ */
+
+/ {
+   	compatible = "hisilicon, hi6210-audio";
+
+	hifidsp {
+		compatible = "hifi_dsp_misc";
+		status = "ok";
+	};
+
+	hi6210_hifi {
+		compatible = "hi6210-hifi";
+		status = "ok";
+	};
+
+    hissc_codec:codec {
+    	compatible = "hissc-codec";
+		clocks = <&clk_bbppll0_div5_src &pclk_dacodec>;
+		avdd1v8-supply = <&ldo15>;
+		schg_boost3-supply = <&schg_boost3>;/* classd supply */
+        gpio_headset_intr_line = <&gpio_pmu_irq_n_sft>;/*GPIO_4_6*/
+		reg = <0xF7118000 0x1000	 /* soc codec*/
+		       0xF8000000 0x1000     /* pmussi   */
+		       0xFD832000 0x1000 	 /* hkadc    */
+		       0xF7030000 0x1000>;   /* psctrl  */
+        status = "ok";
+    };
+
+	sound {
+		compatible = "hi6210_hissc";
+		codec-handle = <&hissc_codec>;
+		status = "ok";
+	};
+
+	audio_hw_config {
+		product_name = "default";
+		cust_name = "none";
+		spk_pa_name = "none";
+		soc_name = "hi62x0";
+		codec_name = "hissc";
+		codec_dsp_algo = "none";
+		modem_sio_master = "true";
+		status = "ok";
+	};
+};

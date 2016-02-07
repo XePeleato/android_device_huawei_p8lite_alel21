@@ -1,0 +1,5 @@
+config SPEAKERID
+	tristate "speakerID driver"
+	default n
+	help
+		Say Y to enable speakerID driver support

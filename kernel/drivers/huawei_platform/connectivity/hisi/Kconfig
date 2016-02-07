@@ -1,0 +1,25 @@
+#
+# Generic huawei hisi misc drivers configuration
+#
+
+menuconfig CONNECTIVITY_HI110X 
+    bool "Huawei BFG & WiFi Driver"
+	help
+	  This is hw-pm and hw-ps oamdrv wifi driver for huawei hisi.
+	select HW_INI
+	select HI1101_WIFI
+	select HW_PM
+	select HW_PS
+	select HW_CHR
+    help
+        This enables the wireless pm driver for Huawei
+        BT / FM / GNSS /WiFi chips. 
+
+if CONNECTIVITY_HI110X 
+source "drivers/huawei_platform/connectivity/hisi/hw-chr/Kconfig"
+source "drivers/huawei_platform/connectivity/hisi/hw-ini/Kconfig"
+source "drivers/huawei_platform/connectivity/hisi/hw-pm/Kconfig"
+source "drivers/huawei_platform/connectivity/hisi/hw-ps/Kconfig"
+source "drivers/huawei_platform/connectivity/hisi/oam-drv/Kconfig"
+source "drivers/huawei_platform/connectivity/hisi/hisiwifi/Kconfig"
+endif 

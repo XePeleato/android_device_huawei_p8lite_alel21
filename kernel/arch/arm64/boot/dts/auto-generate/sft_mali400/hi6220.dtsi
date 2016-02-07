@@ -1,0 +1,292 @@
+/*
+ * Hisilicon Ltd. Hi6210 SoC
+ *
+ * Copyright (C) 2014 Hisilicon Ltd.
+ * Author: Tao Bu <butao@huawei.com>
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 2 as
+ * publishhed by the Free Software Foundation.
+ */
+
+/include/ "hi6220_gpio.dtsi"
+
+/ {
+	aliases {
+		serial0 = &uart0;
+		serial1 = &uart1;
+		serial2 = &uart2;
+		serial3 = &uart3;
+		serial4 = &uart4;
+		/*
+		serial5 = &uart5;
+		serial6 = &uart6;
+		*/
+		mshc0 = &dwmmc_0;
+	};
+
+	l2: l2-cache@f6c00000 {
+		compatible = "arm,pl310-cache";
+		reg = <0xf6c00000 0x100000>;
+		interrupts = <0 83 4>;
+		cache-unified;
+		cache-level = <2>;
+	};
+
+	gic: interrupt-controller@f6800000 {
+		compatible = "arm,cortex-a9-gic";
+		#interrupt-cells = <3>;
+		#address-cells = <0>;
+		interrupt-controller;
+		/* gic dist base, gic cpu base */
+		reg = <0xf6801000 0x1000>, <0xf6802000 0x2000>;
+	};
+
+	amba {
+		#address-cells = <1>;
+		#size-cells = <1>;
+		compatible = "arm,amba-bus";
+		interrupt-parent = <&gic>;
+		ranges;
+
+		dual_timer0: timer@f8008000 {
+			compatible = "arm,sp804", "arm,primecell";
+			reg = <0xf8008000 0x1000>;
+			/* timer00 & timer01 */
+			interrupts = <0 14 4>, <0 15 4>;
+			clocks = <&pclk_timer0>;
+			clock-names = "apb_pclk";
+			status = "disabled";
+		};
+
+		/*Balong HI6210 UART basic info*/
+		uart0: uart@f8015000 {
+			compatible = "arm,pl011", "arm,primecell";
+			reg = <0xf8015000 0x1000>;
+			interrupts = <0 36 4>;
+			multi-export-reg = <0xf7800000 0x13A0>;
+			uart-enable = <1>;
+			uart-name = "ttyAMA0";
+			uart-baudRate = <115200>;
+			uart-loglevel = <4>;
+			dmas =  	<&dma0 28   /* read channel */	
+	                           &dma0 29>;	    /* write channel */
+	                dma-names = "rx","tx";
+			clocks = <&clk_uart0>;
+			clock-names = "apb_pclk";
+			clk-enable-flag = <0>;
+			fifo-deep-size = <16>;
+			status = "disabled";
+		};
+		uart1: uart@f7111000 {
+			compatible = "arm,pl011", "arm,primecell";
+			reg = <0xf7111000 0x1000>;
+			interrupts = <0 37 4>;
+			reset-controller-reg = <0x330 0x334 0x338 5>;
+			clocks = <&clk_uart1>, <&clk_uart1>;
+			clock-names = "clk_uart1", "apb_pclk";
+			clk-enable-flag = <0>;
+			fifo-deep-size = <64>;
+			status = "disabled";
+		};
+		uart2: uart@f7112000 {
+			compatible = "arm,pl011", "arm,primecell";
+			reg = <0xf7112000 0x1000>;
+			interrupts = <0 38 4>;
+			reset-controller-reg = <0x330 0x334 0x338 6>;
+			clocks = <&clk_uart2>, <&clk_uart2>;
+			clock-names = "clk_uart2", "apb_pclk";
+			clk-enable-flag = <0>;
+			fifo-deep-size = <64>;
+			status = "disabled";
+		};
+		uart3: uart@f7113000 {
+			compatible = "arm,pl011", "arm,primecell";
+			reg = <0xf7113000 0x1000>;
+			interrupts = <0 39 4>;
+			reset-controller-reg = <0x330 0x334 0x338 7>;
+			clocks = <&clk_uart3>, <&clk_uart3>;
+			clock-names = "clk_uart3", "apb_pclk";
+			clk-enable-flag = <0>;
+			fifo-deep-size = <16>;
+			status = "disabled";
+		};
+		uart4: uart@f7114000 {
+			compatible = "arm,pl011", "arm,primecell";
+			reg = <0xf7114000 0x1000>;
+			interrupts = <0 40 4>;
+			reset-controller-reg = <0x330 0x334 0x338 8>;
+			clocks = <&clk_uart4>, <&pclk_uart4>;
+			clock-names = "clk_uart4", "apb_pclk";
+			clk-enable-flag = <0>;
+			fifo-deep-size = <16>;
+			status = "disabled";
+		};
+		/*The end of Hi6210 uart basic info*/
+
+		/*Balong HI6210 SPI basic info*/
+		spi0: spi@f7106000 {
+			compatible = "arm,pl022", "arm,primecell";
+			reg = <0xf7106000 0x1000>;
+			interrupts = <0 50 4>;
+			clocks = <&clk_ssp>;
+			clock-names = "apb_pclk";
+			bus-id = <0>;
+			enable-dma = <0>;
+			/*dmas =	<&dma0 12   */   /* read channel */
+			/*	 &dma0 13>;	    */ /* write channel */
+			/* dma-names = "rx", "tx";  */
+			/*
+			pinctrl-names = "default", "idle";
+			pinctrl-0 = <&gpio114_pmx_func &gpio115_pmx_func &gpio114_cfg_func &gpio115_cfg_func>;
+			pinctrl-1 = <&gpio114_pmx_idle &gpio115_pmx_idle &gpio114_cfg_idle &gpio115_cfg_idle>;			
+			*/
+			num-cs = <4>;
+			status = "disabled";
+		};
+		/*The end of Hi6210 SPI basic info*/
+
+
+		/*i2c basic info*/
+		i2c0: i2c@f7100000 {
+			compatible = "hisilicon,designware-i2c";
+			#address-cells = <1>;
+			#size-cells = <0>;
+			reg = <0xf7100000 0x1000>;
+			interrupts = <0 44 4>;
+			clocks = <&clk_i2c0>;
+			clock-names = "clk_i2c0";
+			delay-reg = <0x0f8 0>;
+			reset-controller-reg = <0x330 0x334 0x338 1>;
+			pinctrl-names = "default", "idle";
+			pinctrl-0 = <&gpio114_pmx_func &gpio115_pmx_func &gpio114_cfg_func &gpio115_cfg_func>;
+			pinctrl-1 = <&gpio114_pmx_idle &gpio115_pmx_idle &gpio114_cfg_idle &gpio115_cfg_idle>;
+			status = "disabled";
+		};
+		i2c1: i2c@f7101000 {
+			compatible = "hisilicon,designware-i2c";
+			#address-cells = <1>;
+			#size-cells = <0>;
+			reg = <0xf7101000 0x1000>;
+			interrupts = <0 45 4>;
+			clocks = <&clk_i2c1>;
+			clock-names = "clk_i2c1";
+			delay-reg = <0x0f8 2>;
+			reset-controller-reg = <0x330 0x334 0x338 2>;
+			pinctrl-names = "default", "idle";
+			pinctrl-0 = <&gpio116_pmx_func &gpio117_pmx_func &gpio116_cfg_func &gpio117_cfg_func>;
+			pinctrl-1 = <&gpio116_pmx_idle &gpio117_pmx_idle &gpio116_cfg_idle &gpio117_cfg_idle>;
+			status = "disabled";
+		};
+		i2c2: i2c@f7102000 {
+			compatible = "hisilicon,designware-i2c";
+			#address-cells = <1>;
+			#size-cells = <0>;
+			reg = <0xf7102000 0x1000>;
+			interrupts = <0 46 4>;
+			clocks = <&clk_i2c2>;
+			clock-names = "clk_i2c2";
+			delay-reg = <0x0f8 4>;
+			reset-controller-reg = <0x330 0x334 0x338 3>;
+			pinctrl-names = "default", "idle";
+			pinctrl-0 = <&gpio118_pmx_func &gpio119_pmx_func &gpio118_cfg_func &gpio119_cfg_func>;
+			pinctrl-1 = <&gpio118_pmx_idle &gpio119_pmx_idle &gpio118_cfg_idle &gpio119_cfg_idle>;
+			status = "disabled";
+		};
+		i2c3: i2c@f7103000 {
+			compatible = "hisilicon,designware-i2c";
+			#address-cells = <1>;
+			#size-cells = <0>;
+			reg = <0xf7103000 0x1000>;
+			interrupts = <0 47 4>;
+			clocks = <&clk_i2c3>;
+			clock-names = "clk_i2c3";
+			delay-reg = <0x0f8 6>;
+			reset-controller-reg = <0x330 0x334 0x338 4>;
+			pinctrl-names = "default", "idle";
+			pinctrl-0;
+			pinctrl-1;
+			status = "disabled";
+		};
+
+
+     dma0: dma@F7370000 {
+         compatible = "hisilicon,hisi-dma-1.0";
+         reg = <0xF7370000 0x1000>;
+         #dma-cells = <1>;
+         dma-channels = <15>;
+         dma-requests = <32>;
+         dma-min-chan = <7>;
+         dma-used-chans = <0x7F80>;
+         interrupts = <0 84 4>;
+         clocks = <&aclk_edamc0>;
+         dma-share;
+         status = "disable";
+    	};
+	};
+	usb_otg: usb_otg@f72c0000 {
+		compatible = "hisilicon,hi6xxx-usb-otg";
+		reg = <0xf72c0000 0x44000>;
+		interrupts = <0 77 0x4>;
+		clocks = <&hclk_usbotg &clk_picophy_test>;
+		pinctrl-names = "default","idle";
+		pinctrl-0;
+		pinctrl-1;
+		huawei,use_switch_driver;
+		huawei,id_no_bypass;
+		huawei,otg_without_mhl;
+		huawei,otg_int_gpio;
+		huawei,phy_reset_pin;
+		huawei,ashell_enable = <0>;
+		huawei,cshell_enable = <0>;
+		huawei,switch_pin1;
+		huawei,switch_pin2;
+		huawei,switch_id_pin;
+		huawei,cdma_usb_enable;
+		huawei,eye_pattern = <0x7053348c>;
+		huawei,otg_eye_pattern = <0x7053348c>;
+		huawei,usb_bus_clk_rate = <30000>;
+		huawei,phyaddr_from_app = <1>;
+		huawei,quirks = <0>;
+	};
+
+	watchdog0: watchdog@F8005000 {
+		compatible = "arm,sp805", "arm,primecell";
+		reg = <0xF8005000 0x1000>;
+		default-timeout = <24>;
+		interrupts = <0 13 0x4>, <0 109 4>;
+		clocks = <&pclk_wdt0>;
+		clock-names = "apb_pclk";
+		board_id = <1>;
+                status="ok";
+    };
+
+	hisi_led@f8000000{
+		compatible = "hisilicon,hi6552-led";
+		reg = <0xf8000000 0x1000>;
+		hi6552,dr3ctrl = "red";
+		hi6552,dr4ctrl = "green";
+		hi6552,dr5ctrl = "blue";
+		status = "ok";
+	};
+	
+	hisi_sim1@ff00b000{
+		compatible = "hisilicon,balong_sim1";
+		reg = <0xff00b000 0x1000>;
+	    gpio-sim1_detect,gpio-irq = <&gpio_usim1_det_sft>;
+		gpio_sim1_in_val          = <1>;
+		status = "ok";
+	};	
+	hisi_sim2@ff00c000{
+		compatible = "hisilicon,balong_sim2";
+		reg = <0xff00c000 0x1000>;
+	    gpio-sim2_detect,gpio-irq = <&gpio_usim2_det_sft>;
+		gpio_sim2_in_val          = <1>;
+		status = "ok";
+
+    };
+
+	hisi_mdmlog{
+		time = <0x3c>;
+	};
+};

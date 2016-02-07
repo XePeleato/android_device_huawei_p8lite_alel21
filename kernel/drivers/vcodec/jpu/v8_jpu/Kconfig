@@ -1,0 +1,19 @@
+#
+# JPU driver configuration
+#
+
+config CNM_JPU
+    tristate "Support C&M JPU Codec"
+    default n
+    help
+        The device provides codec function for jpeg
+
+
+
+config CNM_JPU_HISI_PLATFORM
+    bool "Hisilicon Platform Isolated macro"
+    depends on CNM_JPU
+    default y
+    help
+        The device provides codec function for jpeg
+

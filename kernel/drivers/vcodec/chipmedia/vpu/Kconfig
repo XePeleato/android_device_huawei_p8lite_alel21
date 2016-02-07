@@ -1,0 +1,16 @@
+#
+# VPU driver configuration
+#
+
+config CNM_VPU
+    tristate "Support C&M VPU Codec"
+    default n
+    help
+        The device provides codec function for video
+
+config CNM_VPU_HISI_PLATFORM
+    bool "Hisilicon Platform Isolated macro"
+    depends on CNM_VPU
+    default y
+    help
+        The device provides codec function for video

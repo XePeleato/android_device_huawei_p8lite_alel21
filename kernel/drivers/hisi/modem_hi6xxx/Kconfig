@@ -1,0 +1,18 @@
+config HI6XXX_MODEM_MULTICORE
+	bool "Kirin620 modem part for multicore support"
+	select HI6XXX_MAILBOX_MULTICORE
+	default n
+	help
+	  Say yes here to support the Kirin620 modem part for multicore lib
+config HI6XXX_MODEM_PLATFORM
+        bool "Hisilicon Kirin620 modem platform support"
+        default n
+        help
+          Say yes here to support the hisilicon Kirin620 modem platform
+config HISI_BALONG_MODEM_HI6XXX
+	bool "Hisilicon platform modem support"
+	default n
+	help
+	  Say yes here to support the hisilicon platform modem
+  
+source "drivers/hisi/modem_hi6xxx/drv/Kconfig"

@@ -1,0 +1,167 @@
+/*
+ * Copyright (c) 2012-2013, The Linux Foundation. All rights reserved.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 2 and
+ * only version 2 as published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ */
+
+/ {
+	/*ISP配置*/
+	hisi,hisi_isp {
+		compatible = "hisi,hisi_isp";
+		reg = <0xF4000000 0x80000>;    /*ISP的寄存器首地址及寻址空间*/
+		interrupts = <0 120 0x4>;      /*ISP中断号*/
+		/*ISP相关时钟及相应名称：ISP clk、ISP mipi ref clk、ISP axi master clk、AHB Slave clk、MEDPLL时钟源、MEDPLL时钟源门控*/
+		clocks = <&sclk_isp &sclk2_isp &aclk_isp &hclk_isp &clk_medpll_src &clk_medpll_src_gated>;
+		clock-names = "SCLK_ISP", "SCLK2_ISP", "ACLK_ISP", "HCLK_ISP", "CLK_MEDPLL_SRC", "CLK_MEDPLL_SRC_GATED";
+		
+		/*SOC_MED_PD_VDD-supply = <&buck2>;*/
+
+		WAIT_COMPLT_TIMEOUT = <7000>;               /*等待CMD命令完成的时延，单位ms*/
+		/*SENSOR_I2C_WAIT_TIMEOUT = <10>;*/         /*等待sensor I2C完成的时延，单位ms*/
+		DQBUF_IRQ_TIMEOUT = <5>;                    /*DUBUF中断超时时延，单位s*/
+		OV_ISP_CLK_FREQ = <30000000>;               /*ISP工作时钟的频率，单位Hz*/
+		OV_ISP_MIPI_CLK_FREQ = <30000000>;          /*ISP参考时钟的频率，单位Hz*/
+		WAIT_FOCUS_TIMEOUT = <1000>;                /*等待对焦的时延，单位ms*/
+		/*SCENE_NIGHT_MODE_FPS = <1>;*/	            /*夜晚模式的帧率*/
+		DDR_MIN_PROFILE_PREVIEW = <30000000>;	    /*预览时DDR投票最低频率，单位Hz*/
+		DDR_MIN_PROFILE_CAPTURE = <30000000>;	    /*拍照时DDR投票最低频率，单位Hz*/
+		
+		/*ASIC platform primary sensor&secondary sensor power*/
+		/*S_CAMERA_ANALOG_VDD-supply = <&ldo18>;		
+		S_CAMERA_CORE_VDD-supply = <&lvs10>;
+		S_BACKUP_CAMERA_CORE_VDD-supply = <&ldo14>;
+		S_CAMERA_IO_VDD-supply = <&lvs3>;
+		
+		M_CAMERA_ANALOG_VDD-supply = <&ldo15>;
+		M_CAMERA_IO_VDD-supply = <&lvs3>;
+		M_CAMERA_VCM_VDD-supply = <&ldo16>;
+		M_CAMERA_CORE_VDD-supply = <&ldo17>;*/
+		
+		/*FPGA platform primary sensor power(gpio)*/
+		mcamera_avdd = <&gpio_mipi_cam2_85v_en_sft>;
+		mcamera_io = <&gpio_mipi_cam1_8v_en_sft>;
+		mcamera_core = <&gpio_mipi_cam_1_05v_en_sft>;
+		mcamera_vcm = <&gpio_mipi_cam_vmp_en_sft>;
+
+		/*ISP相关管脚复用配置*/
+		pinctrl-names = "default", "idle";
+		pinctrl-0 = <&gpio073_pmx_func
+				&gpio074_pmx_func
+				&gpio075_pmx_func
+				&gpio076_pmx_func
+				&gpio077_pmx_func
+				&gpio078_pmx_func
+				&gpio079_pmx_func
+				&gpio081_pmx_func
+				&gpio082_pmx_func
+				&gpio083_pmx_func
+				&gpio086_pmx_func
+				&gpio087_pmx_func
+				&gpio088_pmx_func	        
+				&gpio089_pmx_func
+				&gpio073_cfg_func
+				&gpio074_cfg_func
+				&gpio075_cfg_func
+				&gpio076_cfg_func
+				&gpio077_cfg_func
+				&gpio078_cfg_func
+				&gpio079_cfg_func
+				&gpio081_cfg_func
+				&gpio082_cfg_func
+				&gpio083_cfg_func
+				&gpio086_cfg_func
+				&gpio087_cfg_func
+				&gpio088_cfg_func
+				&gpio089_cfg_func
+			     >;
+		pinctrl-1 = <&gpio073_pmx_idle
+				&gpio074_pmx_idle
+				&gpio075_pmx_idle
+				&gpio076_pmx_idle
+				&gpio077_pmx_idle
+				&gpio078_pmx_idle
+				&gpio079_pmx_idle
+				&gpio081_pmx_idle
+				&gpio082_pmx_idle
+				&gpio083_pmx_idle
+				&gpio086_pmx_idle
+				&gpio087_pmx_idle
+				&gpio088_pmx_idle
+				&gpio089_pmx_idle
+				&gpio073_cfg_idle
+				&gpio074_cfg_idle
+				&gpio075_cfg_idle
+				&gpio076_cfg_idle
+				&gpio077_cfg_idle
+				&gpio078_cfg_idle
+				&gpio079_cfg_idle
+				&gpio081_cfg_idle
+				&gpio082_cfg_idle
+				&gpio083_cfg_idle
+				&gpio086_cfg_idle
+				&gpio087_cfg_idle
+				&gpio088_cfg_idle
+				&gpio089_cfg_idle
+						     >;
+	};
+
+	hisi,hisi_csi {
+		compatible = "hisi,hisi_csi";
+		reg  = <0xF4510000 0x4000>;               /*CSI的寄存器首地址及寻址空间*/
+		interrupts = <0 121 0x4>, <0 122 0x4>;    /*CSI0&CSI1中断号*/
+		/*CSI相关时钟及相应名称：csi0 controller clk、csi2 controller clk*/
+		clocks = <&clk_cfg_csi4phy &clk_cfg_csi2phy>;
+		clock-names = "CLK_CFG_CSI4PHY", "CLK_CFG_CSI2PHY";
+	};
+	
+	/*&ISP_GPIO5_BALONG_LPDDR3_UDP, &ISP_STROBE1_BALONG_LPDDR3_UDP, &RF_GPIO_0_BALONG_LPDDR3_UDP, &ISP_STROBE0_BALONG_LPDDR3_UDP,  NULL,*/
+	hisi,lm3642 {
+		compatible = "hisi,lm3642";
+		pinctrl-names = "default", "idle";
+		pinctrl-0;
+		pinctrl-1;			     
+		huawei,flash_mask_pin = <149>;
+		huawei,flash_strb_pin = <72>;
+		/*FLASH_MASK_IO_VDD-supply = <&lvs10>;*/	/*for sophy default*/		     
+
+	};
+
+	/*scharger flash power*/
+	/*hisi,scharger_flashlight {
+		compatible = "hisi,scharger_flashlight";
+		schg_boost3-supply = <&schg_boost3>;
+		schg_source1-supply = <&schg_source1>;
+		schg_source2-supply = <&schg_source2>;
+	};*/
+	
+	hisi,hisi_sensor {
+		compatible = "hisi,hisi_sensor";
+		/*CAMERA_SENSOR_FLIP_TYPE_NONE = 0,
+		 *CAMERA_SENSOR_FLIP_TYPE_H_V,
+		 *CAMERA_SENSOR_FLIP_TYPE_H,
+		 *CAMERA_SENSOR_FLIP_TYPE_V */
+		product = "cherryplus";
+		primary_sensor_flip_type = <0>;
+		secondary_sensor_flip_type = <0>;
+
+		primary_sensor_orientation = "90";     /*主sensor角度*/
+		secondary_sensor_orientation = "270";  /*副sensor角度*/
+		face_ignore_count  = "9";              /*默认的人脸识别个数*/
+		zsl_enable = "1";                      /*0---关闭ZSL；1---打开ZSL*/
+
+		/* 当前平台支持哪款sensor：1---support, 0---not support */
+		sonyimx135_sensor = <0>;
+		sonyimx134_sensor = <1>;
+		sonyimx328_sensor = <0>;
+		ov13850_sensor = <0>;
+		ov5648fx_sensor = <0>;
+		s5k4e1ga_sensor = <0>;
+	};
+};

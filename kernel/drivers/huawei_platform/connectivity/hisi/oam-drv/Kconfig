@@ -1,0 +1,11 @@
+#
+# Kconfig for huawei's oam driver
+#
+
+config OAM_DRV
+	tristate "oam drv for wifi driver"
+	default m
+	help
+	  This driver used by the wifi driver send dbg log to sdt;
+	  used to link wifi driver and oam_app;
+	  this is a interface code

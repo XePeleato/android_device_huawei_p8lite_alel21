@@ -1,0 +1,11 @@
+#
+# Huawei's wireless_pm driver for
+# drivers (BT, FM and GNSS)
+#
+
+config  HW_PM
+	tristate "huawei wireless_pm driver"
+	default n
+	help
+	  This enables the wireless pm driver for Huawei
+	  BT / FM / GNSS chips. 

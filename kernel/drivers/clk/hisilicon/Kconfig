@@ -1,0 +1,35 @@
+config HI3xxx_CLK_CORE
+	bool "Core clock driver of Hi3xxx Soc"
+	default n if COMMON_CLK
+
+config HI3620_CLK_MIPI_DSI
+	bool "MIPI DSI clock driver of Hi3620 SoC"
+	default y if COMMON_CLK && FB_HI3620
+
+config HI3XXX_CLK
+	bool "clock driver of Hi3635 and hi3650 Soc"
+	default n
+
+config HI3XXX_CLK_ALWAYS_ON
+	bool "all clocks of Hisi Soc are always on"
+	default n
+
+config HI3XXX_CLK_MAILBOX_SUPPORT
+	depends on HI3XXX_CLK
+	depends on HI3XXX_MAILBOX
+	bool "clk driver support mailbox communication"
+	default n
+
+config HI6XXX_CLK
+	bool "Clock driver of Hi6620 and Hi6210 Soc"
+	default n
+
+config HI6XXX_CLK_ALWAYS_ON
+	depends on HI6XXX_CLK
+	bool "all clocks of Hi6620 Soc are always on"
+	default n
+
+config HISI_CLK_DEBUG 
+	depends on COMMON_CLK_DEBUG
+	bool "HiSilicon clock driver debug"
+	default n

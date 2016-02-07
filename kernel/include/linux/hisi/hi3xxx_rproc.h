@@ -1,0 +1,1 @@
+#include <linux/hisi/hisi_rproc.h>

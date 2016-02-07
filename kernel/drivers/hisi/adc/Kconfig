@@ -1,0 +1,11 @@
+config HI3XXX_HKADC
+	bool "HISI ADC support"
+	depends on HI3XXX_MAILBOX
+	default n
+	help
+	  Say yes here to support the HISI ADC device
+
+config HI3XXX_HKADC_DEBUG
+	tristate "HISI ADC DEBUG"
+	help
+	  Say yes here to support this lock

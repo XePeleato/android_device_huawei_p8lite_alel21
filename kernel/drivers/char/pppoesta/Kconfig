@@ -1,0 +1,11 @@
+#
+# pppoesta device configuration
+#
+
+config PPPOESTA
+           tristate "pppoe status Driver"
+           default n
+           help
+           This is used to record the pppoe status.
+
+

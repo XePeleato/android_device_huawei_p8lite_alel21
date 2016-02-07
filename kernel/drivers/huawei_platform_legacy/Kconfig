@@ -1,0 +1,5 @@
+config SEATTLE
+      bool "seattle"
+      default n
+
+source "drivers/huawei_platform_legacy/Seattle/Kconfig"

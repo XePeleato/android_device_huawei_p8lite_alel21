@@ -1,0 +1,2 @@
+obj-$(CONFIG_HISILICON_PLATFORM_SUBVIC)	+= bsp_vic.o
+

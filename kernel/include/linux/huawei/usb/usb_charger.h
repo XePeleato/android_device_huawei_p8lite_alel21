@@ -1,0 +1,15 @@
+#ifndef __USB_CHARGER_H__
+#define __USB_CHARGER_H__
+
+enum usb_charger_type{
+    CHARGER_TYPE_MIN = -1,
+    CHARGER_TYPE_USB = 0,
+    CHARGER_TYPE_BC_USB,
+    CHARGER_TYPE_NON_STANDARD,
+    CHARGER_TYPE_STANDARD,
+    CHARGER_REMOVED,
+    USB_EVENT_OTG_ID,
+    CHARGER_TYPE_MAX,
+};
+
+#endif

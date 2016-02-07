@@ -1,0 +1,18 @@
+/ {
+	amba {
+		i2c1: i2c@FDF0A000 {
+			max98925_smartpa:smartpa@31 {
+				compatible = "huawei,max98925";
+				reg = <0x31>;
+				max98925-supply = <&buck5>;
+				status = "disabled";
+			};
+			tfa9895_smartpa:smartpa@34 {
+				compatible = "huawei,tfa9895";
+				reg = <0x34>;
+				tfa9895-supply = <&buck5>;
+				status = "disabled";
+			};
+		};
+	};
+};

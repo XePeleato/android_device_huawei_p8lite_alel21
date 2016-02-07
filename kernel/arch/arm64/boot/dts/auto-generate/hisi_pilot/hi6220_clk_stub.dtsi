@@ -1,0 +1,86 @@
+/******************************************************************************
+
+                  ???? (C), 2001-2011, ????????
+
+ ******************************************************************************
+
+  This is an stub file !  Just for DDR ACPU GPU!
+  ? ? ?   : hi6210_clk_stub.dtsi
+  ????   : 2014?3?24?
+
+******************************************************************************/
+
+
+/ {
+	fake_clk_syspll: fake_clk_syspll {
+		compatible = "fixed-clock";
+		#clock-cells = <0>;
+		/*?????????:       900000000*/
+		clock-frequency = <900000000>;
+		/*?????????:       fake_clk_syspll*/
+		clock-output-names = "fake_clk_syspll";
+	};
+	fake_clk_ddrpll: fake_clk_ddrpll {
+		compatible = "fixed-clock";
+		#clock-cells = <0>;
+		/*??ddr?????:       533000000*/	
+		clock-frequency = <533000000>;
+		/*??ddr?????:       fake_clk_ddrpll*/	
+		clock-output-names = "fake_clk_ddrpll";
+	};
+	clk_ddr_freq_stub: clk_ddr_freq_stub {
+		compatible = "hisilicon,hi6xxx-clk-stub";
+		#clock-cells = <0>;
+		/*ddr freq????:     fake_clk_ddrpll*/
+		clocks = <&fake_clk_ddrpll>;
+		/*ddr freq?????id:  5*/
+		hisilicon,hi6210-xfreq-devid = <5>;
+		/*ddr freq???:       clk_ddr_freq_stub*/
+		clock-output-names = "clk_ddr_freq_stub";
+	};
+	
+	clk_ddr_max_stub: clk_ddr_max_stub {
+		compatible = "hisilicon,hi6xxx-clk-stub";
+		#clock-cells = <0>;
+		/*ddr???????:    fake_clk_ddrpll*/
+		clocks = <&fake_clk_ddrpll>;
+		/*ddr????????id: 4*/
+		hisilicon,hi6210-xfreq-devid = <4>;
+		/*ddr??????:      clk_ddr_max_stub*/
+		clock-output-names = "clk_ddr_max_stub";
+	};
+	
+	clk_ddr_min_stub: clk_ddr_min_stub {
+		compatible = "hisilicon,hi6xxx-clk-stub";
+		#clock-cells = <0>;
+		/*ddr???????:    fake_clk_ddrpll*/
+		clocks = <&fake_clk_ddrpll>;
+		/*ddr????????id: 3*/
+		hisilicon,hi6210-xfreq-devid = <3>;
+		/*ddr??????:      clk_ddr_min_stub*/
+		clock-output-names = "clk_ddr_min_stub";
+	};
+
+	clk_g3d_stub: clk_g3d_stub {
+		compatible = "hisilicon,hi6xxx-clk-stub";
+		#clock-cells = <0>;
+		/*GPU????:         fake_clk_syspll*/
+		clocks = <&fake_clk_syspll>;
+		/*GPU?????id:      2*/
+		hisilicon,hi6210-xfreq-devid = <2>;
+		/*GPU???:           clk_g3d_stub*/
+		clock-output-names = "clk_g3d_stub";
+	};
+
+	clk_acpu_stub: clk_acpu_stub {
+		compatible = "hisilicon,hi6xxx-clk-stub";
+		#clock-cells = <0>;
+		/*ACPU????:       fake_clk_syspll*/
+		clocks = <&fake_clk_syspll>;
+		/*ACPU?????id:    0*/
+		hisilicon,hi6210-xfreq-devid = <0>;
+		/*ACPU???:         clk_acpu_stub*/
+		clock-output-names = "clk_acpu_stub";
+	};
+	
+};

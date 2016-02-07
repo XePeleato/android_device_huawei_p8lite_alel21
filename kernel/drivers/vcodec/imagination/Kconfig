@@ -1,0 +1,12 @@
+menuconfig IMAGINATION_VCODEC
+    tristate "Hi3xxx Support IMG Video Codec Drivers"
+    default n
+    ---help---
+      This is the codec driver based on hi3xxx.
+
+if IMAGINATION_VCODEC      
+source "drivers/vcodec/imagination/imgvideo/Kconfig"
+source "drivers/vcodec/imagination/vdec/Kconfig"
+source "drivers/vcodec/imagination/encode/Kconfig"
+endif
+

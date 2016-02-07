@@ -1,0 +1,27 @@
+ 
+ /{
+	tmnt:tm-nt35521{
+		compatible = "hisilicon,mipi-tm-nt35521";
+		clocks = <&clk_ade_core>,<&aclk_codec_jpeg_src>,<&pclk_dsi>,<&clk_ade_pix>,<&clk_syspll_src>,<&clk_medpll_src>;
+		clock-names  = "clk_ade_core","aclk_codec_jpeg_src","pclk_dsi","clk_ade_pix","clk_syspll_src","clk_medpll_src";			
+		ade_pixel_clk_rate = <10000000>;
+		ade_core_clk_rate = <60000000>;
+		media_noc_clk_rate = <40000000>;
+		dsi_bit_clk_rate = <240>;
+		lcd_reset_gpio = <&gpio_lcd_reset_sft>;
+		lcd_power_gpio = <&gpio_lcddrv_en_5_sft>;
+		lcdmipi_power_gpio = <&gpio_mipi_lcd_1_8v_en_sft>;
+		lcd_drv_en_gpio = <&gpio_vlcd_drv_en_sft>;
+		pinctrl-names = "default", "idle";
+		pinctrl-0 = <&gpio038_pmx_func
+			&gpio039_pmx_func
+			&gpio036_pmx_func
+			&gpio037_pmx_func>;
+		pinctrl-1 = <&gpio038_pmx_idle
+			&gpio039_pmx_idle
+			&gpio036_pmx_idle
+			&gpio037_pmx_idle>;
+		status = "ok";
+	};
+};
+

@@ -1,0 +1,357 @@
+/*
+ *  Copyright (C) 2014 Hisilicon Ltd.
+ *  Author: Bintian Wang <bintian.wang@huawei.com>
+ *
+ *  This program is free software; you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License version 2 as
+ *  publishhed by the Free Software Foundation.
+ */
+
+/* NOTE:
+ * The last reserved memory base is used in fastboot
+ * Which should be the least reseve value
+ */
+
+/include/ "./sft_mali400/hi6220_fb.dtsi"
+/include/ "./sft_mali400/hi6220_mipi_tm_nt35521.dtsi"
+
+/include/ "skeleton.dtsi"
+/include/ "./sft_mali400/hi6220_pin.dtsi"
+/include/ "./sft_mali400/hi6xxx_gpio_logic.dtsi"
+///include/ "hi6220_sft_mali400_pin.dtsi"
+///include/ "hi6220_sft_mali400_charger.dtsi"
+///include/ "hi6220_sft_mali400_pmic.dtsi"
+///include/ "hi6220_sft_mali400_gpio_logic.dtsi"
+/include/ "./sft_mali400/hi6220.dtsi"
+/include/ "./sft_mali400/hi6220_clk.dtsi"
+/include/ "./sft_mali400/hi6220_gpio.dtsi"
+/include/ "./sft_mali400/hi6220_pinctrl.dtsi"
+/include/ "./sft_mali400/hi6552_pmuclk.dtsi"
+/include/ "./sft_mali400/hisi_hi6552_pmic.dtsi"
+/include/ "./sft_mali400/hi6552_pmic_mntn.dtsi"
+/include/ "./sft_mali400/hisi_hi6xxx_mtcmos.dtsi"
+/include/ "./sft_mali400/bq_bci_battery.dtsi"
+/include/ "./sft_mali400/hisi_hi6521_charger_power.dtsi"
+/include/ "./sft_mali400/test_hisi_hi6xxx_regulator.dtsi"
+/include/ "./sft_mali400/hi6220_tsensor.dtsi"
+/include/ "./sft_mali400/hi6220-touchscreen.dtsi"
+/include/ "./sft_mali400/hi6220_vcodec.dtsi"
+/include/ "./sft_mali400/hi6220_camera.dtsi"
+/include/ "./sft_mali400/hi6220_videoconfig.dtsi"
+/include/ "./sft_mali400/hisi_hi6220_audio.dtsi"
+/include/ "./sft_mali400/huawei_bluetooth.dtsi"
+/include/ "./sft_mali400/huawei_wifi.dtsi"
+/include/ "./sft_mali400/hisi_hi6220_noc.dtsi"
+/include/ "./sft_mali400/hi6220_memory.dtsi"
+/ {
+	model = "hi6210sft";
+	compatible = "hisilicon,hi6210";
+	hisi,boardid = <1 0 0 0>;
+	hisi,boardname = "hi6220_sft_mali400";
+	mntn,acpu-scaddr = <0xf6504000 0x800>;
+	power,busdfs = <0x0>;
+	power,localtimer = <0x0>;
+	clk,support_odd_div = <1>;
+	#address-cells = <1>;
+        #size-cells = <1>;
+        interrupt-parent = <&gic>;
+
+        aliases{
+                mshc0 = &dwmmc_0;
+                mshc1 = &dwmmc_1;
+                mshc2 = &dwmmc_2;
+        };
+
+	chosen {
+	    bootargs = "console=ttyAMA0,115200 root=/dev/ram0 vmalloc=384M maxcpus=8 earlyprintk no_console_suspend loglevel=15 initcall_debug=n nn_hiwdt100";
+	    linux,initrd-start = <0x0ae00000>;
+	    linux,initrd-end =   <0x0b600000>;
+	};
+
+	cpus {
+		#address-cells = <2>;
+		#size-cells = <0>;
+
+		cpu@0 {
+			compatible = "arm,armv8";
+			device_type = "cpu";
+			reg = <0x0 0x0>;
+			enable-method = "spin-table";
+		};
+		cpu@1 {
+			compatible = "arm,armv8";
+			device_type = "cpu";
+			reg = <0x0 0x1>;
+			enable-method = "spin-table";
+		};
+		cpu@2 {
+			compatible = "arm,armv8";
+			device_type = "cpu";
+			reg = <0x0 0x2>;
+			enable-method = "spin-table";
+		};
+		cpu@3 {
+			compatible = "arm,armv8";
+			device_type = "cpu";
+			reg = <0x0 0x3>;
+			enable-method = "spin-table";
+		};
+		cpu@4 {
+			compatible = "arm,armv8";
+			device_type = "cpu";
+			reg = <0x0 0x100>;
+			enable-method = "spin-table";
+		};
+		cpu@5 {
+			compatible = "arm,armv8";
+			device_type = "cpu";
+			reg = <0x0 0x101>;
+			enable-method = "spin-table";
+		};
+		cpu@6 {
+			compatible = "arm,armv8";
+			device_type = "cpu";
+			reg = <0x0 0x102>;
+			enable-method = "spin-table";
+		};
+		cpu@7 {
+			compatible = "arm,armv8";
+			device_type = "cpu";
+			reg = <0x0 0x103>;
+			enable-method = "spin-table";
+		};
+	};
+
+	sctrl: sctrl {
+		compatible = "hisilicon,sctrl";
+		reg = <0xf7030000 0x2000>;
+		status = "ok";
+	};
+
+	ao_sctrl: ao_sctrl {
+		compatible = "hisilicon,aosctrl";
+		reg = <0xf7800000 0x2000>;
+		status = "ok";
+	};
+	
+	
+	media_sctrl: media_sctrl {
+		compatible = "hisilicon,media_sctrl";
+		reg = <0xf4410000 0x1000>;
+		status = "ok";
+	};
+
+	pmctrl: pmctrl {
+		compatible = "hisilicon,pmctrl";
+		reg = <0xF7032000 0x1000>;
+		status = "ok";
+	};
+        pmic: pmic@F8000000 {
+                compatible = "hisilicon,hi6552-pmic-driver"; 
+                status = "ok";
+                coul: coul@1 {
+                        compatible = "hisilicon,hi6xxx-coul";
+                        interrupt-parent = <&pmic>;
+                        interrupts = <24 0>, <25 0>, <26 0>, <27 0>;
+                        interrupt-names = "cl_int_i", "cl_out_i", "cl_in_i", "vbat_int_i";
+						coul_board_type = <1>;
+						battery_product_index = <0>;
+						status = "disabled";
+                };
+
+	};
+	clk_ref: clk_ref {
+	        compatible = "fixed-clock";
+	        #clock-cells = <0>;
+	        clock-frequency = <19200000>;
+	        clock-output-names = "clk_ref";
+	};
+
+	amba {
+	    #address-cells = <1>;
+	    #size-cells = <1>;
+	    compatible = "arm,amba-bus";
+	    interrupt-parent = <&gic>;
+	    ranges;
+
+		uart0: uart@f8015000 {	/* console */
+		/*
+			pinctrl-names = "default", "idle";
+			pinctrl-0 = <&uart0_pmx_func &uart0_cfg_func>;
+			pinctrl-1 = <&uart0_pmx_idle &uart0_cfg_idle>;
+		*/
+			status = "ok";
+		};
+		uart1: uart@f7111000 {
+			status = "ok";
+		};
+		uart2: uart@f7112000 {
+			status = "ok";
+		};
+		uart3: uart@f7113000 {
+			status = "ok";
+		};
+		uart4: uart@f7114000 {
+			status = "disabled";
+		};
+		
+		dma0: dma@F7370000 {
+			status = "ok";
+		};
+		/*i2c bus node*/
+		i2c0: i2c@f7100000 {
+			status = "ok";
+			bq2419x_charger:charger@6B {
+				compatible = "huawei,bq2419x_charger";
+				reg = <0x6B>;
+				gpio_cd = <&gpio4 0 0>;
+				gpio_int = <&gpio1 3 0>;
+				gpio_otg = <&gpio4 1 0>;
+				max_charger_voltagemV = <4208>;
+				max_charger_currentmA = <1000>;
+				max_cin_limit_currentmA = <1200>;
+				status = "disabled";
+			};
+
+		};
+		i2c1: i2c@f7101000 {
+			status = "ok";
+		};
+		i2c2: i2c@f7102000 {
+			status = "ok";
+			hi6521_charger:charger@6B {
+				compatible = "huawei,hi6521_charger";
+				reg = <0x6B>;
+				gpio_ce = <&gpio_chg_cen_sft>;
+				gpio_int = <&gpio_schg_int_sft>;
+				max_charger_voltagemV = <4350>;
+				max_charger_currentmA = <2000>;
+				max_cin_limit_currentmA = <2500>;
+				charger_board_type = <1>;
+				status = "ok";
+			};
+		};
+		i2c3: i2c@f7103000 {
+			status = "disabled";
+		};
+		i2c4: i2c@f7104000 {
+			status = "disabled";
+		};
+		i2c5: i2c@f7105000 {
+			status = "disabled";
+		};
+
+	};
+
+	gic: interrupt-controller@f6800000 {
+		compatible = "arm,cortex-a9-gic";
+		#interrupt-cells = <3>;
+		#address-cells = <0>;
+		interrupt-controller;
+		reg = <0xf6801000 0x1000>,
+		      <0xf6802000 0x2000>;
+	};
+
+	/* emmc */
+	dwmmc_0: dwmmc0@F723D000 {
+ 		compatible = "hisilicon,hi3630-dw-mshc";
+		num-slots = <1>;
+		board-mmc-bus-clk = <30000000>;
+		broken-cd;
+ 	        reg = <0xF723D000 0x1000>;
+ 		interrupts = <0 72 4>;
+ 		#address-cells = <1>;
+ 		#size-cells = <0>;
+ 		clocks = <&clk_mmc0_sample>, <&clk_mmc0>;
+ 		clock-names = "ciu", "biu";
+                emmc-ldo-supply = <&ldo2>;
+                emmc-lvs-supply = <&ldo1>;
+                pinctrl-names = "default","idle";
+                pinctrl-0 = <&gpio050_pmx_func
+                                 &gpio043_pmx_func
+                                 &gpio050_cfg_func
+                                 &gpio043_cfg_func>;
+                pinctrl-1 = <&gpio050_pmx_idle
+                                 &gpio043_pmx_idle
+                                 &gpio050_cfg_idle
+                                 &gpio043_cfg_idle>;
+	};
+
+        /* sdcard */
+        dwmmc_1: dwmmc1@F723E000 {
+                 compatible = "hisilicon,hi3630-dw-mshc";
+                 num-slots = <1>;
+				 board-mmc-bus-clk = <30000000>;
+				 board-sd-voltage-switch-gpio = <&gpio_sd_leve_en_sft>;
+                 cd-vol = <0>;
+                 card-detect-delay = <200>;
+                 cd-gpio = <&gpio_sd_det_sft>;
+                 sw_gpio = <80 1>;
+                 reg = <0xF723E000 0x1000>;
+                 interrupts = <0 73 4>;
+                 #address-cells = <1>;
+                 #size-cells = <0>;
+                 clocks = <&clk_mmc1_sample>, <&clk_mmc1>;
+                 clock-names = "ciu", "biu";
+                 emmc-ldo-supply = <&ldo2>;
+                 emmc-lvs-supply = <&ldo1>;
+                 pinctrl-names = "default","idle";
+                 pinctrl-0 = <&gpio050_pmx_func
+                         &gpio043_pmx_func
+                         &gpio050_cfg_func
+                         &gpio043_cfg_func>;
+                 pinctrl-1 = <&gpio050_pmx_idle
+                         &gpio043_pmx_idle
+                         &gpio050_cfg_idle
+                         &gpio043_cfg_idle>;
+         };
+
+         /* sdio */
+         dwmmc_2: dwmmc2@F723F000 {
+                 compatible = "hisilicon,hi3630-dw-mshc";
+                 num-slots = <1>;
+				 board-mmc-bus-clk = <30000000>;
+                 reg = <0xF723F000 0x1000>;
+                 interrupts = <0 74 4>;
+                 #address-cells = <1>;
+                 #size-cells = <0>;
+                 clocks = <&clk_mmc2_sample>, <&clk_mmc2>;
+                 clock-names = "ciu", "biu";
+				 keep-power-in-suspend;
+                 emmc-ldo-supply = <&ldo2>;
+                 emmc-lvs-supply = <&ldo1>;
+                 pinctrl-names = "default","idle";
+                 pinctrl-0 = <&gpio050_pmx_func
+                         &gpio043_pmx_func
+                         &gpio050_cfg_func
+                         &gpio043_cfg_func>;
+                 pinctrl-1 = <&gpio050_pmx_idle
+                         &gpio043_pmx_idle
+                         &gpio050_cfg_idle
+                         &gpio043_cfg_idle>;
+        };
+
+	timer {
+	    compatible = "arm,armv8-timer";
+	    interrupt-parent = <&gic>;
+	    interrupts = <1 13 0xff08>,
+	                 <1 14 0xff08>,
+	                 <1 11 0xff08>,
+	                 <1 10 0xff08>;
+	    clock-frequency = <300000>;
+	};
+                                                                                     
+	hi6xxx_reset:hi6xxx_reset {                                                             
+		compatible = "hisilicon,hi6xxx-reset";
+		sctrl-value = <0x48698284>;
+	};
+
+	hi6xxx_asctrl:hi6xxx_asctrl {
+		compatible = "hisilicon,hi6xxx-asctrl";
+		reg = <0xF6504000 0x1000>;
+	};
+	
+	hi6xxx_soc_config:hi6xxx_soc_config {
+		compatible = "hisilicon,hi6xxx-soc-config";
+	};
+};

@@ -1,0 +1,22 @@
+#Makefile for Hisilicon Wi-Fi Chip Hi1101
+
+CFLAGS =
+
+EXTRA_CFLAGS = $(CFLAGS)  \
+		   -DHi110X_VERSION_ROM \
+
+KBUILD_CFLAGS += -DPLATFORM_TYPE_FOR_HI110X=0
+KBUILD_CFLAGS += -DPLATFORM_HI110X_k3v2oem1=1
+KBUILD_CFLAGS += -DPLATFORM_HI110X_UEDGE=2
+EXTRA_CFLAGS  += -DHISI_GET_BOARD_ID
+
+ifeq ($(TARGET_PRODUCT), k3v2oem1)
+KBUILD_CFLAGS += -DPLATFORM_TYPE_FOR_HI110X=PLATFORM_HI110X_k3v2oem1
+endif
+
+ifeq ($(TARGET_PRODUCT),UEDGE)
+KBUILD_CFLAGS += -DPLATFORM_TYPE_FOR_HI110X=PLATFORM_HI110X_UEDGE
+endif
+
+obj-$(CONFIG_HW_PM) 		+= hw_pm.o
+hw_pm-objs			:= wireless_dev.o wireless_board.o wireless_patch.o  wireless_pm.o gps_plat.o

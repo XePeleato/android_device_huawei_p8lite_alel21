@@ -1,0 +1,5 @@
+config HI6XXX_IPC_MULTICORE
+	bool "Kirin620 ipc part for multicore support"
+	default n
+	help
+	  Say yes here to support the Kirin620 ipc part for multicore lib

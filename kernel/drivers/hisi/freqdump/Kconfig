@@ -1,0 +1,5 @@
+config HISILICON_HI6XXX_FREQDUMP
+	bool "Hisilicon platform freqdump support"
+	default n
+	help
+	  Say yes here to support the hisilicon platform freqdump.

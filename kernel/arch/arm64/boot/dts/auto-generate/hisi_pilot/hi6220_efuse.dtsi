@@ -1,0 +1,21 @@
+/*****************************************
+Generated Time : 2014-08-14-10-44
+Author         : l00265041
+Tool Version   : V1.0
+*****************************************/
+
+/ {
+    hisi_efuse: efuse {
+        compatible = "hisilicon, efuse";
+        efuse_mem_attr_group_max = <32>;
+        efuse_mem_attr_huk = <256>;
+        efuse_mem_attr_scp = <64>;
+        efuse_mem_attr_authkey = <32>;
+        efuse_mem_attr_chipid = <32>;
+        efuse_mem_attr_tsensor_calibration = <24>;
+        efuse_mem_attr_huk_rd_disable = <3>;
+        efuse_mem_attr_authkey_rd_disable = <1>;
+        efuse_mem_attr_dbg_class_ctrl = <2>;
+        efuse_mem_attr_dieid = <160>;
+    };
+};

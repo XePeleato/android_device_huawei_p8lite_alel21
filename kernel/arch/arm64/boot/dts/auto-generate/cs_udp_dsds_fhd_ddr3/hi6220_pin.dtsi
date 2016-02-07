@@ -1,0 +1,2688 @@
+/*****************************************
+Generated Time : 2014-07-16-17-14
+Author         : s00249479
+Tool Version   : V1.0
+*****************************************/
+/ {
+   amba {
+    pmx0: pinmux@F7010000 {
+		BOOT_SEL_pmx_func: BOOT_SEL_pmx_func {
+                     pinctrl-single,pins = <0x0    0x0>;
+		};
+		BOOT_SEL_pmx_idle: BOOT_SEL_pmx_idle {
+                     pinctrl-single,pins = <0x0    0x0>;
+		};
+
+		PMU_SSI_pmx_func: PMU_SSI_pmx_func {
+                     pinctrl-single,pins = <0x4    0x0>;
+		};
+		PMU_SSI_pmx_idle: PMU_SSI_pmx_idle {
+                     pinctrl-single,pins = <0x4    0x0>;
+		};
+
+		GPIO_8_2_pmx_func: GPIO_8_2_pmx_func {
+                     pinctrl-single,pins = <0x8    0x0>;
+		};
+		GPIO_8_2_pmx_idle: GPIO_8_2_pmx_idle {
+                     pinctrl-single,pins = <0x8    0x1>;
+		};
+
+		SD_CLK_pmx_func: SD_CLK_pmx_func {
+                     pinctrl-single,pins = <0xC    0x0>;
+		};
+		SD_CLK_pmx_idle: SD_CLK_pmx_idle {
+                     pinctrl-single,pins = <0xC    0x1>;
+		};
+
+		SD_CMD_pmx_func: SD_CMD_pmx_func {
+                     pinctrl-single,pins = <0x10    0x0>;
+		};
+		SD_CMD_pmx_idle: SD_CMD_pmx_idle {
+                     pinctrl-single,pins = <0x10    0x1>;
+		};
+
+		SD_DATA0_pmx_func: SD_DATA0_pmx_func {
+                     pinctrl-single,pins = <0x14    0x0>;
+		};
+		SD_DATA0_pmx_idle: SD_DATA0_pmx_idle {
+                     pinctrl-single,pins = <0x14    0x1>;
+		};
+
+		SD_DATA1_pmx_func: SD_DATA1_pmx_func {
+                     pinctrl-single,pins = <0x18    0x0>;
+		};
+		SD_DATA1_pmx_idle: SD_DATA1_pmx_idle {
+                     pinctrl-single,pins = <0x18    0x1>;
+		};
+
+		SD_DATA2_pmx_func: SD_DATA2_pmx_func {
+                     pinctrl-single,pins = <0x1C    0x0>;
+		};
+		SD_DATA2_pmx_idle: SD_DATA2_pmx_idle {
+                     pinctrl-single,pins = <0x1C    0x1>;
+		};
+
+		SD_DATA3_pmx_func: SD_DATA3_pmx_func {
+                     pinctrl-single,pins = <0x20    0x0>;
+		};
+		SD_DATA3_pmx_idle: SD_DATA3_pmx_idle {
+                     pinctrl-single,pins = <0x20    0x1>;
+		};
+
+		ISP_PWDN0_pmx_func: ISP_PWDN0_pmx_func {
+                     pinctrl-single,pins = <0x24    0x0>;
+		};
+		ISP_PWDN0_pmx_idle: ISP_PWDN0_pmx_idle {
+                     pinctrl-single,pins = <0x24    0x0>;
+		};
+
+		ISP_PWDN1_pmx_func: ISP_PWDN1_pmx_func {
+                     pinctrl-single,pins = <0x28    0x0>;
+		};
+		ISP_PWDN1_pmx_idle: ISP_PWDN1_pmx_idle {
+                     pinctrl-single,pins = <0x28    0x0>;
+		};
+
+		ISP_PWDN2_pmx_func: ISP_PWDN2_pmx_func {
+                     pinctrl-single,pins = <0x2C    0x0>;
+		};
+		ISP_PWDN2_pmx_idle: ISP_PWDN2_pmx_idle {
+                     pinctrl-single,pins = <0x2C    0x0>;
+		};
+
+		ISP_SHUTTER0_pmx_func: ISP_SHUTTER0_pmx_func {
+                     pinctrl-single,pins = <0x30    0x1>;
+		};
+		ISP_SHUTTER0_pmx_idle: ISP_SHUTTER0_pmx_idle {
+                     pinctrl-single,pins = <0x30    0x1>;
+		};
+
+		ISP_SHUTTER1_pmx_func: ISP_SHUTTER1_pmx_func {
+                     pinctrl-single,pins = <0x34    0x1>;
+		};
+		ISP_SHUTTER1_pmx_idle: ISP_SHUTTER1_pmx_idle {
+                     pinctrl-single,pins = <0x34    0x1>;
+		};
+
+		ISP_PWM_pmx_func: ISP_PWM_pmx_func {
+                     pinctrl-single,pins = <0x38    0x1>;
+		};
+		ISP_PWM_pmx_idle: ISP_PWM_pmx_idle {
+                     pinctrl-single,pins = <0x38    0x1>;
+		};
+
+		ISP_CCLK0_pmx_func: ISP_CCLK0_pmx_func {
+                     pinctrl-single,pins = <0x3C    0x0>;
+		};
+		ISP_CCLK0_pmx_idle: ISP_CCLK0_pmx_idle {
+                     pinctrl-single,pins = <0x3C    0x0>;
+		};
+
+		ISP_CCLK1_pmx_func: ISP_CCLK1_pmx_func {
+                     pinctrl-single,pins = <0x40    0x0>;
+		};
+		ISP_CCLK1_pmx_idle: ISP_CCLK1_pmx_idle {
+                     pinctrl-single,pins = <0x40    0x0>;
+		};
+
+		ISP_RESETB0_pmx_func: ISP_RESETB0_pmx_func {
+                     pinctrl-single,pins = <0x44    0x0>;
+		};
+		ISP_RESETB0_pmx_idle: ISP_RESETB0_pmx_idle {
+                     pinctrl-single,pins = <0x44    0x0>;
+		};
+
+		ISP_RESETB1_pmx_func: ISP_RESETB1_pmx_func {
+                     pinctrl-single,pins = <0x48    0x0>;
+		};
+		ISP_RESETB1_pmx_idle: ISP_RESETB1_pmx_idle {
+                     pinctrl-single,pins = <0x48    0x0>;
+		};
+
+		ISP_STROBE0_pmx_func: ISP_STROBE0_pmx_func {
+                     pinctrl-single,pins = <0x4C    0x1>;
+		};
+		ISP_STROBE0_pmx_idle: ISP_STROBE0_pmx_idle {
+                     pinctrl-single,pins = <0x4C    0x1>;
+		};
+
+		ISP_STROBE1_pmx_func: ISP_STROBE1_pmx_func {
+                     pinctrl-single,pins = <0x50    0x1>;
+		};
+		ISP_STROBE1_pmx_idle: ISP_STROBE1_pmx_idle {
+                     pinctrl-single,pins = <0x50    0x1>;
+		};
+
+		ISP_SDA0_pmx_func: ISP_SDA0_pmx_func {
+                     pinctrl-single,pins = <0x54    0x0>;
+		};
+		ISP_SDA0_pmx_idle: ISP_SDA0_pmx_idle {
+                     pinctrl-single,pins = <0x54    0x0>;
+		};
+
+		ISP_SCL0_pmx_func: ISP_SCL0_pmx_func {
+                     pinctrl-single,pins = <0x58    0x0>;
+		};
+		ISP_SCL0_pmx_idle: ISP_SCL0_pmx_idle {
+                     pinctrl-single,pins = <0x58    0x0>;
+		};
+
+		ISP_SDA1_pmx_func: ISP_SDA1_pmx_func {
+                     pinctrl-single,pins = <0x5C    0x0>;
+		};
+		ISP_SDA1_pmx_idle: ISP_SDA1_pmx_idle {
+                     pinctrl-single,pins = <0x5C    0x0>;
+		};
+
+		ISP_SCL1_pmx_func: ISP_SCL1_pmx_func {
+                     pinctrl-single,pins = <0x60    0x0>;
+		};
+		ISP_SCL1_pmx_idle: ISP_SCL1_pmx_idle {
+                     pinctrl-single,pins = <0x60    0x0>;
+		};
+
+		GPIO_11_2_pmx_func: GPIO_11_2_pmx_func {
+                     pinctrl-single,pins = <0x64    0x1>;
+		};
+		GPIO_11_2_pmx_idle: GPIO_11_2_pmx_idle {
+                     pinctrl-single,pins = <0x64    0x1>;
+		};
+
+		HKADC_SSI_pmx_func: HKADC_SSI_pmx_func {
+                     pinctrl-single,pins = <0x68    0x0>;
+		};
+		HKADC_SSI_pmx_idle: HKADC_SSI_pmx_idle {
+                     pinctrl-single,pins = <0x68    0x0>;
+		};
+
+		CODEC_CLK_pmx_func: CODEC_CLK_pmx_func {
+                     pinctrl-single,pins = <0x6C    0x0>;
+		};
+		CODEC_CLK_pmx_idle: CODEC_CLK_pmx_idle {
+                     pinctrl-single,pins = <0x6C    0x0>;
+		};
+
+		DMIC_CLK_pmx_func: DMIC_CLK_pmx_func {
+                     pinctrl-single,pins = <0x70    0x1>;
+		};
+		DMIC_CLK_pmx_idle: DMIC_CLK_pmx_idle {
+                     pinctrl-single,pins = <0x70    0x1>;
+		};
+
+		CODEC_SYNC_pmx_func: CODEC_SYNC_pmx_func {
+                     pinctrl-single,pins = <0x74    0x0>;
+		};
+		CODEC_SYNC_pmx_idle: CODEC_SYNC_pmx_idle {
+                     pinctrl-single,pins = <0x74    0x0>;
+		};
+
+		CODEC_DATAIN_pmx_func: CODEC_DATAIN_pmx_func {
+                     pinctrl-single,pins = <0x78    0x0>;
+		};
+		CODEC_DATAIN_pmx_idle: CODEC_DATAIN_pmx_idle {
+                     pinctrl-single,pins = <0x78    0x0>;
+		};
+
+		CODEC_DATAOUT_pmx_func: CODEC_DATAOUT_pmx_func {
+                     pinctrl-single,pins = <0x7C    0x0>;
+		};
+		CODEC_DATAOUT_pmx_idle: CODEC_DATAOUT_pmx_idle {
+                     pinctrl-single,pins = <0x7C    0x0>;
+		};
+
+		FM_XCLK_pmx_func: FM_XCLK_pmx_func {
+                     pinctrl-single,pins = <0x80    0x1>;
+		};
+		FM_XCLK_pmx_idle: FM_XCLK_pmx_idle {
+                     pinctrl-single,pins = <0x80    0x1>;
+		};
+
+		FM_XFS_pmx_func: FM_XFS_pmx_func {
+                     pinctrl-single,pins = <0x84    0x1>;
+		};
+		FM_XFS_pmx_idle: FM_XFS_pmx_idle {
+                     pinctrl-single,pins = <0x84    0x1>;
+		};
+
+		FM_DI_pmx_func: FM_DI_pmx_func {
+                     pinctrl-single,pins = <0x88    0x1>;
+		};
+		FM_DI_pmx_idle: FM_DI_pmx_idle {
+                     pinctrl-single,pins = <0x88    0x1>;
+		};
+
+		FM_DO_pmx_func: FM_DO_pmx_func {
+                     pinctrl-single,pins = <0x8C    0x1>;
+		};
+		FM_DO_pmx_idle: FM_DO_pmx_idle {
+                     pinctrl-single,pins = <0x8C    0x1>;
+		};
+
+		BT_XCLK_pmx_func: BT_XCLK_pmx_func {
+                     pinctrl-single,pins = <0x90    0x0>;
+		};
+		BT_XCLK_pmx_idle: BT_XCLK_pmx_idle {
+                     pinctrl-single,pins = <0x90    0x0>;
+		};
+
+		BT_XFS_pmx_func: BT_XFS_pmx_func {
+                     pinctrl-single,pins = <0x94    0x0>;
+		};
+		BT_XFS_pmx_idle: BT_XFS_pmx_idle {
+                     pinctrl-single,pins = <0x94    0x0>;
+		};
+
+		BT_DI_pmx_func: BT_DI_pmx_func {
+                     pinctrl-single,pins = <0x98    0x0>;
+		};
+		BT_DI_pmx_idle: BT_DI_pmx_idle {
+                     pinctrl-single,pins = <0x98    0x0>;
+		};
+
+		BT_DO_pmx_func: BT_DO_pmx_func {
+                     pinctrl-single,pins = <0x9C    0x0>;
+		};
+		BT_DO_pmx_idle: BT_DO_pmx_idle {
+                     pinctrl-single,pins = <0x9C    0x0>;
+		};
+
+		PWM_IN_pmx_func: PWM_IN_pmx_func {
+                     pinctrl-single,pins = <0xB8    0x1>;
+		};
+		PWM_IN_pmx_idle: PWM_IN_pmx_idle {
+                     pinctrl-single,pins = <0xB8    0x1>;
+		};
+
+		BL_PWM_pmx_func: BL_PWM_pmx_func {
+                     pinctrl-single,pins = <0xBC    0x1>;
+		};
+		BL_PWM_pmx_idle: BL_PWM_pmx_idle {
+                     pinctrl-single,pins = <0xBC    0x1>;
+		};
+
+		UART0_RXD_pmx_func: UART0_RXD_pmx_func {
+                     pinctrl-single,pins = <0xC0    0x0>;
+		};
+		UART0_RXD_pmx_idle: UART0_RXD_pmx_idle {
+                     pinctrl-single,pins = <0xC0    0x0>;
+		};
+
+		UART0_TXD_pmx_func: UART0_TXD_pmx_func {
+                     pinctrl-single,pins = <0xC4    0x0>;
+		};
+		UART0_TXD_pmx_idle: UART0_TXD_pmx_idle {
+                     pinctrl-single,pins = <0xC4    0x0>;
+		};
+
+		UART1_CTS_N_pmx_func: UART1_CTS_N_pmx_func {
+                     pinctrl-single,pins = <0xC8    0x0>;
+		};
+		UART1_CTS_N_pmx_idle: UART1_CTS_N_pmx_idle {
+                     pinctrl-single,pins = <0xC8    0x0>;
+		};
+
+		UART1_RTS_N_pmx_func: UART1_RTS_N_pmx_func {
+                     pinctrl-single,pins = <0xCC    0x0>;
+		};
+		UART1_RTS_N_pmx_idle: UART1_RTS_N_pmx_idle {
+                     pinctrl-single,pins = <0xCC    0x0>;
+		};
+
+		UART1_RXD_pmx_func: UART1_RXD_pmx_func {
+                     pinctrl-single,pins = <0xD0    0x0>;
+		};
+		UART1_RXD_pmx_idle: UART1_RXD_pmx_idle {
+                     pinctrl-single,pins = <0xD0    0x0>;
+		};
+
+		UART1_TXD_pmx_func: UART1_TXD_pmx_func {
+                     pinctrl-single,pins = <0xD4    0x0>;
+		};
+		UART1_TXD_pmx_idle: UART1_TXD_pmx_idle {
+                     pinctrl-single,pins = <0xD4    0x0>;
+		};
+
+		UART2_CTS_N_pmx_func: UART2_CTS_N_pmx_func {
+                     pinctrl-single,pins = <0xD8    0x0>;
+		};
+		UART2_CTS_N_pmx_idle: UART2_CTS_N_pmx_idle {
+                     pinctrl-single,pins = <0xD8    0x0>;
+		};
+
+		UART2_RTS_N_pmx_func: UART2_RTS_N_pmx_func {
+                     pinctrl-single,pins = <0xDC    0x0>;
+		};
+		UART2_RTS_N_pmx_idle: UART2_RTS_N_pmx_idle {
+                     pinctrl-single,pins = <0xDC    0x0>;
+		};
+
+		UART2_RXD_pmx_func: UART2_RXD_pmx_func {
+                     pinctrl-single,pins = <0xE0    0x0>;
+		};
+		UART2_RXD_pmx_idle: UART2_RXD_pmx_idle {
+                     pinctrl-single,pins = <0xE0    0x0>;
+		};
+
+		UART2_TXD_pmx_func: UART2_TXD_pmx_func {
+                     pinctrl-single,pins = <0xE4    0x0>;
+		};
+		UART2_TXD_pmx_idle: UART2_TXD_pmx_idle {
+                     pinctrl-single,pins = <0xE4    0x0>;
+		};
+
+		I2C0_SCL_pmx_func: I2C0_SCL_pmx_func {
+                     pinctrl-single,pins = <0xE8    0x0>;
+		};
+		I2C0_SCL_pmx_idle: I2C0_SCL_pmx_idle {
+                     pinctrl-single,pins = <0xE8    0x0>;
+		};
+
+		I2C0_SDA_pmx_func: I2C0_SDA_pmx_func {
+                     pinctrl-single,pins = <0xEC    0x0>;
+		};
+		I2C0_SDA_pmx_idle: I2C0_SDA_pmx_idle {
+                     pinctrl-single,pins = <0xEC    0x0>;
+		};
+
+		I2C1_SCL_pmx_func: I2C1_SCL_pmx_func {
+                     pinctrl-single,pins = <0xF0    0x0>;
+		};
+		I2C1_SCL_pmx_idle: I2C1_SCL_pmx_idle {
+                     pinctrl-single,pins = <0xF0    0x0>;
+		};
+
+		I2C1_SDA_pmx_func: I2C1_SDA_pmx_func {
+                     pinctrl-single,pins = <0xF4    0x0>;
+		};
+		I2C1_SDA_pmx_idle: I2C1_SDA_pmx_idle {
+                     pinctrl-single,pins = <0xF4    0x0>;
+		};
+
+		I2C2_SCL_pmx_func: I2C2_SCL_pmx_func {
+                     pinctrl-single,pins = <0xF8    0x0>;
+		};
+		I2C2_SCL_pmx_idle: I2C2_SCL_pmx_idle {
+                     pinctrl-single,pins = <0xF8    0x0>;
+		};
+
+		I2C2_SDA_pmx_func: I2C2_SDA_pmx_func {
+                     pinctrl-single,pins = <0xFC    0x0>;
+		};
+		I2C2_SDA_pmx_idle: I2C2_SDA_pmx_idle {
+                     pinctrl-single,pins = <0xFC    0x0>;
+		};
+
+		EMMC_CLK_pmx_func: EMMC_CLK_pmx_func {
+                     pinctrl-single,pins = <0x100    0x0>;
+		};
+		EMMC_CLK_pmx_idle: EMMC_CLK_pmx_idle {
+                     pinctrl-single,pins = <0x100    0x0>;
+		};
+
+		EMMC_CMD_pmx_func: EMMC_CMD_pmx_func {
+                     pinctrl-single,pins = <0x104    0x0>;
+		};
+		EMMC_CMD_pmx_idle: EMMC_CMD_pmx_idle {
+                     pinctrl-single,pins = <0x104    0x0>;
+		};
+
+		EMMC_DATA0_pmx_func: EMMC_DATA0_pmx_func {
+                     pinctrl-single,pins = <0x108    0x0>;
+		};
+		EMMC_DATA0_pmx_idle: EMMC_DATA0_pmx_idle {
+                     pinctrl-single,pins = <0x108    0x0>;
+		};
+
+		EMMC_DATA1_pmx_func: EMMC_DATA1_pmx_func {
+                     pinctrl-single,pins = <0x10C    0x0>;
+		};
+		EMMC_DATA1_pmx_idle: EMMC_DATA1_pmx_idle {
+                     pinctrl-single,pins = <0x10C    0x0>;
+		};
+
+		EMMC_DATA2_pmx_func: EMMC_DATA2_pmx_func {
+                     pinctrl-single,pins = <0x110    0x0>;
+		};
+		EMMC_DATA2_pmx_idle: EMMC_DATA2_pmx_idle {
+                     pinctrl-single,pins = <0x110    0x0>;
+		};
+
+		EMMC_DATA3_pmx_func: EMMC_DATA3_pmx_func {
+                     pinctrl-single,pins = <0x114    0x0>;
+		};
+		EMMC_DATA3_pmx_idle: EMMC_DATA3_pmx_idle {
+                     pinctrl-single,pins = <0x114    0x0>;
+		};
+
+		EMMC_DATA4_pmx_func: EMMC_DATA4_pmx_func {
+                     pinctrl-single,pins = <0x118    0x0>;
+		};
+		EMMC_DATA4_pmx_idle: EMMC_DATA4_pmx_idle {
+                     pinctrl-single,pins = <0x118    0x0>;
+		};
+
+		EMMC_DATA5_pmx_func: EMMC_DATA5_pmx_func {
+                     pinctrl-single,pins = <0x11C    0x0>;
+		};
+		EMMC_DATA5_pmx_idle: EMMC_DATA5_pmx_idle {
+                     pinctrl-single,pins = <0x11C    0x0>;
+		};
+
+		EMMC_DATA6_pmx_func: EMMC_DATA6_pmx_func {
+                     pinctrl-single,pins = <0x120    0x0>;
+		};
+		EMMC_DATA6_pmx_idle: EMMC_DATA6_pmx_idle {
+                     pinctrl-single,pins = <0x120    0x0>;
+		};
+
+		EMMC_DATA7_pmx_func: EMMC_DATA7_pmx_func {
+                     pinctrl-single,pins = <0x124    0x0>;
+		};
+		EMMC_DATA7_pmx_idle: EMMC_DATA7_pmx_idle {
+                     pinctrl-single,pins = <0x124    0x0>;
+		};
+
+		SDIO_CLK_pmx_func: SDIO_CLK_pmx_func {
+                     pinctrl-single,pins = <0x128    0x0>;
+		};
+		SDIO_CLK_pmx_idle: SDIO_CLK_pmx_idle {
+                     pinctrl-single,pins = <0x128    0x1>;
+		};
+
+		SDIO_CMD_pmx_func: SDIO_CMD_pmx_func {
+                     pinctrl-single,pins = <0x12C    0x0>;
+		};
+		SDIO_CMD_pmx_idle: SDIO_CMD_pmx_idle {
+                     pinctrl-single,pins = <0x12C    0x1>;
+		};
+
+		SDIO_DATA0_pmx_func: SDIO_DATA0_pmx_func {
+                     pinctrl-single,pins = <0x130    0x0>;
+		};
+		SDIO_DATA0_pmx_idle: SDIO_DATA0_pmx_idle {
+                     pinctrl-single,pins = <0x130    0x1>;
+		};
+
+		SDIO_DATA1_pmx_func: SDIO_DATA1_pmx_func {
+                     pinctrl-single,pins = <0x134    0x0>;
+		};
+		SDIO_DATA1_pmx_idle: SDIO_DATA1_pmx_idle {
+                     pinctrl-single,pins = <0x134    0x1>;
+		};
+
+		SDIO_DATA2_pmx_func: SDIO_DATA2_pmx_func {
+                     pinctrl-single,pins = <0x138    0x0>;
+		};
+		SDIO_DATA2_pmx_idle: SDIO_DATA2_pmx_idle {
+                     pinctrl-single,pins = <0x138    0x1>;
+		};
+
+		SDIO_DATA3_pmx_func: SDIO_DATA3_pmx_func {
+                     pinctrl-single,pins = <0x13C    0x0>;
+		};
+		SDIO_DATA3_pmx_idle: SDIO_DATA3_pmx_idle {
+                     pinctrl-single,pins = <0x13C    0x1>;
+		};
+
+		GPIO_3_0_pmx_func: GPIO_3_0_pmx_func {
+                     pinctrl-single,pins = <0x140    0x0>;
+		};
+		GPIO_3_0_pmx_idle: GPIO_3_0_pmx_idle {
+                     pinctrl-single,pins = <0x140    0x0>;
+		};
+
+		GPIO_3_1_pmx_func: GPIO_3_1_pmx_func {
+                     pinctrl-single,pins = <0x144    0x0>;
+		};
+		GPIO_3_1_pmx_idle: GPIO_3_1_pmx_idle {
+                     pinctrl-single,pins = <0x144    0x0>;
+		};
+
+		GPIO_3_2_pmx_func: GPIO_3_2_pmx_func {
+                     pinctrl-single,pins = <0x148    0x0>;
+		};
+		GPIO_3_2_pmx_idle: GPIO_3_2_pmx_idle {
+                     pinctrl-single,pins = <0x148    0x0>;
+		};
+
+		GPIO_3_3_pmx_func: GPIO_3_3_pmx_func {
+                     pinctrl-single,pins = <0x14C    0x0>;
+		};
+		GPIO_3_3_pmx_idle: GPIO_3_3_pmx_idle {
+                     pinctrl-single,pins = <0x14C    0x0>;
+		};
+
+		AUX_SSI0_pmx_func: AUX_SSI0_pmx_func {
+                     pinctrl-single,pins = <0x150    0x1>;
+		};
+		AUX_SSI0_pmx_idle: AUX_SSI0_pmx_idle {
+                     pinctrl-single,pins = <0x150    0x1>;
+		};
+
+		GPIO_3_5_pmx_func: GPIO_3_5_pmx_func {
+                     pinctrl-single,pins = <0x154    0x0>;
+		};
+		GPIO_3_5_pmx_idle: GPIO_3_5_pmx_idle {
+                     pinctrl-single,pins = <0x154    0x0>;
+		};
+
+		GPIO_3_6_pmx_func: GPIO_3_6_pmx_func {
+                     pinctrl-single,pins = <0x158    0x0>;
+		};
+		GPIO_3_6_pmx_idle: GPIO_3_6_pmx_idle {
+                     pinctrl-single,pins = <0x158    0x0>;
+		};
+
+		GPIO_3_7_pmx_func: GPIO_3_7_pmx_func {
+                     pinctrl-single,pins = <0x15C    0x0>;
+		};
+		GPIO_3_7_pmx_idle: GPIO_3_7_pmx_idle {
+                     pinctrl-single,pins = <0x15C    0x0>;
+		};
+
+		GPIO_4_0_pmx_func: GPIO_4_0_pmx_func {
+                     pinctrl-single,pins = <0x160    0x0>;
+		};
+		GPIO_4_0_pmx_idle: GPIO_4_0_pmx_idle {
+                     pinctrl-single,pins = <0x160    0x0>;
+		};
+
+		GPIO_4_1_pmx_func: GPIO_4_1_pmx_func {
+                     pinctrl-single,pins = <0x164    0x0>;
+		};
+		GPIO_4_1_pmx_idle: GPIO_4_1_pmx_idle {
+                     pinctrl-single,pins = <0x164    0x0>;
+		};
+
+		GPIO_4_2_pmx_func: GPIO_4_2_pmx_func {
+                     pinctrl-single,pins = <0x168    0x0>;
+		};
+		GPIO_4_2_pmx_idle: GPIO_4_2_pmx_idle {
+                     pinctrl-single,pins = <0x168    0x0>;
+		};
+
+		GPIO_4_3_pmx_func: GPIO_4_3_pmx_func {
+                     pinctrl-single,pins = <0x16C    0x0>;
+		};
+		GPIO_4_3_pmx_idle: GPIO_4_3_pmx_idle {
+                     pinctrl-single,pins = <0x16C    0x0>;
+		};
+
+		GPIO_4_4_pmx_func: GPIO_4_4_pmx_func {
+                     pinctrl-single,pins = <0x170    0x1>;
+		};
+		GPIO_4_4_pmx_idle: GPIO_4_4_pmx_idle {
+                     pinctrl-single,pins = <0x170    0x1>;
+		};
+
+		GPIO_4_5_pmx_func: GPIO_4_5_pmx_func {
+                     pinctrl-single,pins = <0x174    0x1>;
+		};
+		GPIO_4_5_pmx_idle: GPIO_4_5_pmx_idle {
+                     pinctrl-single,pins = <0x174    0x1>;
+		};
+
+		GPIO_4_6_pmx_func: GPIO_4_6_pmx_func {
+                     pinctrl-single,pins = <0x178    0x1>;
+		};
+		GPIO_4_6_pmx_idle: GPIO_4_6_pmx_idle {
+                     pinctrl-single,pins = <0x178    0x1>;
+		};
+
+		GPIO_4_7_pmx_func: GPIO_4_7_pmx_func {
+                     pinctrl-single,pins = <0x17C    0x0>;
+		};
+		GPIO_4_7_pmx_idle: GPIO_4_7_pmx_idle {
+                     pinctrl-single,pins = <0x17C    0x0>;
+		};
+
+		GPIO_5_0_pmx_func: GPIO_5_0_pmx_func {
+                     pinctrl-single,pins = <0x180    0x0>;
+		};
+		GPIO_5_0_pmx_idle: GPIO_5_0_pmx_idle {
+                     pinctrl-single,pins = <0x180    0x0>;
+		};
+
+		GPIO_5_1_pmx_func: GPIO_5_1_pmx_func {
+                     pinctrl-single,pins = <0x184    0x0>;
+		};
+		GPIO_5_1_pmx_idle: GPIO_5_1_pmx_idle {
+                     pinctrl-single,pins = <0x184    0x0>;
+		};
+
+		GPIO_5_2_pmx_func: GPIO_5_2_pmx_func {
+                     pinctrl-single,pins = <0x188    0x0>;
+		};
+		GPIO_5_2_pmx_idle: GPIO_5_2_pmx_idle {
+                     pinctrl-single,pins = <0x188    0x0>;
+		};
+
+		GPIO_5_3_pmx_func: GPIO_5_3_pmx_func {
+                     pinctrl-single,pins = <0x18C    0x0>;
+		};
+		GPIO_5_3_pmx_idle: GPIO_5_3_pmx_idle {
+                     pinctrl-single,pins = <0x18C    0x0>;
+		};
+
+		GPIO_5_4_pmx_func: GPIO_5_4_pmx_func {
+                     pinctrl-single,pins = <0x190    0x3>;
+		};
+		GPIO_5_4_pmx_idle: GPIO_5_4_pmx_idle {
+                     pinctrl-single,pins = <0x190    0x3>;
+		};
+
+		GPIO_5_5_pmx_func: GPIO_5_5_pmx_func {
+                     pinctrl-single,pins = <0x194    0x0>;
+		};
+		GPIO_5_5_pmx_idle: GPIO_5_5_pmx_idle {
+                     pinctrl-single,pins = <0x194    0x0>;
+		};
+
+		GPIO_5_6_pmx_func: GPIO_5_6_pmx_func {
+                     pinctrl-single,pins = <0x198    0x0>;
+		};
+		GPIO_5_6_pmx_idle: GPIO_5_6_pmx_idle {
+                     pinctrl-single,pins = <0x198    0x0>;
+		};
+
+		GPIO_5_7_pmx_func: GPIO_5_7_pmx_func {
+                     pinctrl-single,pins = <0x19C    0x0>;
+		};
+		GPIO_5_7_pmx_idle: GPIO_5_7_pmx_idle {
+                     pinctrl-single,pins = <0x19C    0x0>;
+		};
+
+		GPIO_6_0_pmx_func: GPIO_6_0_pmx_func {
+                     pinctrl-single,pins = <0x1A0    0x0>;
+		};
+		GPIO_6_0_pmx_idle: GPIO_6_0_pmx_idle {
+                     pinctrl-single,pins = <0x1A0    0x0>;
+		};
+
+		GPIO_6_1_pmx_func: GPIO_6_1_pmx_func {
+                     pinctrl-single,pins = <0x1A4    0x0>;
+		};
+		GPIO_6_1_pmx_idle: GPIO_6_1_pmx_idle {
+                     pinctrl-single,pins = <0x1A4    0x0>;
+		};
+
+		GPIO_6_2_pmx_func: GPIO_6_2_pmx_func {
+                     pinctrl-single,pins = <0x1A8    0x0>;
+		};
+		GPIO_6_2_pmx_idle: GPIO_6_2_pmx_idle {
+                     pinctrl-single,pins = <0x1A8    0x0>;
+		};
+
+		GPIO_6_3_pmx_func: GPIO_6_3_pmx_func {
+                     pinctrl-single,pins = <0x1AC    0x0>;
+		};
+		GPIO_6_3_pmx_idle: GPIO_6_3_pmx_idle {
+                     pinctrl-single,pins = <0x1AC    0x0>;
+		};
+
+		GPIO_6_4_pmx_func: GPIO_6_4_pmx_func {
+                     pinctrl-single,pins = <0x1B0    0x3>;
+		};
+		GPIO_6_4_pmx_idle: GPIO_6_4_pmx_idle {
+                     pinctrl-single,pins = <0x1B0    0x3>;
+		};
+
+		GPIO_6_5_pmx_func: GPIO_6_5_pmx_func {
+                     pinctrl-single,pins = <0x1B4    0x1>;
+		};
+		GPIO_6_5_pmx_idle: GPIO_6_5_pmx_idle {
+                     pinctrl-single,pins = <0x1B4    0x1>;
+		};
+
+		GPIO_6_6_pmx_func: GPIO_6_6_pmx_func {
+                     pinctrl-single,pins = <0x1B8    0x0>;
+		};
+		GPIO_6_6_pmx_idle: GPIO_6_6_pmx_idle {
+                     pinctrl-single,pins = <0x1B8    0x0>;
+		};
+
+		GPIO_6_7_pmx_func: GPIO_6_7_pmx_func {
+                     pinctrl-single,pins = <0x1BC    0x1>;
+		};
+		GPIO_6_7_pmx_idle: GPIO_6_7_pmx_idle {
+                     pinctrl-single,pins = <0x1BC    0x1>;
+		};
+
+		GPIO_7_0_pmx_func: GPIO_7_0_pmx_func {
+                     pinctrl-single,pins = <0x1C0    0x0>;
+		};
+		GPIO_7_0_pmx_idle: GPIO_7_0_pmx_idle {
+                     pinctrl-single,pins = <0x1C0    0x0>;
+		};
+
+		GPIO_7_1_pmx_func: GPIO_7_1_pmx_func {
+                     pinctrl-single,pins = <0x1C4    0x0>;
+		};
+		GPIO_7_1_pmx_idle: GPIO_7_1_pmx_idle {
+                     pinctrl-single,pins = <0x1C4    0x0>;
+		};
+
+		GPIO_7_4_pmx_func: GPIO_7_4_pmx_func {
+                     pinctrl-single,pins = <0x1D0    0x0>;
+		};
+		GPIO_7_4_pmx_idle: GPIO_7_4_pmx_idle {
+                     pinctrl-single,pins = <0x1D0    0x0>;
+		};
+
+		GPIO_7_5_pmx_func: GPIO_7_5_pmx_func {
+                     pinctrl-single,pins = <0x1D4    0x0>;
+		};
+		GPIO_7_5_pmx_idle: GPIO_7_5_pmx_idle {
+                     pinctrl-single,pins = <0x1D4    0x0>;
+		};
+
+		GPIO_7_6_pmx_func: GPIO_7_6_pmx_func {
+                     pinctrl-single,pins = <0x1D8    0x1>;
+		};
+		GPIO_7_6_pmx_idle: GPIO_7_6_pmx_idle {
+                     pinctrl-single,pins = <0x1D8    0x1>;
+		};
+
+		GPIO_7_7_pmx_func: GPIO_7_7_pmx_func {
+                     pinctrl-single,pins = <0x1DC    0x1>;
+		};
+		GPIO_7_7_pmx_idle: GPIO_7_7_pmx_idle {
+                     pinctrl-single,pins = <0x1DC    0x1>;
+		};
+
+		GPIO_8_0_pmx_func: GPIO_8_0_pmx_func {
+                     pinctrl-single,pins = <0x1E0    0x0>;
+		};
+		GPIO_8_0_pmx_idle: GPIO_8_0_pmx_idle {
+                     pinctrl-single,pins = <0x1E0    0x0>;
+		};
+
+		GPIO_8_1_pmx_func: GPIO_8_1_pmx_func {
+                     pinctrl-single,pins = <0x1E4    0x0>;
+		};
+		GPIO_8_1_pmx_idle: GPIO_8_1_pmx_idle {
+                     pinctrl-single,pins = <0x1E4    0x0>;
+		};
+
+       };
+
+    pmx1: pinmux@F7010800 {
+		BOOT_SEL_cfg_func: BOOT_SEL_cfg_func {
+                     pinctrl-single,pins = <0x0  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <1 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		BOOT_SEL_cfg_idle: BOOT_SEL_cfg_idle {
+                     pinctrl-single,pins = <0x0  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <1 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		PMU_SSI_cfg_func: PMU_SSI_cfg_func {
+                     pinctrl-single,pins = <0x4  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		PMU_SSI_cfg_idle: PMU_SSI_cfg_idle {
+                     pinctrl-single,pins = <0x4  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		GPIO_8_2_cfg_func: GPIO_8_2_cfg_func {
+                     pinctrl-single,pins = <0x8  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		GPIO_8_2_cfg_idle: GPIO_8_2_cfg_idle {
+                     pinctrl-single,pins = <0x8  0>;
+                     pinctrl-single,bias-pulldown = <2 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		SD_CLK_cfg_func: SD_CLK_cfg_func {
+                     pinctrl-single,pins = <0xC  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x30 0x70>;
+		};
+		SD_CLK_cfg_idle: SD_CLK_cfg_idle {
+                     pinctrl-single,pins = <0xC  0>;
+                     pinctrl-single,bias-pulldown = <2 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		SD_CMD_cfg_func: SD_CMD_cfg_func {
+                     pinctrl-single,pins = <0x10  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x20 0x70>;
+		};
+		SD_CMD_cfg_idle: SD_CMD_cfg_idle {
+                     pinctrl-single,pins = <0x10  0>;
+                     pinctrl-single,bias-pulldown = <2 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		SD_DATA0_cfg_func: SD_DATA0_cfg_func {
+                     pinctrl-single,pins = <0x14  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x20 0x70>;
+		};
+		SD_DATA0_cfg_idle: SD_DATA0_cfg_idle {
+                     pinctrl-single,pins = <0x14  0>;
+                     pinctrl-single,bias-pulldown = <2 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		SD_DATA1_cfg_func: SD_DATA1_cfg_func {
+                     pinctrl-single,pins = <0x18  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x20 0x70>;
+		};
+		SD_DATA1_cfg_idle: SD_DATA1_cfg_idle {
+                     pinctrl-single,pins = <0x18  0>;
+                     pinctrl-single,bias-pulldown = <2 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		SD_DATA2_cfg_func: SD_DATA2_cfg_func {
+                     pinctrl-single,pins = <0x1C  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x20 0x70>;
+		};
+		SD_DATA2_cfg_idle: SD_DATA2_cfg_idle {
+                     pinctrl-single,pins = <0x1C  0>;
+                     pinctrl-single,bias-pulldown = <2 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		SD_DATA3_cfg_func: SD_DATA3_cfg_func {
+                     pinctrl-single,pins = <0x20  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x20 0x70>;
+		};
+		SD_DATA3_cfg_idle: SD_DATA3_cfg_idle {
+                     pinctrl-single,pins = <0x20  0>;
+                     pinctrl-single,bias-pulldown = <2 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		ISP_PWDN0_cfg_func: ISP_PWDN0_cfg_func {
+                     pinctrl-single,pins = <0x28  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		ISP_PWDN0_cfg_idle: ISP_PWDN0_cfg_idle {
+                     pinctrl-single,pins = <0x28  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		ISP_PWDN1_cfg_func: ISP_PWDN1_cfg_func {
+                     pinctrl-single,pins = <0x2C  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		ISP_PWDN1_cfg_idle: ISP_PWDN1_cfg_idle {
+                     pinctrl-single,pins = <0x2C  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		ISP_PWDN2_cfg_func: ISP_PWDN2_cfg_func {
+                     pinctrl-single,pins = <0x30  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		ISP_PWDN2_cfg_idle: ISP_PWDN2_cfg_idle {
+                     pinctrl-single,pins = <0x30  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		ISP_SHUTTER0_cfg_func: ISP_SHUTTER0_cfg_func {
+                     pinctrl-single,pins = <0x34  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		ISP_SHUTTER0_cfg_idle: ISP_SHUTTER0_cfg_idle {
+                     pinctrl-single,pins = <0x34  0>;
+                     pinctrl-single,bias-pulldown = <2 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		ISP_SHUTTER1_cfg_func: ISP_SHUTTER1_cfg_func {
+                     pinctrl-single,pins = <0x38  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		ISP_SHUTTER1_cfg_idle: ISP_SHUTTER1_cfg_idle {
+                     pinctrl-single,pins = <0x38  0>;
+                     pinctrl-single,bias-pulldown = <2 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		ISP_PWM_cfg_func: ISP_PWM_cfg_func {
+                     pinctrl-single,pins = <0x3C  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		ISP_PWM_cfg_idle: ISP_PWM_cfg_idle {
+                     pinctrl-single,pins = <0x3C  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		ISP_CCLK0_cfg_func: ISP_CCLK0_cfg_func {
+                     pinctrl-single,pins = <0x40  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		ISP_CCLK0_cfg_idle: ISP_CCLK0_cfg_idle {
+                     pinctrl-single,pins = <0x40  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		ISP_CCLK1_cfg_func: ISP_CCLK1_cfg_func {
+                     pinctrl-single,pins = <0x44  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		ISP_CCLK1_cfg_idle: ISP_CCLK1_cfg_idle {
+                     pinctrl-single,pins = <0x44  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		ISP_RESETB0_cfg_func: ISP_RESETB0_cfg_func {
+                     pinctrl-single,pins = <0x48  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		ISP_RESETB0_cfg_idle: ISP_RESETB0_cfg_idle {
+                     pinctrl-single,pins = <0x48  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		ISP_RESETB1_cfg_func: ISP_RESETB1_cfg_func {
+                     pinctrl-single,pins = <0x4C  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		ISP_RESETB1_cfg_idle: ISP_RESETB1_cfg_idle {
+                     pinctrl-single,pins = <0x4C  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		ISP_STROBE0_cfg_func: ISP_STROBE0_cfg_func {
+                     pinctrl-single,pins = <0x50  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		ISP_STROBE0_cfg_idle: ISP_STROBE0_cfg_idle {
+                     pinctrl-single,pins = <0x50  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		ISP_STROBE1_cfg_func: ISP_STROBE1_cfg_func {
+                     pinctrl-single,pins = <0x54  0>;
+                     pinctrl-single,bias-pulldown = <2 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		ISP_STROBE1_cfg_idle: ISP_STROBE1_cfg_idle {
+                     pinctrl-single,pins = <0x54  0>;
+                     pinctrl-single,bias-pulldown = <2 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		ISP_SDA0_cfg_func: ISP_SDA0_cfg_func {
+                     pinctrl-single,pins = <0x58  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		ISP_SDA0_cfg_idle: ISP_SDA0_cfg_idle {
+                     pinctrl-single,pins = <0x58  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		ISP_SCL0_cfg_func: ISP_SCL0_cfg_func {
+                     pinctrl-single,pins = <0x5C  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		ISP_SCL0_cfg_idle: ISP_SCL0_cfg_idle {
+                     pinctrl-single,pins = <0x5C  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		ISP_SDA1_cfg_func: ISP_SDA1_cfg_func {
+                     pinctrl-single,pins = <0x60  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		ISP_SDA1_cfg_idle: ISP_SDA1_cfg_idle {
+                     pinctrl-single,pins = <0x60  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		ISP_SCL1_cfg_func: ISP_SCL1_cfg_func {
+                     pinctrl-single,pins = <0x64  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		ISP_SCL1_cfg_idle: ISP_SCL1_cfg_idle {
+                     pinctrl-single,pins = <0x64  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		GPIO_11_2_cfg_func: GPIO_11_2_cfg_func {
+                     pinctrl-single,pins = <0x68  0>;
+                     pinctrl-single,bias-pulldown = <2 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		GPIO_11_2_cfg_idle: GPIO_11_2_cfg_idle {
+                     pinctrl-single,pins = <0x68  0>;
+                     pinctrl-single,bias-pulldown = <2 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		HKADC_SSI_cfg_func: HKADC_SSI_cfg_func {
+                     pinctrl-single,pins = <0x6C  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		HKADC_SSI_cfg_idle: HKADC_SSI_cfg_idle {
+                     pinctrl-single,pins = <0x6C  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		CODEC_CLK_cfg_func: CODEC_CLK_cfg_func {
+                     pinctrl-single,pins = <0x70  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x10 0x70>;
+		};
+		CODEC_CLK_cfg_idle: CODEC_CLK_cfg_idle {
+                     pinctrl-single,pins = <0x70  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		DMIC_CLK_cfg_func: DMIC_CLK_cfg_func {
+                     pinctrl-single,pins = <0x74  0>;
+                     pinctrl-single,bias-pulldown = <2 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		DMIC_CLK_cfg_idle: DMIC_CLK_cfg_idle {
+                     pinctrl-single,pins = <0x74  0>;
+                     pinctrl-single,bias-pulldown = <2 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		CODEC_SYNC_cfg_func: CODEC_SYNC_cfg_func {
+                     pinctrl-single,pins = <0x78  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x10 0x70>;
+		};
+		CODEC_SYNC_cfg_idle: CODEC_SYNC_cfg_idle {
+                     pinctrl-single,pins = <0x78  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		CODEC_DATAIN_cfg_func: CODEC_DATAIN_cfg_func {
+                     pinctrl-single,pins = <0x7C  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x10 0x70>;
+		};
+		CODEC_DATAIN_cfg_idle: CODEC_DATAIN_cfg_idle {
+                     pinctrl-single,pins = <0x7C  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		CODEC_DATAOUT_cfg_func: CODEC_DATAOUT_cfg_func {
+                     pinctrl-single,pins = <0x80  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x10 0x70>;
+		};
+		CODEC_DATAOUT_cfg_idle: CODEC_DATAOUT_cfg_idle {
+                     pinctrl-single,pins = <0x80  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		FM_XCLK_cfg_func: FM_XCLK_cfg_func {
+                     pinctrl-single,pins = <0x84  0>;
+                     pinctrl-single,bias-pulldown = <2 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		FM_XCLK_cfg_idle: FM_XCLK_cfg_idle {
+                     pinctrl-single,pins = <0x84  0>;
+                     pinctrl-single,bias-pulldown = <2 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		FM_XFS_cfg_func: FM_XFS_cfg_func {
+                     pinctrl-single,pins = <0x88  0>;
+                     pinctrl-single,bias-pulldown = <2 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		FM_XFS_cfg_idle: FM_XFS_cfg_idle {
+                     pinctrl-single,pins = <0x88  0>;
+                     pinctrl-single,bias-pulldown = <2 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		FM_DI_cfg_func: FM_DI_cfg_func {
+                     pinctrl-single,pins = <0x8C  0>;
+                     pinctrl-single,bias-pulldown = <2 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		FM_DI_cfg_idle: FM_DI_cfg_idle {
+                     pinctrl-single,pins = <0x8C  0>;
+                     pinctrl-single,bias-pulldown = <2 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		FM_DO_cfg_func: FM_DO_cfg_func {
+                     pinctrl-single,pins = <0x90  0>;
+                     pinctrl-single,bias-pulldown = <2 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		FM_DO_cfg_idle: FM_DO_cfg_idle {
+                     pinctrl-single,pins = <0x90  0>;
+                     pinctrl-single,bias-pulldown = <2 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		BT_XCLK_cfg_func: BT_XCLK_cfg_func {
+                     pinctrl-single,pins = <0x94  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		BT_XCLK_cfg_idle: BT_XCLK_cfg_idle {
+                     pinctrl-single,pins = <0x94  0>;
+                     pinctrl-single,bias-pulldown = <2 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		BT_XFS_cfg_func: BT_XFS_cfg_func {
+                     pinctrl-single,pins = <0x98  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		BT_XFS_cfg_idle: BT_XFS_cfg_idle {
+                     pinctrl-single,pins = <0x98  0>;
+                     pinctrl-single,bias-pulldown = <2 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		BT_DI_cfg_func: BT_DI_cfg_func {
+                     pinctrl-single,pins = <0x9C  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		BT_DI_cfg_idle: BT_DI_cfg_idle {
+                     pinctrl-single,pins = <0x9C  0>;
+                     pinctrl-single,bias-pulldown = <2 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		BT_DO_cfg_func: BT_DO_cfg_func {
+                     pinctrl-single,pins = <0xA0  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		BT_DO_cfg_idle: BT_DO_cfg_idle {
+                     pinctrl-single,pins = <0xA0  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		PWM_IN_cfg_func: PWM_IN_cfg_func {
+                     pinctrl-single,pins = <0xBC  0>;
+                     pinctrl-single,bias-pulldown = <2 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		PWM_IN_cfg_idle: PWM_IN_cfg_idle {
+                     pinctrl-single,pins = <0xBC  0>;
+                     pinctrl-single,bias-pulldown = <2 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		BL_PWM_cfg_func: BL_PWM_cfg_func {
+                     pinctrl-single,pins = <0xC0  0>;
+                     pinctrl-single,bias-pulldown = <2 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		BL_PWM_cfg_idle: BL_PWM_cfg_idle {
+                     pinctrl-single,pins = <0xC0  0>;
+                     pinctrl-single,bias-pulldown = <2 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		UART0_RXD_cfg_func: UART0_RXD_cfg_func {
+                     pinctrl-single,pins = <0xC4  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <1 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		UART0_RXD_cfg_idle: UART0_RXD_cfg_idle {
+                     pinctrl-single,pins = <0xC4  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <1 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		UART0_TXD_cfg_func: UART0_TXD_cfg_func {
+                     pinctrl-single,pins = <0xC8  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x10 0x70>;
+		};
+		UART0_TXD_cfg_idle: UART0_TXD_cfg_idle {
+                     pinctrl-single,pins = <0xC8  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x10 0x70>;
+		};
+
+		UART1_CTS_N_cfg_func: UART1_CTS_N_cfg_func {
+                     pinctrl-single,pins = <0xCC  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <1 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		UART1_CTS_N_cfg_idle: UART1_CTS_N_cfg_idle {
+                     pinctrl-single,pins = <0xCC  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <1 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		UART1_RTS_N_cfg_func: UART1_RTS_N_cfg_func {
+                     pinctrl-single,pins = <0xD0  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		UART1_RTS_N_cfg_idle: UART1_RTS_N_cfg_idle {
+                     pinctrl-single,pins = <0xD0  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		UART1_RXD_cfg_func: UART1_RXD_cfg_func {
+                     pinctrl-single,pins = <0xD4  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <1 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		UART1_RXD_cfg_idle: UART1_RXD_cfg_idle {
+                     pinctrl-single,pins = <0xD4  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <1 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		UART1_TXD_cfg_func: UART1_TXD_cfg_func {
+                     pinctrl-single,pins = <0xD8  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		UART1_TXD_cfg_idle: UART1_TXD_cfg_idle {
+                     pinctrl-single,pins = <0xD8  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		UART2_CTS_N_cfg_func: UART2_CTS_N_cfg_func {
+                     pinctrl-single,pins = <0xDC  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		UART2_CTS_N_cfg_idle: UART2_CTS_N_cfg_idle {
+                     pinctrl-single,pins = <0xDC  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		UART2_RTS_N_cfg_func: UART2_RTS_N_cfg_func {
+                     pinctrl-single,pins = <0xE0  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		UART2_RTS_N_cfg_idle: UART2_RTS_N_cfg_idle {
+                     pinctrl-single,pins = <0xE0  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		UART2_RXD_cfg_func: UART2_RXD_cfg_func {
+                     pinctrl-single,pins = <0xE4  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		UART2_RXD_cfg_idle: UART2_RXD_cfg_idle {
+                     pinctrl-single,pins = <0xE4  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		UART2_TXD_cfg_func: UART2_TXD_cfg_func {
+                     pinctrl-single,pins = <0xE8  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		UART2_TXD_cfg_idle: UART2_TXD_cfg_idle {
+                     pinctrl-single,pins = <0xE8  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		I2C0_SCL_cfg_func: I2C0_SCL_cfg_func {
+                     pinctrl-single,pins = <0xEC  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		I2C0_SCL_cfg_idle: I2C0_SCL_cfg_idle {
+                     pinctrl-single,pins = <0xEC  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		I2C0_SDA_cfg_func: I2C0_SDA_cfg_func {
+                     pinctrl-single,pins = <0xF0  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		I2C0_SDA_cfg_idle: I2C0_SDA_cfg_idle {
+                     pinctrl-single,pins = <0xF0  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		I2C1_SCL_cfg_func: I2C1_SCL_cfg_func {
+                     pinctrl-single,pins = <0xF4  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		I2C1_SCL_cfg_idle: I2C1_SCL_cfg_idle {
+                     pinctrl-single,pins = <0xF4  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		I2C1_SDA_cfg_func: I2C1_SDA_cfg_func {
+                     pinctrl-single,pins = <0xF8  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		I2C1_SDA_cfg_idle: I2C1_SDA_cfg_idle {
+                     pinctrl-single,pins = <0xF8  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		I2C2_SCL_cfg_func: I2C2_SCL_cfg_func {
+                     pinctrl-single,pins = <0xFC  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		I2C2_SCL_cfg_idle: I2C2_SCL_cfg_idle {
+                     pinctrl-single,pins = <0xFC  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		I2C2_SDA_cfg_func: I2C2_SDA_cfg_func {
+                     pinctrl-single,pins = <0x100  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		I2C2_SDA_cfg_idle: I2C2_SDA_cfg_idle {
+                     pinctrl-single,pins = <0x100  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		EMMC_CLK_cfg_func: EMMC_CLK_cfg_func {
+                     pinctrl-single,pins = <0x104  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x20 0x70>;
+		};
+		EMMC_CLK_cfg_idle: EMMC_CLK_cfg_idle {
+                     pinctrl-single,pins = <0x104  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x20 0x70>;
+		};
+
+		EMMC_CMD_cfg_func: EMMC_CMD_cfg_func {
+                     pinctrl-single,pins = <0x108  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <1 1 0 1>;
+                     pinctrl-single,drive-strength = <0x10 0x70>;
+		};
+		EMMC_CMD_cfg_idle: EMMC_CMD_cfg_idle {
+                     pinctrl-single,pins = <0x108  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <1 1 0 1>;
+                     pinctrl-single,drive-strength = <0x10 0x70>;
+		};
+
+		EMMC_DATA0_cfg_func: EMMC_DATA0_cfg_func {
+                     pinctrl-single,pins = <0x10C  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <1 1 0 1>;
+                     pinctrl-single,drive-strength = <0x10 0x70>;
+		};
+		EMMC_DATA0_cfg_idle: EMMC_DATA0_cfg_idle {
+                     pinctrl-single,pins = <0x10C  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <1 1 0 1>;
+                     pinctrl-single,drive-strength = <0x10 0x70>;
+		};
+
+		EMMC_DATA1_cfg_func: EMMC_DATA1_cfg_func {
+                     pinctrl-single,pins = <0x110  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <1 1 0 1>;
+                     pinctrl-single,drive-strength = <0x10 0x70>;
+		};
+		EMMC_DATA1_cfg_idle: EMMC_DATA1_cfg_idle {
+                     pinctrl-single,pins = <0x110  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <1 1 0 1>;
+                     pinctrl-single,drive-strength = <0x10 0x70>;
+		};
+
+		EMMC_DATA2_cfg_func: EMMC_DATA2_cfg_func {
+                     pinctrl-single,pins = <0x114  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <1 1 0 1>;
+                     pinctrl-single,drive-strength = <0x10 0x70>;
+		};
+		EMMC_DATA2_cfg_idle: EMMC_DATA2_cfg_idle {
+                     pinctrl-single,pins = <0x114  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <1 1 0 1>;
+                     pinctrl-single,drive-strength = <0x10 0x70>;
+		};
+
+		EMMC_DATA3_cfg_func: EMMC_DATA3_cfg_func {
+                     pinctrl-single,pins = <0x118  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <1 1 0 1>;
+                     pinctrl-single,drive-strength = <0x10 0x70>;
+		};
+		EMMC_DATA3_cfg_idle: EMMC_DATA3_cfg_idle {
+                     pinctrl-single,pins = <0x118  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <1 1 0 1>;
+                     pinctrl-single,drive-strength = <0x10 0x70>;
+		};
+
+		EMMC_DATA4_cfg_func: EMMC_DATA4_cfg_func {
+                     pinctrl-single,pins = <0x11C  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <1 1 0 1>;
+                     pinctrl-single,drive-strength = <0x10 0x70>;
+		};
+		EMMC_DATA4_cfg_idle: EMMC_DATA4_cfg_idle {
+                     pinctrl-single,pins = <0x11C  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <1 1 0 1>;
+                     pinctrl-single,drive-strength = <0x10 0x70>;
+		};
+
+		EMMC_DATA5_cfg_func: EMMC_DATA5_cfg_func {
+                     pinctrl-single,pins = <0x120  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <1 1 0 1>;
+                     pinctrl-single,drive-strength = <0x10 0x70>;
+		};
+		EMMC_DATA5_cfg_idle: EMMC_DATA5_cfg_idle {
+                     pinctrl-single,pins = <0x120  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <1 1 0 1>;
+                     pinctrl-single,drive-strength = <0x10 0x70>;
+		};
+
+		EMMC_DATA6_cfg_func: EMMC_DATA6_cfg_func {
+                     pinctrl-single,pins = <0x124  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <1 1 0 1>;
+                     pinctrl-single,drive-strength = <0x10 0x70>;
+		};
+		EMMC_DATA6_cfg_idle: EMMC_DATA6_cfg_idle {
+                     pinctrl-single,pins = <0x124  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <1 1 0 1>;
+                     pinctrl-single,drive-strength = <0x10 0x70>;
+		};
+
+		EMMC_DATA7_cfg_func: EMMC_DATA7_cfg_func {
+                     pinctrl-single,pins = <0x128  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <1 1 0 1>;
+                     pinctrl-single,drive-strength = <0x10 0x70>;
+		};
+		EMMC_DATA7_cfg_idle: EMMC_DATA7_cfg_idle {
+                     pinctrl-single,pins = <0x128  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <1 1 0 1>;
+                     pinctrl-single,drive-strength = <0x10 0x70>;
+		};
+
+		EMMC_RST_N_cfg_func: EMMC_RST_N_cfg_func {
+                     pinctrl-single,pins = <0x12C  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x10 0x70>;
+		};
+		EMMC_RST_N_cfg_idle: EMMC_RST_N_cfg_idle {
+                     pinctrl-single,pins = <0x12C  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x10 0x70>;
+		};
+
+		SDIO_CLK_cfg_func: SDIO_CLK_cfg_func {
+                     pinctrl-single,pins = <0x134  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x20 0x70>;
+		};
+		SDIO_CLK_cfg_idle: SDIO_CLK_cfg_idle {
+                     pinctrl-single,pins = <0x134  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		SDIO_CMD_cfg_func: SDIO_CMD_cfg_func {
+                     pinctrl-single,pins = <0x138  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <1 1 0 1>;
+                     pinctrl-single,drive-strength = <0x10 0x70>;
+		};
+		SDIO_CMD_cfg_idle: SDIO_CMD_cfg_idle {
+                     pinctrl-single,pins = <0x138  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <1 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		SDIO_DATA0_cfg_func: SDIO_DATA0_cfg_func {
+                     pinctrl-single,pins = <0x13C  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <1 1 0 1>;
+                     pinctrl-single,drive-strength = <0x10 0x70>;
+		};
+		SDIO_DATA0_cfg_idle: SDIO_DATA0_cfg_idle {
+                     pinctrl-single,pins = <0x13C  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <1 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		SDIO_DATA1_cfg_func: SDIO_DATA1_cfg_func {
+                     pinctrl-single,pins = <0x140  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <1 1 0 1>;
+                     pinctrl-single,drive-strength = <0x10 0x70>;
+		};
+		SDIO_DATA1_cfg_idle: SDIO_DATA1_cfg_idle {
+                     pinctrl-single,pins = <0x140  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <1 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		SDIO_DATA2_cfg_func: SDIO_DATA2_cfg_func {
+                     pinctrl-single,pins = <0x144  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <1 1 0 1>;
+                     pinctrl-single,drive-strength = <0x10 0x70>;
+		};
+		SDIO_DATA2_cfg_idle: SDIO_DATA2_cfg_idle {
+                     pinctrl-single,pins = <0x144  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <1 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		SDIO_DATA3_cfg_func: SDIO_DATA3_cfg_func {
+                     pinctrl-single,pins = <0x148  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <1 1 0 1>;
+                     pinctrl-single,drive-strength = <0x10 0x70>;
+		};
+		SDIO_DATA3_cfg_idle: SDIO_DATA3_cfg_idle {
+                     pinctrl-single,pins = <0x148  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <1 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		GPIO_3_0_cfg_func: GPIO_3_0_cfg_func {
+                     pinctrl-single,pins = <0x150  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <1 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		GPIO_3_0_cfg_idle: GPIO_3_0_cfg_idle {
+                     pinctrl-single,pins = <0x150  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <1 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		GPIO_3_1_cfg_func: GPIO_3_1_cfg_func {
+                     pinctrl-single,pins = <0x154  0>;
+                     pinctrl-single,bias-pulldown = <2 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		GPIO_3_1_cfg_idle: GPIO_3_1_cfg_idle {
+                     pinctrl-single,pins = <0x154  0>;
+                     pinctrl-single,bias-pulldown = <2 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		GPIO_3_2_cfg_func: GPIO_3_2_cfg_func {
+                     pinctrl-single,pins = <0x158  0>;
+                     pinctrl-single,bias-pulldown = <2 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		GPIO_3_2_cfg_idle: GPIO_3_2_cfg_idle {
+                     pinctrl-single,pins = <0x158  0>;
+                     pinctrl-single,bias-pulldown = <2 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		GPIO_3_3_cfg_func: GPIO_3_3_cfg_func {
+                     pinctrl-single,pins = <0x15C  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		GPIO_3_3_cfg_idle: GPIO_3_3_cfg_idle {
+                     pinctrl-single,pins = <0x15C  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		AUX_SSI0_cfg_func: AUX_SSI0_cfg_func {
+                     pinctrl-single,pins = <0x160  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		AUX_SSI0_cfg_idle: AUX_SSI0_cfg_idle {
+                     pinctrl-single,pins = <0x160  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		GPIO_3_5_cfg_func: GPIO_3_5_cfg_func {
+                     pinctrl-single,pins = <0x164  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		GPIO_3_5_cfg_idle: GPIO_3_5_cfg_idle {
+                     pinctrl-single,pins = <0x164  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		GPIO_3_6_cfg_func: GPIO_3_6_cfg_func {
+                     pinctrl-single,pins = <0x168  0>;
+                     pinctrl-single,bias-pulldown = <2 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		GPIO_3_6_cfg_idle: GPIO_3_6_cfg_idle {
+                     pinctrl-single,pins = <0x168  0>;
+                     pinctrl-single,bias-pulldown = <2 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		GPIO_3_7_cfg_func: GPIO_3_7_cfg_func {
+                     pinctrl-single,pins = <0x16C  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		GPIO_3_7_cfg_idle: GPIO_3_7_cfg_idle {
+                     pinctrl-single,pins = <0x16C  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		GPIO_4_0_cfg_func: GPIO_4_0_cfg_func {
+                     pinctrl-single,pins = <0x170  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		GPIO_4_0_cfg_idle: GPIO_4_0_cfg_idle {
+                     pinctrl-single,pins = <0x170  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		GPIO_4_1_cfg_func: GPIO_4_1_cfg_func {
+                     pinctrl-single,pins = <0x174  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		GPIO_4_1_cfg_idle: GPIO_4_1_cfg_idle {
+                     pinctrl-single,pins = <0x174  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		GPIO_4_2_cfg_func: GPIO_4_2_cfg_func {
+                     pinctrl-single,pins = <0x178  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		GPIO_4_2_cfg_idle: GPIO_4_2_cfg_idle {
+                     pinctrl-single,pins = <0x178  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		GPIO_4_3_cfg_func: GPIO_4_3_cfg_func {
+                     pinctrl-single,pins = <0x17C  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		GPIO_4_3_cfg_idle: GPIO_4_3_cfg_idle {
+                     pinctrl-single,pins = <0x17C  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		GPIO_4_4_cfg_func: GPIO_4_4_cfg_func {
+                     pinctrl-single,pins = <0x180  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		GPIO_4_4_cfg_idle: GPIO_4_4_cfg_idle {
+                     pinctrl-single,pins = <0x180  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		GPIO_4_5_cfg_func: GPIO_4_5_cfg_func {
+                     pinctrl-single,pins = <0x184  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		GPIO_4_5_cfg_idle: GPIO_4_5_cfg_idle {
+                     pinctrl-single,pins = <0x184  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		GPIO_4_6_cfg_func: GPIO_4_6_cfg_func {
+                     pinctrl-single,pins = <0x188  0>;
+                     pinctrl-single,bias-pulldown = <2 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		GPIO_4_6_cfg_idle: GPIO_4_6_cfg_idle {
+                     pinctrl-single,pins = <0x188  0>;
+                     pinctrl-single,bias-pulldown = <2 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		GPIO_4_7_cfg_func: GPIO_4_7_cfg_func {
+                     pinctrl-single,pins = <0x18C  0>;
+                     pinctrl-single,bias-pulldown = <2 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		GPIO_4_7_cfg_idle: GPIO_4_7_cfg_idle {
+                     pinctrl-single,pins = <0x18C  0>;
+                     pinctrl-single,bias-pulldown = <2 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		GPIO_5_0_cfg_func: GPIO_5_0_cfg_func {
+                     pinctrl-single,pins = <0x190  0>;
+                     pinctrl-single,bias-pulldown = <2 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		GPIO_5_0_cfg_idle: GPIO_5_0_cfg_idle {
+                     pinctrl-single,pins = <0x190  0>;
+                     pinctrl-single,bias-pulldown = <2 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		GPIO_5_1_cfg_func: GPIO_5_1_cfg_func {
+                     pinctrl-single,pins = <0x194  0>;
+                     pinctrl-single,bias-pulldown = <2 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		GPIO_5_1_cfg_idle: GPIO_5_1_cfg_idle {
+                     pinctrl-single,pins = <0x194  0>;
+                     pinctrl-single,bias-pulldown = <2 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		GPIO_5_2_cfg_func: GPIO_5_2_cfg_func {
+                     pinctrl-single,pins = <0x198  0>;
+                     pinctrl-single,bias-pulldown = <2 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		GPIO_5_2_cfg_idle: GPIO_5_2_cfg_idle {
+                     pinctrl-single,pins = <0x198  0>;
+                     pinctrl-single,bias-pulldown = <2 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		GPIO_5_3_cfg_func: GPIO_5_3_cfg_func {
+                     pinctrl-single,pins = <0x19C  0>;
+                     pinctrl-single,bias-pulldown = <2 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		GPIO_5_3_cfg_idle: GPIO_5_3_cfg_idle {
+                     pinctrl-single,pins = <0x19C  0>;
+                     pinctrl-single,bias-pulldown = <2 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		GPIO_5_4_cfg_func: GPIO_5_4_cfg_func {
+                     pinctrl-single,pins = <0x1A0  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		GPIO_5_4_cfg_idle: GPIO_5_4_cfg_idle {
+                     pinctrl-single,pins = <0x1A0  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		GPIO_5_5_cfg_func: GPIO_5_5_cfg_func {
+                     pinctrl-single,pins = <0x1A4  0>;
+                     pinctrl-single,bias-pulldown = <2 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		GPIO_5_5_cfg_idle: GPIO_5_5_cfg_idle {
+                     pinctrl-single,pins = <0x1A4  0>;
+                     pinctrl-single,bias-pulldown = <2 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		GPIO_5_6_cfg_func: GPIO_5_6_cfg_func {
+                     pinctrl-single,pins = <0x1A8  0>;
+                     pinctrl-single,bias-pulldown = <2 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		GPIO_5_6_cfg_idle: GPIO_5_6_cfg_idle {
+                     pinctrl-single,pins = <0x1A8  0>;
+                     pinctrl-single,bias-pulldown = <2 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		GPIO_5_7_cfg_func: GPIO_5_7_cfg_func {
+                     pinctrl-single,pins = <0x1AC  0>;
+                     pinctrl-single,bias-pulldown = <2 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		GPIO_5_7_cfg_idle: GPIO_5_7_cfg_idle {
+                     pinctrl-single,pins = <0x1AC  0>;
+                     pinctrl-single,bias-pulldown = <2 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		GPIO_6_0_cfg_func: GPIO_6_0_cfg_func {
+                     pinctrl-single,pins = <0x1B0  0>;
+                     pinctrl-single,bias-pulldown = <2 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		GPIO_6_0_cfg_idle: GPIO_6_0_cfg_idle {
+                     pinctrl-single,pins = <0x1B0  0>;
+                     pinctrl-single,bias-pulldown = <2 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		GPIO_6_1_cfg_func: GPIO_6_1_cfg_func {
+                     pinctrl-single,pins = <0x1B4  0>;
+                     pinctrl-single,bias-pulldown = <2 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		GPIO_6_1_cfg_idle: GPIO_6_1_cfg_idle {
+                     pinctrl-single,pins = <0x1B4  0>;
+                     pinctrl-single,bias-pulldown = <2 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		GPIO_6_2_cfg_func: GPIO_6_2_cfg_func {
+                     pinctrl-single,pins = <0x1B8  0>;
+                     pinctrl-single,bias-pulldown = <2 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		GPIO_6_2_cfg_idle: GPIO_6_2_cfg_idle {
+                     pinctrl-single,pins = <0x1B8  0>;
+                     pinctrl-single,bias-pulldown = <2 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		GPIO_6_3_cfg_func: GPIO_6_3_cfg_func {
+                     pinctrl-single,pins = <0x1BC  0>;
+                     pinctrl-single,bias-pulldown = <2 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		GPIO_6_3_cfg_idle: GPIO_6_3_cfg_idle {
+                     pinctrl-single,pins = <0x1BC  0>;
+                     pinctrl-single,bias-pulldown = <2 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		GPIO_6_4_cfg_func: GPIO_6_4_cfg_func {
+                     pinctrl-single,pins = <0x1C0  0>;
+                     pinctrl-single,bias-pulldown = <2 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		GPIO_6_4_cfg_idle: GPIO_6_4_cfg_idle {
+                     pinctrl-single,pins = <0x1C0  0>;
+                     pinctrl-single,bias-pulldown = <2 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		GPIO_6_5_cfg_func: GPIO_6_5_cfg_func {
+                     pinctrl-single,pins = <0x1C4  0>;
+                     pinctrl-single,bias-pulldown = <2 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		GPIO_6_5_cfg_idle: GPIO_6_5_cfg_idle {
+                     pinctrl-single,pins = <0x1C4  0>;
+                     pinctrl-single,bias-pulldown = <2 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		GPIO_6_6_cfg_func: GPIO_6_6_cfg_func {
+                     pinctrl-single,pins = <0x1C8  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		GPIO_6_6_cfg_idle: GPIO_6_6_cfg_idle {
+                     pinctrl-single,pins = <0x1C8  0>;
+                     pinctrl-single,bias-pulldown = <2 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		GPIO_6_7_cfg_func: GPIO_6_7_cfg_func {
+                     pinctrl-single,pins = <0x1CC  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		GPIO_6_7_cfg_idle: GPIO_6_7_cfg_idle {
+                     pinctrl-single,pins = <0x1CC  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		GPIO_7_0_cfg_func: GPIO_7_0_cfg_func {
+                     pinctrl-single,pins = <0x1D0  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		GPIO_7_0_cfg_idle: GPIO_7_0_cfg_idle {
+                     pinctrl-single,pins = <0x1D0  0>;
+                     pinctrl-single,bias-pulldown = <2 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		GPIO_7_1_cfg_func: GPIO_7_1_cfg_func {
+                     pinctrl-single,pins = <0x1D4  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <1 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		GPIO_7_1_cfg_idle: GPIO_7_1_cfg_idle {
+                     pinctrl-single,pins = <0x1D4  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <1 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		GPIO_7_4_cfg_func: GPIO_7_4_cfg_func {
+                     pinctrl-single,pins = <0x1E0  0>;
+                     pinctrl-single,bias-pulldown = <2 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		GPIO_7_4_cfg_idle: GPIO_7_4_cfg_idle {
+                     pinctrl-single,pins = <0x1E0  0>;
+                     pinctrl-single,bias-pulldown = <2 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		GPIO_7_5_cfg_func: GPIO_7_5_cfg_func {
+                     pinctrl-single,pins = <0x1E4  0>;
+                     pinctrl-single,bias-pulldown = <2 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		GPIO_7_5_cfg_idle: GPIO_7_5_cfg_idle {
+                     pinctrl-single,pins = <0x1E4  0>;
+                     pinctrl-single,bias-pulldown = <2 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		GPIO_7_6_cfg_func: GPIO_7_6_cfg_func {
+                     pinctrl-single,pins = <0x1E8  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <1 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		GPIO_7_6_cfg_idle: GPIO_7_6_cfg_idle {
+                     pinctrl-single,pins = <0x1E8  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <1 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		GPIO_7_7_cfg_func: GPIO_7_7_cfg_func {
+                     pinctrl-single,pins = <0x1EC  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		GPIO_7_7_cfg_idle: GPIO_7_7_cfg_idle {
+                     pinctrl-single,pins = <0x1EC  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		GPIO_8_0_cfg_func: GPIO_8_0_cfg_func {
+                     pinctrl-single,pins = <0x1F0  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		GPIO_8_0_cfg_idle: GPIO_8_0_cfg_idle {
+                     pinctrl-single,pins = <0x1F0  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		GPIO_8_1_cfg_func: GPIO_8_1_cfg_func {
+                     pinctrl-single,pins = <0x1F4  0>;
+                     pinctrl-single,bias-pulldown = <2 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		GPIO_8_1_cfg_idle: GPIO_8_1_cfg_idle {
+                     pinctrl-single,pins = <0x1F4  0>;
+                     pinctrl-single,bias-pulldown = <2 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+       };
+
+    pmx2: pinmux@F8001800 {
+		RSTOUT_N_cfg_func: RSTOUT_N_cfg_func {
+                     pinctrl-single,pins = <0x0  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		RSTOUT_N_cfg_idle: RSTOUT_N_cfg_idle {
+                     pinctrl-single,pins = <0x0  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		PMU_PERI_EN_cfg_func: PMU_PERI_EN_cfg_func {
+                     pinctrl-single,pins = <0x4  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		PMU_PERI_EN_cfg_idle: PMU_PERI_EN_cfg_idle {
+                     pinctrl-single,pins = <0x4  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		SYSCLK0_EN_cfg_func: SYSCLK0_EN_cfg_func {
+                     pinctrl-single,pins = <0x8  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		SYSCLK0_EN_cfg_idle: SYSCLK0_EN_cfg_idle {
+                     pinctrl-single,pins = <0x8  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		JTAG_TDO_cfg_func: JTAG_TDO_cfg_func {
+                     pinctrl-single,pins = <0xC  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x20 0x70>;
+		};
+		JTAG_TDO_cfg_idle: JTAG_TDO_cfg_idle {
+                     pinctrl-single,pins = <0xC  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x20 0x70>;
+		};
+
+		GPIO_0_0_cfg_func: GPIO_0_0_cfg_func {
+                     pinctrl-single,pins = <0x10  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		GPIO_0_0_cfg_idle: GPIO_0_0_cfg_idle {
+                     pinctrl-single,pins = <0x10  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		GPIO_0_1_cfg_func: GPIO_0_1_cfg_func {
+                     pinctrl-single,pins = <0x14  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		GPIO_0_1_cfg_idle: GPIO_0_1_cfg_idle {
+                     pinctrl-single,pins = <0x14  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		GPIO_0_2_cfg_func: GPIO_0_2_cfg_func {
+                     pinctrl-single,pins = <0x18  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		GPIO_0_2_cfg_idle: GPIO_0_2_cfg_idle {
+                     pinctrl-single,pins = <0x18  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		GPIO_0_3_cfg_func: GPIO_0_3_cfg_func {
+                     pinctrl-single,pins = <0x1C  0>;
+                     pinctrl-single,bias-pulldown = <2 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		GPIO_0_3_cfg_idle: GPIO_0_3_cfg_idle {
+                     pinctrl-single,pins = <0x1C  0>;
+                     pinctrl-single,bias-pulldown = <2 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		GPIO_0_4_cfg_func: GPIO_0_4_cfg_func {
+                     pinctrl-single,pins = <0x20  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <1 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		GPIO_0_4_cfg_idle: GPIO_0_4_cfg_idle {
+                     pinctrl-single,pins = <0x20  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <1 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		GPIO_0_5_cfg_func: GPIO_0_5_cfg_func {
+                     pinctrl-single,pins = <0x24  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		GPIO_0_5_cfg_idle: GPIO_0_5_cfg_idle {
+                     pinctrl-single,pins = <0x24  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		GPIO_0_6_cfg_func: GPIO_0_6_cfg_func {
+                     pinctrl-single,pins = <0x28  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		GPIO_0_6_cfg_idle: GPIO_0_6_cfg_idle {
+                     pinctrl-single,pins = <0x28  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		GPIO_0_7_cfg_func: GPIO_0_7_cfg_func {
+                     pinctrl-single,pins = <0x2C  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <1 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		GPIO_0_7_cfg_idle: GPIO_0_7_cfg_idle {
+                     pinctrl-single,pins = <0x2C  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <1 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		GPIO_1_0_cfg_func: GPIO_1_0_cfg_func {
+                     pinctrl-single,pins = <0x30  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <1 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		GPIO_1_0_cfg_idle: GPIO_1_0_cfg_idle {
+                     pinctrl-single,pins = <0x30  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <1 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		GPIO_1_1_cfg_func: GPIO_1_1_cfg_func {
+                     pinctrl-single,pins = <0x34  0>;
+                     pinctrl-single,bias-pulldown = <2 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		GPIO_1_1_cfg_idle: GPIO_1_1_cfg_idle {
+                     pinctrl-single,pins = <0x34  0>;
+                     pinctrl-single,bias-pulldown = <2 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		GPIO_1_2_cfg_func: GPIO_1_2_cfg_func {
+                     pinctrl-single,pins = <0x38  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		GPIO_1_2_cfg_idle: GPIO_1_2_cfg_idle {
+                     pinctrl-single,pins = <0x38  0>;
+                     pinctrl-single,bias-pulldown = <2 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		GPIO_1_3_cfg_func: GPIO_1_3_cfg_func {
+                     pinctrl-single,pins = <0x3C  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		GPIO_1_3_cfg_idle: GPIO_1_3_cfg_idle {
+                     pinctrl-single,pins = <0x3C  0>;
+                     pinctrl-single,bias-pulldown = <2 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		GPIO_1_4_cfg_func: GPIO_1_4_cfg_func {
+                     pinctrl-single,pins = <0x40  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		GPIO_1_4_cfg_idle: GPIO_1_4_cfg_idle {
+                     pinctrl-single,pins = <0x40  0>;
+                     pinctrl-single,bias-pulldown = <2 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		GPIO_1_5_cfg_func: GPIO_1_5_cfg_func {
+                     pinctrl-single,pins = <0x44  0>;
+                     pinctrl-single,bias-pulldown = <2 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		GPIO_1_5_cfg_idle: GPIO_1_5_cfg_idle {
+                     pinctrl-single,pins = <0x44  0>;
+                     pinctrl-single,bias-pulldown = <2 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		GPIO_1_6_cfg_func: GPIO_1_6_cfg_func {
+                     pinctrl-single,pins = <0x48  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <1 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		GPIO_1_6_cfg_idle: GPIO_1_6_cfg_idle {
+                     pinctrl-single,pins = <0x48  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <1 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		GPIO_1_7_cfg_func: GPIO_1_7_cfg_func {
+                     pinctrl-single,pins = <0x4C  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <1 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		GPIO_1_7_cfg_idle: GPIO_1_7_cfg_idle {
+                     pinctrl-single,pins = <0x4C  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <1 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		GPIO_2_0_cfg_func: GPIO_2_0_cfg_func {
+                     pinctrl-single,pins = <0x50  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		GPIO_2_0_cfg_idle: GPIO_2_0_cfg_idle {
+                     pinctrl-single,pins = <0x50  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		GPIO_2_1_cfg_func: GPIO_2_1_cfg_func {
+                     pinctrl-single,pins = <0x54  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		GPIO_2_1_cfg_idle: GPIO_2_1_cfg_idle {
+                     pinctrl-single,pins = <0x54  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		GPIO_2_2_cfg_func: GPIO_2_2_cfg_func {
+                     pinctrl-single,pins = <0x58  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		GPIO_2_2_cfg_idle: GPIO_2_2_cfg_idle {
+                     pinctrl-single,pins = <0x58  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		GPIO_2_3_cfg_func: GPIO_2_3_cfg_func {
+                     pinctrl-single,pins = <0x5C  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		GPIO_2_3_cfg_idle: GPIO_2_3_cfg_idle {
+                     pinctrl-single,pins = <0x5C  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		GPIO_2_4_cfg_func: GPIO_2_4_cfg_func {
+                     pinctrl-single,pins = <0x60  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		GPIO_2_4_cfg_idle: GPIO_2_4_cfg_idle {
+                     pinctrl-single,pins = <0x60  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		GPIO_2_5_cfg_func: GPIO_2_5_cfg_func {
+                     pinctrl-single,pins = <0x64  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		GPIO_2_5_cfg_idle: GPIO_2_5_cfg_idle {
+                     pinctrl-single,pins = <0x64  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		GPIO_2_6_cfg_func: GPIO_2_6_cfg_func {
+                     pinctrl-single,pins = <0x68  0>;
+                     pinctrl-single,bias-pulldown = <2 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		GPIO_2_6_cfg_idle: GPIO_2_6_cfg_idle {
+                     pinctrl-single,pins = <0x68  0>;
+                     pinctrl-single,bias-pulldown = <2 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		RF_RESET0_cfg_func: RF_RESET0_cfg_func {
+                     pinctrl-single,pins = <0x70  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		RF_RESET0_cfg_idle: RF_RESET0_cfg_idle {
+                     pinctrl-single,pins = <0x70  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+		RF_RESET1_cfg_func: RF_RESET1_cfg_func {
+                     pinctrl-single,pins = <0x74  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+		RF_RESET1_cfg_idle: RF_RESET1_cfg_idle {
+                     pinctrl-single,pins = <0x74  0>;
+                     pinctrl-single,bias-pulldown = <0 2 0 2>;
+                     pinctrl-single,bias-pullup = <0 1 0 1>;
+                     pinctrl-single,drive-strength = <0x00 0x70>;
+		};
+
+       };
+
+   };
+};

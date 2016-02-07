@@ -1,0 +1,13 @@
+#   Document no: @(#) $Name: VXWORKS_ITER18A_FRZ10 $ $RCSfile: common.vxconfig,v $ $Revision: 1.5.2.1.2.3 $
+#   $Source: /home/interpeak/CVSRoot/ipipsec2/config/common.vxconfig,v $
+#   $Author: ulf $
+#   $State: Exp $ $Locker:  $
+#
+#   INTERPEAK_COPYRIGHT_STRING
+
+config  COMPONENT_IPIPSEC
+        bool "Enable IPSEC"
+        default n
+        depends on MSP_KERNEL && !COMPONENT_IPLITE
+        help
+            This option enables IP Security (IPsec). IPsec provides authentication and encryption of IP datagrams. If this option is deselected INCLUDE_IP_SECURITY will not be available in a VxWorks Image Project (VIP).

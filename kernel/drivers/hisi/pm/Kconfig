@@ -1,0 +1,24 @@
+config HISILICON_PLATFORM_POWER_CONTROL
+	bool "Support HiSilicon Hi6XXX Power Control"
+	depends on ARCH_HI6XXX
+	default n
+	help
+	  This driver supports HiSilicon HiXXX Power Control,
+	  including hisilicon hi6xxx power control driver, etc.
+
+config HISILICON_PLATFORM_PM_DFS
+	bool "Support HiSilicon Hi6XXX Power Control DFS"
+	depends on ARCH_HI6XXX
+	default n
+	help
+	  This driver supports HiSilicon HiXXX Power Control,
+	  including hisilicon hi6xxx power control driver, etc.
+
+config HISILICON_PLATFORM_PM_SLEEP
+	bool "Support HiSilicon Hi6XXX Power Control Sleep"
+	depends on ARCH_HI6XXX
+	default n
+	help
+	  This driver supports HiSilicon HiXXX Power Control,
+	  including hisilicon hi6xxx power control driver, etc.
+

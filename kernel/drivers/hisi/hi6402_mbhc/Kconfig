@@ -1,0 +1,5 @@
+config HI6402_MBHC
+	tristate "Support for HI6402 MBHC"
+	default n
+	---help---
+	 Say Y here if you want to support HI6402 MBHC

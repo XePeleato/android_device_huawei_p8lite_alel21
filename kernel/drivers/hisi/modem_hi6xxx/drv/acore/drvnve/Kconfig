@@ -1,0 +1,5 @@
+config HISILICON_PLATFORM_NVE
+	bool "Hisilicon platform nve support"
+	default n
+	help
+	  Say yes here to support the hisilicon platform nve

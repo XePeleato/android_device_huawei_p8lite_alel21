@@ -1,0 +1,13 @@
+/{
+	hall0 {
+		compatible = "akm,ak8789";
+		gpio_nums = <2>;
+		north0_gpio = <&gpio2 3 0>;
+		south0_gpio = <&gpio0 6 0>;
+		pinctrl-names = "default";
+		pinctrl-0 = <&gpio019_cfg_func 
+			     &gpio006_cfg_func>;
+		status = "ok";
+	};
+};
+

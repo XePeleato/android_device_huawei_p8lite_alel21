@@ -1,0 +1,11 @@
+#
+# Huawei's public serial driver and the protocol
+# drivers (BT, FM and GNSS)
+#
+
+config HW_CHR
+	tristate "huawei chr_dev driver for BFGN log"
+	default n
+	help
+	  This enables the  chr_dev driver for Huawei
+	  WIFI/ BT / FM / GNSS chips log. 

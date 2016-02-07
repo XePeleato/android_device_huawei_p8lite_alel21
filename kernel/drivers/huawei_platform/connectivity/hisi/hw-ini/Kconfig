@@ -1,0 +1,10 @@
+#
+# Huawei's wireless_pm driver for
+# drivers (BT, FM and GNSS)
+#
+
+config  HW_INI
+	tristate "huawe ini_drv driver"
+	default n
+	help
+		find the value of host var in .ini file

@@ -1,0 +1,15 @@
+EXTRA_CFLAGS 	+= -I$(BALONG_TOPDIR)/include/drv/
+EXTRA_CFLAGS 	+= -I$(BALONG_TOPDIR)/modem/drv/common/include/
+EXTRA_CFLAGS 	+= -I$(BALONG_TOPDIR)/config/product/$(OBB_PRODUCT_NAME)/config/
+EXTRA_CFLAGS 	+= -I$(BALONG_TOPDIR)/platform/$(CFG_PLATFORM)/soc/
+obj-$(CONFIG_HI3XXX_IRQ_AFFINITY)			+= hi3xxx_irq_affinity.o
+obj-$(CONFIG_HI3XXX_IRQ_AFFINITY_DEBUGFS)	+= irq_affinity_debugfs.o
+obj-$(CONFIG_HI3XXX_POWER_OFF)				+= hi3xxx_poweroff.o
+obj-$(CONFIG_HI3XXX_CMDLINE_PARSE)  += hi3xxx_cmdline_parse.o
+obj-$(CONFIG_HI3XXX_SR)    += pm.o
+obj-$(CONFIG_HI3XXX_SIM_HOTPLUG)			+= hisi_sim_hotplug.o
+obj-$(CONFIG_HI3XXX_SR_DEBUG) 				+= hisi_lpregs.o
+obj-$(CONFIG_HI3XXX_LPM3_DEBUG)		+= hi3xxx_lpm3_debug.o
+obj-$(CONFIG_HI3XXX_MODEM_ETB)		+= hi3xxx_modem_etb.o
+obj-$(CONFIG_HISI_BOOST5V_CONTROL)  += hisi_boost5v_control.o
+obj-$(CONFIG_HISI_DDR_DEBUG) += hi3xxx_ddr_debug.o

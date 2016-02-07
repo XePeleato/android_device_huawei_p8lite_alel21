@@ -1,0 +1,2234 @@
+/******************************************************************************
+
+                  版权所有 (C), 2001-2011, 华为技术有限公司
+
+ ******************************************************************************
+ 
+  This is an AUTO GENERATED file ! DON'T MODIFY MANUAL! 
+  文 件 名   : hi6220_clk.dtsi
+  生成日期   : 2014年9月1日
+  
+******************************************************************************/
+
+
+/ {
+
+	clk_gpupll_src: clk_gpupll_src {
+		compatible = "fixed-clock";
+		#clock-cells = <0>;
+		clock-frequency = <1000000000>;
+		clock-output-names = "clk_gpupll_src";
+	};
+	
+	clk_syspll_src: clk_syspll_src {
+		compatible = "fixed-clock";
+		#clock-cells = <0>;
+		clock-frequency = <1200000000>;
+		clock-output-names = "clk_syspll_src";
+	};
+	
+	clk_tcxo: clk_tcxo {
+		compatible = "fixed-clock";
+		#clock-cells = <0>;
+		clock-frequency = <19200000>;
+		clock-output-names = "clk_tcxo";
+	};
+	
+	clk_cs_tpiu_div1: clk_cs_tpiu_div1 {
+		compatible = "fixed-factor-clock";
+		#clock-cells = <0>;
+		clocks = <&clk_sys_sel_tpiu_src>;
+		clock-div = <6>;
+		clock-mult = <1>;
+		clock-output-names = "clk_cs_tpiu_div1";
+	};
+	
+	clk_mmc2_src_sel_phase0: clk_mmc2_src_sel_phase0 {
+		compatible = "fixed-factor-clock";
+		#clock-cells = <0>;
+		clocks = <&clk_mmc2_sel_gated>;
+		clock-div = <8>;
+		clock-mult = <1>;
+		clock-output-names = "clk_mmc2_src_sel_phase0";
+	};
+	
+	clk_mmc0_sample_phase: clk_mmc0_sample_phase {
+		compatible = "fixed-factor-clock";
+		#clock-cells = <0>;
+		clocks = <&clk_mmc0_sel_gated>;
+		clock-div = <8>;
+		clock-mult = <1>;
+		clock-output-names = "clk_mmc0_sample_phase";
+	};
+	
+	clk_mmc2_smp_from_pad: clk_mmc2_smp_from_pad {
+		compatible = "fixed-clock";
+		#clock-cells = <0>;
+		clock-frequency = <100000000>;
+		clock-output-names = "clk_mmc2_smp_from_pad";
+	};
+	
+	clk_bbppll0_src: clk_bbppll0_src {
+		compatible = "fixed-clock";
+		#clock-cells = <0>;
+		clock-frequency = <245760000>;
+		clock-output-names = "clk_bbppll0_src";
+	};
+	
+	dsi_txbyteclkhs: dsi_txbyteclkhs {
+		compatible = "fixed-clock";
+		#clock-cells = <0>;
+		clock-frequency = <187000000>;
+		clock-output-names = "dsi_txbyteclkhs";
+	};
+	
+	clk_syspll_src_med_src: clk_syspll_src_med_src {
+		compatible = "fixed-clock";
+		#clock-cells = <0>;
+		clock-frequency = <1200000000>;
+		clock-output-names = "clk_syspll_src_med_src";
+	};
+	
+	clk_300m_src: clk_300m_src {
+		compatible = "fixed-factor-clock";
+		#clock-cells = <0>;
+		clocks = <&clk_syspll_src>;
+		clock-div = <4>;
+		clock-mult = <1>;
+		clock-output-names = "clk_300m_src";
+	};
+	
+	clk_picophy_test_src: clk_picophy_test_src {
+		compatible = "fixed-factor-clock";
+		#clock-cells = <0>;
+		clocks = <&clk_150m_src>;
+		clock-div = <4>;
+		clock-mult = <1>;
+		clock-output-names = "clk_picophy_test_src";
+	};
+	
+	clk_tsensor_src: clk_tsensor_src {
+		compatible = "fixed-factor-clock";
+		#clock-cells = <0>;
+		clocks = <&clk_tcxo>;
+		clock-div = <19>;
+		clock-mult = <1>;
+		clock-output-names = "clk_tsensor_src";
+	};
+	
+	clk_300m: clk_300m {
+		compatible = "fixed-factor-clock";
+		#clock-cells = <0>;
+		clocks = <&clk_syspll_src>;
+		clock-div = <4>;
+		clock-mult = <1>;
+		clock-output-names = "clk_300m";
+	};
+	
+	clk_medpll_src: clk_medpll_src {
+		compatible = "fixed-clock";
+		#clock-cells = <0>;
+		clock-frequency = <1440000000>;
+		clock-output-names = "clk_medpll_src";
+	};
+	
+	clk_ddrpll_src: clk_ddrpll_src {
+		compatible = "fixed-clock";
+		#clock-cells = <0>;
+		clock-frequency = <1600000000>;
+		clock-output-names = "clk_ddrpll_src";
+	};
+	
+	clk_mmc1_src_sel_phase0: clk_mmc1_src_sel_phase0 {
+		compatible = "fixed-factor-clock";
+		#clock-cells = <0>;
+		clocks = <&clk_mmc1_sel_gated>;
+		clock-div = <8>;
+		clock-mult = <1>;
+		clock-output-names = "clk_mmc1_src_sel_phase0";
+	};
+	
+	csi2_rxbyteclkhs: csi2_rxbyteclkhs {
+		compatible = "fixed-clock";
+		#clock-cells = <0>;
+		clock-frequency = <187000000>;
+		clock-output-names = "csi2_rxbyteclkhs";
+	};
+	
+	clk_ddr_sel_src: clk_ddr_sel_src {
+		compatible = "fixed-clock";
+		#clock-cells = <0>;
+		clock-frequency = <1200000000>;
+		clock-output-names = "clk_ddr_sel_src";
+	};
+	clk_mmc1_sample_phase: clk_mmc1_sample_phase {
+		compatible = "fixed-factor-clock";
+		#clock-cells = <0>;
+		clocks = <&clk_mmc1_sel_gated>;
+		clock-div = <8>;
+		clock-mult = <1>;
+		clock-output-names = "clk_mmc1_sample_phase";
+	};
+	
+	clk_mmc1_smp_from_pad: clk_mmc1_smp_from_pad {
+		compatible = "fixed-clock";
+		#clock-cells = <0>;
+		clock-frequency = <100000000>;
+		clock-output-names = "clk_mmc1_smp_from_pad";
+	};
+	
+	clk_acpupll_src: clk_acpupll_src {
+		compatible = "fixed-clock";
+		#clock-cells = <0>;
+		clock-frequency = <1300000000>;
+		clock-output-names = "clk_acpupll_src";
+	};
+	
+	clk_mmc2_sample_phase: clk_mmc2_sample_phase {
+		compatible = "fixed-factor-clock";
+		#clock-cells = <0>;
+		clocks = <&clk_mmc2_sel_gated>;
+		clock-div = <8>;
+		clock-mult = <1>;
+		clock-output-names = "clk_mmc2_sample_phase";
+	};
+	
+	jtag_tck: jtag_tck {
+		compatible = "fixed-clock";
+		#clock-cells = <0>;
+		clock-frequency = <20000000>;
+		clock-output-names = "jtag_tck";
+	};
+	
+	stclk_mcu: stclk_mcu {
+		compatible = "fixed-factor-clock";
+		#clock-cells = <0>;
+		clocks = <&clk_ref32k>;
+		clock-div = <4>;
+		clock-mult = <1>;
+		clock-output-names = "stclk_mcu";
+	};
+	
+	pclk_codec_vpu_src: pclk_codec_vpu_src {
+		compatible = "fixed-factor-clock";
+		#clock-cells = <0>;
+		clocks = <&aclk_codec_jpeg_src>;
+		clock-div = <2>;
+		clock-mult = <1>;
+		clock-output-names = "pclk_codec_vpu_src";
+	};
+	
+	clk_syspll_div8_src: clk_syspll_div8_src {
+		compatible = "fixed-factor-clock";
+		#clock-cells = <0>;
+		clocks = <&clk_syspll_src>;
+		clock-div = <8>;
+		clock-mult = <1>;
+		clock-output-names = "clk_syspll_div8_src";
+	};
+	
+	clk_mmc0_src_sel_phase0: clk_mmc0_src_sel_phase0 {
+		compatible = "fixed-factor-clock";
+		#clock-cells = <0>;
+		clocks = <&clk_mmc0_sel_gated>;
+		clock-div = <8>;
+		clock-mult = <1>;
+		clock-output-names = "clk_mmc0_src_sel_phase0";
+	};
+	
+	clk_150m_src: clk_150m_src {
+		compatible = "fixed-factor-clock";
+		#clock-cells = <0>;
+		clocks = <&clk_300m_src>;
+		clock-div = <2>;
+		clock-mult = <1>;
+		clock-output-names = "clk_150m_src";
+	};
+	
+	clk_150m: clk_150m {
+		compatible = "fixed-factor-clock";
+		#clock-cells = <0>;
+		clocks = <&clk_300m>;
+		clock-div = <2>;
+		clock-mult = <1>;
+		clock-output-names = "clk_150m";
+	};
+	
+	csi0_rxbyteclkhs: csi0_rxbyteclkhs {
+		compatible = "fixed-clock";
+		#clock-cells = <0>;
+		clock-frequency = <187000000>;
+		clock-output-names = "csi0_rxbyteclkhs";
+	};
+	
+	clk_ccpu_sel_div2: clk_ccpu_sel_div2 {
+		compatible = "fixed-factor-clock";
+		#clock-cells = <0>;
+		clocks = <&clk_syspll_src_div_sel>;
+		clock-div = <2>;
+		clock-mult = <1>;
+		clock-output-names = "clk_ccpu_sel_div2";
+	};
+	
+	dsi_rxclkesc: dsi_rxclkesc {
+		compatible = "fixed-clock";
+		#clock-cells = <0>;
+		clock-frequency = <20000000>;
+		clock-output-names = "dsi_rxclkesc";
+	};
+	
+	clk_mmc0_smp_from_pad: clk_mmc0_smp_from_pad {
+		compatible = "fixed-clock";
+		#clock-cells = <0>;
+		clock-frequency = <200000000>;
+		clock-output-names = "clk_mmc0_smp_from_pad";
+	};
+	
+	clk_ddrpll1_src: clk_ddrpll1_src {
+		compatible = "fixed-clock";
+		#clock-cells = <0>;
+		clock-frequency = <1066000000>;
+		clock-output-names = "clk_ddrpll1_src";
+	};
+	
+	clk_ccpu_sel_div2_src: clk_ccpu_sel_div2_src {
+		compatible = "fixed-factor-clock";
+		#clock-cells = <0>;
+		clocks = <&clk_ccpu_sel_first_gated>;
+		clock-div = <2>;
+		clock-mult = <1>;
+		clock-output-names = "clk_ccpu_sel_div2_src";
+	};
+	
+	clk_ref32k: clk_ref32k {
+		compatible = "fixed-clock";
+		#clock-cells = <0>;
+		clock-frequency = <32764>;
+		clock-output-names = "clk_ref32k";
+	};
+	
+	ao_sctrl: ao_sctrl {
+		status = "disabled";
+
+		pclk_timer8: pclk_timer8 {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_tcxo>;
+			hisilicon,hi6xxx-clkgate = <0x630 0x800000>;
+			clock-output-names = "pclk_timer8";
+		};
+		
+		pclk_timer5: pclk_timer5 {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_tcxo>;
+			hisilicon,hi6xxx-clkgate = <0x630 0x100000>;
+			clock-output-names = "pclk_timer5";
+		};
+		
+		pclk_timer4: pclk_timer4 {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_tcxo>;
+			hisilicon,hi6xxx-clkgate = <0x630 0x80000>;
+			clock-output-names = "pclk_timer4";
+		};
+		
+		pclk_timer7: pclk_timer7 {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_tcxo>;
+			hisilicon,hi6xxx-clkgate = <0x630 0x400000>;
+			clock-output-names = "pclk_timer7";
+		};
+		
+		pclk_timer6: pclk_timer6 {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_tcxo>;
+			hisilicon,hi6xxx-clkgate = <0x630 0x200000>;
+			clock-output-names = "pclk_timer6";
+		};
+		
+		pclk_timer1: pclk_timer1 {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_tcxo>;
+			hisilicon,hi6xxx-clkgate = <0x630 0x10000>;
+			clock-output-names = "pclk_timer1";
+		};
+		
+		pclk_timer0: pclk_timer0 {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_tcxo>;
+			hisilicon,hi6xxx-clkgate = <0x630 0x8000>;
+			clock-output-names = "pclk_timer0";
+		};
+		
+		pclk_timer3: pclk_timer3 {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_tcxo>;
+			hisilicon,hi6xxx-clkgate = <0x630 0x40000>;
+			clock-output-names = "pclk_timer3";
+		};
+		
+		pclk_timer2: pclk_timer2 {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_tcxo>;
+			hisilicon,hi6xxx-clkgate = <0x630 0x20000>;
+			clock-output-names = "pclk_timer2";
+		};
+		
+		hclk_ipc_ns: hclk_ipc_ns {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_sys_src>;
+			hisilicon,hi6xxx-clkgate = <0x630 0x200>;
+			clock-output-names = "hclk_ipc_ns";
+		};
+		
+		clk_timer0_1_mux: clk_timer0_1_mux {
+			compatible = "hisilicon,hi6xxx-clk-mux";
+			#clock-cells = <0>;
+			hiword;
+			clocks = <&clk_tcxo &clk_ref32k>;
+			hisilicon,clkmux-reg = <0x1d0 0x4 18>;
+			clock-output-names = "clk_timer0_1_mux";
+		 };
+		
+		clk_sys_src: clk_sys_src {
+			compatible = "hisilicon,hi6xxx-clk-div";
+			#clock-cells = <0>;
+			clocks = <&clk_syspll_div8_src>;
+			hisilicon,clkdiv-table = <8 1>;
+			/*divider register offset, bits, valid bit*/
+			hisilicon,clkdiv = <0x1480 0x7 16>;
+			clock-output-names = "clk_sys_src";
+		};
+		
+		pclk_uart0: pclk_uart0 {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_tcxo>;
+			hisilicon,hi6xxx-clkgate = <0x630 0x1000000>;
+			clock-output-names = "pclk_uart0";
+		};
+		
+		pclk_efusec: pclk_efusec {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_sys_src>;
+			hisilicon,hi6xxx-clkgate = <0x630 0x400>;
+			clock-output-names = "pclk_efusec";
+		};
+		
+		clk_sys_noc_150m: clk_sys_noc_150m {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_sys_noc_150m_src>;
+			hisilicon,hi6xxx-clkgate = <0x8cc 0x10>;
+			clock-output-names = "clk_sys_noc_150m";
+		};
+		
+		clk_mcu_dap: clk_mcu_dap {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_cs_dapb_src>;
+			hisilicon,hi6xxx-clkgate = <0x630 0x8>;
+			clock-output-names = "clk_mcu_dap";
+		};
+		
+		pclk_wdt2: pclk_wdt2 {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_tcxo>;
+			hisilicon,hi6xxx-clkgate = <0x630 0x4000>;
+			clock-output-names = "pclk_wdt2";
+		};
+		
+		pclk_wdt1: pclk_wdt1 {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_tcxo>;
+			hisilicon,hi6xxx-clkgate = <0x630 0x2000>;
+			clock-output-names = "pclk_wdt1";
+		};
+		
+		pclk_wdt0: pclk_wdt0 {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_ref32k>;
+			hisilicon,hi6xxx-clkgate = <0x630 0x1000>;
+			clock-output-names = "pclk_wdt0";
+		};
+		
+		clk_ssi_pad: clk_ssi_pad {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_ssi_pad_sel>;
+			hisilicon,hi6xxx-clkgate = <0x630 0x80000000>;
+			clock-output-names = "clk_ssi_pad";
+		};
+		
+		hclk_mcu_tcm: hclk_mcu_tcm {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_sys_src>;
+			hisilicon,hi6xxx-clkgate = <0x630 0x1>;
+			clock-output-names = "hclk_mcu_tcm";
+		};
+		
+		clk_pdm: clk_pdm {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_sys_src>;
+			hisilicon,hi6xxx-clkgate = <0x630 0x40000000>;
+			clock-output-names = "clk_pdm";
+		};
+		
+		clk_tzpc_comp: clk_tzpc_comp {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_tcxo>;
+			hisilicon,hi6xxx-clkgate = <0x630 0x800>;
+			clock-output-names = "clk_tzpc_comp";
+		};
+		
+		clk_timer0_1: clk_timer0_1 {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_timer0_1_mux>;
+			hisilicon,hi6xxx-clkgate = <0x630 0x8000>;
+			clock-output-names = "clk_timer0_1";
+		};
+		
+		clk_timer0_0: clk_timer0_0 {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_timer0_0_mux>;
+			hisilicon,hi6xxx-clkgate = <0x630 0x8000>;
+			clock-output-names = "clk_timer0_0";
+		};
+		
+		pclk_cm3_timer1: pclk_cm3_timer1 {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_tcxo>;
+			hisilicon,hi6xxx-clkgate = <0x630 0x20>;
+			clock-output-names = "pclk_cm3_timer1";
+		};
+		
+		pclk_cm3_timer0: pclk_cm3_timer0 {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_tcxo>;
+			hisilicon,hi6xxx-clkgate = <0x630 0x10>;
+			clock-output-names = "pclk_cm3_timer0";
+		};
+		
+		hclk_mcu: hclk_mcu {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_sys_src>;
+			hisilicon,hi6xxx-clkgate = <0x630 0x1>;
+			clock-output-names = "hclk_mcu";
+		};
+		
+		pclk_pmussi: pclk_pmussi {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_tcxo>;
+			hisilicon,hi6xxx-clkgate = <0x630 0x8000000>;
+			clock-output-names = "pclk_pmussi";
+		};
+		
+		clk_cs_dapb_on: clk_cs_dapb_on {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_cs_dapb_src>;
+			hisilicon,hi6xxx-clkgate = <0x630 0x20000000>;
+			clock-output-names = "clk_cs_dapb_on";
+		};
+		
+		clk_jtag_auth: clk_jtag_auth {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_tcxo>;
+			hisilicon,hi6xxx-clkgate = <0x630 0x10000000>;
+			clock-output-names = "clk_jtag_auth";
+		};
+		
+		clk_timer0_0_mux: clk_timer0_0_mux {
+			compatible = "hisilicon,hi6xxx-clk-mux";
+			#clock-cells = <0>;
+			hiword;
+			clocks = <&clk_tcxo &clk_ref32k>;
+			hisilicon,clkmux-reg = <0x1d0 0x1 16>;
+			clock-output-names = "clk_timer0_0_mux";
+		 };
+		
+		pclk_tzpc: pclk_tzpc {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_tcxo>;
+			hisilicon,hi6xxx-clkgate = <0x630 0x800>;
+			clock-output-names = "pclk_tzpc";
+		};
+		
+		clk_sys_noc_100m: clk_sys_noc_100m {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_bus_src>;
+			hisilicon,hi6xxx-clkgate = <0x8cc 0x10>;
+			clock-output-names = "clk_sys_noc_100m";
+		};
+		
+		clk_uart0: clk_uart0 {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_tcxo>;
+			hisilicon,hi6xxx-clkgate = <0x630 0x1000000>;
+			clock-output-names = "clk_uart0";
+		};
+		
+		hclk_ipc: hclk_ipc {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_sys_src>;
+			hisilicon,hi6xxx-clkgate = <0x630 0x100>;
+			clock-output-names = "hclk_ipc";
+		};
+		
+		pclk_rtc1: pclk_rtc1 {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_tcxo>;
+			hisilicon,hi6xxx-clkgate = <0x630 0x4000000>;
+			clock-output-names = "pclk_rtc1";
+		};
+		
+		pclk_rtc0: pclk_rtc0 {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_tcxo>;
+			hisilicon,hi6xxx-clkgate = <0x630 0x2000000>;
+			clock-output-names = "pclk_rtc0";
+		};
+		
+		clk_rtc0: clk_rtc0 {
+			compatible = "hisilicon,hi6xxx-clk-div";
+			#clock-cells = <0>;
+			clocks = <&clk_ref32k>;
+			hisilicon,clkdiv-table = <32768 1>;
+			/*divider register offset, bits, valid bit*/
+			hisilicon,clkdiv = <0x148c 0x7fff 16>;
+			clock-output-names = "clk_rtc0";
+		};
+		
+		clk_rtc1: clk_rtc1 {
+			compatible = "hisilicon,hi6xxx-clk-div";
+			#clock-cells = <0>;
+			clocks = <&clk_ref32k>;
+			hisilicon,clkdiv-table = <32768 1>;
+			/*divider register offset, bits, valid bit*/
+			hisilicon,clkdiv = <0x148c 0x7fff 16>;
+			clock-output-names = "clk_rtc1";
+		};
+		
+		pclk_cm3_wdt1: pclk_cm3_wdt1 {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_tcxo>;
+			hisilicon,hi6xxx-clkgate = <0x630 0x80>;
+			clock-output-names = "pclk_cm3_wdt1";
+		};
+		
+		pclk_cm3_wdt0: pclk_cm3_wdt0 {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_tcxo>;
+			hisilicon,hi6xxx-clkgate = <0x630 0x40>;
+			clock-output-names = "pclk_cm3_wdt0";
+		};
+		
+	};
+
+	sctrl: sctrl{
+		status = "disabled";
+
+		clk_pll_test0_1_src: clk_pll_test0_1_src {
+			compatible = "hisilicon,hi6xxx-clk-mux";
+			#clock-cells = <0>;
+			hiword;
+			clocks = <&clk_hifi_src &clk_bbppll0_div5_src>;
+			hisilicon,clkmux-reg = <0x400 0x40 22>;
+			clock-output-names = "clk_pll_test0_1_src";
+		 };
+		
+		clk_hkadc: clk_hkadc {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_tcxo>;
+			hisilicon,hi6xxx-clkgate = <0x230 0x80000>;
+			clock-output-names = "clk_hkadc";
+		};
+		
+		clk_mmu: clk_mmu {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_ddrc_axi1_src>;
+			hisilicon,hi6xxx-clkgate = <0x240 0x800>;
+			clock-output-names = "clk_mmu";
+		};
+		
+		clk_bus: clk_bus {
+			compatible = "hisilicon,hi6xxx-clk-div";
+			#clock-cells = <0>;
+			clocks = <&clk_300m>;
+			hisilicon,clkdiv-table = <16 1>;
+			/*divider register offset, bits, valid bit*/
+			hisilicon,clkdiv = <0x490 0xf 7>;
+			clock-output-names = "clk_bus";
+		};
+		
+		aclk_seceng: aclk_seceng {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_bus_src>;
+			hisilicon,hi6xxx-clkgate = <0x220 0x8>;
+			clock-output-names = "aclk_seceng";
+		};
+		
+		clk_ssp: clk_ssp {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_150m_src>;
+			hisilicon,hi6xxx-clkgate = <0x230 0x200>;
+			clock-output-names = "clk_ssp";
+		};
+		
+		hclk_mmc1: hclk_mmc1 {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_bus_src>;
+			hisilicon,hi6xxx-clkgate = <0x200 0x2>;
+			clock-output-names = "hclk_mmc1";
+		};
+		
+		hclk_mmc0: hclk_mmc0 {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_bus_src>;
+			hisilicon,hi6xxx-clkgate = <0x200 0x1>;
+			clock-output-names = "hclk_mmc0";
+		};
+		
+		hclk_mmc2: hclk_mmc2 {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_bus_src>;
+			hisilicon,hi6xxx-clkgate = <0x200 0x4>;
+			clock-output-names = "hclk_mmc2";
+		};
+		
+		clk_x2x_ccpu_s: clk_x2x_ccpu_s {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_ddrc_axi_src>;
+			hisilicon,hi6xxx-clkgate = <0x240 0x10000>;
+			clock-output-names = "clk_x2x_ccpu_s";
+		};
+		
+		clk_mmc2_sample_in: clk_mmc2_sample_in {
+			compatible = "hisilicon,hi6xxx-clk-mux";
+			#clock-cells = <0>;
+			/*low word*/
+			clocks = <&clk_mmc2_sample_phase &clk_mmc2_smp_from_pad>;
+			hisilicon,clkmux-reg = <0x4 0x10 0>;
+			clock-output-names = "clk_mmc2_sample_in";
+		 };
+		
+		aclk_edamc0: aclk_edamc0 {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_bus_src>;
+			hisilicon,hi6xxx-clkgate = <0x220 0x4>;
+			clock-output-names = "aclk_edamc0";
+		};
+		
+		clk_i2c3: clk_i2c3 {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_150m_src>;
+			hisilicon,hi6xxx-clkgate = <0x230 0x10>;
+			clock-output-names = "clk_i2c3";
+		};
+		
+		clk_i2c2: clk_i2c2 {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_150m_src>;
+			hisilicon,hi6xxx-clkgate = <0x230 0x8>;
+			clock-output-names = "clk_i2c2";
+		};
+		
+		clk_i2c1: clk_i2c1 {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_150m_src>;
+			hisilicon,hi6xxx-clkgate = <0x230 0x4>;
+			clock-output-names = "clk_i2c1";
+		};
+		
+		clk_i2c0: clk_i2c0 {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_150m_src>;
+			hisilicon,hi6xxx-clkgate = <0x230 0x2>;
+			clock-output-names = "clk_i2c0";
+		};
+		
+		clk_ddrphy_ref: clk_ddrphy_ref {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_ddrphy_ref_src>;
+			hisilicon,hi6xxx-clkgate = <0x240 0x4000>;
+			clock-output-names = "clk_ddrphy_ref";
+		};
+		
+		clk_pll_test_sel_src: clk_pll_test_sel_src {
+			compatible = "hisilicon,hi6xxx-clk-mux";
+			#clock-cells = <0>;
+			hiword;
+			clocks = <&clk_pll_test1_1_src &clk_pll_test1_0_src>;
+			hisilicon,clkmux-reg = <0x400 0x100 24>;
+			clock-output-names = "clk_pll_test_sel_src";
+		 };
+		
+		pclk_ddrc: pclk_ddrc {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_bus_src>;
+			hisilicon,hi6xxx-clkgate = <0x240 0x1000>;
+			clock-output-names = "pclk_ddrc";
+		};
+		
+		clk_mmc0_src_sel: clk_mmc0_src_sel {
+			compatible = "hisilicon,hi6xxx-clk-div";
+			#clock-cells = <0>;
+			clocks = <&clk_syspll_mmc0_src>;
+			hisilicon,clkdiv-table = <64 1>;
+			/*divider register offset, bits, valid bit*/
+			hisilicon,clkdiv = <0x494 0x3f 7>;
+			clock-output-names = "clk_mmc0_src_sel";
+		};
+		
+		clk_syspll_mmc1_src: clk_syspll_mmc1_src {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_syspll_src>;
+			hisilicon,hi6xxx-clkgate = <0x270 0x4>;
+			clock-output-names = "clk_syspll_mmc1_src";
+		};
+		
+		clk_uart2_src: clk_uart2_src {
+			compatible = "hisilicon,hi6xxx-clk-mux";
+			#clock-cells = <0>;
+			hiword;
+			clocks = <&clk_tcxo &clk_150m_src>;
+			hisilicon,clkmux-reg = <0x400 0x4 18>;
+			clock-output-names = "clk_uart2_src";
+		 };
+		
+		clk_hifi_src: clk_hifi_src {
+			compatible = "hisilicon,hi6xxx-clk-div";
+			#clock-cells = <0>;
+			clocks = <&clk_hifi_sel_gated>;
+			hisilicon,clkdiv-table = <16 1>;
+			/*divider register offset, bits, valid bit*/
+			hisilicon,clkdiv = <0x4a0 0xf 7>;
+			clock-output-names = "clk_hifi_src";
+		};
+		
+		clk_bbppll_sel_src: clk_bbppll_sel_src {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_bbppll0_gated>;
+			hisilicon,hi6xxx-clkgate = <0x270 0x200>;
+			clock-output-names = "clk_bbppll_sel_src";
+		};
+		
+		clk_x2x_sysnoc_s: clk_x2x_sysnoc_s {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_ddrc_axi_src>;
+			hisilicon,hi6xxx-clkgate = <0x240 0x8000>;
+			clock-output-names = "clk_x2x_sysnoc_s";
+		};
+		
+		pclk_blpwm: pclk_blpwm {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_150m_src>;
+			hisilicon,hi6xxx-clkgate = <0x230 0x800>;
+			clock-output-names = "pclk_blpwm";
+		};
+		
+		clk_x2x_sysnoc_m: clk_x2x_sysnoc_m {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_sys_noc_150m_src>;
+			hisilicon,hi6xxx-clkgate = <0x240 0x8000>;
+			clock-output-names = "clk_x2x_sysnoc_m";
+		};
+		
+		clk_mmc1_sel_src: clk_mmc1_sel_src {
+			compatible = "hisilicon,hi6xxx-clk-mux";
+			#clock-cells = <0>;
+			hiword;
+			clocks = <&clk_ddrpll_gated &clk_syspll_src>;
+			hisilicon,clkmux-reg = <0x400 0x800 27>;
+			clock-output-names = "clk_mmc1_sel_src";
+		 };
+		
+		clk_hifi_sel_gated: clk_hifi_sel_gated {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_hifi_sel_src>;
+			hisilicon,hi6xxx-clkgate = <0x270 0x1>;
+			clock-output-names = "clk_hifi_sel_gated";
+		};
+		
+		clk_mmc2_sel_gated: clk_mmc2_sel_gated {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_mmc2_sel_src1>;
+			hisilicon,hi6xxx-clkgate = <0x270 0x800>;
+			clock-output-names = "clk_mmc2_sel_gated";
+		};
+		
+		aclk_ddrc: aclk_ddrc {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_ddrc_src>;
+			hisilicon,hi6xxx-clkgate = <0x240 0x1000>;
+			clock-output-names = "aclk_ddrc";
+		};
+		
+		aclk_ddrt: aclk_ddrt {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_ddrc_axi1_src>;
+			hisilicon,hi6xxx-clkgate = <0x240 0x20000>;
+			clock-output-names = "aclk_ddrt";
+		};
+		
+		pclk_uart3: pclk_uart3 {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_150m_src>;
+			hisilicon,hi6xxx-clkgate = <0x230 0x80>;
+			clock-output-names = "pclk_uart3";
+		};
+		
+		pclk_uart2: pclk_uart2 {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_150m_src>;
+			hisilicon,hi6xxx-clkgate = <0x230 0x40>;
+			clock-output-names = "pclk_uart2";
+		};
+		
+		pclk_uart4: pclk_uart4 {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_150m_src>;
+			hisilicon,hi6xxx-clkgate = <0x230 0x100>;
+			clock-output-names = "pclk_uart4";
+		};
+		
+		clk_ccpu_sel_first_gated: clk_ccpu_sel_first_gated {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_ccpu_sel_first_src>;
+			hisilicon,hi6xxx-clkgate = <0x270 0x10>;
+			clock-output-names = "clk_ccpu_sel_first_gated";
+		};
+		
+		clk_mmc0_sample: clk_mmc0_sample {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_mmc0_sample_in>;
+			hisilicon,hi6xxx-clkgate = <0x200 0x1>;
+			clock-output-names = "clk_mmc0_sample";
+		};
+		
+		pclk_pwm: pclk_pwm {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_tcxo>;
+			hisilicon,hi6xxx-clkgate = <0x230 0x400>;
+			clock-output-names = "pclk_pwm";
+		};
+		
+		clk_pll_test_sel_gated: clk_pll_test_sel_gated {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_pll_test_sel_src>;
+			hisilicon,hi6xxx-clkgate = <0x270 0x100>;
+			clock-output-names = "clk_pll_test_sel_gated";
+		};
+		
+		clk_sys_noc_150m_src: clk_sys_noc_150m_src {
+			compatible = "hisilicon,hi6xxx-clk-div";
+			#clock-cells = <0>;
+			clocks = <&clk_300m_src>;
+			hisilicon,clkdiv-table = <16 1>;
+			/*divider register offset, bits, valid bit*/
+			hisilicon,clkdiv = <0x490 0xf00 15>;
+			clock-output-names = "clk_sys_noc_150m_src";
+		};
+		
+		clk_mmc2_sel_src1: clk_mmc2_sel_src1 {
+			compatible = "hisilicon,hi6xxx-clk-mux";
+			#clock-cells = <0>;
+			hiword;
+			clocks = <&clk_mmc2_sel_src &clk_medpll_gated>;
+			hisilicon,clkmux-reg = <0x400 0x8000 31>;
+			clock-output-names = "clk_mmc2_sel_src1";
+		 };
+		
+		clk_cs_atb_src: clk_cs_atb_src {
+			compatible = "hisilicon,hi6xxx-clk-div";
+			#clock-cells = <0>;
+			clocks = <&clk_syspll_cs_atb_src>;
+			hisilicon,clkdiv-table = <16 1>;
+			/*divider register offset, bits, valid bit*/
+			hisilicon,clkdiv = <0x4a4 0xf 7>;
+			clock-output-names = "clk_cs_atb_src";
+		};
+		
+		clk_mmc0_drv: clk_mmc0_drv {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_mmc0_src>;
+			hisilicon,hi6xxx-clkgate = <0x200 0x1>;
+			clock-output-names = "clk_mmc0_drv";
+		};
+		
+		clk_cs_sapb: clk_cs_sapb {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_150m_src>;
+			hisilicon,hi6xxx-clkgate = <0x230 0x40000>;
+			clock-output-names = "clk_cs_sapb";
+		};
+		
+		aclk_tzma: aclk_tzma {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_bus_src>;
+			hisilicon,hi6xxx-clkgate = <0x240 0x80>;
+			clock-output-names = "aclk_tzma";
+		};
+		
+		clk_pd_hpm2: clk_pd_hpm2 {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_150m_src>;
+			hisilicon,hi6xxx-clkgate = <0x220 0x80>;
+			clock-output-names = "clk_pd_hpm2";
+		};
+		
+		clk_pd_hpm3: clk_pd_hpm3 {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_150m_src>;
+			hisilicon,hi6xxx-clkgate = <0x220 0x100>;
+			clock-output-names = "clk_pd_hpm3";
+		};
+		
+		clk_pd_hpm0: clk_pd_hpm0 {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_150m_src>;
+			hisilicon,hi6xxx-clkgate = <0x220 0x20>;
+			clock-output-names = "clk_pd_hpm0";
+		};
+		
+		clk_pd_hpm1: clk_pd_hpm1 {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_150m_src>;
+			hisilicon,hi6xxx-clkgate = <0x220 0x40>;
+			clock-output-names = "clk_pd_hpm1";
+		};
+		
+		clk_syspll_mmc0_src: clk_syspll_mmc0_src {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_syspll_src>;
+			hisilicon,hi6xxx-clkgate = <0x270 0x2>;
+			clock-output-names = "clk_syspll_mmc0_src";
+		};
+		
+		aclk_x2sram: aclk_x2sram {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_bus_src>;
+			hisilicon,hi6xxx-clkgate = <0x240 0x80>;
+			clock-output-names = "aclk_x2sram";
+		};
+		
+		clk_mmc1_sample_in: clk_mmc1_sample_in {
+			compatible = "hisilicon,hi6xxx-clk-mux";
+			#clock-cells = <0>;
+			/*low word*/
+			clocks = <&clk_mmc1_sample_phase &clk_mmc1_smp_from_pad>;
+			hisilicon,clkmux-reg = <0x4 0x4 0>;
+			clock-output-names = "clk_mmc1_sample_in";
+		 };
+		
+		hclk_usbotg: hclk_usbotg {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_bus_src>;
+			hisilicon,hi6xxx-clkgate = <0x200 0x10>;
+			clock-output-names = "hclk_usbotg";
+		};
+		
+		clk_ccpu_sel_first_src: clk_ccpu_sel_first_src {
+			compatible = "hisilicon,hi6xxx-clk-mux";
+			#clock-cells = <0>;
+			hiword;
+			clocks = <&clk_medpll_gated &clk_syspll_src>;
+			hisilicon,clkmux-reg = <0x400 0x400 26>;
+			clock-output-names = "clk_ccpu_sel_first_src";
+		 };
+		
+		aclk_ipf: aclk_ipf {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_bus_src>;
+			hisilicon,hi6xxx-clkgate = <0x220 0x1>;
+			clock-output-names = "aclk_ipf";
+		};
+		
+		clk_gps: clk_gps {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_tcxo>;
+			hisilicon,hi6xxx-clkgate = <0x230 0x8000>;
+			clock-output-names = "clk_gps";
+		};
+		
+		pclk_dacodec: pclk_dacodec {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_bus_src>;
+			hisilicon,hi6xxx-clkgate = <0x210 0x20>;
+			clock-output-names = "pclk_dacodec";
+		};
+		
+		pclk_codecssi: pclk_codecssi {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_bbppll0_div5_src>;
+			hisilicon,hi6xxx-clkgate = <0x230 0x100000>;
+			clock-output-names = "pclk_codecssi";
+		};
+		
+		clk_rom: clk_rom {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_bus_src>;
+			hisilicon,hi6xxx-clkgate = <0x240 0x200>;
+			clock-output-names = "clk_rom";
+		};
+		
+		clk_bbppll0_div5_src: clk_bbppll0_div5_src {
+			compatible = "hisilicon,hi6xxx-clk-div";
+			#clock-cells = <0>;
+			clocks = <&clk_bbppll_sel_src>;
+			hisilicon,clkdiv-table = <64 1>;
+			/*divider register offset, bits, valid bit*/
+			hisilicon,clkdiv = <0x4a0 0x3f00 15>;
+			clock-output-names = "clk_bbppll0_div5_src";
+		};
+		
+		clk_tcxo_pad0: clk_tcxo_pad0 {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_tcxo>;
+			hisilicon,hi6xxx-clkgate = <0x230 0x10000>;
+			clock-output-names = "clk_tcxo_pad0";
+		};
+		
+		clk_tcxo_pad1: clk_tcxo_pad1 {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_tcxo>;
+			hisilicon,hi6xxx-clkgate = <0x230 0x20000>;
+			clock-output-names = "clk_tcxo_pad1";
+		};
+		
+		clk_mmc1_src: clk_mmc1_src {
+			compatible = "hisilicon,hi6xxx-clk-mux";
+			#clock-cells = <0>;
+			/*low word*/
+			clocks = <&clk_mmc1_src_sel_phase0 &clk_mmc1_src_sel>;
+			hisilicon,clkmux-reg = <0x4 0x4 0>;
+			clock-output-names = "clk_mmc1_src";
+		 };
+		
+		clk_hifi_sel_src: clk_hifi_sel_src {
+			compatible = "hisilicon,hi6xxx-clk-mux";
+			#clock-cells = <0>;
+			hiword;
+			clocks = <&clk_syspll_src &clk_medpll_gated>;
+			hisilicon,clkmux-reg = <0x400 0x1 16>;
+			clock-output-names = "clk_hifi_sel_src";
+		 };
+		
+		clk_mmc1_pad: clk_mmc1_pad {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_mmc1_src>;
+			hisilicon,hi6xxx-clkgate = <0x200 0x2>;
+			clock-output-names = "clk_mmc1_pad";
+		};
+		
+		clk_ms2: clk_ms2 {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_harq_src>;
+			hisilicon,hi6xxx-clkgate = <0x240 0x20>;
+			clock-output-names = "clk_ms2";
+		};
+		
+		clk_ms0: clk_ms0 {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_harq_src>;
+			hisilicon,hi6xxx-clkgate = <0x240 0x8>;
+			clock-output-names = "clk_ms0";
+		};
+		
+		pclk_hkadc: pclk_hkadc {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_tcxo>;
+			hisilicon,hi6xxx-clkgate = <0x230 0x80000>;
+			clock-output-names = "pclk_hkadc";
+		};
+		
+		clk_cs_dapb_off: clk_cs_dapb_off {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_cs_dapb_src>;
+			hisilicon,hi6xxx-clkgate = <0x230 0x40000>;
+			clock-output-names = "clk_cs_dapb_off";
+		};
+		
+		hclk_ipf: hclk_ipf {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_bus_src>;
+			hisilicon,hi6xxx-clkgate = <0x220 0x1>;
+			clock-output-names = "hclk_ipf";
+		};
+		
+		clk_pll_test1_0_src: clk_pll_test1_0_src {
+			compatible = "hisilicon,hi6xxx-clk-mux";
+			#clock-cells = <0>;
+			hiword;
+			clocks = <&clk_mmc0_sel_src &clk_gpupll_gated>;
+			hisilicon,clkmux-reg = <0x400 0x40 22>;
+			clock-output-names = "clk_pll_test1_0_src";
+		 };
+		
+		clk_mmc1_drv: clk_mmc1_drv {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_mmc1_src>;
+			hisilicon,hi6xxx-clkgate = <0x200 0x2>;
+			clock-output-names = "clk_mmc1_drv";
+		};
+		
+		clk_mmc2_sel_src: clk_mmc2_sel_src {
+			compatible = "hisilicon,hi6xxx-clk-mux";
+			#clock-cells = <0>;
+			hiword;
+			clocks = <&clk_ddrpll_gated &clk_syspll_src>;
+			hisilicon,clkmux-reg = <0x400 0x1000 28>;
+			clock-output-names = "clk_mmc2_sel_src";
+		 };
+		
+		clk_syspll_mmc2_src: clk_syspll_mmc2_src {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_syspll_src>;
+			hisilicon,hi6xxx-clkgate = <0x270 0x8>;
+			clock-output-names = "clk_syspll_mmc2_src";
+		};
+		
+		clk_pll_test1_1_src: clk_pll_test1_1_src {
+			compatible = "hisilicon,hi6xxx-clk-mux";
+			#clock-cells = <0>;
+			hiword;
+			clocks = <&clk_pll_test0_0_src &clk_pll_test0_1_src>;
+			hisilicon,clkmux-reg = <0x400 0x80 23>;
+			clock-output-names = "clk_pll_test1_1_src";
+		 };
+		
+		clk_pll_test0_0_src: clk_pll_test0_0_src {
+			compatible = "hisilicon,hi6xxx-clk-mux";
+			#clock-cells = <0>;
+			hiword;
+			clocks = <&clk_acpu_div_src &clk_ddrc_src>;
+			hisilicon,clkmux-reg = <0x400 0x40 22>;
+			clock-output-names = "clk_pll_test0_0_src";
+		 };
+		
+		clk_mmc2_pad: clk_mmc2_pad {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_mmc2_src>;
+			hisilicon,hi6xxx-clkgate = <0x200 0x4>;
+			clock-output-names = "clk_mmc2_pad";
+		};
+		
+		clk_cs_tpiu_src: clk_cs_tpiu_src {
+			compatible = "hisilicon,hi6xxx-clk-div";
+			#clock-cells = <0>;
+			clocks = <&clk_cs_tpiu_div1>;
+			hisilicon,clkdiv-table = <4 1>;
+			/*divider register offset, bits, valid bit*/
+			hisilicon,clkdiv = <0x4a4 0x300 15>;
+			clock-output-names = "clk_cs_tpiu_src";
+		};
+		
+		clk_mmc0_sel_src1: clk_mmc0_sel_src1 {
+			compatible = "hisilicon,hi6xxx-clk-mux";
+			#clock-cells = <0>;
+			hiword;
+			clocks = <&clk_mmc0_sel_src &clk_medpll_gated>;
+			hisilicon,clkmux-reg = <0x400 0x2000 29>;
+			clock-output-names = "clk_mmc0_sel_src1";
+		 };
+		
+		aclk_rs0: aclk_rs0 {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_ddrc_axi3_src>;
+			hisilicon,hi6xxx-clkgate = <0x240 0x1>;
+			clock-output-names = "aclk_rs0";
+		};
+		
+		aclk_rs3: aclk_rs3 {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_ddrc_axi1_src>;
+			hisilicon,hi6xxx-clkgate = <0x240 0x4>;
+			clock-output-names = "aclk_rs3";
+		};
+		
+		aclk_rs2: aclk_rs2 {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_ddrc_axi1_src>;
+			hisilicon,hi6xxx-clkgate = <0x240 0x2>;
+			clock-output-names = "aclk_rs2";
+		};
+		
+		clk_bus_src: clk_bus_src {
+			compatible = "hisilicon,hi6xxx-clk-div";
+			#clock-cells = <0>;
+			clocks = <&clk_300m_src>;
+			hisilicon,clkdiv-table = <16 1>;
+			/*divider register offset, bits, valid bit*/
+			hisilicon,clkdiv = <0x490 0xf 7>;
+			clock-output-names = "clk_bus_src";
+		};
+		
+		clk_picophy_test: clk_picophy_test {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_cs_dapb_src>;
+			hisilicon,hi6xxx-clkgate = <0x200 0x20>;
+			clock-output-names = "clk_picophy_test";
+		};
+		
+		pclk_pmussi1: pclk_pmussi1 {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_tcxo>;
+			hisilicon,hi6xxx-clkgate = <0x230 0x400000>;
+			clock-output-names = "pclk_pmussi1";
+		};
+		
+		clk_mmc0_sel_gated: clk_mmc0_sel_gated {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_mmc0_sel_src1>;
+			hisilicon,hi6xxx-clkgate = <0x270 0x40>;
+			clock-output-names = "clk_mmc0_sel_gated";
+		};
+		
+		clk_tzpc_dep: clk_tzpc_dep {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_tcxo>;
+			hisilicon,hi6xxx-clkgate = <0x230 0x200000>;
+			clock-output-names = "clk_tzpc_dep";
+		};
+		
+		aclk_socp: aclk_socp {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_bus_src>;
+			hisilicon,hi6xxx-clkgate = <0x220 0x2>;
+			clock-output-names = "aclk_socp";
+		};
+		
+		clk_dacodec: clk_dacodec {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_bbppll0_div5_src>;
+			hisilicon,hi6xxx-clkgate = <0x210 0x20>;
+			clock-output-names = "clk_dacodec";
+		};
+		
+		clk_mmc2_drv: clk_mmc2_drv {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_mmc2_src>;
+			hisilicon,hi6xxx-clkgate = <0x200 0x4>;
+			clock-output-names = "clk_mmc2_drv";
+		};
+		
+		clk_hkadc_ssi: clk_hkadc_ssi {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_tcxo>;
+			hisilicon,hi6xxx-clkgate = <0x230 0x80000>;
+			clock-output-names = "clk_hkadc_ssi";
+		};
+		
+		clk_sys_sel_tpiu_src: clk_sys_sel_tpiu_src {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_syspll_src>;
+			hisilicon,hi6xxx-clkgate = <0x270 0x20>;
+			clock-output-names = "clk_sys_sel_tpiu_src";
+		};
+		
+		clk_mmc0: clk_mmc0 {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_mmc0_src>;
+			hisilicon,hi6xxx-clkgate = <0x200 0x1>;
+			clock-output-names = "clk_mmc0";
+		};
+		
+		clk_mmc1: clk_mmc1 {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_mmc1_src>;
+			hisilicon,hi6xxx-clkgate = <0x200 0x2>;
+			clock-output-names = "clk_mmc1";
+		};
+		
+		clk_mmc2: clk_mmc2 {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_mmc2_src>;
+			hisilicon,hi6xxx-clkgate = <0x200 0x4>;
+			clock-output-names = "clk_mmc2";
+		};
+		
+		clk_mmc1_src_sel: clk_mmc1_src_sel {
+			compatible = "hisilicon,hi6xxx-clk-div";
+			#clock-cells = <0>;
+			clocks = <&clk_syspll_mmc1_src>;
+			hisilicon,clkdiv-table = <64 1>;
+			/*divider register offset, bits, valid bit*/
+			hisilicon,clkdiv = <0x498 0x3f 7>;
+			clock-output-names = "clk_mmc1_src_sel";
+		};
+		
+		pclk_uart1: pclk_uart1 {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_150m_src>;
+			hisilicon,hi6xxx-clkgate = <0x230 0x20>;
+			clock-output-names = "pclk_uart1";
+		};
+		
+		hclk_nandc: hclk_nandc {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_bus_src>;
+			hisilicon,hi6xxx-clkgate = <0x200 0x8>;
+			clock-output-names = "hclk_nandc";
+		};
+		
+		clk_uart4_src: clk_uart4_src {
+			compatible = "hisilicon,hi6xxx-clk-mux";
+			#clock-cells = <0>;
+			hiword;
+			clocks = <&clk_tcxo &clk_150m_src>;
+			hisilicon,clkmux-reg = <0x400 0x10 20>;
+			clock-output-names = "clk_uart4_src";
+		 };
+		
+		clk_ddrphy_90: clk_ddrphy_90 {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_ddrc_src_90>;
+			hisilicon,hi6xxx-clkgate = <0x240 0x2000>;
+			clock-output-names = "clk_ddrphy_90";
+		};
+		
+		clk_cs_atb: clk_cs_atb {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_cs_atb_src>;
+			hisilicon,hi6xxx-clkgate = <0x230 0x1>;
+			clock-output-names = "clk_cs_atb";
+		};
+		
+		clk_hifi: clk_hifi {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_hifi_src>;
+			hisilicon,hi6xxx-clkgate = <0x210 0x1>;
+			clock-output-names = "clk_hifi";
+		};
+		
+		clk_ddrphy_0: clk_ddrphy_0 {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_ddrc_src>;
+			hisilicon,hi6xxx-clkgate = <0x240 0x2000>;
+			clock-output-names = "clk_ddrphy_0";
+		};
+		
+		clk_cs_tpiu: clk_cs_tpiu {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_cs_tpiu_src>;
+			hisilicon,hi6xxx-clkgate = <0x230 0x1>;
+			clock-output-names = "clk_cs_tpiu";
+		};
+		
+		clk_mmc0_sel_src: clk_mmc0_sel_src {
+			compatible = "hisilicon,hi6xxx-clk-mux";
+			#clock-cells = <0>;
+			hiword;
+			clocks = <&clk_ddrpll_gated &clk_syspll_src>;
+			hisilicon,clkmux-reg = <0x400 0x20 21>;
+			clock-output-names = "clk_mmc0_sel_src";
+		 };
+		
+		clk_mmc0_sample_in: clk_mmc0_sample_in {
+			compatible = "hisilicon,hi6xxx-clk-mux";
+			#clock-cells = <0>;
+			/*low word*/
+			clocks = <&clk_mmc0_sample_phase &clk_mmc0_smp_from_pad>;
+			hisilicon,clkmux-reg = <0x4 0x1 0>;
+			clock-output-names = "clk_mmc0_sample_in";
+		 };
+		
+		clk_pll_test_src: clk_pll_test_src {
+			compatible = "hisilicon,hi6xxx-clk-div";
+			#clock-cells = <0>;
+			clocks = <&clk_pll_test_sel_gated>;
+			hisilicon,clkdiv-table = <64 1>;
+			/*divider register offset, bits, valid bit*/
+			hisilicon,clkdiv = <0x4a0 0x3f0000 23>;
+			clock-output-names = "clk_pll_test_src";
+		};
+		
+		clk_uart1_src: clk_uart1_src {
+			compatible = "hisilicon,hi6xxx-clk-mux";
+			#clock-cells = <0>;
+			hiword;
+			clocks = <&clk_tcxo &clk_150m_src>;
+			hisilicon,clkmux-reg = <0x400 0x2 17>;
+			clock-output-names = "clk_uart1_src";
+		 };
+		
+		clk_mmc1_sel_gated: clk_mmc1_sel_gated {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_mmc1_sel_src1>;
+			hisilicon,hi6xxx-clkgate = <0x270 0x80>;
+			clock-output-names = "clk_mmc1_sel_gated";
+		};
+		
+		clk_uart1: clk_uart1 {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_uart1_src>;
+			hisilicon,hi6xxx-clkgate = <0x230 0x20>;
+			clock-output-names = "clk_uart1";
+		};
+		
+		clk_uart2: clk_uart2 {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_uart2_src>;
+			hisilicon,hi6xxx-clkgate = <0x230 0x40>;
+			clock-output-names = "clk_uart2";
+		};
+		
+		clk_uart3: clk_uart3 {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_uart3_src>;
+			hisilicon,hi6xxx-clkgate = <0x230 0x80>;
+			clock-output-names = "clk_uart3";
+		};
+		
+		clk_uart4: clk_uart4 {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_uart4_src>;
+			hisilicon,hi6xxx-clkgate = <0x230 0x100>;
+			clock-output-names = "clk_uart4";
+		};
+		
+		clk_ssi_pad_sel: clk_ssi_pad_sel {
+			compatible = "hisilicon,hi6xxx-clk-mux";
+			#clock-cells = <0>;
+			hiword;
+			clocks = <&clk_tcxo &clk_bbppll0_div5_src>;
+			hisilicon,clkmux-reg = <0x400 0x200 25>;
+			clock-output-names = "clk_ssi_pad_sel";
+		 };
+		
+		clk_mmc1_sample: clk_mmc1_sample {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_mmc1_sample_in>;
+			hisilicon,hi6xxx-clkgate = <0x200 0x2>;
+			clock-output-names = "clk_mmc1_sample";
+		};
+		
+		clk_mmc0_src: clk_mmc0_src {
+			compatible = "hisilicon,hi6xxx-clk-mux";
+			#clock-cells = <0>;
+			/*low word*/
+			clocks = <&clk_mmc0_src_sel_phase0 &clk_mmc0_src_sel>;
+			hisilicon,clkmux-reg = <0x4 0x1 0>;
+			clock-output-names = "clk_mmc0_src";
+		 };
+		
+		pclk_ddrt: pclk_ddrt {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_bus_src>;
+			hisilicon,hi6xxx-clkgate = <0x240 0x20000>;
+			clock-output-names = "pclk_ddrt";
+		};
+		
+		clk_uart3_src: clk_uart3_src {
+			compatible = "hisilicon,hi6xxx-clk-mux";
+			#clock-cells = <0>;
+			hiword;
+			clocks = <&clk_tcxo &clk_150m_src>;
+			hisilicon,clkmux-reg = <0x400 0x8 19>;
+			clock-output-names = "clk_uart3_src";
+		 };
+		
+		clk_cs_dapb_src: clk_cs_dapb_src {
+			compatible = "hisilicon,hi6xxx-clk-div";
+			#clock-cells = <0>;
+			clocks = <&clk_picophy_test_src>;
+			hisilicon,clkdiv-table = <4 1>;
+			/*divider register offset, bits, valid bit*/
+			hisilicon,clkdiv = <0x4a0 0x3000000 31>;
+			clock-output-names = "clk_cs_dapb_src";
+		};
+		
+		clk_mmc2_sample: clk_mmc2_sample {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_mmc2_sample_in>;
+			hisilicon,hi6xxx-clkgate = <0x200 0x4>;
+			clock-output-names = "clk_mmc2_sample";
+		};
+		
+		clk_mmc0_pad: clk_mmc0_pad {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_mmc0_src>;
+			hisilicon,hi6xxx-clkgate = <0x200 0x1>;
+			clock-output-names = "clk_mmc0_pad";
+		};
+		
+		clk_mmc2_src_sel: clk_mmc2_src_sel {
+			compatible = "hisilicon,hi6xxx-clk-div";
+			#clock-cells = <0>;
+			clocks = <&clk_syspll_mmc2_src>;
+			hisilicon,clkdiv-table = <64 1>;
+			/*divider register offset, bits, valid bit*/
+			hisilicon,clkdiv = <0x49c 0x3f 7>;
+			clock-output-names = "clk_mmc2_src_sel";
+		};
+		
+		clk_xg2ram0: clk_xg2ram0 {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_harq_src>;
+			hisilicon,hi6xxx-clkgate = <0x240 0x40>;
+			clock-output-names = "clk_xg2ram0";
+		};
+		
+		clk_syspll_src_div_sel: clk_syspll_src_div_sel {
+			compatible = "hisilicon,hi6xxx-clk-mux";
+			#clock-cells = <0>;
+			hiword;
+			clocks = <&clk_medpll_gated &clk_syspll_src>;
+			hisilicon,clkmux-reg = <0x400 0x400 26>;
+			clock-output-names = "clk_syspll_src_div_sel";
+		 };
+		
+		clk_mmc2_src: clk_mmc2_src {
+			compatible = "hisilicon,hi6xxx-clk-mux";
+			#clock-cells = <0>;
+			/*low word*/
+			clocks = <&clk_mmc2_src_sel_phase0 &clk_mmc2_src_sel>;
+			hisilicon,clkmux-reg = <0x4 0x10 0>;
+			clock-output-names = "clk_mmc2_src";
+		 };
+		
+		clk_syspll_cs_atb_src: clk_syspll_cs_atb_src {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_syspll_src>;
+			hisilicon,hi6xxx-clkgate = <0x270 0x1000>;
+			clock-output-names = "clk_syspll_cs_atb_src";
+		};
+		
+		clk_mmc1_sel_src1: clk_mmc1_sel_src1 {
+			compatible = "hisilicon,hi6xxx-clk-mux";
+			#clock-cells = <0>;
+			hiword;
+			clocks = <&clk_mmc1_sel_src &clk_medpll_gated>;
+			hisilicon,clkmux-reg = <0x400 0x4000 30>;
+			clock-output-names = "clk_mmc1_sel_src1";
+		 };
+		
+		clk_harq: clk_harq {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_harq_src>;
+			hisilicon,hi6xxx-clkgate = <0x240 0x400>;
+			clock-output-names = "clk_harq";
+		};
+		
+		clk_tsensor: clk_tsensor {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_tsensor_src>;
+			hisilicon,hi6xxx-clkgate = <0x230 0x1000>;
+			clock-output-names = "clk_tsensor";
+		};
+		
+		clk_sram: clk_sram {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_bus_src>;
+			hisilicon,hi6xxx-clkgate = <0x240 0x100>;
+			clock-output-names = "clk_sram";
+		};
+		
+		clk_medpll_src_gated: clk_medpll_src_gated {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_medpll_gated>;
+			hisilicon,hi6xxx-clkgate = <0x270 0x400>;
+			clock-output-names = "clk_medpll_src_gated";
+		};
+		
+	};
+
+	media_sctrl: media_sctrl {
+		status = "disabled";
+
+		clk_g3d: clk_g3d {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_g3d_src>;
+			hisilicon,hi6xxx-clkgate = <0x520 0x2>;
+			clock-output-names = "clk_g3d";
+		};
+		
+		sclk_isp: sclk_isp {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&sclk_isp_src>;
+			hisilicon,hi6xxx-clkgate = <0x520 0x20>;
+			clock-output-names = "sclk_isp";
+		};
+		
+		sclk_isp_gt: sclk_isp_gt {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_medpll_src_gated>;
+			hisilicon,hi6xxx-clkgate = <0x520 0x800>;
+			clock-output-names = "sclk_isp_gt";
+		};
+		
+		clk_codec_jpeg: clk_codec_jpeg {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_codec_jpeg_src>;
+			hisilicon,hi6xxx-clkgate = <0x520 0x10>;
+			clock-output-names = "clk_codec_jpeg";
+		};
+		
+		clk_med_x2rm_hq: clk_med_x2rm_hq {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_harq_src>;
+			hisilicon,hi6xxx-clkgate = <0x520 0x80>;
+			clock-output-names = "clk_med_x2rm_hq";
+		};
+		
+		clk_codec_vpu_src: clk_codec_vpu_src {
+			compatible = "hisilicon,hi6xxx-clk-div";
+			#clock-cells = <0>;
+			clocks = <&clk_codec_vpu_gt>;
+			hisilicon,clkdiv-table = <64 1>;
+			/*divider register offset, bits, valid bit*/
+			hisilicon,clkdiv = <0xcc4 0x3f000000 31>;
+			clock-output-names = "clk_codec_vpu_src";
+		};
+		
+		clk_1000_1440_mux: clk_1000_1440_mux {
+			compatible = "hisilicon,hi6xxx-clk-mux";
+			#clock-cells = <0>;
+			/*low word*/
+			clocks = <&clk_gpupll_gated &clk_medpll_src_gated>;
+			hisilicon,clkmux-reg = <0x51c 0x40 0>;
+			clock-output-names = "clk_1000_1440_mux";
+		 };
+		
+		pclk_g3d: pclk_g3d {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&pclk_codec_vpu_src>;
+			hisilicon,hi6xxx-clkgate = <0x520 0x2>;
+			clock-output-names = "pclk_g3d";
+		};
+		
+		clk_1440_1200_mux: clk_1440_1200_mux {
+			compatible = "hisilicon,hi6xxx-clk-mux";
+			#clock-cells = <0>;
+			/*low word*/
+			clocks = <&clk_syspll_src_med &clk_medpll_src_gated>;
+			hisilicon,clkmux-reg = <0x51c 0x1 0>;
+			clock-output-names = "clk_1440_1200_mux";
+		 };
+		
+		aclk_codec_jpeg: aclk_codec_jpeg {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&aclk_codec_jpeg_src>;
+			hisilicon,hi6xxx-clkgate = <0x520 0x10>;
+			clock-output-names = "aclk_codec_jpeg";
+		};
+		
+		clk_cfg_csi4phy: clk_cfg_csi4phy {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_tcxo>;
+			hisilicon,hi6xxx-clkgate = <0x520 0x200>;
+			clock-output-names = "clk_cfg_csi4phy";
+		};
+		
+		clk_med_mmu: clk_med_mmu {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_mmu>;
+			hisilicon,hi6xxx-clkgate = <0x520 0x100>;
+			clock-output-names = "clk_med_mmu";
+		};
+		
+		aclk_codec_jpeg_src: aclk_codec_jpeg_src {
+			compatible = "hisilicon,hi6xxx-clk-div";
+			#clock-cells = <0>;
+			clocks = <&clk_medpll_src_gated>;
+			hisilicon,clkdiv-table = <16 1>;
+			/*divider register offset, bits, valid bit*/
+			hisilicon,clkdiv = <0xcbc 0xf 23>;
+			clock-output-names = "aclk_codec_jpeg_src";
+		};
+		
+		clk_ade_core_src: clk_ade_core_src {
+			compatible = "hisilicon,hi6xxx-clk-div";
+			#clock-cells = <0>;
+			clocks = <&clk_ade_core_gt>;
+			hisilicon,clkdiv-table = <8 1>;
+			/*divider register offset, bits, valid bit*/
+			hisilicon,clkdiv = <0xcc0 0x70000 23>;
+			clock-output-names = "clk_ade_core_src";
+		};
+		
+		clk_syspll_src_med: clk_syspll_src_med {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_syspll_src_med_src>;
+			hisilicon,hi6xxx-clkgate = <0x520 0x20000>;
+			clock-output-names = "clk_syspll_src_med";
+		};
+		
+		clk_codec_jpeg_src: clk_codec_jpeg_src {
+			compatible = "hisilicon,hi6xxx-clk-div";
+			#clock-cells = <0>;
+			clocks = <&clk_codec_jpeg_gt>;
+			hisilicon,clkdiv-table = <16 1>;
+			/*divider register offset, bits, valid bit*/
+			hisilicon,clkdiv = <0xcc4 0xf0000 23>;
+			clock-output-names = "clk_codec_jpeg_src";
+		};
+		
+		clk_ade_pix: clk_ade_pix {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_ade_pix_src>;
+			hisilicon,hi6xxx-clkgate = <0x520 0x40>;
+			clock-output-names = "clk_ade_pix";
+		};
+		
+		pclk_codec_vpu: pclk_codec_vpu {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&pclk_codec_vpu_src>;
+			hisilicon,hi6xxx-clkgate = <0x520 0x8>;
+			clock-output-names = "pclk_codec_vpu";
+		};
+		
+		clk_codec_vpu_gt: clk_codec_vpu_gt {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_1000_1440_mux>;
+			hisilicon,hi6xxx-clkgate = <0x520 0x8000>;
+			clock-output-names = "clk_codec_vpu_gt";
+		};
+		
+		clk_ade_pix_gt: clk_ade_pix_gt {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_1440_1200_mux>;
+			hisilicon,hi6xxx-clkgate = <0x520 0x4000>;
+			clock-output-names = "clk_ade_pix_gt";
+		};
+		
+		clk_ade_pix_src: clk_ade_pix_src {
+			compatible = "hisilicon,hi6xxx-clk-div";
+			#clock-cells = <0>;
+			clocks = <&clk_ade_pix_gt>;
+			hisilicon,clkdiv-table = <64 1>;
+			/*divider register offset, bits, valid bit*/
+			hisilicon,clkdiv = <0xcc0 0x3f000000 31>;
+			clock-output-names = "clk_ade_pix_src";
+		};
+		
+		hclk_isp: hclk_isp {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&pclk_codec_vpu_src>;
+			hisilicon,hi6xxx-clkgate = <0x520 0x20>;
+			clock-output-names = "hclk_isp";
+		};
+		
+		clk_g3d_src: clk_g3d_src {
+			compatible = "hisilicon,hi6xxx-clk-div";
+			#clock-cells = <0>;
+			clocks = <&clk_1000_1200_mux>;
+			hisilicon,clkdiv-table = <16 1>;
+			/*divider register offset, bits, valid bit*/
+			hisilicon,clkdiv = <0xcc4 0xf00 15>;
+			clock-output-names = "clk_g3d_src";
+		};
+		
+		pclk_codec_jpeg: pclk_codec_jpeg {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&pclk_codec_vpu_src>;
+			hisilicon,hi6xxx-clkgate = <0x520 0x10>;
+			clock-output-names = "pclk_codec_jpeg";
+		};
+		
+		clk_cfg_csi2phy: clk_cfg_csi2phy {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_tcxo>;
+			hisilicon,hi6xxx-clkgate = <0x520 0x400>;
+			clock-output-names = "clk_cfg_csi2phy";
+		};
+		
+		clk_ade_core_gt: clk_ade_core_gt {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_medpll_src_gated>;
+			hisilicon,hi6xxx-clkgate = <0x520 0x4000>;
+			clock-output-names = "clk_ade_core_gt";
+		};
+		
+		sclk_isp_src: sclk_isp_src {
+			compatible = "hisilicon,hi6xxx-clk-div";
+			#clock-cells = <0>;
+			clocks = <&sclk_isp_gt>;
+			hisilicon,clkdiv-table = <16 1>;
+			/*divider register offset, bits, valid bit*/
+			hisilicon,clkdiv = <0xcbc 0xf00 15>;
+			clock-output-names = "sclk_isp_src";
+		};
+		
+		clk_codec_jpeg_gt: clk_codec_jpeg_gt {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_medpll_src_gated>;
+			hisilicon,hi6xxx-clkgate = <0x520 0x10000>;
+			clock-output-names = "clk_codec_jpeg_gt";
+		};
+		
+		aclk_codec_vpu: aclk_codec_vpu {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_ade_core_src>;
+			hisilicon,hi6xxx-clkgate = <0x520 0x8>;
+			clock-output-names = "aclk_codec_vpu";
+		};
+		
+		clk_1000_1200_mux: clk_1000_1200_mux {
+			compatible = "hisilicon,hi6xxx-clk-mux";
+			#clock-cells = <0>;
+			/*low word*/
+			clocks = <&clk_gpupll_gated &clk_syspll_src_med>;
+			hisilicon,clkmux-reg = <0x51c 0x2 0>;
+			clock-output-names = "clk_1000_1200_mux";
+		 };
+		
+		aclk_isp: aclk_isp {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&aclk_codec_jpeg_src>;
+			hisilicon,hi6xxx-clkgate = <0x520 0x20>;
+			clock-output-names = "aclk_isp";
+		};
+		
+		clk_codec_vpu: clk_codec_vpu {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_codec_vpu_src>;
+			hisilicon,hi6xxx-clkgate = <0x520 0x8>;
+			clock-output-names = "clk_codec_vpu";
+		};
+		
+		sclk2_isp_src: sclk2_isp_src {
+			compatible = "hisilicon,hi6xxx-clk-div";
+			#clock-cells = <0>;
+			clocks = <&sclk2_isp_gt>;
+			hisilicon,clkdiv-table = <16 1>;
+			/*divider register offset, bits, valid bit*/
+			hisilicon,clkdiv = <0xcbc 0xf000000 31>;
+			clock-output-names = "sclk2_isp_src";
+		};
+		
+		pclk_ade: pclk_ade {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&pclk_codec_vpu_src>;
+			hisilicon,hi6xxx-clkgate = <0x520 0x40>;
+			clock-output-names = "pclk_ade";
+		};
+		
+		pclk_dsi: pclk_dsi {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&pclk_codec_vpu_src>;
+			hisilicon,hi6xxx-clkgate = <0x520 0x1>;
+			clock-output-names = "pclk_dsi";
+		};
+		
+		clk_ade_core: clk_ade_core {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_ade_core_src>;
+			hisilicon,hi6xxx-clkgate = <0x520 0x40>;
+			clock-output-names = "clk_ade_core";
+		};
+		
+		sclk2_isp_gt: sclk2_isp_gt {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_medpll_src_gated>;
+			hisilicon,hi6xxx-clkgate = <0x520 0x1000>;
+			clock-output-names = "sclk2_isp_gt";
+		};
+		
+		sclk2_isp: sclk2_isp {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&sclk2_isp_src>;
+			hisilicon,hi6xxx-clkgate = <0x520 0x20>;
+			clock-output-names = "sclk2_isp";
+		};
+		
+	};
+
+	pmctrl: pmctrl {
+		status = "disabled";
+
+		clk_syspll_div_src: clk_syspll_div_src {
+			compatible = "hisilicon,hi6xxx-clk-div";
+			#clock-cells = <0>;
+			clocks = <&clk_syspll_src>;
+			hisilicon,clkdiv-table = <8 1>;
+			/*divider register offset, bits, valid bit*/
+			hisilicon,clkdiv = <0x110 0x7 0>;
+			clock-output-names = "clk_syspll_div_src";
+		};
+		
+		clk_gpupll_gated: clk_gpupll_gated {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_gpupll_src>;
+			hisilicon,hi6xxx-clkgate = <0x8 0x1>;
+			clock-output-names = "clk_gpupll_gated";
+		};
+		
+		clk_acpu_div_src: clk_acpu_div_src {
+			compatible = "hisilicon,hi6xxx-clk-div";
+			#clock-cells = <0>;
+			clocks = <&clk_acpu_sel_src>;
+			hisilicon,clkdiv-table = <4 1>;
+			/*divider register offset, bits, valid bit*/
+			hisilicon,clkdiv = <0x110 0x300 0>;
+			clock-output-names = "clk_acpu_div_src";
+		};
+		
+		clk_ddrphy_ref_src: clk_ddrphy_ref_src {
+			compatible = "hisilicon,hi6xxx-clk-div";
+			#clock-cells = <0>;
+			clocks = <&clk_ddrc_src>;
+			hisilicon,clkdiv-table = <4 1>;
+			/*divider register offset, bits, valid bit*/
+			hisilicon,clkdiv = <0x5a8 0x30000 0>;
+			clock-output-names = "clk_ddrphy_ref_src";
+		};
+		
+		clk_harq_src: clk_harq_src {
+			compatible = "hisilicon,hi6xxx-clk-div";
+			#clock-cells = <0>;
+			clocks = <&clk_ddrc_axi1_src>;
+			hisilicon,clkdiv-table = <4 1>;
+			/*divider register offset, bits, valid bit*/
+			hisilicon,clkdiv = <0x5a8 0x3000 0>;
+			clock-output-names = "clk_harq_src";
+		};
+		
+		clk_ddrc_axi_src: clk_ddrc_axi_src {
+			compatible = "hisilicon,hi6xxx-clk-div";
+			#clock-cells = <0>;
+			clocks = <&clk_ddrc_src>;
+			hisilicon,clkdiv-table = <4 1>;
+			/*divider register offset, bits, valid bit*/
+			hisilicon,clkdiv = <0x5a8 0x30 0>;
+			clock-output-names = "clk_ddrc_axi_src";
+		};
+		
+		clk_ddrc_axi1_src: clk_ddrc_axi1_src {
+			compatible = "hisilicon,hi6xxx-clk-div";
+			#clock-cells = <0>;
+			clocks = <&clk_ddrc_src>;
+			hisilicon,clkdiv-table = <4 1>;
+			/*divider register offset, bits, valid bit*/
+			hisilicon,clkdiv = <0x5a8 0x300 0>;
+			clock-output-names = "clk_ddrc_axi1_src";
+		};
+		
+		clk_acpu_sel_src: clk_acpu_sel_src {
+			compatible = "hisilicon,hi6xxx-clk-mux";
+			#clock-cells = <0>;
+			/*low word*/
+			clocks = <&clk_acpupll_src &clk_syspll_div_src>;
+			hisilicon,clkmux-reg = <0x100 0x1 0>;
+			clock-output-names = "clk_acpu_sel_src";
+		 };
+		
+		clk_ddrc_axi3_src: clk_ddrc_axi3_src {
+			compatible = "hisilicon,hi6xxx-clk-div";
+			#clock-cells = <0>;
+			clocks = <&clk_ddrc_src>;
+			hisilicon,clkdiv-table = <4 1>;
+			/*divider register offset, bits, valid bit*/
+			hisilicon,clkdiv = <0x104 0x300 0>;
+			clock-output-names = "clk_ddrc_axi3_src";
+		};
+		
+		clk_ddrc_src_90: clk_ddrc_src_90 {
+			compatible = "hisilicon,hi6xxx-clk-div";
+			#clock-cells = <0>;
+			clocks = <&clk_ddr_sel_src>;
+			hisilicon,clkdiv-table = <16 1>;
+			/*divider register offset, bits, valid bit*/
+			hisilicon,clkdiv = <0x5a8 0xf 0>;
+			clock-output-names = "clk_ddrc_src_90";
+		};
+		
+		
+		clk_ddrpll_gated: clk_ddrpll_gated {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_ddrpll_src>;
+			hisilicon,hi6xxx-clkgate = <0x18 0x1>;
+			clock-output-names = "clk_ddrpll_gated";
+		};
+		
+		clk_ddrpll1_gated: clk_ddrpll1_gated {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_ddrpll1_src>;
+			hisilicon,hi6xxx-clkgate = <0x10 0x1>;
+			clock-output-names = "clk_ddrpll1_gated";
+		};
+		
+		clk_medpll_gated: clk_medpll_gated {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_medpll_src>;
+			hisilicon,hi6xxx-clkgate = <0x38 0x1>;
+			clock-output-names = "clk_medpll_gated";
+		};
+		
+		clk_ddrc_src: clk_ddrc_src {
+			compatible = "hisilicon,hi6xxx-clk-div";
+			#clock-cells = <0>;
+			clocks = <&clk_ddr_sel_src>;
+			hisilicon,clkdiv-table = <16 1>;
+			/*divider register offset, bits, valid bit*/
+			hisilicon,clkdiv = <0x5a8 0xf 0>;
+			clock-output-names = "clk_ddrc_src";
+		};
+		
+		clk_bbppll0_gated: clk_bbppll0_gated {
+			compatible = "hisilicon,hi6xxx-clk-gate";
+			#clock-cells = <0>;
+			clocks = <&clk_bbppll0_src>;
+			hisilicon,hi6xxx-clkgate = <0x48 0x1>;
+			clock-output-names = "clk_bbppll0_gated";
+		};
+		
+	};
+
+};

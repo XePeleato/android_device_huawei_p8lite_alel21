@@ -1,0 +1,6 @@
+config HI6XXX_PLATFORM_INTERFACE
+	bool "Hisilicon Kirin620 platform interface lib support"
+	depends on HI6XXX_MODEM_PLATFORM
+	default n
+	help
+	  Say yes here to support the hisilicon kirin620 platform interface lib

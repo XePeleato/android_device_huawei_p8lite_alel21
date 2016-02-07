@@ -1,0 +1,28 @@
+/*
+ *
+ * Copyright (C), 1988-1999, Huawei Tech. Co., Ltd.
+ * Author: l00213837 <lixiuna@huawei.com>
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 2 as
+ * publishhed by the Free Software Foundation.
+ */
+
+/{
+	amba{
+		i2c1: i2c@FDF0A000 {
+			fairchild_fsa9685: fsa9685@25 {
+				compatible = "huawei,fairchild_fsa9685";
+				reg = <0x25>;
+				fairchild_fsa9685,gpio-intb = <&gpio24 7 0>;
+				status = "disable";
+			};
+		};
+	};
+
+	usbswitch: usbswitch {
+		compatible = "huawei,usbswitch";
+		gpio_switch_back = "-1";
+		status = "disable";
+	};
+};

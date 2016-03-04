@@ -1,3 +1,0 @@
-kernel/drivers/mfd/mfd-core.ko
-kernel/drivers/mfd/hi6xxx_pmic.ko
-kernel/drivers/mfd/hi6xxx_pmic_mntn.ko

@@ -1,6 +1,0 @@
-kernel/drivers/huawei_platform/sensor/accelerometer/lis3dh_acc.ko
-kernel/drivers/huawei_platform/sensor/accelerometer/gs_rohm_kx023.ko
-kernel/drivers/huawei_platform/sensor/compass/akm09911.ko
-kernel/drivers/huawei_platform/sensor/hall/ak8789.ko
-kernel/drivers/huawei_platform/sensor/light/apds990x.ko
-kernel/drivers/huawei_platform/sensor/light/rpr0521_driver.ko

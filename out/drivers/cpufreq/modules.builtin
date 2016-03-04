@@ -1,6 +1,0 @@
-kernel/drivers/cpufreq/cpufreq_stats.ko
-kernel/drivers/cpufreq/cpufreq_performance.ko
-kernel/drivers/cpufreq/cpufreq_optdemand.ko
-kernel/drivers/cpufreq/freq_table.ko
-kernel/drivers/cpufreq/hi6xxx_cpufreq.ko
-kernel/drivers/cpufreq/hi6xxx_cpufreq_dt.ko

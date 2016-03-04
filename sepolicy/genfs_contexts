@@ -1,1 +1,0 @@
-genfscon configfs / u:object_r:configfs:s0

@@ -1,2 +1,0 @@
-hi6220_sft_mali450_config.o: \
- /home/edu/AOSP/device/HUAWEI/hi6210sft/kernel/arch/arm64/boot/dts/auto-generate/hi6220_sft_mali450_config.dts

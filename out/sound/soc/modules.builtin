@@ -1,4 +1,0 @@
-kernel/sound/soc/snd-soc-core.ko
-kernel/sound/soc/codecs/snd-soc-hissc.ko
-kernel/sound/soc/hisilicon/snd-soc-hi6210.ko
-kernel/sound/soc/hisilicon/snd-soc-hi6210-hissc.ko

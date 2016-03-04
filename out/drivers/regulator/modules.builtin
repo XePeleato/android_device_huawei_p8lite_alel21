@@ -1,3 +1,0 @@
-kernel/drivers/regulator/hi6xxx_regulator.ko
-kernel/drivers/regulator/hi6xxx_regulator_adapt.ko
-kernel/drivers/regulator/test_hi6xxx_regulator.ko

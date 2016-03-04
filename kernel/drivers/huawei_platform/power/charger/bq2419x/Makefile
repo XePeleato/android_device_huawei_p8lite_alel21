@@ -1,1 +1,0 @@
-obj-y += bq2419x_charger.o

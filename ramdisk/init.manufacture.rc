@@ -1,0 +1,96 @@
+on early-init
+test
+
+
+on init
+    mkdir /cust
+    mkdir /splash2
+    mkdir /3rdmodem
+    mkdir /3rdmodemnvm
+    mkdir /3rdmodemnvmbkp
+
+on early-fs
+    fix_ext4
+    wait /dev/block/platform/hi_mci.0/by-name/oeminfo
+    start oeminfo_nvm
+
+on fs
+
+    mount ext4 /dev/block/platform/hi_mci.0/by-name/cust /cust wait ro nosuid nodev
+    mount_doul vfat-ext4 /dev/block/platform/hi_mci.0/by-name/splash2 /splash2 wait rw nosuid nodev uid=1000,gid=1000,fmask=0002,dmask=0002,context=u:object_r:splash2_data_file:s0
+    mount ext4 /dev/block/platform/hi_mci.0/by-name/3rdmodem /3rdmodem noatime nosuid nodev
+    mount ext4 /dev/block/platform/hi_mci.0/by-name/3rdmodemnvm /3rdmodemnvm noatime nosuid nodev context=u:object_r:radio_data_file:s0
+    mount ext4 /dev/block/platform/hi_mci.0/by-name/3rdmodemnvmback /3rdmodemnvmbkp noatime nosuid nodev context=u:object_r:radio_data_file:s0
+
+    mkdir /data/log 0755 system log
+    mkdir /splash2/log 0775 system log
+    symlink /splash2/fac_log /data/log/fac_log
+    symlink /splash2 /log
+
+    wait /dev/block/mmcblk0p35
+    chown system system /dev/block/mmcblk0p35
+    chmod 0660 /dev/block/mmcblk0p35
+
+    wait /dev/block/mmcblk0p36
+    chown system system /dev/block/mmcblk0p36
+    chmod 0660 /dev/block/mmcblk0p36
+on post-fs
+
+on post-fs-data
+
+on early-boot
+
+on boot
+
+
+
+
+
+service atcmdserver  /system/bin/atcmdserver
+    class main
+    disabled
+
+service oeminfo_nvm /sbin/oeminfo_nvm_server
+    class core
+    critical
+    ioprio rt 4
+    seclabel u:r:oeminfo_nvm:s0
+
+service diagserver /system/bin/diagserver
+    class main
+    user root
+
+service goldeneye /system/bin/goldeneye
+    class main
+    user root
+
+service check_root /sbin/check_root
+    class main
+    oneshot
+    seclabel u:r:check_root:s0
+
+service check_longpress /system/bin/check_longpress
+    class main
+    oneshot
+
+on property:sys.boot_completed=1
+    start check_root
+
+on property:ro.runmode=factory
+    chmod 0775 /data/media/0/Music
+    chmod 0775 /data/media/0/Pictures
+    chown media_rw media_rw /data/media/0
+    chown media_rw media_rw /data/media/0/Music
+    chown media_rw media_rw /data/media/0/Pictures
+
+service hwnffserver  /system/bin/hwnffserver
+    class main
+    socket hwnff stream 0660 root mount
+
+service data_cleanner /system/bin/data_cleaner
+    class core
+    oneshot
+
+service check_hota /system/bin/sh /system/etc/check_hota.sh
+    class core
+    oneshot

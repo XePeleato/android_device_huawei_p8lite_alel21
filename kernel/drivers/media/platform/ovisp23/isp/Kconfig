@@ -1,8 +1,0 @@
-if HISI_CAMERA_ISP
-
-menu "Hisilicon Camera ISP Driver support"
-
-
-endmenu
-
-endif

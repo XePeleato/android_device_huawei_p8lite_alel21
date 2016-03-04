@@ -1,0 +1,22 @@
+import /init.connectivity.@{/proc/connectivity/chiptype}.rc
+on early-init
+
+on init
+
+on early-fs
+
+on fs
+
+on post-fs
+
+on post-fs-data
+
+on early-boot
+
+on boot
+
+service macaddr /system/bin/mac_addr_normalization
+    class core
+    user root
+    group root bluetooth net_bt_stack wifi
+    oneshot

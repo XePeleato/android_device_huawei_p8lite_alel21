@@ -1,0 +1,27 @@
+# 1 "/home/edu/AOSP/device/HUAWEI/hi6210sft/kernel/arch/arm64/boot/dts/auto-generate/hi6220_sft_mali450_config.dts"
+# 1 "<built-in>"
+# 1 "<command-line>"
+# 1 "/home/edu/AOSP/device/HUAWEI/hi6210sft/kernel/arch/arm64/boot/dts/auto-generate/hi6220_sft_mali450_config.dts"
+# 10 "/home/edu/AOSP/device/HUAWEI/hi6210sft/kernel/arch/arm64/boot/dts/auto-generate/hi6220_sft_mali450_config.dts"
+/dts-v1/;
+
+
+
+
+
+/include/ "./sft_mali450/hi6xxx_gpio_logic.dtsi"
+/include/ "fastboot.dtsi"
+/include/ "hi6220_sft_mali400_config.dtsi"
+
+
+/ {
+ hisi,boardid = <1 0 0 1>;
+ hisi,boardname = "hi6220_sft_mali450";
+
+
+ video_config: video_config {
+  support_isp = <0>;
+  support_vpu = <0>;
+  support_jpu = <0>;
+ };
+};

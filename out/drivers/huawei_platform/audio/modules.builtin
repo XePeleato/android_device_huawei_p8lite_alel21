@@ -1,0 +1,2 @@
+kernel/drivers/huawei_platform/audio/earpiece_pa/earpiece_pa.ko
+kernel/drivers/huawei_platform/audio/tfa9895/tfa9895.ko

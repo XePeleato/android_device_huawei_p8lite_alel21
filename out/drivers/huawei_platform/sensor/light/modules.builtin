@@ -1,0 +1,2 @@
+kernel/drivers/huawei_platform/sensor/light/apds990x.ko
+kernel/drivers/huawei_platform/sensor/light/rpr0521_driver.ko

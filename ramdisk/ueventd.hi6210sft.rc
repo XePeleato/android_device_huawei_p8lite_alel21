@@ -1,0 +1,12 @@
+
+/dev/mali                 0666   system     graphics
+/dev/ion                  0664   system     system
+/dev/video0               0660   system     camera 
+/dev/cnm_jpu              0660   system     camera
+/dev/cnm_vpu              0660   system     camera
+
+/dev/block/mmcblk0p19     0660   system      system
+/dev/miscnff              0770   root        system
+/dev/akm09911_dev         0660   system      system
+/dev/hifi_misc            0770   root        audio
+/dev/akm09911_dev         0660   system      system

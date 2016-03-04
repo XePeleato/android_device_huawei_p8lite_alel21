@@ -1,6 +1,0 @@
-
-/ {
-	ion:hisi_ion@ff000000 {
-		compatible = "hisi,hi6620-ion";
-	};
-};

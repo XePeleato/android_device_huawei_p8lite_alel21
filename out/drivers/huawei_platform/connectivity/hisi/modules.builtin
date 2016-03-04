@@ -1,0 +1,5 @@
+kernel/drivers/huawei_platform/connectivity/hisi/hisiwifi/wifi.ko
+kernel/drivers/huawei_platform/connectivity/hisi/hw-chr/chr_devs.ko
+kernel/drivers/huawei_platform/connectivity/hisi/hw-pm/hw_pm.ko
+kernel/drivers/huawei_platform/connectivity/hisi/hw-ps/ps_drv.ko
+kernel/drivers/huawei_platform/connectivity/hisi/oam-drv/oamdrv.ko

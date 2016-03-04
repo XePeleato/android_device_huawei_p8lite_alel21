@@ -1,0 +1,41 @@
+on early-init
+
+on init
+
+on early-fs
+
+on fs
+
+on post-fs
+
+on post-fs-data
+
+on early-boot
+
+on boot
+
+    mkdir /data/nfc
+    chown nfc nfc /data/nfc
+    chown nfc nfc /sys/bus/i2c/devices/0-0028/nfc_fwupdate
+    chmod 0664 /sys/bus/i2c/devices/0-0028/nfc_fwupdate
+    chown nfc nfc /sys/bus/i2c/devices/0-0028/nxp_config_name
+    chmod 0664 /sys/bus/i2c/devices/0-0028/nxp_config_name
+    chown nfc nfc /sys/bus/i2c/devices/0-0028/nfc_brcm_conf_name
+    chmod 0664 /sys/bus/i2c/devices/0-0028/nfc_brcm_conf_name
+    chown nfc nfc /sys/bus/i2c/devices/0-0028/nfc_sim_switch
+    chmod 0664 /sys/bus/i2c/devices/0-0028/nfc_sim_switch
+    chown nfc nfc /sys/bus/i2c/devices/0-0028/nfc_sim_status
+    chmod 0444 /sys/bus/i2c/devices/0-0028/nfc_sim_status
+    chown nfc nfc /sys/bus/i2c/devices/0-0028/rd_nfc_sim_status
+    chmod 0444 /sys/bus/i2c/devices/0-0028/rd_nfc_sim_status
+    chown nfc nfc /sys/bus/i2c/devices/0-0028/nfc_enable_status
+    chmod 0664 /sys/bus/i2c/devices/0-0028/nfc_enable_status
+    chown nfc nfc /sys/bus/i2c/devices/0-0028/nfc_chip_type
+    chmod 0444 /sys/bus/i2c/devices/0-0028/nfc_chip_type
+    chown system system /sys/bus/i2c/devices/0-0028/nfc_fw_version
+    chmod 0444 /sys/bus/i2c/devices/0-0028/nfc_fw_version
+
+on property:ro.runmode=factory
+    setprop qemu.hw.mainkeys 0
+    setprop ro.config.hw_navigationbar true
+

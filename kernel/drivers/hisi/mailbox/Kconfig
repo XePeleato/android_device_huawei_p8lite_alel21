@@ -1,2 +1,0 @@
-source "drivers/hisi/mailbox/hi6xxx_mailbox/Kconfig"
-source "drivers/hisi/mailbox/hisi_mailbox/Kconfig"

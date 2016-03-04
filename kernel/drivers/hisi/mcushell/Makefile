@@ -1,1 +1,0 @@
-obj-$(CONFIG_HISILICON_PLATFORM_MCUSHELL)	+= mcushell.o

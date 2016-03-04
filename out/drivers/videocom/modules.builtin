@@ -1,0 +1,6 @@
+kernel/drivers/videocom/mntn/media_mntn_kernel.ko
+kernel/drivers/videocom/mntn/mntn_log_debugfs.ko
+kernel/drivers/videocom/mntn/video_mntn_kernel.ko
+kernel/drivers/videocom/mntn/media_mntn_sys_crash.ko
+kernel/drivers/videocom/videoconfig/video_config.ko
+kernel/drivers/videocom/videoharden/video_harden.ko

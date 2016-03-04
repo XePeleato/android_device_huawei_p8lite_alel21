@@ -1,0 +1,123 @@
+on early-init
+
+on init
+    write /sys/module/block2mtd/parameters/block2mtd /dev/block/mmcblk0p7
+    wait /dev/nve0
+    chmod 0770 /dev/nve0
+    chown root system /dev/nve0
+
+on early-fs
+
+on fs
+       restorecon       /sys/class/devfreq/gpufreq/min_freq
+       restorecon       /sys/class/devfreq/gpufreq/max_freq
+       restorecon       /sys/class/devfreq/ddrfreq/min_freq
+       restorecon       /sys/class/devfreq/ddrfreq/max_freq
+       restorecon       /sys/class/graphics/fb0/lcd_cabc_mode
+       restorecon       /sys/class/leds/torch/flash_thermal_protect
+       restorecon       /sys/class/leds/red/brightness
+       restorecon       /sys/class/leds/green/brightness
+       restorecon       /sys/class/leds/blue/brightness
+       restorecon       /sys/class/leds/lcd_backlight0/brightness
+       restorecon       /sys/class/hw_power/charger/charge_data/enable_charger
+       restorecon       /sys/class/leds/torch/brightnesss
+       restorecon       /proc/touchscreen/rawdata
+       restorecon       /sys/class/leds/torch/brightness
+       restorecon       /sys/devices/platform/huawei_sensor/akm_selfTest
+       restorecon       /sys/touchscreen/command
+on post-fs
+
+on post-fs-data
+
+on early-boot
+    chmod 660 /dev/appvcom
+    chmod 660 /dev/appvcom1
+    chmod 660 /dev/appvcom2
+    chmod 660 /dev/appvcom3
+    chmod 660 /dev/appvcom4
+    chmod 660 /dev/appvcom5
+    chmod 660 /dev/appvcom6
+    chmod 660 /dev/appvcom7
+    chmod 660 /dev/appvcom8
+    chmod 660 /dev/appvcom9
+    chmod 660 /dev/appvcom10
+    chmod 660 /dev/appvcom11
+    chmod 660 /dev/appvcom12
+    chmod 660 /dev/appvcom13
+    chmod 660 /dev/appvcom14
+    chmod 660 /dev/appvcom15
+    chmod 660 /dev/appvcom16
+    chmod 660 /dev/appvcom17
+    chmod 660 /dev/appvcom18
+    chmod 660 /dev/appvcom19
+    chmod 660 /dev/appvcom20
+    chmod 660 /dev/appvcom21
+    chmod 660 /dev/appvcom22
+    chmod 660 /dev/appvcom23
+    chmod 660 /dev/appvcom24
+    chmod 660 /dev/appvcom25
+    chmod 660 /dev/appvcom26
+    chmod 660 /dev/appvcom27
+    chmod 660 /dev/appvcomTLLOG
+    chmod 660 /dev/appvcomERRLOG
+    chmod 660 /dev/appvcomLOG
+    chmod 660 /dev/appvcomLOG1
+    
+    chown radio radio /dev/appvcom
+    chown radio radio /dev/appvcom1
+    chown radio radio /dev/appvcom5
+    chown radio radio /dev/appvcom6
+    chown radio radio /dev/appvcom10
+    chown radio radio /dev/appvcom13
+    chown radio radio /dev/appvcom14
+    chown radio radio /dev/appvcom15
+    
+    chown media media /dev/appvcom4
+    chown media media /dev/appvcom12
+    
+    chown system system /dev/appvcom2
+    chown system system /dev/appvcom8
+
+    chown system system /dev/appvcom17
+
+    chown system system /dev/appvcomERRLOG
+
+    chown system system /proc/portcfg
+
+    chown system system /proc/getslice
+
+    mkdir /data/offlinelogs
+    chmod 770 /data/offlinelogs
+    chown radio radio sys/devices/platform/balong_power/state
+
+on boot
+    write /sys/kernel/debug/kmemleak scan=14400
+
+
+
+
+service ril-daemon /system/bin/rild
+    class main
+    socket rild stream 660 root radio
+    socket rild-ims stream 660 root radio
+    socket rild2 stream 660 root radio
+
+    socket rild-debug stream 660 radio system
+    socket rild-debug1 stream 660 radio system
+    user root
+    group radio cache inet misc audio sdcard_r sdcard_rw log system dsm
+
+service ril-daemon1 /system/bin/rild -c 1
+    disabled
+    class main
+    socket rild2 stream 660 root radio
+    socket rild-debug1 stream 660 radio system
+    socket rild-balong-test stream 660 radio system
+    user root
+    group radio cache inet misc audio sdcard_r sdcard_rw log
+
+on property:rild.rild1_ready_to_start=true
+    start ril-daemon1
+
+on property:ro.hardware.alter=*
+    write /proc/sys/kernel/hardware_alter ${ro.hardware.alter}

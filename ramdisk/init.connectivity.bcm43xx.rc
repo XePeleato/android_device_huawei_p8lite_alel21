@@ -1,0 +1,138 @@
+on early-init
+
+on init
+
+on early-fs
+
+on fs
+
+on post-fs
+
+on post-fs-data
+    mkdir /data/gps
+    mkdir /data/gps/log
+    chown root system /data/gps
+    chmod 775 /data/gps
+    chmod 770 /data/gps/log
+    mkdir /data/misc/wifi 0770 wifi wifi
+    chown wifi wifi /data/misc/wifi
+    mkdir /data/misc/wifi/sockets 0770 wifi wifi
+    chown wifi wifi /data/misc/wifi/p2p_supplicant.conf
+    chmod 0660 /data/misc/wifi/p2p_supplicant.conf
+    chmod 0660 /data/misc/wifi/wpa_supplicant.conf
+    mkdir /data/misc/dhcp 0770 dhcp dhcp
+    chown dhcp dhcp /data/misc/dhcp
+on early-boot
+
+on property:bluetooth.log.file.create=true
+   mkdir /data/hwzd_logs/bt
+   chown bluetooth bluetooth /data/hwzd_logs/bt
+   chmod 775 /data/hwzd_logs/bt
+
+   setprop bluetooth.log.file.create false
+
+on boot
+    chmod 660 /dev/ttyAMA1
+    chown bluetooth bluetooth /dev/ttyAMA1
+
+    chown bluetooth bluetooth /sys/class/rfkill/rfkill0/type
+    chown bluetooth bluetooth /sys/class/rfkill/rfkill0/state
+    chmod 660 /sys/class/rfkill/rfkill0/state
+
+
+     chown bluetooth bluetooth /proc/bluetooth/sleep/proto
+     chmod 664 /proc/bluetooth/sleep/proto
+     chown bluetooth bluetooth /proc/bluetooth/sleep/btwrite
+     chmod 664 /proc/bluetooth/sleep/btwrite
+     chown bluetooth bluetooth /proc/bluetooth/sleep/btwake
+     chmod 664 /proc/bluetooth/sleep/btwake
+
+    chmod 770 /system/bin/gpsdaemon
+    chmod 660 /dev/ttyAMA2
+
+
+    setprop wifi.interface wlan0
+
+    chown system system /sys/module/bcmdhd/parameters/dhd_console_ms
+
+service gpsdaemon /system/bin/gpsdaemon
+    class main
+    oneshot
+
+
+service p2p_supplicant /system/bin/wpa_supplicant -ddd \
+    -iwlan0 -Dnl80211 -c/data/misc/wifi/wpa_supplicant.conf \
+    -I/system/etc/wifi/wpa_supplicant_overlay.conf \
+    -O/data/misc/wifi/sockets \
+    -puse_p2p_group_interface=1p2p_device=1 \
+    -e/data/misc/wifi/entropy.bin -g@android:wpa_wlan0
+    class main
+    socket wpa_wlan0 dgram 660 wifi wifi
+    disabled
+    oneshot
+
+service wpa_supplicant /system/bin/wpa_supplicant -ddd \
+    -iwlan0 -Dnl80211 -c/data/misc/wifi/wpa_supplicant.conf \
+    -I/system/etc/wifi/wpa_supplicant_overlay.conf \
+    -O/data/misc/wifi/sockets \
+    -e/data/misc/wifi/entropy.bin -g@android:wpa_wlan0
+    class main
+    socket wpa_wlan0 dgram 660 wifi wifi
+    disabled
+    oneshot
+
+
+service dhcpcd_wlan0 /system/bin/dhcpcd -BKL
+    class main
+    disabled
+    oneshot
+
+service dhcpcd_p2p /system/bin/dhcpcd -aABKL
+    class main
+    disabled
+    oneshot
+
+service dhcpcd_bnep0 /system/bin/dhcpcd -ABKL
+    class main
+    disabled
+    oneshot
+
+service dhcpcd_bt-pan /system/bin/dhcpcd -ABKL
+    class main
+    disabled
+    oneshot
+
+service iprenew_wlan0 /system/bin/dhcpcd -n
+    class main
+    disabled
+    oneshot
+
+service iprenew_p2p /system/bin/dhcpcd -n
+    class main
+    disabled
+    oneshot
+
+service iprenew_bnep0 /system/bin/dhcpcd -n
+    class main
+    disabled
+    oneshot
+
+service gpsd_47531 /system/bin/bcm47531/glgps -c /data/gps/gpsconfig.xml
+    socket gps seqpacket 660 root root
+    class main
+    user root
+    group system
+    disabled
+
+service gpsd /system/bin/glgps -c /data/gps/gpsconfig.xml
+    socket gps seqpacket 660 root root
+    class main
+    user root
+    group system
+    disabled
+
+
+
+
+
+

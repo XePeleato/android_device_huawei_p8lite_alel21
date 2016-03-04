@@ -1,5 +1,0 @@
-config DDR_INFORMATION
-	bool "DDR Information"
-	default n
-	help
-		get ddr information.

@@ -1,0 +1,6 @@
+kernel/drivers/tzdriver/tc_client_driver.ko
+kernel/drivers/tzdriver/teek_client_api.ko
+kernel/drivers/tzdriver/smc.ko
+kernel/drivers/tzdriver/agent.ko
+kernel/drivers/tzdriver/gp_ops.ko
+kernel/drivers/tzdriver/mem.ko

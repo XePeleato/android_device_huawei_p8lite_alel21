@@ -1,3 +1,0 @@
-source "drivers/huawei_platform/connectivity/bcm/bluetooth/Kconfig"
-source "drivers/huawei_platform/connectivity/bcm/gps/Kconfig"
-source "drivers/huawei_platform/connectivity/bcm/wifi/Kconfig"

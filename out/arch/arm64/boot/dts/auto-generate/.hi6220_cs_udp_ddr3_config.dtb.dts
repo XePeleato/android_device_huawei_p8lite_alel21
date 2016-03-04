@@ -1,0 +1,43 @@
+# 1 "/home/edu/AOSP/device/HUAWEI/hi6210sft/kernel/arch/arm64/boot/dts/auto-generate/hi6220_cs_udp_ddr3_config.dts"
+# 1 "<built-in>"
+# 1 "<command-line>"
+# 1 "/home/edu/AOSP/device/HUAWEI/hi6210sft/kernel/arch/arm64/boot/dts/auto-generate/hi6220_cs_udp_ddr3_config.dts"
+# 10 "/home/edu/AOSP/device/HUAWEI/hi6210sft/kernel/arch/arm64/boot/dts/auto-generate/hi6220_cs_udp_ddr3_config.dts"
+/dts-v1/;
+
+
+
+
+
+/include/ "fastboot.dtsi"
+/include/ "hi6220_cs_udp_ddr2_config.dtsi"
+/include/ "hi6220_cs_udp_ddr3_pin.dtsi"
+/include/ "hi6220_cs_udp_ddr3_gpio_logic.dtsi"
+/include/ "hi6220_cs_udp_ddr3_pmic.dtsi"
+/include/ "hi6220_cs_udp_ddr3_charger.dtsi"
+/ {
+ hisi,boardid = <0 0 4 3>;
+ hisi,boardname = "hi6220_cs_udp_ddr3";
+
+        ddr_min: ddrfreq {
+  operating-points = <
+
+   150000 0
+   266000 0
+   400000 0
+   533000 0
+   800000 0
+  >;
+ };
+
+        ddr_max: ddrfreq_up_threshold {
+                operating-points = <
+
+   150000 0
+   266000 0
+   400000 0
+   533000 0
+   800000 0
+  >;
+ };
+};

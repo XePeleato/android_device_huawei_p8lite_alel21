@@ -1,0 +1,2 @@
+hi6220_cs_udp_ddr3_config.o: \
+ /home/edu/AOSP/device/HUAWEI/hi6210sft/kernel/arch/arm64/boot/dts/auto-generate/hi6220_cs_udp_ddr3_config.dts

@@ -1,0 +1,253 @@
+on early-init
+
+on init
+
+    mkdir /dev/frz
+    mount cgroup none /dev/frz freezer
+
+on early-fs
+
+on fs
+
+on post-fs
+    sys_wp_init_action
+
+on post-fs-data
+
+    mkdir /data/hwzd_logs
+    chmod 0775 /data/hwzd_logs
+    chown system system /data/hwzd_logs
+
+on early-boot
+    mount debugfs /sys/kernel/debug /sys/kernel/debug mode=0775,gid=1000
+
+on boot
+    start logctl_service
+    chmod 0660 /dev/hwlog_switch
+    chown logd system /dev/hwlog_switch
+    chmod 0660 /dev/hwlog_tag
+    chown system system /dev/hwlog_tag
+
+    chmod 0660 /sys/class/hw_power/charger/charge_data/enable_charger
+    chown system system /sys/class/hw_power/charger/charge_data/enable_charger
+    chmod 0660 /sys/class/hw_power/charger/charge_data/iin_thermal
+    chown system system /sys/class/hw_power/charger/charge_data/iin_thermal
+    chmod 0660 /sys/class/hw_power/charger/charge_data/ichg_thermal
+    chown system system /sys/class/hw_power/charger/charge_data/ichg_thermal
+    chmod 0660 /sys/class/hw_power/charger/charge_data/regulation_voltage
+    chown system system /sys/class/hw_power/charger/charge_data/regulation_voltage
+    chmod 0660 /sys/class/hw_power/charger/charge_data/iin_runningtest
+    chown system system /sys/class/hw_power/charger/charge_data/iin_runningtest
+    chmod 0660 /sys/class/hw_power/charger/charge_data/ichg_runningtest
+    chown system system /sys/class/hw_power/charger/charge_data/ichg_runningtest
+    chown system system /sys/class/hisi_usb_class/hisi_usb_dev/interface/release_wakelock
+    chmod 0660 /sys/class/hisi_usb_class/hisi_usb_dev/interface/release_wakelock
+    chmod 0660 /sys/class/hw_power/charger/charge_data/enable_hiz
+    chown system system /sys/class/hw_power/charger/charge_data/enable_hiz
+    chmod 0660 /sys/class/hw_power/charger/charge_data/shutdown_watchdog
+    chown system system /sys/class/hw_power/charger/charge_data/shutdown_watchdog
+
+on property:sys.printservice=*
+    printservice ${sys.printservice}
+    
+on restart-sdcardfs
+    mkdir /data/media 0770 media_rw media_rw    
+    chown media_rw media_rw /data/media
+    mount sdcardfs /data/media /mnt/shell/emulated nosuid nodev derive=legacy,reserved_mb=20
+    
+on property:vold.decrypt=trigger_reset_main
+    class_reset main
+    class_reset late_start
+    write /sys/devices/platform/balong_power/state 10
+    setprop vold.crypto_support_innersd 1
+    
+on property:vold.decrypt=trigger_restart_min_framework
+    start teecd
+    class_start main
+    
+on property:vold.decrypt=trigger_restart_framework
+    class_start main
+    class_start late_start
+    trigger restart-sdcardfs
+    setprop rild.rild1_ready_to_start ${rild.rild1_ready_to_start}
+    start gpsdaemon
+    exec_ev /system/bin/start_110x_service.sh
+    write /proc/wifi_enable/wifi_start 1
+    write /proc/oam_enable/oam_start 1
+
+on property:vold.decrypt=trigger_default_encryption
+    start surfaceflinger
+    start defaultcrypto
+
+on property:bastet.service.enable=true
+    start bastetd
+
+service ioinfoservice /system/bin/ioinfoservice
+    class main
+
+service jankservice /system/bin/jankservice
+    disabled
+    class main
+
+on property:persist.sys.jankenable=true
+    start jankservice
+
+service fuse_sdcard1rw /system/bin/sdcard -u 1023 -g 1023 /mnt/media_rw/sdcard1 /storage/sdcard1
+   class late_start
+   disabled
+
+   service fuse_sdcard1 /system/bin/sdcard -u 1023 -g 1023 -w 1023 -d /mnt/media_rw/sdcard1 /storage/sdcard1
+   class late_start
+   disabled
+
+   service fuse_usbotg /system/bin/sdcard -u 1023 -g 1023 -w 1015 -d /mnt/media_rw/usbotg /storage/usbotg
+   class late_start
+   disabled
+
+service preparesdservice /system/bin/vdc volume storagetosd
+   class main
+   disabled
+   oneshot
+
+on property:persist.sys.primarysd=*
+   start preparesdservice
+
+service logserver /system/bin/logserver
+    class main
+    user root
+    group system
+    oneshot
+    seclabel u:r:logserver:s0
+
+service logctl_service /sbin/logctl_service -m 1
+    class late_start
+    user root
+    group system
+    seclabel u:r:hisilogcat:s0
+
+service fac_log_service /system/bin/factory_log_service -m 1
+    class late_start
+    user root
+    group system
+    disabled
+    oneshot
+    seclabel u:r:hisilogcat:s0
+
+service applogcat /system/bin/logcat -v threadtime -r4096 -z 10 -n 5 -f /data/android_logs/applogcat-log
+    class late_start
+    user root
+    group system
+    disabled
+    seclabel u:r:hisilogcat:s0
+
+service rillogcat /system/bin/logcat -b radio -v threadtime -r4096 -z 5 -n 5 -f /data/android_logs/rillogcat-log
+    class late_start
+    user root
+    group system
+    disabled
+    seclabel u:r:hisilogcat:s0
+
+service kmsglogcat /sbin/kmsgcat -r 4096 -z 5 -n 5 -f /data/android_logs/kmsgcat-log
+    class late_start
+    user root
+    group system
+    disabled
+    seclabel u:r:hisilogcat:s0
+
+service inputlogcat /system/bin/eventcat -lrt -k 1024 -z 8 -m 10 -f /data/android_logs/input-log
+    class late_start
+    user root
+    group system
+    disabled
+    seclabel u:r:hisilogcat:s0
+
+service chargelogcat /system/bin/chargelogcat -r 4096 -n 5 -z 5 -t 5 -p /data/android_logs/
+    class late_start
+    user root
+    group system
+    disabled
+    seclabel u:r:hisilogcat:s0
+
+service sleeplogcat /system/bin/sleeplogcat -t 10 -p /data/android_logs/
+    class late_start
+    user root
+    group system
+    disabled
+    seclabel u:r:hisilogcat:s0
+
+service modemlogcat /system/bin/modemlogcat_lte -l
+    class main
+    user root
+    group system
+    disabled
+    oneshot
+
+service modematserver /system/bin/modemlogcat_lte -f hidp
+    class main
+    user root
+    group system
+    disabled
+    oneshot
+
+service hw_cdma_service /system/bin/hw_cdmamodem_service /dev/acm_cdma_log /dev/ttySPI3 /dev/ttySPI1
+    class main
+    user root
+    disabled
+
+service ddrtest /system/bin/do_ddrtest
+    user root
+    disabled
+    oneshot
+
+service stop_ddrtest /system/bin/do_ddrtest
+    user root
+    disabled
+    oneshot
+
+service thermal-daemon /system/bin/thermal-daemon
+    class main
+    user root
+    group root
+
+service hwpged /system/bin/hwpged
+    class main
+    socket MsgHubSock stream 0660 root system
+    user root
+
+on property:debug.rt.ddr.test=1
+    stop ddrtest
+    start ddrtest
+on property:debug.rt.ddr.test=2
+    start ddrtest
+on property:debug.rt.ddr.test=3
+    start ddrtest
+on property:debug.rt.ddr.test=4
+    start stop_ddrtest
+
+service mapper /system/bin/sh /system/bin/mappersh
+    class late_start
+    user root
+    group system
+    disabled
+
+on property:persist.sys.huawei.debug.on=1
+    start applogcat
+    start kmsglogcat
+    start rillogcat
+    start chargelogcat
+    start sleeplogcat
+    start inputlogcat
+
+on property:persist.sys.huawei.debug.on=0
+    stop applogcat
+    stop kmsglogcat
+    stop rillogcat
+    stop chargelogcat
+    stop sleeplogcat
+    stop inputlogcat
+
+service bastetd /system/bin/bastetd
+    class main
+    user root
+    group root
+    disabled

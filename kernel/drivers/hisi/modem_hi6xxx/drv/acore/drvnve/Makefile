@@ -1,2 +1,0 @@
-obj-$(CONFIG_HISILICON_PLATFORM_NVE) += bsp_nve.o
-

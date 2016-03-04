@@ -1,0 +1,19 @@
+on early-init
+
+on init
+
+on early-fs
+
+on fs
+
+on post-fs
+
+on post-fs-data
+
+on early-boot
+
+on boot
+on property:ro.runmode=factory
+    setprop qemu.hw.mainkeys 1
+    setprop ro.config.hw_navigationbar false
+

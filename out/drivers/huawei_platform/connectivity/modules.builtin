@@ -1,0 +1,12 @@
+kernel/drivers/huawei_platform/connectivity/bcm/bluetooth/bluetooth_power.ko
+kernel/drivers/huawei_platform/connectivity/bcm/bluetooth/bluesleep.ko
+kernel/drivers/huawei_platform/connectivity/bcm/gps/gps_bcm_common.ko
+kernel/drivers/huawei_platform/connectivity/bcm/gps/bcm4752/gps_bcm4752.ko
+kernel/drivers/huawei_platform/connectivity/bcm/gps/bcm47531/gps_bcm47531.ko
+kernel/drivers/huawei_platform/connectivity/bcm/wifi/driver/bcmdhd/bcmdhd.ko
+kernel/drivers/huawei_platform/connectivity/hisi/hisiwifi/wifi.ko
+kernel/drivers/huawei_platform/connectivity/hisi/hw-chr/chr_devs.ko
+kernel/drivers/huawei_platform/connectivity/hisi/hw-pm/hw_pm.ko
+kernel/drivers/huawei_platform/connectivity/hisi/hw-ps/ps_drv.ko
+kernel/drivers/huawei_platform/connectivity/hisi/oam-drv/oamdrv.ko
+kernel/drivers/huawei_platform/connectivity/hw_connectivity/hw_connectivity.ko

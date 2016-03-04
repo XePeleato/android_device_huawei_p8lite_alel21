@@ -1,0 +1,17 @@
+
+on property:sys.usb.config=hisi_debug,adb
+    write /sys/class/android_usb/android0/enable 0
+    write /sys/class/android_usb/android0/idVendor 12d1
+    write /sys/class/android_usb/android0/idProduct 1057
+    write /sys/class/android_usb/android0/portNum  ff00
+    write /sys/class/android_usb/android0/iSerial ${ro.serialno}
+    write /sys/class/android_usb/android0/f_acm/instances ${ro.balong_debug.port_num}
+    write /sys/class/android_usb/android0/f_rndis/wceis  1
+    write /sys/class/android_usb/android0/functions rndis,adb,acm
+    write /sys/devices/virtual/android_usb/android0/port_mode 20
+    write /sys/class/android_usb/android0/enable 1
+    stop atcmdserver
+    start hw_cdma_service
+    start adbd
+    setprop sys.usb.state $sys.usb.config
+

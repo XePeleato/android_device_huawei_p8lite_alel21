@@ -1,0 +1,26 @@
+on early-init
+
+on init
+
+on early-fs
+
+on fs
+
+on post-fs
+
+on post-fs-data
+
+on early-boot
+
+on boot
+	chown system system /sys/class/hisi_sensor/light/enable
+	chown system system /sys/class/hisi_sensor/light/delay
+	chown system system /sys/class/hisi_sensor/proximity/enable
+	chown system system /sys/bus/i2c/drivers/lis3dh_acc/2-0018/enable
+	chown system system /sys/bus/i2c/drivers/lis3dh_acc/2-0018/set_delay
+	chown system system /sys/class/hisi_sensor/hall/enable
+service sensors_load /system/bin/sensors_load
+    class main
+    user root
+    group system
+    oneshot

@@ -1,0 +1,23 @@
+on fs
+    chmod 0774 /mnvm1:0
+    chmod 0774 /mnvm2:0
+    chmod 0774 /mnvm3:0
+    chmod 0774 /dsp:0
+
+    chown root root /mnvm1:0
+    chown root root /mnvm2:0
+    chown root root /mnvm3:0
+    chown root root /dsp:0
+
+on init
+    mount ext4 /dev/block/mmcblk0p12 /mnvm3:0 nosuid nodev noatime wait crypt discard,noauto_da_alloc,data=ordered,user_xattr,discard,barrier=1
+    mount ext4 /dev/block/mmcblk0p17 /modem_log nosuid nodev noatime wait crypt discard,noauto_da_alloc,data=ordered,user_xattr,discard,barrier=1
+    wait /dev/block/mmcblk0p11
+    fix_ext4 /sbin/e2fsck_s /dev/block/mmcblk0p11
+    mount ext4 /dev/block/mmcblk0p11 /mnvm2:0 nosuid nodev noatime
+
+    chmod 0774 /mnvm2:0
+    chown root root /mnvm2:0
+    write /proc/modem_depend 1
+
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor optdemand

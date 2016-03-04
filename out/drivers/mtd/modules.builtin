@@ -1,0 +1,9 @@
+kernel/drivers/mtd/mtd.ko
+kernel/drivers/mtd/ofpart.ko
+kernel/drivers/mtd/cmdlinepart.ko
+kernel/drivers/mtd/mtd_blkdevs.ko
+kernel/drivers/mtd/mtdblock.ko
+kernel/drivers/mtd/mtdoops.ko
+kernel/drivers/mtd/hisi_nve.ko
+kernel/drivers/mtd/chips/chipreg.ko
+kernel/drivers/mtd/devices/block2mtd.ko

@@ -1,0 +1,3 @@
+kernel/drivers/huawei_platform/connectivity/bcm/gps/gps_bcm_common.ko
+kernel/drivers/huawei_platform/connectivity/bcm/gps/bcm4752/gps_bcm4752.ko
+kernel/drivers/huawei_platform/connectivity/bcm/gps/bcm47531/gps_bcm47531.ko

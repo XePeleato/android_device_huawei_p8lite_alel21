@@ -1,9 +1,0 @@
-/ {
-	bq_bci_battery:battery {
-		compatible = "huawei,bq_bci_battery";
-		battery_board_type = <2>;
-		battery_is_removable = <0>;
-		status = "ok";
-	};
-};
-

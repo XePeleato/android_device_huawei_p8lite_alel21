@@ -1,3 +1,0 @@
-menu "huawei 3rdmodem linux driver"
-source "drivers/huawei_platform/ext_modem/viacbp82d/Kconfig"
-endmenu

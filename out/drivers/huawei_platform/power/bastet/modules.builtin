@@ -1,0 +1,4 @@
+kernel/drivers/huawei_platform/power/bastet/bastet_sync_seq.ko
+kernel/drivers/huawei_platform/power/bastet/bastet_traffic_flow.ko
+kernel/drivers/huawei_platform/power/bastet/bastet_dev.ko
+kernel/drivers/huawei_platform/power/bastet/bastet_utils.ko

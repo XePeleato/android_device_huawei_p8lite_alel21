@@ -1,0 +1,2 @@
+kernel/drivers/huawei_platform/connectivity/bcm/bluetooth/bluetooth_power.ko
+kernel/drivers/huawei_platform/connectivity/bcm/bluetooth/bluesleep.ko

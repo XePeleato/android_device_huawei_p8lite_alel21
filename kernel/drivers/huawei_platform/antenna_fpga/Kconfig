@@ -1,9 +1,0 @@
-#
-# 
-#
-config  ANTENNA_FPGA
-	bool "antenna fpga Support"
-	default n
-	help
-	  This allows antenna fpga.
-	  If unsure, say n.

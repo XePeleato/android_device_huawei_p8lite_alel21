@@ -1,0 +1,2 @@
+kernel/drivers/staging/android/logger.ko
+kernel/drivers/staging/zram/zram.ko

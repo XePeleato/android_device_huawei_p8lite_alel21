@@ -1,0 +1,7 @@
+kernel/drivers/huawei_platform/touthscreen/panel/cyttsp5/cyttsp5.ko
+kernel/drivers/huawei_platform/touthscreen/panel/cyttsp5/cyttsp5_i2c.ko
+kernel/drivers/huawei_platform/touthscreen/panel/cyttsp5/cyttsp5_huawei_common.ko
+kernel/drivers/huawei_platform/touthscreen/panel/cyttsp5/cyttsp5_loader.ko
+kernel/drivers/huawei_platform/touthscreen/panel/cyttsp5/cyttsp5_device_access.ko
+kernel/drivers/huawei_platform/touthscreen/panel/cyttsp5/cyttsp5_hw_sensor_check.ko
+kernel/drivers/huawei_platform/touthscreen/panel/cyttsp5/libcsv.ko

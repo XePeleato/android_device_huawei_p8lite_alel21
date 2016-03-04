@@ -1,0 +1,11 @@
+on post-fs
+    mkdir /data/sec_storage
+    mount ext4 /dev/block/platform/hi_mci.0/by-name/securetystorage /data/sec_storage nosuid nodev noatime wait crypt discard,auto_da_alloc,mblk_io_submit,data=journal,context=u:object_r:teecd_data_file:s0
+    chown root root /data/sec_storage
+    chmod 600 /data/sec_storage
+
+service teecd /sbin/teecd
+    class main
+    user root
+    group root
+    seclabel u:r:tee:s0

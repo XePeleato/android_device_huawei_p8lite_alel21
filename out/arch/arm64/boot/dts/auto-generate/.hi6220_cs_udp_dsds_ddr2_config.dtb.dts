@@ -1,0 +1,17 @@
+# 1 "/home/edu/AOSP/device/HUAWEI/hi6210sft/kernel/arch/arm64/boot/dts/auto-generate/hi6220_cs_udp_dsds_ddr2_config.dts"
+# 1 "<built-in>"
+# 1 "<command-line>"
+# 1 "/home/edu/AOSP/device/HUAWEI/hi6210sft/kernel/arch/arm64/boot/dts/auto-generate/hi6220_cs_udp_dsds_ddr2_config.dts"
+# 10 "/home/edu/AOSP/device/HUAWEI/hi6210sft/kernel/arch/arm64/boot/dts/auto-generate/hi6220_cs_udp_dsds_ddr2_config.dts"
+/dts-v1/;
+
+/include/ "fastboot.dtsi"
+/include/ "hi6220_cs_udp_ddr2_config.dtsi"
+/include/ "hi6220_cs_udp_dsds_ddr2_pin.dtsi"
+/include/ "hi6220_cs_udp_dsds_ddr2_gpio_logic.dtsi"
+/include/ "hi6220_cs_udp_dsds_ddr2_pmic.dtsi"
+/include/ "hi6220_cs_udp_dsds_ddr2_charger.dtsi"
+/ {
+ hisi,boardid = <0 0 5 4>;
+ hisi,boardname = "hi6220_cs_udp_dsds_ddr2";
+};

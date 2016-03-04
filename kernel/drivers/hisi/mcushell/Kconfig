@@ -1,6 +1,0 @@
-config HISILICON_PLATFORM_MCUSHELL
-	bool "Hisilicon platform mcushell support"
-    depends on HISILICON_PLATFORM_POWER_CONTROL
-	default n
-	help
-	  Say yes here to support the hisilicon platform mcushell

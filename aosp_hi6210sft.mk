@@ -20,11 +20,14 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
 
 TARGET_SCREEN_HEIGHT := 1280
 TARGET_SCREEN_WIDTH := 720
-
+DEVICE_PACKAGE_OVERLAYS := device/HUAWEI/hi6210sft/overlay
 # Copying some libs in order to get it working Quit: Libbinder, liblog
 
 PRODUCT_COPY_FILES := \
-		       vendor/bin/atcmdserver:system/bin/atcmdsercer\
+		       vendor/bin/atcmdserver:system/bin/atcmdserver\
+		       vendor/bin/netd:system/bin/netd\
+		       vendor/bin/netcfg:system/bin/netcfg\
+		       vendor/bin/dhcpcd:system/bin/dhcpcd\
 		       vendor/bin/device_monitor:system/bin/device_monitor\
 		       vendor/bin/gpsdaemon:system/bin/gpsdaemon\
 		       vendor/bin/gpslogd:system/bin/gpslogd\
@@ -34,11 +37,12 @@ PRODUCT_COPY_FILES := \
 		       vendor/bin/hwpged:system/bin/hwpged\
 		       vendor/bin/hw_ueventd:system/bin/hw_ueventd\
 		       vendor/bin/mac_addr_normalization:system/bin/mac_addr_normalization\
-		       vendor/bin/mediaserver:system/bin/mediaserver\
-		       vendor/bin/rild:system/bin/thermal-daemon\
+		       vendor/bin/rild:system/bin/rild\
 		       vendor/mali/64bit/libGLES_mali.so:system/lib64/egl/libGLES_mali.so\
 		       vendor/mali/32bit/libGLES_mali.so:system/lib/egl/libGLES_mali.so\
-		       vendor/lib64/libutils.so:system/lib64/libutils.so\
+		       vendor/lib/libmediaplayerservice.so:system/lib/libmediaplayerservice.so\
+		       vendor/lib/libstagefright.so:system/lib/libstagefright.so\
+		       vendor/lib/libstagefright_foundation.so:system/lib/libstagefright_foundation.so\
 		       vendor/lib64/hw/gralloc.hi6210sft.so:system/lib64/hw/gralloc.hi6210sft.so\
 		       vendor/lib/hw/gralloc.hi6210sft.so:system/lib/hw/gralloc.hi6210sft.so\
 		       vendor/lib/hw/hwcomposer.default.so:system/lib/hw/hwcomposer.default.so\
@@ -80,6 +84,8 @@ PRODUCT_COPY_FILES := \
 			vendor/lib64/libaudioom.so:system/lib64/libaudioom.so\
 			vendor/lib/libaudioom.so:system/lib/libaudioom.so\
 			vendor/lib64/libbalong-ril.so:system/lib64/libbalong-ril.so\
+		        vendor/lib64/libril.so:system/lib64/libril.so\
+		        vendor/lib/libril.so:system/lib/libril.so\
 			vendor/lib64/libbalong-ril-1.so:system/lib64/libbalong-ril-1.so\
 			vendor/lib64/libbalong_audio_ril.so:system/lib64/libbalong_audio_ril.so\
 			vendor/lib/libbalong_audio_ril.so:system/lib/libbalong_audio_ril.so\
@@ -90,8 +96,6 @@ PRODUCT_COPY_FILES := \
 			vendor/lib/libCameraHwParam.so:system/lib/libCameraHwParam.so\
 			vendor/lib64/libCameraHwSendCmd.so:system/lib64/libCameraHwSendCmd.so\
 			vendor/lib/libCameraHwSendCmd.so:system/lib/libCameraHwSendCmd.so\
-			vendor/lib64/libcameraservice.so:system/lib64/libcameraservice.so\
-			vendor/lib/libcameraservice.so:system/lib/libcameraservice.so\
 			vendor/lib64/libgnuexif.so:system/lib64/libgnuexif.so\
 			vendor/lib/libgnuexif.so:system/lib/libgnuexif.so\
 			vendor/lib64/libservices.huawei.so:system/lib64/libservices.huawei.so\
@@ -132,6 +136,10 @@ PRODUCT_COPY_FILES := \
 			vendor/lib/libteec.so:system/lib/libteec.so\
 			vendor/lib/libaudioflinger.so:system/lib/libaudioflinger.so\
 			vendor/lib/libaudioflinger.huawei.so:system/lib/libaudioflinger.huawei.so\
+			vendor/lib64/libaudiopolicymanager.so:system/lib64/libaudiopolicymanager.so\
+			vendor/lib/libaudiopolicymanagerdefault.so:system/lib64/libaudiopolicymanagerdefault.so\
+			vendor/lib/libaudiopolicymanager.so:system/lib64/libaudiopolicymanager.so\
+			vendor/lib64/libaudiopolicymanagerdefault.so:system/lib64/libaudiopolicymanagerdefault.so\
 			vendor/lib/libhuaweiaudioalgoservice.so:system/lib/libhuaweiaudioalgoservice.so\
 			vendor/lib/libhuaweiprocessing.so:system/lib/libhuaweiprocessing.so\
 			vendor/lib/libjpu.so:system/lib/libjpu.so\
@@ -163,7 +171,6 @@ PRODUCT_COPY_FILES := \
 			vendor/vendor/lib/libstlport_shared_rtti.so:system/vendor/lib/libstlport_shared_rtti.so\
 			vendor/vendor/lib/libsupl.so:system/vendor/lib/libsupl.so\
 			vendor/vendor/lib/libwvdrm_L3.so:system/vendor/lib/libwvdrm_L3.so\
-			vendor/vendor/lib/libwvm.so:system/vendor/lib/libwvm.so\
 			vendor/vendor/lib/libWVStreamControlAPI_L3.so:system/vendor/lib/libWVStreamControlAPI_L3.so\
 			vendor/vendor/lib64/libbt-vendor-hi110x.so:system/vendor/lib64/libbt-vendor-hi110x.so\
 			vendor/vendor/framework/com.huawei.audioalgo.jar:system/vendor/framework/com.huawei.audioalgo.jar\

@@ -33,5 +33,6 @@ ro.projectmenu.chargemaxlevel=73
 ro.config.hw_emerg=on
 ro.bt.bdaddr_path=/data/misc/bluedroid/macbt
 ro.projectmenuact.v8r2=true
+qemu.hw.mainkeys=0
 persist.sys.pgps.config=1
 

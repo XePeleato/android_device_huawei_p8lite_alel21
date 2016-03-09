@@ -25,7 +25,8 @@ DEVICE_PACKAGE_OVERLAYS := device/HUAWEI/hi6210sft/overlay
 
 PRODUCT_COPY_FILES := \
 		       vendor/bin/atcmdserver:system/bin/atcmdserver\
-		       vendor/bin/netd:system/bin/netd\
+		       vendor/bin/mediaserver:system/bin/mediaserver\
+		       vendor/bin/glgps:system/bin/glgps\
 		       vendor/bin/netcfg:system/bin/netcfg\
 		       vendor/bin/dhcpcd:system/bin/dhcpcd\
 		       vendor/bin/device_monitor:system/bin/device_monitor\
@@ -38,11 +39,35 @@ PRODUCT_COPY_FILES := \
 		       vendor/bin/hw_ueventd:system/bin/hw_ueventd\
 		       vendor/bin/mac_addr_normalization:system/bin/mac_addr_normalization\
 		       vendor/bin/rild:system/bin/rild\
+		       vendor/lib64/libcameraservice.so:system/lib64/libcameraservice.so\
+		       vendor/lib/libcameraservice.so:system/lib/libcameraservice.so\
 		       vendor/mali/64bit/libGLES_mali.so:system/lib64/egl/libGLES_mali.so\
 		       vendor/mali/32bit/libGLES_mali.so:system/lib/egl/libGLES_mali.so\
-		       vendor/lib/libmediaplayerservice.so:system/lib/libmediaplayerservice.so\
-		       vendor/lib/libstagefright.so:system/lib/libstagefright.so\
-		       vendor/lib/libstagefright_foundation.so:system/lib/libstagefright_foundation.so\
+		       vendor/lib64/hw/audio.a2dp.default.so:system/lib64/hw/audio.a2dp.default.so\
+		       vendor/lib/hw/audio.a2dp.default.so:system/lib/hw/audio.a2dp.default.so\
+		       vendor/lib64/hw/audio.primary.default.so:system/lib64/hw/audio.primary.default.so\
+		       vendor/lib/hw/audio.primary.default.so:system/lib/hw/audio.primary.default.so\
+		       vendor/lib64/hw/audio.r_submix.default.so:system/lib64/hw/audio.r_submix.default.so\
+		       vendor/lib/hw/audio.r_submix.default.so:system/lib/hw/audio.r_submix.default.so\
+		       vendor/lib64/hw/camera.hi6210sft.so:system/lib64/hw/camera.hi6210sft.so\
+		       vendor/lib/hw/camera.hi6210sft.so:system/lib/hw/camera.hi6210sft.so\
+		       vendor/lib64/hw/bastet.hi6210sft.so:system/lib64/hw/bastet.hi6210sft.so\
+		       vendor/lib64/hw/keystore.hi6210sft.so:system/lib64/hw/keystore.hi6210sft.so\
+		       vendor/lib/hw/keystore.hi6210sft.so:system/lib/hw/keystore.hi6210sft.so\
+		       vendor/lib64/hw/gps.hi6210sft.so:system/lib64/hw/gps.hi6210sft.so\
+		       vendor/lib64/hw/gps.hi110x.default.so:system/lib64/hw/gps.hi110x.default.so\
+		       vendor/lib/hw/gps.hi110x.default.so:system/lib/hw/gps.hi110x.default.so\
+		       vendor/lib64/hw/libbcmfm_if.so:system/lib64/hw/libbcmfm_if.so\
+		       vendor/lib/hw/libbcmfm_if.so:system/lib/hw/libbcmfm_if.so\
+		       vendor/lib64/hw/libhisifm_if.so:system/lib64/hw/libhisifm_if.so\
+		       vendor/lib/hw/libhisifm_if.so:system/lib/hw/libhisifm_if.so\
+		       vendor/lib64/hw/lights.default.so:system/lib64/hw/lights.default.so\
+		       vendor/lib/hw/lights.default.so:system/lib/hw/lights.default.so\
+		       vendor/lib64/hw/nfc_nci.pn54x.default.so:system/lib64/hw/nfc_nci.pn54x.default.so\
+		       vendor/lib64/hw/power.default.so:system/lib64/hw/power.default.so\
+		       vendor/lib/hw/power.default.so:system/lib/hw/power.default.so\
+		       vendor/lib64/hw/sensors.hi6210sft.so:system/lib64/hw/sensors.hi6210sft.so\
+		       vendor/lib/hw/sensors.hi6210sft.so:system/lib/hw/sensors.hi6210sft.so\
 		       vendor/lib64/hw/gralloc.hi6210sft.so:system/lib64/hw/gralloc.hi6210sft.so\
 		       vendor/lib/hw/gralloc.hi6210sft.so:system/lib/hw/gralloc.hi6210sft.so\
 		       vendor/lib/hw/hwcomposer.default.so:system/lib/hw/hwcomposer.default.so\
@@ -143,6 +168,7 @@ PRODUCT_COPY_FILES := \
 			vendor/lib/libhuaweiaudioalgoservice.so:system/lib/libhuaweiaudioalgoservice.so\
 			vendor/lib/libhuaweiprocessing.so:system/lib/libhuaweiprocessing.so\
 			vendor/lib/libjpu.so:system/lib/libjpu.so\
+			vendor/lib64/libjpu.so:system/lib64/libjpu.so\
 			vendor/vendor/firmware/4343A0_001.001.034.0056.0193_ORC.hcd:system/vendor/firmware/4343A0_001.001.034.0056.0193_ORC.hcd\
 			vendor/vendor/firmware/BCM4334B0_002.001.013.1554.1613_RC.hcd:system/vendor/firmware/BCM4334B0_002.001.013.1554.1613_RC.hcd\
 			vendor/vendor/firmware/fw_bcm4343s_apsta_hw.bin:system/vendor/firmware/fw_bcm4343s_apsta_hw.bin\

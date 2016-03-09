@@ -1,1 +1,1 @@
-add_lunch_combo aosp_hi6210sft-userdebug
+add_lunch_combo aosp_hi6210sft-eng

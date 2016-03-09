@@ -25,7 +25,6 @@ DEVICE_PACKAGE_OVERLAYS := device/HUAWEI/hi6210sft/overlay
 
 PRODUCT_COPY_FILES := \
 		       vendor/bin/atcmdserver:system/bin/atcmdserver\
-		       vendor/bin/mediaserver:system/bin/mediaserver\
 		       vendor/bin/glgps:system/bin/glgps\
 		       vendor/bin/netcfg:system/bin/netcfg\
 		       vendor/bin/dhcpcd:system/bin/dhcpcd\
@@ -39,8 +38,6 @@ PRODUCT_COPY_FILES := \
 		       vendor/bin/hw_ueventd:system/bin/hw_ueventd\
 		       vendor/bin/mac_addr_normalization:system/bin/mac_addr_normalization\
 		       vendor/bin/rild:system/bin/rild\
-		       vendor/lib64/libcameraservice.so:system/lib64/libcameraservice.so\
-		       vendor/lib/libcameraservice.so:system/lib/libcameraservice.so\
 		       vendor/mali/64bit/libGLES_mali.so:system/lib64/egl/libGLES_mali.so\
 		       vendor/mali/32bit/libGLES_mali.so:system/lib/egl/libGLES_mali.so\
 		       vendor/lib64/hw/audio.a2dp.default.so:system/lib64/hw/audio.a2dp.default.so\

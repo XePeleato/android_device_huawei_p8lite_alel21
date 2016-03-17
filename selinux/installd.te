@@ -1,0 +1,1 @@
+allow installd media_rw_data_file:lnk_file read;

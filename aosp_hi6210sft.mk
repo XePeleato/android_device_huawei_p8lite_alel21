@@ -21,10 +21,72 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
 TARGET_SCREEN_HEIGHT := 1280
 TARGET_SCREEN_WIDTH := 720
 DEVICE_PACKAGE_OVERLAYS := device/HUAWEI/hi6210sft/overlay
-# Copying some libs in order to get it working Quit: Libbinder, liblog
+Device_Root := device/HUAWEI/hi6210sft
+#RIL
+PRODUCT_PROPERTY_OVERRIDES += \
+audioril.lib=libhuawei-audio-ril.so \
+ro.telephony.ril_class=HuaweiRIL \
+telephony.lteOnCdmaDevice=0 \
+telephony.lteOnGsmDevice=1 \
+ro.telephony.default_network=9
+
+#Audio Config
+PRODUCT_COPY_FILES += \
+vendor/etc/audio_effects.conf:system/etc/audio_effects.conf\
+vendor/etc/audio_policy.conf:system/etc/audio_policy.conf
+
+
+
+
+#Media patches
+#PRODUCT_COPY_FILES += \
+#vendor/etc/media_profiles.conf:system/etc/media_profiles.conf\
+#vendor/etc/media_codecs.conf:system/etc/media_codecs.conf
+
+PRODUCT_PACKAGES += \
+audio.primary.default \
+audio_policy.stub \
+audio.a2dp.default \
+audio.usb.default \
+audio.r_submix.default \
+libaudioutils \
+libtinyalsa \
+tinyplay \
+tinycap \
+tinymix \
+tinypcminfo \
+sound_trigger.primary.hi6210sft \
+libnfc-nci \
+libnfc_nci_jni \
+Nfc \
+Tag \
+com.android.nfc_extras \
+camera.hi6210sft
+
+#SeLinux
+BOARD_SEPOLICY_DIRS += \
+	device/HUAWEI/hi6210sft/selinux
+
+BOARD_SEPOLICY_UNION += \
+	file_contexts \
+	installd.te
+#etc perms (coming soon)
+
+
+
+# Copying some libs in order to get it working Quit: Libbinder, liblog, mediaserver
 
 PRODUCT_COPY_FILES := \
 		       vendor/bin/atcmdserver:system/bin/atcmdserver\
+		       vendor/bin/mediaserver:system/bin/mediaserver\
+		       vendor/lib/libstagefright.so:system/lib/libstagefright.so\
+		       vendor/lib/libaudiopolicyservice.so:system/lib/libaudiopolicyservice.so\
+		       vendor/lib64/libaudiopolicyservice.so:system/lib64/libaudiopolicyservice.so\
+		       vendor/lib64/libstagefright.so:system/lib64/libstagefright.so\
+		       vendor/lib/libcameraservice.so:system/lib/libcameraservice.so\
+		       vendor/lib64/libcameraservice.so:system/lib64/libcameraservice.so\
+		       vendor/lib/drm/libdrmhwomavoneplugin.so:system/lib/drm/libdrmhwomavoneplugin.so\
+		       vendor/vendor/lib/drm/libdrmwvmplugin.so:system/vendor/lib/drm/libdrmwvmplugin.so.so\
 		       vendor/bin/glgps:system/bin/glgps\
 		       vendor/bin/netcfg:system/bin/netcfg\
 		       vendor/bin/dhcpcd:system/bin/dhcpcd\
@@ -184,7 +246,6 @@ PRODUCT_COPY_FILES := \
 			vendor/vendor/firmware/SDIO_RW.bin:system/vendor/firmware/SDIO_RW.bin\
 			vendor/vendor/firmware/SDIO_RW_ALICE_TL00_FEM.bin:system/vendor/firmware/SDIO_RW_ALICE_TL00_FEM.bin\
 			vendor/vendor/firmware/SDIO_RW_ALICE_TL02_FEM.bin:system/vendor/firmware/SDIO_RW_ALICE_TL02_FEM.bin\
-			vendor/vendor/lib/libbt-vendor.so:system/vendor/lib/libbt-vendor.so\
 			vendor/vendor/lib/libbt-vendor-hi110x.so:system/vendor/lib/libbt-vendor-hi110x.so\
 			vendor/vendor/lib/libee_core.so:system/vendor/lib/libee_core.so\
 			vendor/vendor/lib/libee_support.so:system/vendor/lib/libee_support.so\
@@ -194,6 +255,7 @@ PRODUCT_COPY_FILES := \
 			vendor/vendor/lib/libstlport_shared_rtti.so:system/vendor/lib/libstlport_shared_rtti.so\
 			vendor/vendor/lib/libsupl.so:system/vendor/lib/libsupl.so\
 			vendor/vendor/lib/libwvdrm_L3.so:system/vendor/lib/libwvdrm_L3.so\
+			vendor/vendor/lib/libwvm.so:system/vendor/lib/libwvm.so\
 			vendor/vendor/lib/libWVStreamControlAPI_L3.so:system/vendor/lib/libWVStreamControlAPI_L3.so\
 			vendor/vendor/lib64/libbt-vendor-hi110x.so:system/vendor/lib64/libbt-vendor-hi110x.so\
 			vendor/vendor/framework/com.huawei.audioalgo.jar:system/vendor/framework/com.huawei.audioalgo.jar\
@@ -212,7 +274,6 @@ PRODUCT_COPY_FILES += $(call add-to-product-copy-files-if-exists,\
 			$(LOCAL_PATH)/ramdisk/fstab.hi6210sft:root/fstab.hi6210sft \
 			$(LOCAL_PATH)/ramdisk/init.hi6210sft.rc:root/init.hi6210sft.rc \
 			$(LOCAL_PATH)/ramdisk/ueventd.hi6210sft.rc:root/ueventd.hi6210sft.rc \
-			$(LOCAL_PATH)/ramdisk/file_contexts:root/file_contexts\
 			$(LOCAL_PATH)/ramdisk/init:root/init\
 			$(LOCAL_PATH)/ramdisk/init.5801.rc:root/init.5801.rc\
 			$(LOCAL_PATH)/ramdisk/init.6165.rc:root/init.6165.rc\
@@ -240,7 +301,6 @@ PRODUCT_COPY_FILES += $(call add-to-product-copy-files-if-exists,\
 			$(LOCAL_PATH)/ramdisk/init.zygote64_32.rc:root/init.zygote64_32.rc\
 			$(LOCAL_PATH)/ramdisk/property_contexts:root/property_contexts\
 			$(LOCAL_PATH)/ramdisk/seapp_contexts:root/seapp_contexts\
-			$(LOCAL_PATH)/ramdisk/sepolicy:root/sepolicy\
 			$(LOCAL_PATH)/ramdisk/service_contexts:root/service_contexts\
 			$(LOCAL_PATH)/ramdisk/ueventd.5801.rc:root/ueventd.5801.rc\
 			$(LOCAL_PATH)/ramdisk/ueventd.6165.rc:root/ueventd.6165.rc\

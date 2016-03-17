@@ -1,6 +1,7 @@
 USE_OPENGL_RENDERER := true
 ANDROID_ENABLE_RENDERSCRIPT := true
 USE_CAMERA_STUB := true
+BOARD_USES_GENERIC_AUDIO := false
 
 # inherit from the proprietary version
 -include vendor/huawei/p8litekirin/BoardConfigVendor.mk
@@ -27,9 +28,9 @@ TARGET_2ND_CPU_ABI2 := armeabi
 #Audio
 BOARD_USES_ALSA_AUDIO := true
 #RIL
-BOARD_RIL_CLASS := ../../../device/hi6210sft/ril/
+BOARD_RIL_CLASS := ../../../device/HUAWEI/hi6210sft/ril/
 
-# Wifi
+# Wifi & Bluetooth
 BOARD_WLAN_DEVICE                := bcmdhd
 BOARD_WLAN_DEVICE_REV            := bcm4343
 WPA_SUPPLICANT_VERSION           := VER_0_8_X
@@ -42,7 +43,12 @@ WIFI_DRIVER_FW_PATH_STA          := "/system/vendor/firmware/fw_bcm4343s_hw.bin"
 WIFI_DRIVER_FW_PATH_AP           := "/system/vendor/firmware/fw_bcm4343s_apsta_hw.bin"
 WIFI_DRIVER_FW_PATH_P2P          := "/system/vendor/firmware/fw_bcm4343s_p2p_hw.bin"
 WIFI_BAND                        := 802_11_ABG
+BOARD_HAVE_BLUETOOTH := true
+BOARD_HAVE_BLUETOOTH_BCM := true
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := "device/HUAWEI/hi6210sft/bluetooth"
 
+# Media symbols > thank you codeworkx
+BOARD_PROVIDES_ADDITIONAL_BIONIC_STATIC_LIBS += libc_huawei_symbols
 
 TARGET_HARDWARE_3D := true
 TARGET_BOARD_PLATFORM := hi6210sft

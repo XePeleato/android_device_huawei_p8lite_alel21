@@ -82,6 +82,7 @@ TARGET_KERNEL_PREBUILT := device/HUAWEI/hi6210sft/kernel
 
 BOARD_HAS_NO_SELECT_BUTTON := true
 DEVICE_RESOLUTION := 720x1280
+TW_THEME := portrait_hdpi
 RECOVERY_GRAPHICS_USE_LINELENGTH := true
 RECOVERY_SDCARD_ON_DATA := true
 TW_NO_USB_STORAGE := true
@@ -90,4 +91,5 @@ BOARD_HAS_LARGE_FILESYSTEM := true
 TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd_backlight0/brightness"
 TW_CUSTOM_BATTERY_PATH := "/sys/devices/platform/bq_bci_battery.1/power_supply/Battery"
 TW_MAX_BRIGHTNESS := 255
-TW_BOARD_CUSTOM_GRAPHICS := ../../../device/HUAWEI/hi6210sft/graphics.c
+#Deprecated 
+#TW_BOARD_CUSTOM_GRAPHICS := ../../../device/HUAWEI/hi6210sft/graphics.c

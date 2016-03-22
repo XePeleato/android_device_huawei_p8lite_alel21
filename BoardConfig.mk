@@ -28,7 +28,7 @@ TARGET_2ND_CPU_ABI2 := armeabi
 #Audio
 BOARD_USES_ALSA_AUDIO := true
 #RIL
-BOARD_RIL_CLASS := ../../../device/HUAWEI/hi6210sft/ril/
+#BOARD_RIL_CLASS := ../../../device/HUAWEI/hi6210sft/ril/
 
 # Wifi & Bluetooth
 BOARD_WLAN_DEVICE                := bcmdhd
@@ -84,10 +84,11 @@ BOARD_HAS_NO_SELECT_BUTTON := true
 DEVICE_RESOLUTION := 720x1280
 RECOVERY_GRAPHICS_USE_LINELENGTH := true
 RECOVERY_SDCARD_ON_DATA := true
+TW_THEME := hdpi_portrait
 TW_NO_USB_STORAGE := true
 TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_HAS_LARGE_FILESYSTEM := true
 TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd_backlight0/brightness"
 TW_CUSTOM_BATTERY_PATH := "/sys/devices/platform/bq_bci_battery.1/power_supply/Battery"
 TW_MAX_BRIGHTNESS := 255
-TW_BOARD_CUSTOM_GRAPHICS := ../../../device/HUAWEI/hi6210sft/graphics.c
+#TW_BOARD_CUSTOM_GRAPHICS := ../../../device/HUAWEI/hi6210sft/graphics.c

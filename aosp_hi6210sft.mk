@@ -23,12 +23,12 @@ TARGET_SCREEN_WIDTH := 720
 DEVICE_PACKAGE_OVERLAYS := device/HUAWEI/hi6210sft/overlay
 Device_Root := device/HUAWEI/hi6210sft
 #RIL
-PRODUCT_PROPERTY_OVERRIDES += \
-audioril.lib=libhuawei-audio-ril.so \
-ro.telephony.ril_class=HuaweiRIL \
-telephony.lteOnCdmaDevice=0 \
-telephony.lteOnGsmDevice=1 \
-ro.telephony.default_network=9
+#PRODUCT_PROPERTY_OVERRIDES += \
+#audioril.lib=libhuawei-audio-ril.so \
+#ro.telephony.ril_class=HuaweiRIL \
+#telephony.lteOnCdmaDevice=0 \
+#telephony.lteOnGsmDevice=1 \
+#ro.telephony.default_network=9
 
 #Audio Config
 PRODUCT_COPY_FILES += \
@@ -56,12 +56,8 @@ tinycap \
 tinymix \
 tinypcminfo \
 sound_trigger.primary.hi6210sft \
-libnfc-nci \
-libnfc_nci_jni \
-Nfc \
-Tag \
-com.android.nfc_extras \
-camera.hi6210sft
+camera.hi6210sft \
+libion.huawei
 
 #SeLinux
 BOARD_SEPOLICY_DIRS += \
@@ -76,20 +72,17 @@ BOARD_SEPOLICY_UNION += \
 
 # Copying some libs in order to get it working Quit: Libbinder, liblog, mediaserver
 
-PRODUCT_COPY_FILES := \
-		       vendor/bin/atcmdserver:system/bin/atcmdserver\
-		       vendor/bin/mediaserver:system/bin/mediaserver\
-		       vendor/lib/libstagefright.so:system/lib/libstagefright.so\
-		       vendor/lib/libaudiopolicyservice.so:system/lib/libaudiopolicyservice.so\
-		       vendor/lib64/libaudiopolicyservice.so:system/lib64/libaudiopolicyservice.so\
-		       vendor/lib64/libstagefright.so:system/lib64/libstagefright.so\
-		       vendor/lib/libcameraservice.so:system/lib/libcameraservice.so\
-		       vendor/lib64/libcameraservice.so:system/lib64/libcameraservice.so\
+PRODUCT_COPY_FILES += \
+		       vendor/bin/atcmdserver:system/bin/atcmdserver \
+		       vendor/bin/mediaserver:system/bin/mediaserver \
+		       vendor/lib/libaudioflinger.so:system/lib/libaudioflinger.so \
+		       vendor/lib/libstagefright.so:system/lib/libstagefright.so \
+		       vendor/lib64/libstagefright.so:system/lib64/libstagefright.so \
+		       vendor/lib/libcameraservice.so:system/lib/libcameraservice.so \
+		       vendor/lib64/libcameraservice.so:system/lib64/libcameraservice.so \
 		       vendor/lib/drm/libdrmhwomavoneplugin.so:system/lib/drm/libdrmhwomavoneplugin.so\
 		       vendor/vendor/lib/drm/libdrmwvmplugin.so:system/vendor/lib/drm/libdrmwvmplugin.so.so\
 		       vendor/bin/glgps:system/bin/glgps\
-		       vendor/bin/netcfg:system/bin/netcfg\
-		       vendor/bin/dhcpcd:system/bin/dhcpcd\
 		       vendor/bin/device_monitor:system/bin/device_monitor\
 		       vendor/bin/gpsdaemon:system/bin/gpsdaemon\
 		       vendor/bin/gpslogd:system/bin/gpslogd\
@@ -137,16 +130,6 @@ PRODUCT_COPY_FILES := \
                        vendor/lib/hw/memtrack.hi6210sft.so:system/lib/hw/memtrack.hi6210sft.so\
                        vendor/lib64/libGLES_android.so:system/lib64/egl/libGLES_android.so\
                        vendor/lib/libGLES_android.so:system/lib/egl/libGLES_android.so\
-                       vendor/lib64/libEGL.so:system/lib64/libEGL.so\
-                       vendor/lib/libEGL.so:system/lib/libEGL.so\
-                       vendor/lib64/libGLES_trace.so:system/lib64/libGLES_trace.so\
-                       vendor/lib/libGLES_trace.so:system/lib/libGLES_trace.so\
-                       vendor/lib64/libGLESv1_CM.so:system/lib64/libGLESv1_CM.so\
-                       vendor/lib/libGLESv1_CM.so:system/lib/libGLESv1_CM.so\
-                       vendor/lib64/libGLESv2.so:system/lib64/libGLESv2.so\
-                       vendor/lib/libGLESv2.so:system/lib/libGLESv2.so\
-                       vendor/lib64/libGLESv3.so:system/lib64/libGLESv3.so\
-                       vendor/lib/libGLESv3.so:system/lib/libGLESv3.so\
                        vendor/lib64/libhardware.so:system/lib64/libhardware.so\
                        vendor/lib/libhardware.so:system/lib/libhardware.so\
                        vendor/lib64/libui.so:system/lib64/libui.so\
@@ -157,8 +140,8 @@ PRODUCT_COPY_FILES := \
                        vendor/lib/libgui.so:system/lib/libgui.so\
                        vendor/lib64/libhwaps.so:system/lib64/libhwaps.so\
 			vendor/lib/libhwaps.so:system/lib/libhwaps.so\
+                       vendor/lib/libion.huawei.so:system/lib/libion.so\
                        vendor/lib64/libion.so:system/lib64/libion.so\
-                       vendor/lib/libion.so:system/lib/libion.so\
 			vendor/lib64/libsurfaceflinger.so:system/lib64/libsurfaceflinger.so\
 			vendor/lib/libsurfaceflinger.so:system/lib/libsurfaceflinger.so\
                       vendor/lib64/libhardware_legacy.so:system/lib64/libhardware_legacy.so\
@@ -218,12 +201,7 @@ PRODUCT_COPY_FILES := \
 			vendor/lib64/libwpa_client.so:system/lib64/libwpa_client.so\
 			vendor/lib64/libwpa_client_hisi.so:system/lib64/libwpa_client_hisi.so\
 			vendor/lib/libteec.so:system/lib/libteec.so\
-			vendor/lib/libaudioflinger.so:system/lib/libaudioflinger.so\
 			vendor/lib/libaudioflinger.huawei.so:system/lib/libaudioflinger.huawei.so\
-			vendor/lib64/libaudiopolicymanager.so:system/lib64/libaudiopolicymanager.so\
-			vendor/lib/libaudiopolicymanagerdefault.so:system/lib64/libaudiopolicymanagerdefault.so\
-			vendor/lib/libaudiopolicymanager.so:system/lib64/libaudiopolicymanager.so\
-			vendor/lib64/libaudiopolicymanagerdefault.so:system/lib64/libaudiopolicymanagerdefault.so\
 			vendor/lib/libhuaweiaudioalgoservice.so:system/lib/libhuaweiaudioalgoservice.so\
 			vendor/lib/libhuaweiprocessing.so:system/lib/libhuaweiprocessing.so\
 			vendor/lib/libjpu.so:system/lib/libjpu.so\
@@ -255,13 +233,12 @@ PRODUCT_COPY_FILES := \
 			vendor/vendor/lib/libstlport_shared_rtti.so:system/vendor/lib/libstlport_shared_rtti.so\
 			vendor/vendor/lib/libsupl.so:system/vendor/lib/libsupl.so\
 			vendor/vendor/lib/libwvdrm_L3.so:system/vendor/lib/libwvdrm_L3.so\
-			vendor/vendor/lib/libwvm.so:system/vendor/lib/libwvm.so\
 			vendor/vendor/lib/libWVStreamControlAPI_L3.so:system/vendor/lib/libWVStreamControlAPI_L3.so\
 			vendor/vendor/lib64/libbt-vendor-hi110x.so:system/vendor/lib64/libbt-vendor-hi110x.so\
 			vendor/vendor/framework/com.huawei.audioalgo.jar:system/vendor/framework/com.huawei.audioalgo.jar\
 			vendor/vendor/etc/audio_effects.conf:system/vendor/etc/audio_effects.conf\
 			vendor/vendor/media/LMspeed_508.emd:system/vendor/media/LMspeed_508.emd\
-			vendor/vendor/media/PFFprec_600.emd:system/vendor/media/PFFprec_600.emd\
+			vendor/vendor/media/PFFprec_600.emd:system/vendor/media/PFFprec_600.emd
 
 
 
@@ -314,18 +291,86 @@ PRODUCT_COPY_FILES += $(call add-to-product-copy-files-if-exists,\
 			$(LOCAL_PATH)/ramdisk/sbin/e2fsck_s:root/sbin/e2fsck_s\
 			$(LOCAL_PATH)/ramdisk/sbin/emmc_partation:root/sbin/emmc_partation\
 			$(LOCAL_PATH)/ramdisk/sbin/hdbd:root/sbin/hdbd\
-			$(LOCAL_PATH)/ramdisk/sbin/adbd:healthd/sbin/healthd\
-			$(LOCAL_PATH)/ramdisk/sbin/adbd:teecd/sbin/teecd)
+			$(LOCAL_PATH)/ramdisk/sbin/healthd:root/sbin/healthd\
+			$(LOCAL_PATH)/ramdisk/sbin/teecd:root/sbin/teecd)
 
                        
                        
-                       
-                       
 
-#PRODUCT_COPY_FILES := vendor/mali/64bit/libGLES_mali.so:system/lib64/egl/libGLES_mali.so\
-#                      vendor/mali/64bit/gralloc.hi6210sft.so:system/lib64/hw/gralloc.hi6210sft.so\
-#                       vendor/mali/32bit/libGLES_mali.so:system/lib/egl/libGLES_mali.so \
-#                       vendor/mali/32bit/gralloc.hi6210sft.so:system/lib/hw/gralloc.hi6210sft.so
+#Bin                      
+                       
+PRODUCT_COPY_FILES += \
+		vendor/bin/afar:system/bin/afar \
+		vendor/bin/agnsscontrol:system/bin/agnsscontrol \
+		vendor/bin/agnsslog:system/bin/agnsslog \
+		vendor/bin/akmd09911:system/bin/akmd09911 \
+		vendor/bin/bastetd:system/bin/bastetd \
+		vendor/bin/chargelogcat:system/bin/chargelogcat \
+		vendor/bin/checkntfs:system/bin/checkntfs \
+		vendor/bin/chr_logd:system/bin/chr_logd \
+		vendor/bin/crashnotice:system/bin/crashnotice \
+		vendor/bin/data_cleaner:system/bin/data_cleaner \
+		vendor/bin/dexopt-wrapper:system/bin/dexopt-wrapper \
+		vendor/bin/diagserver:system/bin/diagserver \
+		vendor/bin/dmesgcat:system/bin/dmesgcat \
+		vendor/bin/dumptool:system/bin/dumptool \
+		vendor/bin/eventcat:system/bin/eventcat \
+		vendor/bin/exfatfsck:system/bin/exfatfsck \
+		vendor/bin/filebackup:system/bin/filebackup \
+		vendor/bin/firmware_bfg_loglevel:system/bin/firmware_bfg_loglevel \
+		vendor/bin/get_board_ver:system/bin/get_board_ver \
+		vendor/bin/get_chip_ver:system/bin/get_chip_ver \
+		vendor/bin/get_param_ver:system/bin/get_param_ver \
+		vendor/bin/gnss_engine:system/bin/gnss_engine \
+		vendor/bin/hi110x_dump:system/bin/hi110x_dump \
+		vendor/bin/hi110x_except_logd:system/bin/hi110x_except_logd \
+		vendor/bin/hi110x_logd:system/bin/hi110x_logd \
+		vendor/bin/hisi_connectivity.sh:system/bin/hisi_connectivity.sh \
+		vendor/bin/hostapd:system/bin/hostapd \
+		vendor/bin/hostapd_cli_hisi:system/bin/hostapd_cli_hisi \
+		vendor/bin/hostapd_hisi:system/bin/hostapd_hisi \
+		vendor/bin/huawei_tp_test:system/bin/huawei_tp_test \
+		vendor/bin/ioinfoservice:system/bin/ioinfoservice \
+		vendor/bin/libcgroup.so:system/bin/libcgroup.so \
+		vendor/bin/mkexfatfs:system/bin/mkexfatfs \
+		vendor/bin/mkntfs:system/bin/mkntfs \
+		vendor/bin/modem_resetinfo:system/bin/modem_resetinfo \
+		vendor/bin/modemlogcat_lte:system/bin/modemlogcat_lte \
+		vendor/bin/ntfs-3g:system/bin/ntfs-3g \
+		vendor/bin/oam_app:system/bin/oam_app \
+		vendor/bin/octty:system/bin/octty \
+		vendor/bin/pcscd:system/bin/pcscd \
+		vendor/bin/powerlogd:system/bin/powerlogd \
+		vendor/bin/preparesd.sh:system/bin/preparesd.sh \
+		vendor/bin/server_agent:system/bin/server_agent \
+		vendor/bin/set_log:system/bin/set_log \
+		vendor/bin/shutdownanimation:system/bin/shutdownanimation \
+		vendor/bin/sleeplogcat:system/bin/sleeplogcat \
+		vendor/bin/start_110x_service.sh:system/bin/start_110x_service.sh \
+		vendor/bin/supl20clientd:system/bin/supl20clientd \
+		vendor/bin/thermal-daemon:system/bin/thermal-daemon \
+		vendor/bin/wl:system/bin/wl \
+		vendor/bin/wl_config:system/bin/wl_config \
+		vendor/bin/wpa_cli_hisi:system/bin/wpa_cli_hisi \
+		vendor/bin/wpa_supplicant_hisi:system/bin/wpa_supplicant_hisi 
+
+
+
+ifeq ($(TARGET_BUILD_VARIANT),user)
+	NFCEE_ACCESS_PATH := vendor/etc/nfcee_access.xml
+else
+	NFCEE_ACCESS_PATH := vendor/etc/nfcee_access_debug.xml
+endif
+
+PRODUCT_COPY_FILES += \
+	$(NFCEE_ACCESS_PATH):system/etc/nfcee_access.xml
+
+
+
+
+
+
+
 
 # Inherit from the common Open Source product configuration
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)

@@ -50,6 +50,10 @@ selinux.                u:object_r:security_prop:s0
 vold.                   u:object_r:vold_prop:s0
 crypto.                 u:object_r:vold_prop:s0
 
+# ro.build.fingerprint is either set in /system/build.prop, or is
+# set at runtime by system_server.
+build.fingerprint       u:object_r:fingerprint_prop:s0
+
 # ctl properties
 ctl.bootanim            u:object_r:ctl_bootanim_prop:s0
 ctl.dumpstate           u:object_r:ctl_dumpstate_prop:s0
@@ -62,19 +66,25 @@ ctl.                    u:object_r:ctl_default_prop:s0
 
 # NFC properties
 nfc.                    u:object_r:nfc_prop:s0
+#line 1 "vendor/huawei/Emui/sepolicy/property_contexts"
+
+persist.hw.power.shutdown       u:object_r:bootanim_prop:s0
+
+
 #line 1 "device/hisi/common/sepolicy/common/property_contexts"
-# EMUI STUFF
 # hisi property
 
 trustedcore_sfs_property	u:object_r:teecd_prop:s0
 ctl.logserver			u:object_r:logserver_prop:s0
 ctl.logctl_service		u:object_r:logcat_prop:s0
+ctl.logcat_service		u:object_r:logcat_prop:s0
 ctl.chargelogcat		u:object_r:logcat_prop:s0
 ctl.kmsglogcat			u:object_r:logcat_prop:s0
 ctl.applogcat			u:object_r:logcat_prop:s0
 ctl.sleeplogcat			u:object_r:logcat_prop:s0
 ctl.rillogcat			u:object_r:logcat_prop:s0
 ctl.kmsgcat_cp			u:object_r:logcat_prop:s0
+ctl.chargemonitor               u:object_r:logcat_prop:s0
 ctl.hw_cdma_service	u:object_r:hw_cdma_prop:s0
 ctl.fac_log_service		u:object_r:logcat_prop:s0
 hw.factorystart 		u:object_r:logcat_prop:s0
@@ -91,6 +101,7 @@ user.language			u:object_r:system_prop:s0
 user.region				u:object_r:system_prop:s0
 reduce.sar.imsi.mnc		u:object_r:radio_prop:s0
 persist.sys.smart_power		u:object_r:powergenie_prop:s0
+hw.flash.disabled.by.low_temp   u:object_r:powergenie_prop:s0
 persist.sys.jankdb		u:object_r:jankservice_prop:s0
 persist.sys.huawei.debug.on	u:object_r:logcat_prop:s0
 persist.ims.			u:object_r:ims_prop:s0

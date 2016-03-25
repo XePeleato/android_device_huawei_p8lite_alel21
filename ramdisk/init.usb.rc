@@ -19,6 +19,7 @@ on property:sys.usb.config=none
     stop hw_pcui_service
     stop adbd
     stop hdbd
+    stop usbshell
     write /sys/class/android_usb/android0/enable 0
     write /sys/class/android_usb/android0/bDeviceClass 0
     write /sys/devices/virtual/android_usb/android0/port_mode 1

@@ -106,35 +106,31 @@ on init
     mount cgroup none /dev/cpuctl cpu,ionice
     chown system system /dev/cpuctl
     chown system system /dev/cpuctl/tasks
-    chmod 0660 /dev/cpuctl/tasks
+    chmod 0666 /dev/cpuctl/tasks
     write /dev/cpuctl/cpu.shares 1024
-    write /dev/cpuctl/cpu.rt_runtime_us 950000
+    write /dev/cpuctl/cpu.rt_runtime_us 800000
     write /dev/cpuctl/cpu.rt_period_us 1000000
 
-    mkdir /dev/cpuctl/apps
-    chown system system /dev/cpuctl/apps/tasks
-    chmod 0666 /dev/cpuctl/apps/tasks
-    write /dev/cpuctl/apps/cpu.shares 1024
-    write /dev/cpuctl/apps/cpu.rt_runtime_us 800000
-    write /dev/cpuctl/apps/cpu.rt_period_us 1000000
-    write /dev/cpuctl/apps/ionice.prio 16388
+    write /dev/cpuctl/ionice.prio 0
 
-    mkdir /dev/cpuctl/apps/top_visible
-    chown system system /dev/cpuctl/apps/top_visible/tasks
-    chmod 0660 /dev/cpuctl/apps/top_visible/tasks
-    chmod 0220 /dev/cpuctl/apps/top_visible/cgroup.event_control
-    write /dev/cpuctl/apps/top_visible/cpu.shares 10240
-    write /dev/cpuctl/apps/top_visible/cpu.rt_runtime_us 900000
-    write /dev/cpuctl/apps/top_visible/cpu.rt_period_us 1000000
-    write /dev/cpuctl/apps/top_visible/ionice.prio 16384
+    mkdir /dev/cpuctl/top_visible
+    chown system system /dev/cpuctl/top_visible/tasks
+    chmod 0660 /dev/cpuctl/top_visible/tasks
+    chmod 0220 /dev/cpuctl/top_visible/cgroup.event_control
+    write /dev/cpuctl/top_visible/cpu.shares 10240
+    write /dev/cpuctl/top_visible/cpu.rt_runtime_us 900000
+    write /dev/cpuctl/top_visible/cpu.rt_period_us 1000000
+    write /dev/cpuctl/top_visible/ionice.prio 16384
 
-    mkdir /dev/cpuctl/apps/bg_non_interactive
-    chown system system /dev/cpuctl/apps/bg_non_interactive/tasks
-    chmod 0666 /dev/cpuctl/apps/bg_non_interactive/tasks
-    write /dev/cpuctl/apps/bg_non_interactive/cpu.shares 52
-    write /dev/cpuctl/apps/bg_non_interactive/cpu.rt_runtime_us 700000
-    write /dev/cpuctl/apps/bg_non_interactive/cpu.rt_period_us 1000000
-    write /dev/cpuctl/apps/bg_non_interactive/ionice.prio 24576
+    mkdir /dev/cpuctl/bg_non_interactive
+    chown system system /dev/cpuctl/bg_non_interactive/tasks
+    chmod 0666 /dev/cpuctl/bg_non_interactive/tasks
+    write /dev/cpuctl/bg_non_interactive/cpu.shares 52
+    write /dev/cpuctl/bg_non_interactive/cpu.rt_runtime_us 700000
+    write /dev/cpuctl/bg_non_interactive/cpu.rt_period_us 1000000
+
+    write /dev/cpuctl/bg_non_interactive/ionice.prio 24576
+
 
     chown root net_bw_acct /proc/net/xt_qtaguid/ctrl
     chown root net_bw_stats /proc/net/xt_qtaguid/stats
@@ -272,6 +268,8 @@ on post-fs-data
     mkdir /data/midi 0770 media audio
     mkdir /data/mediadrm 0770 mediadrm mediadrm
 
+    mkdir /data/adb 0700 root root
+
     symlink /data/data/com.android.shell/files/bugreports /data/bugreports
 
     mkdir /data/security 0711 system system
@@ -282,6 +280,7 @@ on post-fs-data
     restorecon_files_under_dir /data/system
 
     setprop vold.post_fs_data_done 1
+
 on boot
     ifup lo
     hostname localhost
@@ -335,6 +334,8 @@ on boot
     chown root radio /proc/cmdline
 
 
+    mkdir /dev/immersion 0771 system system
+    export VIBE_PIPE_PATH /dev/immersion
 	
     setprop ro.config.compatibility_enable 1
     setprop net.tcp.default_init_rwnd 60
@@ -361,7 +362,10 @@ on property:sys.init_log_level=*
 
 on charger
     mount_doul vfat-ext4 /dev/block/platform/hi_mci.0/by-name/splash2 /splash2 wait rw nosuid nodev context=u:object_r:splash2_data_file:s0
+    mount ext4 /dev/block/platform/hi_mci.0/by-name/system /system ro
+    mount ext4 /dev/block/platform/hi_mci.0/by-name/userdata /data nosuid nodev noatime wait crypt discard,noauto_da_alloc,mblk_io_submit,data=ordered
     class_start charger
+    start hw_ueventd
 
 
 on property:vold.decrypt=trigger_load_persist_props
@@ -437,6 +441,10 @@ service adbd /sbin/adbd --root_seclabel=u:r:su:s0
 on property:ro.kernel.qemu=1
     start adbd
 
+service usbshell /system/bin/usbshell
+    class core
+    disabled
+
 service lmkd /system/bin/lmkd
     class core
     critical
@@ -475,6 +483,11 @@ service dumptool /system/bin/dumptool
     class main
     oneshot
     seclabel u:r:logserver:s0
+service hdmi-daemon /system/bin/hdmi_daemon
+    class main
+    group system
+    socket hdmi_daemon stream 660 root system graphics
+    disabled
 
 service surfaceflinger /system/bin/surfaceflinger
     class core
@@ -495,10 +508,11 @@ service drm /system/bin/drmserver
 service filebackup /system/bin/filebackup
     class main
     socket filebackup stream 0660 radio system
+
 service media /system/bin/mediaserver
     class main
     user media
-    group audio camera inet net_bt net_bt_admin net_bw_acct drmrpc mediadrm system shell sdcard_rw sdcard_r dsm
+    group audio camera inet net_bt net_bt_admin net_bw_acct drmrpc mediadrm system dsm shell sdcard_rw sdcard_r
     ioprio rt 4
 
 service defaultcrypto /system/bin/vdc --wait cryptfs mountdefaultencrypted
@@ -564,6 +578,12 @@ service pre-recovery /system/bin/uncrypt
     disabled
     oneshot
 
-service hwnffserver /system/bin/hwnffserver
+service drop_caches /system/bin/sh -c "echo 3 > /proc/sys/vm/drop_caches"
     class main
-    socket hwnff stream 0660 root mount
+    disabled
+    oneshot
+
+service immvibed /system/bin/immvibed -p 99 -u 1000
+    class main
+    user root
+    group root

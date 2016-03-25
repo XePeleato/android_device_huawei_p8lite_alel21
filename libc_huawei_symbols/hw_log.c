@@ -17,11 +17,5 @@
 void __android_logPower_print(int a1, const char *a2, int *a3, int a4) {
 
 }
-
-void _ZN7android11AudioSystem14getLowPowerApkEv(void) {
-
-}
-
-void _ZN7android11AudioSystem11setFmVolumeEf(void) {
-
+void __android_janklog_print(void) {
 }

@@ -28,15 +28,13 @@ on early-init
     mount pstore pstore /mnt/pstore
 
 on charger
-    mount ext4 /dev/block/mmcblk0p38 /system ro
-    mount ext4 /dev/block/mmcblk0p40 /data nosuid nodev noatime wait crypt discard,noauto_da_alloc,mblk_io_submit,data=ordered
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor optdemand
 
 on fs
     setprop ro.crypto.fuse_sdcard true
     symlink /splash2/fac_log /data/log/fac_log
     mount ext4 /dev/block/mmcblk0p34 /cache nosuid nodev noatime wait crypt discard,noauto_da_alloc,data=ordered,user_xattr,discard,barrier=1
-
+	
     wait /dev/block/mmcblk0p38
     mount ext4 /dev/block/mmcblk0p38 /system ro
 
@@ -48,15 +46,21 @@ on fs
     wait /dev/block/platform/hi_mci.0/by-name/oeminfo
     start oeminfo_nvm
 
-    chmod 0771 /mnvm1:0
-    chmod 0771 /mnvm2:0
-    chmod 0771 /mnvm3:0
+
+    chmod 0774 /mnvm1:0
+    chmod 0774 /mnvm2:0
+    chmod 0774 /mnvm3:0
     chmod 0774 /dsp:0
 	
     chown root root /mnvm1:0
     chown root root /mnvm2:0
     chown root root /mnvm3:0
     chown root root /dsp:0
+
+on post-fs-data
+    mkdir /data/media 0770 media_rw media_rw
+
+    mount sdcardfs /data/media /mnt/shell/emulated nosuid nodev derive=legacy,reserved_mb=20
 
 on early-boot
     chown system system /dev/memory_throughput
@@ -79,8 +83,9 @@ on early-boot
     chmod 664 /sys/class/devfreq/gpufreq/available_frequencies
     chown system system /sys/class/devfreq/gpufreq/cur_freq
     chmod 664 /sys/class/devfreq/gpufreq/cur_freq
-	
+
     chown system system /sys/devices/platform/huawei_sensor/akm_selfTest
+
 on init
 
     symlink /dev/block/platform/f723d000.dwmmc0 /dev/block/platform/hi_mci.0
@@ -101,6 +106,12 @@ on init
     mkdir /mnt/secure/staging 0700 root root
 
     mkdir /mnt/secure/asec  0700 root root
+
+    mkdir /mnt/asec  0700 root system
+    mount tmpfs tmpfs /mnt/asec mode=0755,gid=1000
+
+    mkdir /mnt/obb 0700 root system
+    mount tmpfs tmpfs /mnt/obb mode=0755,gid=1000
 	
     write /proc/sys/kernel/dmesg_restrict 1
 	
@@ -145,7 +156,6 @@ on post-fs
     chown system system /splash2
     chmod 0775 /splash2
     mkdir /splash2/log 0775 system system
-	mkdir /data/anr 0775 system system
 	
     mount tmpfs tmpfs /mnt/secure private rec
 	
@@ -258,6 +268,8 @@ on boot
     chown system system /sys/module/sensor_info/parameters/compass_debug
     chown system system /sys/module/sensor_info/parameters/gs_debug
     chown system system /sys/module/sensor_info/parameters/hall_debug
+    chmod 664 /sys/bus/i2c/drivers/apds990x/2-0039/ps_phone_status
+    chown radio radio /sys/bus/i2c/drivers/apds990x/2-0039/ps_phone_status
 
     chown system system /sys/bus/platform/devices/huawei_touch/calibrate
     chown system system /sys/bus/platform/devices/huawei_touch/touch_chip_info
@@ -279,29 +291,15 @@ on boot
     chown system system /sys/touchscreen/response
     chown system system /sys/touchscreen/status
 
-	chown system system /sys/kernel/debug/mit1_gpu_dfs_lock
 
-    mkdir /data/media 0770 media_rw media_rw
-    wait /data/media/0
-    mount sdcardfs /data/media /mnt/shell/emulated nosuid nodev derive=legacy,reserved_mb=20
-
-    chmod 0775 /data/media/0
-    chmod 0775 /data/media/0/Music
-    chmod 0775 /data/media/0/Movies
-    chmod 0775 /data/media/0/Pictures
-    chown media_rw media_rw /data/media/0
-    chown media_rw media_rw /data/media/0/Music
-    chown media_rw media_rw /data/media/0/Movies
-    chown media_rw media_rw /data/media/0/Pictures
-
-    write /proc/sys/kernel/hung_task_panic 0
+    write /proc/sys/kernel/hung_task_panic 1
     write /proc/sys/kernel/hung_task_timeout_secs 120
     write /sys/kernel/hungtask/monitorlist "whitelist,system_server,surfaceflinger"
     write /sys/kernel/hungtask/enable "on"
 
      write /proc/sys/net/core/rps_sock_flow_entries 0
      write /sys/class/net/rmnet0/queues/rx-0/rps_flow_cnt 0
-     write /sys/class/net/rmnet0/queues/rx-0/rps_cpus  f
+     write /sys/class/net/rmnet0/queues/rx-0/rps_cpus f
      write /sys/class/net/rmnet1/queues/rx-0/rps_flow_cnt 0
      write /sys/class/net/rmnet1/queues/rx-0/rps_cpus f
      write /sys/class/net/rmnet2/queues/rx-0/rps_flow_cnt 0
@@ -310,7 +308,7 @@ on boot
      write /sys/class/net/rmnet3/queues/rx-0/rps_cpus f
      write /sys/class/net/rmnet4/queues/rx-0/rps_flow_cnt 0
      write /sys/class/net/rmnet4/queues/rx-0/rps_cpus f
-	 write /sys/class/net/rmnet_ims/queues/rx-0/rps_flow_cnt 0
+     write /sys/class/net/rmnet_ims/queues/rx-0/rps_flow_cnt 0
      write /sys/class/net/rmnet_ims/queues/rx-0/rps_cpus f
 	 
     write /sys/block/zram0/disksize 268435456

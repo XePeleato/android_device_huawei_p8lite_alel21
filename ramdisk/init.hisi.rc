@@ -23,7 +23,6 @@ on fs
        restorecon       /sys/class/leds/torch/brightnesss
        restorecon       /proc/touchscreen/rawdata
        restorecon       /sys/class/leds/torch/brightness
-       restorecon       /sys/devices/platform/huawei_sensor/akm_selfTest
        restorecon       /sys/touchscreen/command
 on post-fs
 
@@ -105,7 +104,7 @@ service ril-daemon /system/bin/rild
     socket rild-debug stream 660 radio system
     socket rild-debug1 stream 660 radio system
     user root
-    group radio cache inet misc audio sdcard_r sdcard_rw log system dsm
+    group radio cache inet misc audio sdcard_r sdcard_rw log system dsm irda
 
 service ril-daemon1 /system/bin/rild -c 1
     disabled

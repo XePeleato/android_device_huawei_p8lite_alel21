@@ -10,6 +10,9 @@ on fs
     chown root root /dsp:0
 
 on init
+    write /sys/module/block2mtd/parameters/block2mtd /dev/block/mmcblk0p7
+    wait /dev/nve0
+    chmod 0640 /dev/nve0
     mount ext4 /dev/block/mmcblk0p12 /mnvm3:0 nosuid nodev noatime wait crypt discard,noauto_da_alloc,data=ordered,user_xattr,discard,barrier=1
     mount ext4 /dev/block/mmcblk0p17 /modem_log nosuid nodev noatime wait crypt discard,noauto_da_alloc,data=ordered,user_xattr,discard,barrier=1
     wait /dev/block/mmcblk0p11

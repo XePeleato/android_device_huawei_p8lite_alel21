@@ -20,6 +20,8 @@ on boot
     chown system system /sys/class/graphics/fb0/led_rg_lcd_color_temperature
     chown system system /sys/class/graphics/fb0/lcd_comform_mode
     chown system system /sys/class/graphics/fb0/lcd_starlight_mode
+    chown system system /sys/class/graphics/fb0/lcd_acm_state
+    chown system system /sys/class/graphics/fb0/lcd_ic_color_enhancement_mode
     chown system system /sys/class/graphics/fb0/lcd_cabc_mode
     chown system system /sys/class/graphics/fb0/lcd_hkadc
     chown system system /sys/class/graphics/fb0/lcd_checksum
@@ -39,11 +41,17 @@ on boot
     chown system system /sys/class/ina231/ina231_1/ina231_set
     chown system system /sys/class/ina231/ina231_1/ina231_value
     chown system system /sys/class/graphics/fb0/amoled_acl
+    chown system system /sys/class/graphics/fb0/amoled_hbm
+    chown system system /sys/class/graphics/fb0/lcd_test_config
+    chown system system /sys/class/graphics/fb0/grayscale_mode
+    chown system system /sys/class/graphics/fb0/rs_panel_powerdown
+    chown system system /sys/class/graphics/fb0/lcd_filter
     chown system system /sys/touchscreen/ic_ver
     chown system system /sys/touchscreen/hw_reset
     chown system system /sys/touchscreen/hw_irq_stat
     chown system system /sys/touchscreen/drv_debug
     chown system system /sys/touchscreen/sleep_status
+    chown system system /sys/touchscreen/wakeup_gesture_enable
     chown system system /sys/touchscreen/easy_wakeup_gesture
     chown system system /sys/touchscreen/easy_wakeup_control
     chown system system /sys/touchscreen/easy_wakeup_position
@@ -73,6 +81,7 @@ on boot
     chown system system /sys/class/leds/blue/brightness
     chown system system /sys/class/leds/blue/delay_off
     chown system system /sys/class/leds/blue/delay_on
+    chown system system /sys/bus/i2c/devices/0-005a/vibrator_dbc_test
 
 
 

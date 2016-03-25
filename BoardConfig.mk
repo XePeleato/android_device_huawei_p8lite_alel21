@@ -17,7 +17,7 @@ TARGET_BOARD_GPU := mali-450mp
 
 TARGET_2ND_ARCH := arm
 TARGET_2ND_ARCH_VARIANT := armv7-a-neon
-TARGET_2ND_CPU_VARIANT := cortex-a15
+TARGET_2ND_CPU_VARIANT := cortex-a7
 TARGET_2ND_CPU_ABI := armeabi-v7a
 TARGET_2ND_CPU_ABI2 := armeabi
 
@@ -28,7 +28,7 @@ TARGET_2ND_CPU_ABI2 := armeabi
 #Audio
 BOARD_USES_ALSA_AUDIO := true
 #RIL
-#BOARD_RIL_CLASS := ../../../device/HUAWEI/hi6210sft/ril/
+BOARD_RIL_CLASS := src/java/com/android/internal/telephony
 
 # Wifi & Bluetooth
 BOARD_WLAN_DEVICE                := bcmdhd
@@ -46,11 +46,13 @@ WIFI_BAND                        := 802_11_ABG
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := "device/HUAWEI/hi6210sft/bluetooth"
+BOARD_BLUEDROID_VENDOR_CONF := device/HUAWEI/hi6210sft/bluetooth/vnd_hi6210sft.txt
 
 # Media symbols > thank you codeworkx
 BOARD_PROVIDES_ADDITIONAL_BIONIC_STATIC_LIBS += libc_huawei_symbols
 
 TARGET_HARDWARE_3D := true
+BOARD_EGL_CFG := device/HUAWEI/hi6210sft/egl.cfg
 TARGET_BOARD_PLATFORM := hi6210sft
 
 TARGET_CPU_SMP := true
@@ -65,7 +67,7 @@ TARGET_SUPPORTS_64_BIT_APPS := true
 TARGET_BOOTLOADER_BOARD_NAME := hi6210sft
 ANDROID_64=true
 
-BOARD_KERNEL_CMDLINE := hisi_dma_print=0 vmalloc=384M maxcpus=8 no_irq_affinity androidboot.selinux=permissive
+BOARD_KERNEL_CMDLINE := hisi_dma_print=0 vmalloc=384M maxcpus=8 coherent_pool=512K no_irq_affinity androidboot.selinux=permissive ate_enable=true
 BOARD_KERNEL_BASE := 0x07478000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x07b88000 --tags_offset 0x02988000
@@ -82,6 +84,7 @@ TARGET_KERNEL_PREBUILT := device/HUAWEI/hi6210sft/kernel
 
 BOARD_HAS_NO_SELECT_BUTTON := true
 DEVICE_RESOLUTION := 720x1280
+TW_THEME := portrait_hdpi
 RECOVERY_GRAPHICS_USE_LINELENGTH := true
 RECOVERY_SDCARD_ON_DATA := true
 TW_THEME := hdpi_portrait

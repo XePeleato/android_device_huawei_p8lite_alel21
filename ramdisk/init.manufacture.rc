@@ -24,6 +24,9 @@ on fs
 
     mkdir /data/log 0755 system log
     mkdir /splash2/log 0775 system log
+    mkdir /splash2/sdlog 0775 system log
+    write /splash2/sdlog/sd_err.log 0
+    chmod 0775 /splash2/sdlog/sd_err.log
     symlink /splash2/fac_log /data/log/fac_log
     symlink /splash2 /log
 
@@ -52,7 +55,7 @@ service atcmdserver  /system/bin/atcmdserver
 
 service oeminfo_nvm /sbin/oeminfo_nvm_server
     class core
-    critical
+    critical 
     ioprio rt 4
     seclabel u:r:oeminfo_nvm:s0
 

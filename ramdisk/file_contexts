@@ -184,6 +184,7 @@
 /data/resource-cache(/.*)? u:object_r:resourcecache_data_file:s0
 /data/dalvik-cache(/.*)? u:object_r:dalvikcache_data_file:s0
 /data/dalvik-cache/profiles(/.*)? u:object_r:dalvikcache_profiles_data_file:s0
+/data/adb(/.*)?		u:object_r:adb_data_file:s0
 /data/anr(/.*)?		u:object_r:anr_data_file:s0
 /data/app(/.*)?                       u:object_r:apk_data_file:s0
 /data/app/vmdl.*\.tmp(/.*)?           u:object_r:apk_tmp_file:s0
@@ -219,6 +220,9 @@
 /data/misc/wifi/hostapd(/.*)?   u:object_r:wpa_socket:s0
 /data/misc/zoneinfo(/.*)?       u:object_r:zoneinfo_data_file:s0
 
+# coredump directory for userdebug/eng devices
+/cores(/.*)?                    u:object_r:coredump_file:s0
+
 # Wallpaper file for other users
 /data/system/users/[0-9]+/wallpaper		u:object_r:wallpaper_file:s0
 #############################
@@ -249,9 +253,6 @@
 /mnt/asec/[^/]+/[^/]+\.zip  u:object_r:asec_public_file:s0
 /mnt/asec/[^/]+/lib(/.*)?   u:object_r:asec_public_file:s0
 /data/app-asec(/.*)?        u:object_r:asec_image_file:s0
-
-###EMUI STUFF
-
 #line 1 "vendor/huawei/Emui/sepolicy/file_contexts"
 
 # DTS2015010902063 hanmincheng 00178881 20150109 create
@@ -284,6 +285,8 @@
 /dev/ear_pa             u:object_r:audio_device:s0
 /dev/ttyAMA4		u:object_r:hci_attach_dev:s0
 /dev/ttyAMA3		u:object_r:gps_device:s0
+#V8R2 4752 gps use
+/dev/ttyAMA2		u:object_r:gps_device:s0
 # mali0-K3V3+, mali-V8R2
 /dev/mali0              u:object_r:gpu_device:s0
 /dev/mali               u:object_r:gpu_device:s0
@@ -311,7 +314,6 @@
 /dev/socket/rild-balong-test	u:object_r:rild_debug_socket:s0
 /dev/ttyAMA5		u:object_r:radio_device:s0
 /dev/ttySPI.*		u:object_r:radio_device:s0
-
 # vold
 /dev/dsm		u:object_r:dmd_device:s0
 
@@ -321,23 +323,21 @@
 /dev/block/zram0	u:object_r:zram_device:s0
 # aoovcom*
 /dev/appvcom.*		u:object_r:radio_device:s0
-#BEGIN PN:DTS2015072005775 Added by 00182802 20150723
 /dev/appvcom2              u:object_r:modem_device:s0
 /dev/appvcom8              u:object_r:modem_device:s0
-#END PN:DTS2015072005775 Added by 00182802 20150723
 
 # powergenius
 /dev/socket/powerlogd	u:object_r:powerlogd_socket:s0
 /dev/socket/powerlogdr	u:object_r:powerlogdr_socket:s0
 /dev/socket/powerlogdw	u:object_r:powerlogdw_socket:s0
-# BEGIN DTS2015072005775 added by j00229427 20150723
+# BEGIN DTS2015072005775 added by j00229427 20150731
 /sys/class/leds/torch/flash_thermal_protect u:object_r:sysfs_thermal:s0
 /sys/class/graphics/fb0/lcd_cabc_mode u:object_r:sysfs_cabc:s0
 /sys/class/devfreq/gpufreq/min_freq u:object_r:sysfs_gpu:s0
 /sys/class/devfreq/gpufreq/max_freq u:object_r:sysfs_gpu:s0
 /sys/class/devfreq/ddrfreq/min_freq u:object_r:sysfs_ddr:s0
 /sys/class/devfreq/ddrfreq/max_freq u:object_r:sysfs_ddr:s0
-# END DTS2015072005775 added by j00229427 20150723
+# END DTS2015072005775 added by j00229427 20150731
 
 /dev/socket/logcontrol  u:object_r:logserver_socket:s0
 /dev/socket/himreg	u:object_r:himreg_socket:s0
@@ -358,14 +358,13 @@
 
 # atcmdserver
 /dev/block/mmcblk0		u:object_r:atcmdserver_blkdev:s0
+/dev/block/mmcblk1              u:object_r:atcmdserver_blkdev:s0
 /dev/block/mmcblk1p1	u:object_r:atcmdserver_blkdev:s0
 /dev/block/mmcblk0p19	u:object_r:atcmdserver_blkdev:s0
 
 #############################
 # System files
 #
-#:DTS2015072005775  Added by g00265219 2015-07-27*/
-#del /system/bin/enable_swap   u:object_r:enable_swap_exec:s0
 /system/bin/HwCamCfgSvr		u:object_r:hwcamcfgsvr_exec:s0
 /system/bin/himreg		u:object_r:himreg_exec:s0
 /system/bin/device_monitor	u:object_r:device_monitor_exec:s0
@@ -382,6 +381,7 @@
 /system/bin/hw_ueventd		u:object_r:hw_ueventd_exec:s0
 /system/bin/atcmdserver		u:object_r:atcmdserver_exec:s0
 /system/bin/logcat		u:object_r:logcat_exec:s0
+/system/bin/tlogcat             u:object_r:logcat_exec:s0
 /system/bin/modemlogcat_lte	u:object_r:modemlogcat_lte_exec:s0
 /system/bin/thermal-daemon	u:object_r:thermal-daemon_exec:s0
 /system/bin/mappersh		u:object_r:mapper_exec:s0
@@ -431,9 +431,6 @@
 /data/offlinelogs/balong_modem2_simoffline.txt u:object_r:radio_data_file:s0
 /data/offlinelogs/balong_modem1_simoffline.txt u:object_r:radio_data_file:s0
 
-#/* BEGIN PN:DTS2015033107543,Added by gaoxu, 2015/03/31*/
-/data/facapp/memtester		u:object_r:memtester_exec:s0
-#/* END   PN: DTS2015033107543,Added by gaoxu, 2015/03/31*/
 
 # what's this ???
 /data/system/deviceid		u:object_r:radio_file:s0
@@ -447,12 +444,19 @@
 /sys/devices/virtual/block/zram0(/.*)?	u:object_r:sysfs_zram:s0
 /sys/devices/e8600000.mali(/.*)?	u:object_r:sysfs_gpu:s0
 /sys/devices/e8600000.mali/uevent	u:object_r:sysfs:s0
+/sys/devices/virtual/usbswitch/usbsw/swstate      u:object_r:sysfs_swstate:s0
 /sys/devices/bluetooth_power\..*	u:object_r:sysfs_bluetooth_writable:s0
 /sys/devices/bluetooth_sleep\..*	u:object_r:sysfs_bluetooth_writable:s0
+/sys/class/leds/lcd_backlight0/brightness      u:object_r:sysfs_backlight:s0
 
 # sys/devices/huawei,camcfgdev.18/video4linux/v4l-subdev4/torch/flash_thermal_protect
 
+/sys/class/leds/torch/brightness u:object_r:sysfs_brightness:s0
 
+#############################
+# proc files
+#
+/proc/touchscreen/rawdata       u:object_r:sysfs_touchscreen:s0
 #############################
 # Cust files 
 #
@@ -479,27 +483,25 @@
 /3rdmodemnvmbkp(/.*)?		u:object_r:radio_data_file:s0
 
 #############################
-# mnvm2:0 files 
+#DTS2015042810167 j00172194 add begin
+# modem_log files 
 #
 /modemom(/.*)?		u:object_r:radio_data_file:s0
+/modem_log(/.*)?		u:object_r:radio_data_file:s0
 
 #############################
-# modem_log files 
+# mnvm2:0 files 
 #
 /modemnv(/.*)?		u:object_r:radio_data_file:s0
 
+#DTS2015042810167 j00172194 add end 
 
 #############################
 # /data/sec_storage files 
 #
 /data/sec_storage(/.*)?		u:object_r:teecd_data_file:s0
 
-#BEGIN PN:DTS2015072005775 Added by 00182802 20150723
 #sensor mmi test node
-/sys/devices/virtual/usbswitch/usbsw/swstate      u:object_r:sysfs_swstate:s0
-/sys/class/leds/lcd_backlight0/brightness      u:object_r:sysfs_backlight:s0
-/sys/class/leds/torch/brightness u:object_r:sysfs_brightness:s0
-/proc/touchscreen/rawdata       u:object_r:sysfs_touchscreen:s0
 /sys/devices/platform/huawei_sensor/gyro_selfTest        u:object_r:sysfs_huawei_sensor:s0
 /sys/devices/platform/huawei_sensor/acc_info        u:object_r:sysfs_huawei_sensor:s0
 /sys/devices/platform/huawei_sensor/als_info        u:object_r:sysfs_huawei_sensor:s0
@@ -507,9 +509,7 @@
 /sys/class/leds/green/brightness u:object_r:sysfs_led:s0
 /sys/class/leds/blue/brightness  u:object_r:sysfs_led:s0
 /sys/class/hw_power/charger/charge_data/enable_charger u:object_r:sysfs_charger:s0
-/sys/devices/platform/huawei_sensor/akm_selfTest        u:object_r:sysfs_huawei_sensor:s0
 /sys/touchscreen/command     u:object_r:sysfs_huawei_sensor:s0
-
 #line 1 "device/hisi/common/sepolicy/hi6210sft/file_contexts"
 # for hi6210sft
 
@@ -568,4 +568,5 @@
 /data/memdump(/.*)?               u:object_r:hi110x_data_file:s0
 /data/gnss(/.*)?                  u:object_r:hi110x_data_file:s0
 /data/hwlogdir(/.*)?              u:object_r:hi110x_data_file:s0
-
+#DTS2015061602149 bWX205963 add begin
+/sys/devices/amba.13/f7102000.i2c/i2c-2/2-0039/ps_phone_status        u:object_r:sysfs_ps_phone_status:s0

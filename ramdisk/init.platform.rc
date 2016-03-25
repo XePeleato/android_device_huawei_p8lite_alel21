@@ -1,5 +1,7 @@
 on early-init
 
+write /sys/block/mmcblk0/queue/nr_requests 256
+
 on init
 
     mkdir /dev/frz
@@ -22,7 +24,6 @@ on early-boot
     mount debugfs /sys/kernel/debug /sys/kernel/debug mode=0775,gid=1000
 
 on boot
-    start logctl_service
     chmod 0660 /dev/hwlog_switch
     chown logd system /dev/hwlog_switch
     chmod 0660 /dev/hwlog_tag
@@ -46,6 +47,9 @@ on boot
     chown system system /sys/class/hw_power/charger/charge_data/enable_hiz
     chmod 0660 /sys/class/hw_power/charger/charge_data/shutdown_watchdog
     chown system system /sys/class/hw_power/charger/charge_data/shutdown_watchdog
+
+    chown root system /sys/devices/system/cpu/cpu0/cpufreq/msg_policy
+    chmod 0660 /sys/devices/system/cpu/cpu0/cpufreq/msg_policy
 
 on property:sys.printservice=*
     printservice ${sys.printservice}
@@ -83,6 +87,7 @@ on property:bastet.service.enable=true
     start bastetd
 
 service ioinfoservice /system/bin/ioinfoservice
+    disabled
     class main
 
 service jankservice /system/bin/jankservice
@@ -90,7 +95,12 @@ service jankservice /system/bin/jankservice
     class main
 
 on property:persist.sys.jankenable=true
+    start ioinfoservice
     start jankservice
+
+on property:persist.sys.jankenable=false
+    stop jankservice
+    stop ioinfoservice
 
 service fuse_sdcard1rw /system/bin/sdcard -u 1023 -g 1023 /mnt/media_rw/sdcard1 /storage/sdcard1
    class late_start
@@ -123,6 +133,14 @@ service logctl_service /sbin/logctl_service -m 1
     class late_start
     user root
     group system
+    oneshot
+    seclabel u:r:hisilogcat:s0
+
+service logcat_service /sbin/logctl_service -m 1 -t 1
+    class late_start
+    user root
+    group system
+    oneshot
     seclabel u:r:hisilogcat:s0
 
 service fac_log_service /system/bin/factory_log_service -m 1
@@ -214,6 +232,12 @@ service hwpged /system/bin/hwpged
     socket MsgHubSock stream 0660 root system
     user root
 
+service chargemonitor /system/bin/chargemonitor
+    class late_start
+    user root
+    group system
+    seclabel u:r:hisilogcat:s0
+
 on property:debug.rt.ddr.test=1
     stop ddrtest
     start ddrtest
@@ -230,21 +254,8 @@ service mapper /system/bin/sh /system/bin/mappersh
     group system
     disabled
 
-on property:persist.sys.huawei.debug.on=1
-    start applogcat
-    start kmsglogcat
-    start rillogcat
-    start chargelogcat
-    start sleeplogcat
-    start inputlogcat
-
-on property:persist.sys.huawei.debug.on=0
-    stop applogcat
-    stop kmsglogcat
-    stop rillogcat
-    stop chargelogcat
-    stop sleeplogcat
-    stop inputlogcat
+on property:persist.sys.huawei.debug.on=*
+    restart logcat_service
 
 service bastetd /system/bin/bastetd
     class main

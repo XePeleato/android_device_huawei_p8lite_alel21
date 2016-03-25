@@ -53,9 +53,6 @@ imms                                      u:object_r:system_server_service:s0
 isms_msim                                 u:object_r:radio_service:s0
 isms2                                     u:object_r:radio_service:s0
 isms                                      u:object_r:radio_service:s0
-# DTS2014101005533 jiayanhong/00176905 20141105 begin
-isms_interception                         u:object_r:radio_service:s0
-# DTS2014101005533 jiayanhong/00176905 20141105 end
 isub                                      u:object_r:radio_service:s0
 jankshield                                u:object_r:system_server_service:s0
 jobscheduler                              u:object_r:system_server_service:s0
@@ -75,6 +72,10 @@ media_router                              u:object_r:system_server_service:s0
 media_session                             u:object_r:system_server_service:s0
 meminfo                                   u:object_r:system_server_service:s0
 mount                                     u:object_r:system_server_service:s0
+# MW Integration : DTS2015041101215 Magesh/mwx209439 20150411 begin
+# Added to register multi window service
+multiwin                                  u:object_r:system_server_service:s0
+# MW Integration : DTS2015041101215 Magesh/mwx209439 20150411 end
 netpolicy                                 u:object_r:system_server_service:s0
 netstats                                  u:object_r:system_server_service:s0
 network_management                        u:object_r:system_server_service:s0
@@ -89,9 +90,6 @@ phone_msim                                u:object_r:radio_service:s0
 phone1                                    u:object_r:radio_service:s0
 phone2                                    u:object_r:radio_service:s0
 phone                                     u:object_r:radio_service:s0
-# DTS2014101006257 jiayanhong/00176905 20141105 begin
-phone_apdu                                u:object_r:radio_service:s0
-# DTS2014101006257 jiayanhong/00176905 20141105 end
 # DTS2014120209680 zhaowei/00195747 20141202 begin
 huaweiphone                               u:object_r:radio_service:s0
 # DTS2014120209680 zhaowei/00195747 20141202 end
@@ -116,7 +114,7 @@ sip                                       u:object_r:radio_service:s0
 statusbar                                 u:object_r:system_server_service:s0
 SurfaceFlinger                            u:object_r:surfaceflinger_service:s0
 task                                      u:object_r:system_server_service:s0
-telecom                                   u:object_r:radio_service:s0
+telecom                                   u:object_r:system_server_service:s0
 telephony.registry                        u:object_r:system_server_service:s0
 textservices                              u:object_r:system_server_service:s0
 trust                                     u:object_r:system_server_service:s0
@@ -134,7 +132,7 @@ wifip2p                                   u:object_r:system_server_service:s0
 wifiscanner                               u:object_r:system_server_service:s0
 wifi                                      u:object_r:system_server_service:s0
 window                                    u:object_r:system_server_service:s0
-icos_mirror_service_audio                 u:object_r:mediaserver_service:s0
+
 *                                         u:object_r:default_android_service:s0
 #line 1 "vendor/huawei/Emui/sepolicy/service_contexts"
 
@@ -147,6 +145,8 @@ com.huawei.systemmanager.netassistant.netnotify.policy.NatTrafficNotifyService  
 internet_audio                                                            u:object_r:system_app_service:s0
 # add system.hsmcore on DTS2015031701911
 system.hsmcore  u:object_r:system_server_service:s0
+# add com.huawei.cryptosms.service on DTS2015042005211
+com.huawei.cryptosms.service                            u:object_r:system_app_service:s0
 
 #line 1 "device/hisi/common/sepolicy/common/service_contexts"
 com.huawei.goldeneye                                    u:object_r:goldeneye_service:s0
@@ -175,5 +175,6 @@ Binder.Pged						u:object_r:hwpged_service:s0
 BastetService						u:object_r:bastetd_service:s0
 smartcardservice					u:object_r:system_server_service:s0
 SelfbuildIRService                                      u:object_r:system_server_service:s0
+pgservice                                               u:object_r:system_server_service:s0 
 #line 1 "device/hisi/common/sepolicy/hi6210sft/service_contexts"
 com.nokia.location.slpgwd                                            u:object_r:nokialoc_service:s0

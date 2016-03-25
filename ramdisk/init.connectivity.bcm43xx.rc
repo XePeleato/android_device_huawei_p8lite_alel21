@@ -22,6 +22,7 @@ on post-fs-data
     chmod 0660 /data/misc/wifi/wpa_supplicant.conf
     mkdir /data/misc/dhcp 0770 dhcp dhcp
     chown dhcp dhcp /data/misc/dhcp
+
 on early-boot
 
 on property:bluetooth.log.file.create=true
@@ -59,6 +60,13 @@ service gpsdaemon /system/bin/gpsdaemon
     class main
     oneshot
 
+
+service wifi_wakeup_src /system/bin/wifiwakeupsrc
+    class core
+    user root
+    group root wifi
+    disabled
+    oneshot
 
 service p2p_supplicant /system/bin/wpa_supplicant -ddd \
     -iwlan0 -Dnl80211 -c/data/misc/wifi/wpa_supplicant.conf \

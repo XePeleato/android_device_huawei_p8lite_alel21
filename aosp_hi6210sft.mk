@@ -23,25 +23,30 @@ TARGET_SCREEN_WIDTH := 720
 DEVICE_PACKAGE_OVERLAYS := device/HUAWEI/hi6210sft/overlay
 Device_Root := device/HUAWEI/hi6210sft
 #RIL
-#PRODUCT_PROPERTY_OVERRIDES += \
-#audioril.lib=libhuawei-audio-ril.so \
-#ro.telephony.ril_class=HuaweiRIL \
-#telephony.lteOnCdmaDevice=0 \
-#telephony.lteOnGsmDevice=1 \
-#ro.telephony.default_network=9
+PRODUCT_PROPERTY_OVERRIDES += \
+audioril.lib=libhuawei-audio-ril.so \
+ro.telephony.ril_class=HuaweiRIL \
+telephony.lteOnCdmaDevice=0 \
+telephony.lteOnGsmDevice=1 \
+ro.telephony.default_network=9
 
 #Audio Config
 PRODUCT_COPY_FILES += \
-vendor/etc/audio_effects.conf:system/etc/audio_effects.conf\
-vendor/etc/audio_policy.conf:system/etc/audio_policy.conf
+device/HUAWEI/hi6210sft/audio/audio_effects.conf:system/etc/audio_effects.conf \
+device/HUAWEI/hi6210sft/audio/audio_policy.conf:system/etc/audio_policy.conf \
 
 
+#Bluetooth
+PRODUCT_COPY_FILES += \
+device/HUAWEI/hi6210sft/bluetooth/auto_pair_devlist.conf:system/etc/bluetooth/auto_pair_devlist.conf \
+device/HUAWEI/hi6210sft/bluetooth/bt_did.conf:system/etc/bluetooth/bt_did.conf \
+device/HUAWEI/hi6210sft/bluetooth/bt_stack.conf:system/etc/bluetooth/bt_stack.conf
 
 
 #Media patches
-#PRODUCT_COPY_FILES += \
-#vendor/etc/media_profiles.conf:system/etc/media_profiles.conf\
-#vendor/etc/media_codecs.conf:system/etc/media_codecs.conf
+PRODUCT_COPY_FILES += \
+device/HUAWEI/hi6210sft/media/media_profiles.xml:system/etc/media_profiles.xml\
+device/HUAWEI/hi6210sft/media/media_codecs.xml:system/etc/media_codecs.xml
 
 PRODUCT_PACKAGES += \
 audio.primary.default \
@@ -70,14 +75,18 @@ BOARD_SEPOLICY_UNION += \
 
 
 
-# Copying some libs in order to get it working Quit: Libbinder, liblog, mediaserver
-
+# Copying some libs in order to get it working
 PRODUCT_COPY_FILES += \
 		       vendor/bin/atcmdserver:system/bin/atcmdserver \
+		       vendor/ons.bin:system/ons.bin \
+		       vendor/isp.bin:system/isp.bin \
+		       vendor/phone.prop:system/phone.prop \
 		       vendor/bin/mediaserver:system/bin/mediaserver \
 		       vendor/lib/libaudioflinger.so:system/lib/libaudioflinger.so \
-		       vendor/lib/libstagefright.so:system/lib/libstagefright.so \
-		       vendor/lib64/libstagefright.so:system/lib64/libstagefright.so \
+		       vendor/framework/com.android.location.provider.jar:system/framework/com.android.location.provider.jar \
+		       vendor/lib/libaudiopolicyservice.so:system/lib/libaudiopolicyservice.so \
+		       vendor/lib64/libaudiopolicyservice.so:system/lib64/libaudiopolicyservice.so \
+		       vendor/lib/libsrsprocessing.so:system/lib/libsrsprocessing.so \
 		       vendor/lib/libcameraservice.so:system/lib/libcameraservice.so \
 		       vendor/lib64/libcameraservice.so:system/lib64/libcameraservice.so \
 		       vendor/lib/drm/libdrmhwomavoneplugin.so:system/lib/drm/libdrmhwomavoneplugin.so\
@@ -101,6 +110,7 @@ PRODUCT_COPY_FILES += \
 		       vendor/lib/hw/audio.primary.default.so:system/lib/hw/audio.primary.default.so\
 		       vendor/lib64/hw/audio.r_submix.default.so:system/lib64/hw/audio.r_submix.default.so\
 		       vendor/lib/hw/audio.r_submix.default.so:system/lib/hw/audio.r_submix.default.so\
+		       vendor/lib/hw/bluetooth.default.so:system/lib/hw/bluetooth.default.so \
 		       vendor/lib64/hw/camera.hi6210sft.so:system/lib64/hw/camera.hi6210sft.so\
 		       vendor/lib/hw/camera.hi6210sft.so:system/lib/hw/camera.hi6210sft.so\
 		       vendor/lib64/hw/bastet.hi6210sft.so:system/lib64/hw/bastet.hi6210sft.so\
@@ -128,8 +138,6 @@ PRODUCT_COPY_FILES += \
 		       vendor/lib/hw/hwcomposer.hi6210sft.so:system/lib/hw/hwcomposer.hi6210sft.so\
                        vendor/lib64/hw/memtrack.hi6210sft.so:system/lib64/hw/memtrack.hi6210sft.so\
                        vendor/lib/hw/memtrack.hi6210sft.so:system/lib/hw/memtrack.hi6210sft.so\
-                       vendor/lib64/libGLES_android.so:system/lib64/egl/libGLES_android.so\
-                       vendor/lib/libGLES_android.so:system/lib/egl/libGLES_android.so\
                        vendor/lib64/libhardware.so:system/lib64/libhardware.so\
                        vendor/lib/libhardware.so:system/lib/libhardware.so\
                        vendor/lib64/libui.so:system/lib64/libui.so\
@@ -140,7 +148,7 @@ PRODUCT_COPY_FILES += \
                        vendor/lib/libgui.so:system/lib/libgui.so\
                        vendor/lib64/libhwaps.so:system/lib64/libhwaps.so\
 			vendor/lib/libhwaps.so:system/lib/libhwaps.so\
-                       vendor/lib/libion.huawei.so:system/lib/libion.so\
+                       vendor/lib/libion.so:system/lib/libion.so\
                        vendor/lib64/libion.so:system/lib64/libion.so\
 			vendor/lib64/libsurfaceflinger.so:system/lib64/libsurfaceflinger.so\
 			vendor/lib/libsurfaceflinger.so:system/lib/libsurfaceflinger.so\
@@ -236,7 +244,6 @@ PRODUCT_COPY_FILES += \
 			vendor/vendor/lib/libWVStreamControlAPI_L3.so:system/vendor/lib/libWVStreamControlAPI_L3.so\
 			vendor/vendor/lib64/libbt-vendor-hi110x.so:system/vendor/lib64/libbt-vendor-hi110x.so\
 			vendor/vendor/framework/com.huawei.audioalgo.jar:system/vendor/framework/com.huawei.audioalgo.jar\
-			vendor/vendor/etc/audio_effects.conf:system/vendor/etc/audio_effects.conf\
 			vendor/vendor/media/LMspeed_508.emd:system/vendor/media/LMspeed_508.emd\
 			vendor/vendor/media/PFFprec_600.emd:system/vendor/media/PFFprec_600.emd
 
@@ -330,7 +337,6 @@ PRODUCT_COPY_FILES += \
 		vendor/bin/hostapd_cli_hisi:system/bin/hostapd_cli_hisi \
 		vendor/bin/hostapd_hisi:system/bin/hostapd_hisi \
 		vendor/bin/huawei_tp_test:system/bin/huawei_tp_test \
-		vendor/bin/ioinfoservice:system/bin/ioinfoservice \
 		vendor/bin/libcgroup.so:system/bin/libcgroup.so \
 		vendor/bin/mkexfatfs:system/bin/mkexfatfs \
 		vendor/bin/mkntfs:system/bin/mkntfs \
@@ -354,14 +360,135 @@ PRODUCT_COPY_FILES += \
 		vendor/bin/wpa_cli_hisi:system/bin/wpa_cli_hisi \
 		vendor/bin/wpa_supplicant_hisi:system/bin/wpa_supplicant_hisi 
 
+#Lib
+PRODUCT_COPY_FILES += \
+		vendor/lib/cp_if.so:system/lib/cp_if.so \
+		vendor/lib/imedia_filters.so:system/lib/imedia_filters.so \
+		vendor/lib/lib_atprotocolsw.so:system/lib/lib_atprotocolsw.so \
+		vendor/lib/lib_hwnsd_input.so:system/lib/lib_hwnsd_input.so \
+		vendor/lib/lib_k3_ffmpeg.so:system/lib/lib_k3_ffmpeg.so \
+		vendor/lib/lib_k3_omx_avc.so:system/lib/lib_k3_omx_avc.so \
+		vendor/lib/lib_k3_omx_avcenc.so:system/lib/lib_k3_omx_avcenc.so \
+		vendor/lib/lib_k3_omx_mpeg2.so:system/lib/lib_k3_omx_mpeg2.so \
+		vendor/lib/lib_k3_omx_mpeg4.so:system/lib/lib_k3_omx_mpeg4.so \
+		vendor/lib/lib_k3_omx_rv.so:system/lib/lib_k3_omx_rv.so \
+		vendor/lib/lib_k3_omx_vc1.so:system/lib/lib_k3_omx_vc1.so \
+		vendor/lib/lib_k3_omx_vp8.so:system/lib/lib_k3_omx_vp8.so \
+		vendor/lib/lib_k3_omxcore.so:system/lib/lib_k3_omxcore.so \
+		vendor/lib/libadc_old_sdk.so:system/lib/libadc_old_sdk.so \
+		vendor/lib/libaes.so:system/lib/libaes.so \
+		vendor/lib/libagnssal.so:system/lib/libagnssal.so \
+		vendor/lib/libairsharing_platform.so:system/lib/libairsharing_platform.so \
+		vendor/lib/libatpswdck.so:system/lib/libatpswdck.so \
+		vendor/lib/libaudioalgoservice_jni.so:system/lib/libaudioalgoservice_jni.so \
+		vendor/lib/libaudio-resampler.so:system/lib/libaudio-resampler.so \
+		vendor/lib/libaudioresampler.so:system/lib/libaudioresampler.so \
+		vendor/lib/libaudio_custom.so:system/lib/libaudio_custom.so \
+		vendor/lib/libaudioeffect_jni.so:system/lib/libaudioeffect_jni.so \
+		vendor/lib/libaudio_custom.so:system/lib/libaudio_custom.so \
+		vendor/lib/libaudioutils.so:system/lib/libaudioutils.so \
+		vendor/lib/libavcodec.so:system/lib/libavcodec.so \
+		vendor/lib/libavformat.so:system/lib/libavformat.so \
+		vendor/lib/libavutil.so:system/lib/libavutil.so \
+		vendor/lib/libbalong-ril.so:system/lib/libbalong-ril.so \
+		vendor/lib/libbalong-ril-1.so:system/lib/libbalong-ril-1.so \
+		vendor/lib/libBestShot.so:system/lib/libBestShot.so \
+		vendor/lib/libbluetoothex_jni.so:system/lib/libbluetoothex_jni.so \
+		vendor/lib/libbluetooth_jni.so:system/lib/libbluetooth_jni.so \
+		vendor/lib/libbreakpad.so:system/lib/libbreakpad.so \
+		vendor/lib/libbspatchhwouc.so:system/lib/libbspatchhwouc.so \
+		vendor/lib/libbt_factory_test.so:system/lib/libbt_factory_test.so \
+		vendor/lib/libbt_factory_test_hi110x.so:system/lib/libbt_factory_test_hi110x.so \
+		vendor/lib/libcamera_omron.so:system/lib/libcamera_omron.so \
+		vendor/lib/libcamera_post_mediaserver.so:system/lib/libcamera_post_mediaserver.so \
+		vendor/lib/libcares.so:system/lib/libcares.so \
+		vendor/lib/libcgroup.so:system/lib/libcgroup.so \
+		vendor/lib/libchrlog.so:system/lib/libchrlog.so \
+		vendor/lib/libcontactsmatchname.so:system/lib/libcontactsmatchname.so \
+		vendor/lib/libevent.so:system/lib/libevent.so \
+		vendor/lib/libfb.so:system/lib/libfb.so \
+		vendor/lib/libfb_cpucapabilities.so:system/lib/libfb_cpucapabilities.so \
+		vendor/lib/libfb_creativeediting.so:system/lib/libfb_creativeediting.so \
+		vendor/lib/libfb_crypto.so:system/lib/libfb_crypto.so \
+		vendor/lib/libfb_dalvik-internals.so:system/lib/libfb_dalvik-internals.so \
+		vendor/lib/libfb_ffmpeg.so:system/lib/libfb_ffmpeg.so \
+		vendor/lib/libfb_ffmpeg_jni.so:system/lib/libfb_ffmpeg_jni.so \
+		vendor/lib/libfm_interface.so:system/lib/libfm_interface.so \
+		vendor/lib/libfm_jni.so:system/lib/libfm_jni.so \
+		vendor/lib/libfm_volume.so:system/lib/libfm_volume.so \
+		vendor/lib/libgnssadapter.so:system/lib/libgnssadapter.so \
+		vendor/lib/libhardware_legacy_bcm.so:system/lib/libhardware_legacy_bcm.so \
+		vendor/lib/libhardware_legacy_hisi.so:system/lib/libhardware_legacy_hisi.so \
+		vendor/lib/libhelixplayer.so:system/lib/libhelixplayer.so \
+		vendor/lib/libhisi_efuse.so:system/lib/libhisi_efuse.so \
+		vendor/lib/libhisi_ini.so:system/lib/libhisi_ini.so \
+		vendor/lib/libhuaweiaudioeffectutil.so:system/lib/libhuaweiaudioeffectutil.so \
+		vendor/lib/libhwdeviceinfo.so:system/lib/libhwdeviceinfo.so \
+		vendor/lib/libhwextdevice.so:system/lib/libhwextdevice.so \
+		vendor/lib/libjpegenchw.so:system/lib/libjpegenchw.so \
+		vendor/lib/libmax98925.so:system/lib/libmax98925.so \
+		vendor/lib/libmedia.so:system/lib/libmedia.so \
+		vendor/lib/libmedia_jni.huawei.so:system/lib/libmedia_jni.huawei.so \
+		vendor/lib/libmediarecorder.huawei.so:system/lib/libmediarecorder.huawei.so \
+		vendor/lib/libmediaplayerservice.so:system/lib/libmediaplayerservice.so \
+		vendor/lib/libnfc_nci_jni.so:system/lib/libnfc_nci_jni.so \
+		vendor/lib/libnfc-nci.so:system/lib/libnfc-nci.so \
+		vendor/lib/libpowergenie_native3.so:system/lib/libpowergenie_native3.so \
+		vendor/lib/libsensorsgps.so:system/lib/libsensorsgps.so \
+		vendor/lib/libsqlite3.so:system/lib/libsqlite3.so \
+		vendor/lib/libstagefright.so:system/lib/libstagefright.so \
+		vendor/lib/libstagefright.huawei.so:system/lib/libstagefright.huawei.so \
+		vendor/lib/libstagefright_soft_ffmpegaudiodec.so:system/lib/libstagefright_soft_ffmpegaudiodec.so \
+		vendor/lib/libstagefright_soft_ffmpegvideodec.so:system/lib/libstagefright_soft_ffmpegvideodec.so \
+		vendor/lib/libstagefrighthw.so:system/lib/libstagefrighthw.so \
+		vendor/lib/libsupl10client.so:system/lib/libsupl10client.so \
+		vendor/lib/libsupl20client.so:system/lib/libsupl20client.so \
+		vendor/lib/libsupl20comon.so:system/lib/libsupl20comon.so \
+		vendor/lib/libsupl20if.so:system/lib/libsupl20if.so \
+		vendor/lib/libsupl20oasn1comn.so:system/lib/libsupl20oasn1comn.so \
+		vendor/lib/libsupl20oasn1lpp.so:system/lib/libsupl20oasn1lpp.so \
+		vendor/lib/libsupl20oasn1rrc.so:system/lib/libsupl20oasn1rrc.so \
+		vendor/lib/libsupl20oasn1rrlp.so:system/lib/libsupl20oasn1rrlp.so \
+		vendor/lib/libsupl20oasn1supl1.so:system/lib/libsupl20oasn1supl1.so \
+		vendor/lib/libsupl20oasn1supl2.so:system/lib/libsupl20oasn1supl2.so \
+		vendor/lib/libsupl20oasn1tia.so:system/lib/libsupl20oasn1tia.so \
+		vendor/lib/libtfa9895.so:system/lib/libtfa9895.so \
+		vendor/lib/libwifipro.so:system/lib/libwifipro.so \
+		vendor/lib/libwpa_client_hisi.so:system/lib/libwpa_client_hisi.so
 
 
-ifeq ($(TARGET_BUILD_VARIANT),user)
+#Lib64
+PRODUCT_COPY_FILES += \
+		vendor/lib64/lib_hwnsd_input.so:system/lib64/lib_hwnsd_input.so \
+		vendor/lib64/libaes.so:system/lib64/libaes.so \
+		vendor/lib64/libagnssal.so:system/lib64/libagnssal.so \
+		vendor/lib64/libaudio_custom.so:system/lib64/libaudio_custom.so \
+		vendor/lib64/libaudioalgoservice_jni.so:system/lib64/libaudioalgoservice_jni.so \
+		vendor/lib64/libaudio-resampler.so:system/lib64/libaudio-resampler.so \
+		vendor/lib64/libaudioroute.so:system/lib64/libaudioroute.so \
+		vendor/lib64/libbastet.so:system/lib64/libbastet.so \
+		vendor/lib64/libbluetoothex_jni.so:system/lib64/libbluetoothex_jni.so \
+		vendor/lib64/libchrlog.so:system/lib64/libchrlog.so \
+		vendor/lib64/libgnssadapter.so:system/lib64/libgnssadapter.so \
+		vendor/lib64/libhisi_efuse.so:system/lib64/libhisi_efuse.so \
+		vendor/lib64/libhisi_ini.so:system/lib64/libhisi_ini.so \
+		vendor/lib64/libmax98925.so:system/lib64/libmax98925.so \
+		vendor/lib64/libmediarecorder.huawei.so:system/lib64/libmediarecorder.huawei.so \
+		vendor/lib64/libpowergenie_native3.so:system/lib64/libpowergenie_native3.so \
+		vendor/lib64/libstagefright.huawei.so:system/lib64/libstagefright.huawei.so \
+		vendor/lib64/libstagefright_soft_ffmpegaudiodec.so:system/lib64/libstagefright_soft_ffmpegaudiodec.so \
+		vendor/lib64/libstagefright_soft_ffmpegvideodec.so:system/lib64/libstagefright_soft_ffmpegvideodec.so \
+		vendor/lib64/libstagefrighthw.so:system/lib64/libstagefrighthw.so \
+		vendor/lib64/libtfa9895.so:system/lib64/libtfa9895.so \
+		vendor/lib64/libwifipro.so:system/lib64/libwifipro.so 
+
+
+		
+
+
+
+
 	NFCEE_ACCESS_PATH := vendor/etc/nfcee_access.xml
-else
-	NFCEE_ACCESS_PATH := vendor/etc/nfcee_access_debug.xml
-endif
-
 PRODUCT_COPY_FILES += \
 	$(NFCEE_ACCESS_PATH):system/etc/nfcee_access.xml
 
@@ -378,7 +505,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 PRODUCT_NAME := aosp_hi6210sft
 PRODUCT_DEVICE := hi6210sft
 PRODUCT_BRAND := Android
-PRODUCT_MODEL := AOSP on P8 Lite K
+PRODUCT_MODEL := AOSP by XePeleato
 PRODUCT_MANUFACTURER := Huawei
 PRODUCT_RESTRICT_VENDOR_FILES := false
 

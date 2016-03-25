@@ -45,8 +45,9 @@ device/HUAWEI/hi6210sft/bluetooth/bt_stack.conf:system/etc/bluetooth/bt_stack.co
 
 #Media patches
 PRODUCT_COPY_FILES += \
-device/HUAWEI/hi6210sft/media/media_profiles.xml:system/etc/media_profiles.xml\
-device/HUAWEI/hi6210sft/media/media_codecs.xml:system/etc/media_codecs.xml
+device/HUAWEI/hi6210sft/media/media_profiles.xml:system/etc/media_profiles.xml \
+device/HUAWEI/hi6210sft/media/media_codecs.xml:system/etc/media_codecs.xml \
+device/HUAWEI/hi6210sft/media/media_codecs_ffmpeg.xml:system/etc/media_codecs_ffmpeg.xml
 
 PRODUCT_PACKAGES += \
 audio.primary.default \
@@ -83,7 +84,6 @@ PRODUCT_COPY_FILES += \
 		       vendor/phone.prop:system/phone.prop \
 		       vendor/bin/mediaserver:system/bin/mediaserver \
 		       vendor/lib/libaudioflinger.so:system/lib/libaudioflinger.so \
-		       vendor/framework/com.android.location.provider.jar:system/framework/com.android.location.provider.jar \
 		       vendor/lib/libaudiopolicyservice.so:system/lib/libaudiopolicyservice.so \
 		       vendor/lib64/libaudiopolicyservice.so:system/lib64/libaudiopolicyservice.so \
 		       vendor/lib/libsrsprocessing.so:system/lib/libsrsprocessing.so \
@@ -438,6 +438,7 @@ PRODUCT_COPY_FILES += \
 		vendor/lib/libsqlite3.so:system/lib/libsqlite3.so \
 		vendor/lib/libstagefright.so:system/lib/libstagefright.so \
 		vendor/lib/libstagefright.huawei.so:system/lib/libstagefright.huawei.so \
+		vendor/lib/libstagefright_foundation.so:system/lib/libstagefright_foundation.so \
 		vendor/lib/libstagefright_soft_ffmpegaudiodec.so:system/lib/libstagefright_soft_ffmpegaudiodec.so \
 		vendor/lib/libstagefright_soft_ffmpegvideodec.so:system/lib/libstagefright_soft_ffmpegvideodec.so \
 		vendor/lib/libstagefrighthw.so:system/lib/libstagefrighthw.so \

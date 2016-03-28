@@ -388,6 +388,8 @@ PRODUCT_COPY_FILES += \
 		vendor/lib/libaudio_custom.so:system/lib/libaudio_custom.so \
 		vendor/lib/libaudioeffect_jni.so:system/lib/libaudioeffect_jni.so \
 		vendor/lib/libaudio_custom.so:system/lib/libaudio_custom.so \
+		vendor/lib/libaudiopolicymanager.so:system/lib/libaudiopolicymanager.so \
+		vendor/lib/libaudiopolicymanagerdefault.so:system/lib/libaudiopolicymanagerdefault.so \
 		vendor/lib/libaudioutils.so:system/lib/libaudioutils.so \
 		vendor/lib/libavcodec.so:system/lib/libavcodec.so \
 		vendor/lib/libavformat.so:system/lib/libavformat.so \

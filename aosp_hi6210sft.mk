@@ -107,6 +107,8 @@ PRODUCT_COPY_FILES += \
 		       vendor/lib64/hw/audio.a2dp.default.so:system/lib64/hw/audio.a2dp.default.so\
 		       vendor/lib/hw/audio.a2dp.default.so:system/lib/hw/audio.a2dp.default.so\
 		       vendor/lib64/hw/audio.primary.default.so:system/lib64/hw/audio.primary.default.so\
+		       vendor/lib/hw/audio.primary.hi6210sft.so:system/lib/hw/audio.primary.hi6210sft.so \
+		       vendor/lib64/hw/audio.primary.hi6210sft.so:system/lib64/hw/audio.primary.hi6210sft.so \
 		       vendor/lib/hw/audio.primary.default.so:system/lib/hw/audio.primary.default.so\
 		       vendor/lib64/hw/audio.r_submix.default.so:system/lib64/hw/audio.r_submix.default.so\
 		       vendor/lib/hw/audio.r_submix.default.so:system/lib/hw/audio.r_submix.default.so\
@@ -433,6 +435,7 @@ PRODUCT_COPY_FILES += \
 		vendor/lib/libmediaplayerservice.so:system/lib/libmediaplayerservice.so \
 		vendor/lib/libnfc_nci_jni.so:system/lib/libnfc_nci_jni.so \
 		vendor/lib/libnfc-nci.so:system/lib/libnfc-nci.so \
+		vendor/lib/liboeminfo.so:system/lib/liboeminfo.so \
 		vendor/lib/libpowergenie_native3.so:system/lib/libpowergenie_native3.so \
 		vendor/lib/libsensorsgps.so:system/lib/libsensorsgps.so \
 		vendor/lib/libsqlite3.so:system/lib/libsqlite3.so \
@@ -475,6 +478,7 @@ PRODUCT_COPY_FILES += \
 		vendor/lib64/libhisi_ini.so:system/lib64/libhisi_ini.so \
 		vendor/lib64/libmax98925.so:system/lib64/libmax98925.so \
 		vendor/lib64/libmediarecorder.huawei.so:system/lib64/libmediarecorder.huawei.so \
+		vendor/lib64/liboeminfo.so:system/lib64/liboeminfo.so \
 		vendor/lib64/libpowergenie_native3.so:system/lib64/libpowergenie_native3.so \
 		vendor/lib64/libstagefright.huawei.so:system/lib64/libstagefright.huawei.so \
 		vendor/lib64/libstagefright_soft_ffmpegaudiodec.so:system/lib64/libstagefright_soft_ffmpegaudiodec.so \

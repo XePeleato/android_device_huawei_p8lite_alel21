@@ -49,7 +49,7 @@ BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := "device/HUAWEI/hi6210sft/bluetoot
 BOARD_BLUEDROID_VENDOR_CONF := device/HUAWEI/hi6210sft/bluetooth/vnd_hi6210sft.txt
 
 # Media symbols > thank you codeworkx
-BOARD_PROVIDES_ADDITIONAL_BIONIC_STATIC_LIBS += libc_huawei_symbols
+#BOARD_PROVIDES_ADDITIONAL_BIONIC_STATIC_LIBS += libc_huawei_symbols
 
 TARGET_HARDWARE_3D := true
 BOARD_EGL_CFG := device/HUAWEI/hi6210sft/egl.cfg

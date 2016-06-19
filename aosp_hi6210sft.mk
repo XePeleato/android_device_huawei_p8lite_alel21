@@ -381,7 +381,6 @@ PRODUCT_COPY_FILES += \
 		vendor/lib/libhuaweiaudioeffectutil.so:system/lib/libhuaweiaudioeffectutil.so \
 		vendor/lib/libhwextdevice.so:system/lib/libhwextdevice.so \
 		vendor/lib/libjpegenchw.so:system/lib/libjpegenchw.so \
-		vendor/lib/liblog.so:system/lib/liblog.so \
 		vendor/lib/libmax98925.so:system/lib/libmax98925.so \
 		vendor/lib/libmedia_jni.huawei.so:system/lib/libmedia_jni.huawei.so \
 		vendor/lib/libnfc_nci_jni.so:system/lib/libnfc_nci_jni.so \

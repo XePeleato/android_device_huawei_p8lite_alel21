@@ -27,6 +27,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 audioril.lib=libhuawei-audio-ril.so \
 ro.telephony.ril_class=HuaweiRIL 
 
+PRODUCT_COPY_FILES += \
+vendor/global/apns-conf.xml:system/etc/apns-conf.xml
 #Audio Config
 PRODUCT_COPY_FILES += \
 device/HUAWEI/hi6210sft/audio/audio_effects.conf:system/etc/audio_effects.conf \
@@ -59,7 +61,15 @@ tinycap \
 tinymix \
 tinypcminfo \
 sound_trigger.primary.hi6210sft \
-libion.huawei
+libion.huawei \
+libwpa_client \
+wpa_supplicant \
+wpa_supplicant-conf \
+libnfc-nci \
+libnfc_nci_jni \
+Nfc \
+Tag \
+com.android.nfc_extras \
 
 #SeLinux
 BOARD_SEPOLICY_DIRS += \
@@ -77,8 +87,6 @@ PRODUCT_COPY_FILES += \
 		       vendor/bin/atcmdserver:system/bin/atcmdserver \
 		       vendor/isp.bin:system/isp.bin \
 		       vendor/phone.prop:system/phone.prop \
-		       vendor/lib/libaudiopolicyservice.so:system/lib/libaudiopolicyservice.so \
-		       vendor/lib64/libaudiopolicyservice.so:system/lib64/libaudiopolicyservice.so \
 		       vendor/lib/libsrsprocessing.so:system/lib/libsrsprocessing.so \
 		       vendor/lib64/libcameraservice.so:system/lib64/libcameraservice.so \
 		       vendor/lib/drm/libdrmhwomavoneplugin.so:system/lib/drm/libdrmhwomavoneplugin.so\
@@ -275,6 +283,7 @@ PRODUCT_COPY_FILES += \
 		vendor/bin/chargelogcat:system/bin/chargelogcat \
 		vendor/bin/checkntfs:system/bin/checkntfs \
 		vendor/bin/chr_logd:system/bin/chr_logd \
+		vendor/bin/dex2oat:system/bin/dex2oat \
 		vendor/bin/dexopt-wrapper:system/bin/dexopt-wrapper \
 		vendor/bin/diagserver:system/bin/diagserver \
 		vendor/bin/dmesgcat:system/bin/dmesgcat \
@@ -299,6 +308,7 @@ PRODUCT_COPY_FILES += \
 		vendor/bin/mkntfs:system/bin/mkntfs \
 		vendor/bin/modem_resetinfo:system/bin/modem_resetinfo \
 		vendor/bin/modemlogcat_lte:system/bin/modemlogcat_lte \
+		vendor/bin/mediaserver:system/bin/mediaserver \
 		vendor/bin/oam_app:system/bin/oam_app \
 		vendor/bin/octty:system/bin/octty \
 		vendor/bin/pcscd:system/bin/pcscd \
@@ -344,6 +354,8 @@ PRODUCT_COPY_FILES += \
 		vendor/lib/libaudio_custom.so:system/lib/libaudio_custom.so \
 		vendor/lib/libaudioeffect_jni.so:system/lib/libaudioeffect_jni.so \
 		vendor/lib/libaudio_custom.so:system/lib/libaudio_custom.so \
+		vendor/lib/libaudioflinger.so:system/lib/libaudioflinger.so \
+		vendor/lib/libaudiopolicyservice.so:system/lib/libaudiopolicyservice.so \
 		vendor/lib/libaudioroute.so:system/lib/libaudioroute.so \
 		vendor/lib/libaudioutils.so:system/lib/libaudioutils.so \
 		vendor/lib/libbalong-ril.so:system/lib/libbalong-ril.so \
@@ -359,10 +371,12 @@ PRODUCT_COPY_FILES += \
 		vendor/lib/libcamera_omron.so:system/lib/libcamera_omron.so \
 		vendor/lib/libcamera_post_mediaserver.so:system/lib/libcamera_post_mediaserver.so \
 		vendor/lib/libCameraHwExtend.so:system/lib/libCameraHwExtend.so\
+		vendor/lib/libcameraservice.so:system/lib/libcameraservice.so \
 		vendor/lib/libdrmdecrypt.so:system/lib/libdrmdecrypt.so \
 		vendor/lib/libcgroup.so:system/lib/libcgroup.so \
 		vendor/lib/libchrlog.so:system/lib/libchrlog.so \
 		vendor/lib/libearpa.so:system/lib/libearpa.so \
+		vendor/lib/libexif.so:system/lib/libexif.so \
 		vendor/lib/libffmpeg_neon.so:system/lib/libffmpeg_neon.so \
 		vendor/lib/libffvplayer.so:system/lib/libffvplayer.so \
 		vendor/lib/libfm_hal.so:system/lib/libfm_hal.so \
@@ -381,8 +395,11 @@ PRODUCT_COPY_FILES += \
 		vendor/lib/libhuaweiaudioeffectutil.so:system/lib/libhuaweiaudioeffectutil.so \
 		vendor/lib/libhwextdevice.so:system/lib/libhwextdevice.so \
 		vendor/lib/libjpegenchw.so:system/lib/libjpegenchw.so \
+		vendor/lib/liblog.so:system/lib/liblog.so \
 		vendor/lib/libmax98925.so:system/lib/libmax98925.so \
+		vendor/lib/libmedia.so:system/lib/libmedia.so \
 		vendor/lib/libmedia_jni.huawei.so:system/lib/libmedia_jni.huawei.so \
+		vendor/lib/libmedialogservice.so:system/lib/libmedialogservice.so \
 		vendor/lib/libnfc_nci_jni.so:system/lib/libnfc_nci_jni.so \
 		vendor/lib/libnfc-nci.so:system/lib/libnfc-nci.so \
 		vendor/lib/liboeminfo.so:system/lib/liboeminfo.so \
@@ -390,8 +407,11 @@ PRODUCT_COPY_FILES += \
 		vendor/lib/libreference-ril.so:system/lib/libreference-ril.so\
 		vendor/lib/librilutils.so:system/lib/librilutils.so\
 		vendor/lib/libsensorsgps.so:system/lib/libsensorsgps.so \
+		vendor/lib/libserviceutility.so:system/lib/libservicesutility.so \
+		vendor/lib/libsonic.so:system/lib/libsonic.so \
 		vendor/lib/libstagefright.huawei.so:system/lib/libstagefright.huawei.so \
 		vendor/lib/libstagefright_foundation.so:system/lib/libstagefright_foundation.so \
+		vendor/lib/libstagefright_omx.so:system/lib/libstagefright_omx.so \
 		vendor/lib/libstagefright_soft_ffmpegaudiodec.so:system/lib/libstagefright_soft_ffmpegaudiodec.so \
 		vendor/lib/libstagefright_soft_ffmpegvideodec.so:system/lib/libstagefright_soft_ffmpegvideodec.so \
 		vendor/lib/libstagefrighthw.so:system/lib/libstagefrighthw.so \
@@ -406,7 +426,9 @@ PRODUCT_COPY_FILES += \
 		vendor/lib/libsupl20oasn1supl1.so:system/lib/libsupl20oasn1supl1.so \
 		vendor/lib/libsupl20oasn1supl2.so:system/lib/libsupl20oasn1supl2.so \
 		vendor/lib/libsupl20oasn1tia.so:system/lib/libsupl20oasn1tia.so \
+		vendor/lib/libsurfaceflinger.so:system/lib/libsurfaceflinger.so \
 		vendor/lib/libtfa9895.so:system/lib/libtfa9895.so \
+		vendor/lib/libutils.so:system/lib/libutils.so \
 		vendor/lib/libwifipro.so:system/lib/libwifipro.so \
 		vendor/lib/libwpa_client_hisi.so:system/lib/libwpa_client_hisi.so \
 		vendor/lib/hw/sensorcaps.default.so:system/lib/hw/sensorcaps.default.so \
@@ -430,9 +452,12 @@ PRODUCT_COPY_FILES += \
 		vendor/lib64/libaudioroute.so:system/lib64/libaudioroute.so \
 		vendor/lib64/libbluetoothex_jni.so:system/lib64/libbluetoothex_jni.so \
 		vendor/lib64/libchrlog.so:system/lib64/libchrlog.so \
+		vendor/lib64/libexif.so:system/lib64/libexif.so \
 		vendor/lib64/libgnssadapter.so:system/lib64/libgnssadapter.so \
+		vendor/lib64/libgui.so:system/lib64/libgui.so \
 		vendor/lib64/libhisi_efuse.so:system/lib64/libhisi_efuse.so \
 		vendor/lib64/libhisi_ini.so:system/lib64/libhisi_ini.so \
+		vendor/lib64/liblog.so:system/lib64/liblog.so \
 		vendor/lib64/libmax98925.so:system/lib64/libmax98925.so \
 		vendor/lib64/liboeminfo.so:system/lib64/liboeminfo.so \
 		vendor/lib64/libpowergenie_native3.so:system/lib64/libpowergenie_native3.so \
@@ -441,9 +466,13 @@ PRODUCT_COPY_FILES += \
 		vendor/lib64/libstagefright.huawei.so:system/lib64/libstagefright.huawei.so \
 		vendor/lib64/libstagefright_soft_ffmpegaudiodec.so:system/lib64/libstagefright_soft_ffmpegaudiodec.so \
 		vendor/lib64/libstagefright_soft_ffmpegvideodec.so:system/lib64/libstagefright_soft_ffmpegvideodec.so \
+		vendor/lib64/libsonic.so:system/lib64/libsonic.so \
+		vendor/lib64/libstagefright.so:system/lib64/libstagefright.so \
 		vendor/lib64/libstagefrighthw.so:system/lib64/libstagefrighthw.so \
+		vendor/lib64/libsurfaceflinger.so:system/lib64/libsurfaceflinger.so \
 		vendor/lib64/libtfa9895.so:system/lib64/libtfa9895.so \
-		vendor/lib64/libwifipro.so:system/lib64/libwifipro.so 
+		vendor/lib64/libwifipro.so:system/lib64/libwifipro.so \
+		vendor/lib64/libwifi-service.so:system/lib64/libwifi-service.so 
 
 
 		

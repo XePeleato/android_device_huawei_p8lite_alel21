@@ -28,7 +28,7 @@ TARGET_2ND_CPU_ABI2 := armeabi
 #Audio
 BOARD_USES_ALSA_AUDIO := true
 #RIL
-BOARD_RIL_CLASS := src/java/com/android/internal/telephony
+BOARD_RIL_CLASS := ../../../device/HUAWEI/hi6210sft/ril/
 
 # Wifi & Bluetooth
 BOARD_WLAN_DEVICE                := bcmdhd

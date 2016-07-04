@@ -99,8 +99,8 @@ PRODUCT_COPY_FILES += \
 		       vendor/bin/hwpged:system/bin/hwpged\
 		       vendor/bin/mac_addr_normalization:system/bin/mac_addr_normalization\
 		       vendor/bin/rild:system/bin/rild\
-		       vendor/mali/64bit/libGLES_mali.so:system/lib64/egl/libGLES_mali.so\
-		       vendor/mali/32bit/libGLES_mali.so:system/lib/egl/libGLES_mali.so\
+		       vendor/lib64/egl/libGLES_mali.so:system/lib64/egl/libGLES_mali.so\
+		       vendor/lib/egl/libGLES_mali.so:system/lib/egl/libGLES_mali.so\
 		       vendor/lib64/hw/audio.a2dp.default.so:system/lib64/hw/audio.a2dp.default.so\
 		       vendor/lib/hw/audio.a2dp.default.so:system/lib/hw/audio.a2dp.default.so\
 		       vendor/lib64/hw/audio.primary.default.so:system/lib64/hw/audio.primary.default.so\

@@ -15,6 +15,10 @@
 # limitations under the License.
 #
 
+# Copy prebuild kernel
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/kernel:kernel \
+
 ##Ramdisk stuff
 PRODUCT_COPY_FILES += $(call add-to-product-copy-files-if-exists,\
 			$(LOCAL_PATH)/ramdisk/fstab.hi6210sft:root/fstab.hi6210sft \

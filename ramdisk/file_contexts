@@ -1,0 +1,838 @@
+#line 1 "external/sepolicy/file_contexts"
+###########################################
+# Root
+/			u:object_r:rootfs:s0
+
+# Data files
+/adb_keys		u:object_r:adb_keys_file:s0
+/default\.prop		u:object_r:rootfs:s0
+/fstab\..*		u:object_r:rootfs:s0
+/init\..*		u:object_r:rootfs:s0
+/res(/.*)?		u:object_r:rootfs:s0
+/ueventd\..*		u:object_r:rootfs:s0
+
+# Executables
+/charger		u:object_r:rootfs:s0
+/init			u:object_r:init_exec:s0
+/sbin(/.*)?		u:object_r:rootfs:s0
+
+# Empty directories
+/lost\+found		u:object_r:rootfs:s0
+/proc			u:object_r:rootfs:s0
+
+# SELinux policy files
+/file_contexts		u:object_r:rootfs:s0
+/property_contexts	u:object_r:rootfs:s0
+/seapp_contexts		u:object_r:rootfs:s0
+/sepolicy		u:object_r:rootfs:s0
+
+##########################
+# Devices
+#
+/dev(/.*)?		u:object_r:device:s0
+/dev/akm8973.*		u:object_r:sensors_device:s0
+/dev/accelerometer	u:object_r:sensors_device:s0
+/dev/adf[0-9]*		u:object_r:graphics_device:s0
+/dev/adf-interface[0-9]*\.[0-9]*	u:object_r:graphics_device:s0
+/dev/adf-overlay-engine[0-9]*\.[0-9]*	u:object_r:graphics_device:s0
+/dev/alarm		u:object_r:alarm_device:s0
+/dev/android_adb.*	u:object_r:adb_device:s0
+/dev/ashmem		u:object_r:ashmem_device:s0
+/dev/audio.*		u:object_r:audio_device:s0
+/dev/binder		u:object_r:binder_device:s0
+/dev/block(/.*)?	u:object_r:block_device:s0
+/dev/block/dm-[0-9]+	u:object_r:dm_device:s0
+/dev/block/loop[0-9]*	u:object_r:loop_device:s0
+/dev/block/vold/.+	u:object_r:vold_device:s0
+/dev/block/ram[0-9]*	u:object_r:ram_device:s0
+/dev/bus/usb(.*)?       u:object_r:usb_device:s0
+/dev/cam		u:object_r:camera_device:s0
+/dev/console		u:object_r:console_device:s0
+/dev/cpuctl(/.*)?	u:object_r:cpuctl_device:s0
+/dev/device-mapper	u:object_r:dm_device:s0
+/dev/eac		u:object_r:audio_device:s0
+/dev/fscklogs(/.*)?	u:object_r:fscklogs:s0
+/dev/full		u:object_r:full_device:s0
+/dev/fuse		u:object_r:fuse_device:s0
+/dev/graphics(/.*)?	u:object_r:graphics_device:s0
+/dev/hw_random		u:object_r:hw_random_device:s0
+/dev/input(/.*)		u:object_r:input_device:s0
+/dev/iio:device[0-9]+   u:object_r:iio_device:s0
+/dev/ion		u:object_r:ion_device:s0
+/dev/kmem		u:object_r:kmem_device:s0
+/dev/log(/.*)?		u:object_r:log_device:s0
+/dev/mem		u:object_r:kmem_device:s0
+/dev/modem.*		u:object_r:radio_device:s0
+/dev/mpu		u:object_r:gps_device:s0
+/dev/mpuirq		u:object_r:gps_device:s0
+/dev/mtd(/.*)?		u:object_r:mtd_device:s0
+/dev/mtp_usb		u:object_r:mtp_device:s0
+/dev/pmsg0		u:object_r:pmsg_device:s0
+/dev/pn544		u:object_r:nfc_device:s0
+/dev/ppp		u:object_r:ppp_device:s0
+/dev/ptmx		u:object_r:ptmx_device:s0
+/dev/pvrsrvkm		u:object_r:gpu_device:s0
+/dev/kmsg		u:object_r:kmsg_device:s0
+/dev/null		u:object_r:null_device:s0
+/dev/nvhdcp1		u:object_r:video_device:s0
+/dev/random		u:object_r:random_device:s0
+/dev/rpmsg-omx[0-9]	u:object_r:rpmsg_device:s0
+/dev/rproc_user	u:object_r:rpmsg_device:s0
+/dev/rtc[0-9]      u:object_r:rtc_device:s0
+/dev/snd(/.*)?		u:object_r:audio_device:s0
+/dev/socket(/.*)?	u:object_r:socket_device:s0
+/dev/socket/adbd	u:object_r:adbd_socket:s0
+/dev/socket/sap_uim_socket[0-9]        u:object_r:sap_uim_socket:s0
+/dev/socket/cryptd	u:object_r:vold_socket:s0
+/dev/socket/dnsproxyd	u:object_r:dnsproxyd_socket:s0
+/dev/socket/dumpstate	u:object_r:dumpstate_socket:s0
+/dev/socket/fwmarkd	u:object_r:fwmarkd_socket:s0
+/dev/socket/gps		u:object_r:gps_socket:s0
+/dev/socket/installd	u:object_r:installd_socket:s0
+/dev/socket/lmkd        u:object_r:lmkd_socket:s0
+/dev/socket/logd	u:object_r:logd_socket:s0
+/dev/socket/logdr	u:object_r:logdr_socket:s0
+/dev/socket/logdw	u:object_r:logdw_socket:s0
+/dev/socket/mdns	u:object_r:mdns_socket:s0
+/dev/socket/mdnsd	u:object_r:mdnsd_socket:s0
+/dev/socket/mtpd	u:object_r:mtpd_socket:s0
+/dev/socket/netd	u:object_r:netd_socket:s0
+/dev/socket/property_service	u:object_r:property_socket:s0
+/dev/socket/racoon	u:object_r:racoon_socket:s0
+/dev/socket/rild	u:object_r:rild_socket:s0
+/dev/socket/rild-debug	u:object_r:rild_debug_socket:s0
+/dev/socket/vold	u:object_r:vold_socket:s0
+/dev/socket/wpa_eth[0-9] u:object_r:wpa_socket:s0
+/dev/socket/wpa_wlan[0-9] u:object_r:wpa_socket:s0
+/dev/socket/zygote	u:object_r:zygote_socket:s0
+/dev/socket/zygote_secondary	u:object_r:zygote_socket:s0
+/dev/spdif_out.*	u:object_r:audio_device:s0
+/dev/tegra.*		u:object_r:video_device:s0
+/dev/tf_driver		u:object_r:tee_device:s0
+/dev/tty		u:object_r:owntty_device:s0
+/dev/tty[0-9]*		u:object_r:tty_device:s0
+/dev/ttyS[0-9]*		u:object_r:serial_device:s0
+/dev/tun		u:object_r:tun_device:s0
+/dev/uhid		u:object_r:uhid_device:s0
+/dev/uinput		u:object_r:uhid_device:s0
+/dev/uio[0-9]*		u:object_r:uio_device:s0
+/dev/urandom		u:object_r:urandom_device:s0
+/dev/usb_accessory	u:object_r:usbaccessory_device:s0
+/dev/vcs[0-9a-z]*	u:object_r:vcs_device:s0
+/dev/video[0-9]*	u:object_r:video_device:s0
+/dev/watchdog		u:object_r:watchdog_device:s0
+/dev/xt_qtaguid	u:object_r:qtaguid_device:s0
+/dev/zero		u:object_r:zero_device:s0
+/dev/__kmsg__		u:object_r:klog_device:s0
+/dev/__properties__ u:object_r:properties_device:s0
+#############################
+# System files
+#
+/system(/.*)?		u:object_r:system_file:s0
+/system/bin/e2fsck	--	u:object_r:fsck_exec:s0
+/system/bin/fsck\.f2fs	--	u:object_r:fsck_exec:s0
+/system/bin/fsck_msdos	--	u:object_r:fsck_exec:s0
+/system/bin/toolbox	--	u:object_r:toolbox_exec:s0
+/system/bin/toybox	--	u:object_r:toolbox_exec:s0
+/system/bin/logcat	--	u:object_r:logcat_exec:s0
+/system/bin/sh		--	u:object_r:shell_exec:s0
+/system/bin/run-as	--	u:object_r:runas_exec:s0
+/system/bin/bootanimation u:object_r:bootanim_exec:s0
+/system/bin/app_process32	u:object_r:zygote_exec:s0
+/system/bin/app_process64	u:object_r:zygote_exec:s0
+/system/bin/servicemanager	u:object_r:servicemanager_exec:s0
+/system/bin/surfaceflinger	u:object_r:surfaceflinger_exec:s0
+/system/bin/drmserver	u:object_r:drmserver_exec:s0
+/system/bin/dumpstate   u:object_r:dumpstate_exec:s0
+/system/bin/vold	u:object_r:vold_exec:s0
+/system/bin/netd	u:object_r:netd_exec:s0
+/system/bin/rild	u:object_r:rild_exec:s0
+/system/bin/mediaserver	u:object_r:mediaserver_exec:s0
+/system/bin/mdnsd	u:object_r:mdnsd_exec:s0
+/system/bin/installd	u:object_r:installd_exec:s0
+/system/bin/keystore	u:object_r:keystore_exec:s0
+/system/bin/fingerprintd u:object_r:fingerprintd_exec:s0
+/system/bin/gatekeeperd u:object_r:gatekeeperd_exec:s0
+/system/bin/debuggerd	u:object_r:debuggerd_exec:s0
+/system/bin/debuggerd64	u:object_r:debuggerd_exec:s0
+/system/bin/wpa_supplicant	u:object_r:wpa_exec:s0
+/system/bin/sdcard      u:object_r:sdcardd_exec:s0
+/system/bin/dhcpcd      u:object_r:dhcp_exec:s0
+/system/bin/mtpd	u:object_r:mtp_exec:s0
+/system/bin/pppd	u:object_r:ppp_exec:s0
+/system/bin/tf_daemon	u:object_r:tee_exec:s0
+/system/bin/racoon	u:object_r:racoon_exec:s0
+/system/xbin/su		u:object_r:su_exec:s0
+/system/xbin/procrank   u:object_r:procrank_exec:s0
+/system/xbin/perfprofd  u:object_r:perfprofd_exec:s0
+/system/xbin/simpleperf u:object_r:system_file:s0
+/system/vendor/bin/gpsd u:object_r:gpsd_exec:s0
+/system/bin/dnsmasq     u:object_r:dnsmasq_exec:s0
+/system/bin/hostapd     u:object_r:hostapd_exec:s0
+/system/bin/clatd	u:object_r:clatd_exec:s0
+/system/bin/lmkd        u:object_r:lmkd_exec:s0
+/system/bin/inputflinger u:object_r:inputflinger_exec:s0
+/system/bin/logd        u:object_r:logd_exec:s0
+/system/bin/uncrypt     u:object_r:uncrypt_exec:s0
+/system/bin/logwrapper  u:object_r:system_file:s0
+/system/bin/vdc         u:object_r:vdc_exec:s0
+/system/bin/install-recovery.sh u:object_r:install_recovery_exec:s0
+/system/bin/dex2oat     u:object_r:dex2oat_exec:s0
+# patchoat executable has (essentially) the same requirements as dex2oat.
+/system/bin/patchoat    u:object_r:dex2oat_exec:s0
+/system/bin/sgdisk      u:object_r:sgdisk_exec:s0
+/system/bin/blkid       u:object_r:blkid_exec:s0
+/system/bin/tzdatacheck u:object_r:tzdatacheck_exec:s0
+
+#############################
+# Vendor files
+#
+/vendor(/.*)?		u:object_r:system_file:s0
+/vendor/bin/gpsd	u:object_r:gpsd_exec:s0
+
+#############################
+# OEM and ODM files
+#
+/odm(/.*)?              u:object_r:system_file:s0
+/oem(/.*)?              u:object_r:oemfs:s0
+
+
+#############################
+# Data files
+#
+# NOTE: When modifying existing label rules, changes may also need to
+# propagate to the "Expanded data files" section.
+#
+/data(/.*)?		u:object_r:system_data_file:s0
+/data/.layout_version		u:object_r:install_data_file:s0
+/data/unencrypted(/.*)?         u:object_r:unencrypted_data_file:s0
+/data/backup(/.*)?		u:object_r:backup_data_file:s0
+/data/secure/backup(/.*)?	u:object_r:backup_data_file:s0
+/data/security(/.*)?	u:object_r:security_file:s0
+/data/system/ndebugsocket	u:object_r:system_ndebug_socket:s0
+/data/drm(/.*)?		u:object_r:drm_data_file:s0
+/data/gps(/.*)?		u:object_r:gps_data_file:s0
+/data/resource-cache(/.*)? u:object_r:resourcecache_data_file:s0
+/data/dalvik-cache(/.*)? u:object_r:dalvikcache_data_file:s0
+/data/dalvik-cache/profiles(/.*)? u:object_r:dalvikcache_profiles_data_file:s0
+/data/adb(/.*)?		u:object_r:adb_data_file:s0
+/data/anr(/.*)?		u:object_r:anr_data_file:s0
+/data/app(/.*)?                       u:object_r:apk_data_file:s0
+/data/app/[^/]+/oat(/.*)?                u:object_r:dalvikcache_data_file:s0
+/data/app/vmdl[^/]+\.tmp(/.*)?           u:object_r:apk_tmp_file:s0
+/data/app/vmdl[^/]+\.tmp/oat(/.*)?           u:object_r:dalvikcache_data_file:s0
+/data/app-private(/.*)?               u:object_r:apk_private_data_file:s0
+/data/app-private/vmdl.*\.tmp(/.*)?   u:object_r:apk_private_tmp_file:s0
+/data/tombstones(/.*)?	u:object_r:tombstone_data_file:s0
+/data/local/tmp(/.*)?	u:object_r:shell_data_file:s0
+/data/media(/.*)?	u:object_r:media_rw_data_file:s0
+/data/mediadrm(/.*)?	u:object_r:media_data_file:s0
+/data/property(/.*)?	u:object_r:property_data_file:s0
+
+# Misc data
+/data/misc/adb(/.*)?            u:object_r:adb_keys_file:s0
+/data/misc/audio(/.*)?          u:object_r:audio_data_file:s0
+/data/misc/bluetooth(/.*)?      u:object_r:bluetooth_data_file:s0
+/data/misc/bluedroid(/.*)?      u:object_r:bluetooth_data_file:s0
+/data/misc/bluedroid/\.a2dp_ctrl u:object_r:bluetooth_socket:s0
+/data/misc/bluedroid/\.a2dp_data u:object_r:bluetooth_socket:s0
+/data/misc/camera(/.*)?         u:object_r:camera_data_file:s0
+/data/misc/dhcp(/.*)?           u:object_r:dhcp_data_file:s0
+/data/misc/gatekeeper(/.*)?     u:object_r:gatekeeper_data_file:s0
+/data/misc/keychain(/.*)?       u:object_r:keychain_data_file:s0
+/data/misc/keystore(/.*)?       u:object_r:keystore_data_file:s0
+/data/misc/logd(/.*)?           u:object_r:misc_logd_file:s0
+/data/misc/media(/.*)?          u:object_r:media_data_file:s0
+/data/misc/net(/.*)?            u:object_r:net_data_file:s0
+/data/misc/shared_relro(/.*)?   u:object_r:shared_relro_file:s0
+/data/misc/sms(/.*)?            u:object_r:radio_data_file:s0
+/data/misc/systemkeys(/.*)?     u:object_r:systemkeys_data_file:s0
+/data/misc/user(/.*)?           u:object_r:misc_user_data_file:s0
+/data/misc/vpn(/.*)?            u:object_r:vpn_data_file:s0
+/data/misc/wifi(/.*)?           u:object_r:wifi_data_file:s0
+/data/misc/wifi/sockets(/.*)?   u:object_r:wpa_socket:s0
+/data/misc/wifi/sockets/wpa_ctrl.*   u:object_r:system_wpa_socket:s0
+/data/misc/wifi/hostapd(/.*)?   u:object_r:wpa_socket:s0
+/data/misc/zoneinfo(/.*)?       u:object_r:zoneinfo_data_file:s0
+/data/misc/vold(/.*)?           u:object_r:vold_data_file:s0
+/data/misc/perfprofd(/.*)?      u:object_r:perfprofd_data_file:s0
+/data/system/heapdump(/.*)?     u:object_r:heapdump_data_file:s0
+
+# Fingerprint data
+/data/system/users/[0-9]+/fpdata(/.*)? u:object_r:fingerprintd_data_file:s0
+
+# Bootchart data
+/data/bootchart(/.*)?		u:object_r:bootchart_data_file:s0
+
+#############################
+# Expanded data files
+#
+/mnt/expand(/.*)?                                   u:object_r:mnt_expand_file:s0
+/mnt/expand/[^/]+(/.*)?                             u:object_r:system_data_file:s0
+/mnt/expand/[^/]+/app(/.*)?                         u:object_r:apk_data_file:s0
+/mnt/expand/[^/]+/app/[^/]+/oat(/.*)?               u:object_r:dalvikcache_data_file:s0
+/mnt/expand/[^/]+/app/vmdl[^/]+\.tmp(/.*)?          u:object_r:apk_tmp_file:s0
+/mnt/expand/[^/]+/app/vmdl[^/]+\.tmp/oat(/.*)?      u:object_r:dalvikcache_data_file:s0
+/mnt/expand/[^/]+/local/tmp(/.*)?                   u:object_r:shell_data_file:s0
+/mnt/expand/[^/]+/media(/.*)?                       u:object_r:media_rw_data_file:s0
+/mnt/expand/[^/]+/misc/vold(/.*)?                   u:object_r:vold_data_file:s0
+
+# coredump directory for userdebug/eng devices
+/cores(/.*)?                    u:object_r:coredump_file:s0
+
+# Wallpaper file for other users
+/data/system/users/[0-9]+/wallpaper		u:object_r:wallpaper_file:s0
+#############################
+# efs files
+#
+/efs(/.*)?		u:object_r:efs_file:s0
+#############################
+# Cache files
+#
+/cache(/.*)?		u:object_r:cache_file:s0
+/cache/.*\.data	u:object_r:cache_backup_file:s0
+/cache/.*\.restore	u:object_r:cache_backup_file:s0
+# LocalTransport (backup) uses this directory
+/cache/backup(/.*)?	u:object_r:cache_backup_file:s0
+#############################
+# sysfs files
+#
+/sys/devices/platform/nfc-power/nfc_power -- u:object_r:sysfs_nfc_power_writable:s0
+/sys/devices/system/cpu(/.*)?    u:object_r:sysfs_devices_system_cpu:s0
+/sys/power/wake_lock -- u:object_r:sysfs_wake_lock:s0
+/sys/power/wake_unlock -- u:object_r:sysfs_wake_lock:s0
+/sys/kernel/uevent_helper --	u:object_r:usermodehelper:s0
+/sys/module/lowmemorykiller(/.*)? -- u:object_r:sysfs_lowmemorykiller:s0
+
+#############################
+# asec containers
+/mnt/asec(/.*)?             u:object_r:asec_apk_file:s0
+/mnt/asec/[^/]+/[^/]+\.zip  u:object_r:asec_public_file:s0
+/mnt/asec/[^/]+/lib(/.*)?   u:object_r:asec_public_file:s0
+/data/app-asec(/.*)?        u:object_r:asec_image_file:s0
+
+#############################
+# external storage
+/mnt/media_rw(/.*)?         u:object_r:mnt_media_rw_file:s0
+/mnt/user(/.*)?             u:object_r:mnt_user_file:s0
+/mnt/runtime(/.*)?          u:object_r:storage_file:s0
+/storage(/.*)?              u:object_r:storage_file:s0
+#line 1 "vendor/huawei/Emui/sepolicy/file_contexts"
+
+# DTS2015010902063 hanmincheng 00178881 20150109 create
+# files in /data/skin/ for theme data file
+#/data/skin(/.*)?         u:object_r:media_rw_data_file:s0
+/data/themes(/.*)?         u:object_r:media_rw_data_file:s0
+# socket for filebackup and All backup application
+/dev/socket/filebackup  u:object_r:filebackup_socket:s0
+
+# executable file for filebackup
+/system/bin/filebackup         u:object_r:filebackup_exec:s0
+
+# DTS2015011602956 hanmincheng 00178881 20150116 begin
+# security context for /data/data/com.huawei.android.internal.app/lru-package.xml
+/data/data/com.huawei.android.internal.app/lru-package.xml  --   u:object_r:lru_pkgs_file:s0
+# DTS2015011602956 hanmincheng 00178881 20150116 end
+
+# DTS2015082610005 diaoyuelei/00347692 20150923 begin
+/data/ctrl_socket(/.*)?          u:object_r:ctrl_socket_file:s0
+# DTS2015082610005 diaoyuelei/00347692 20150923 end
+#line 1 "device/hisi/common/sepolicy/common/file_contexts"
+##########################
+# hisi Devices
+#
+/dev/spidev[0-9]*\.[0-9]*   u:object_r:irda_device:s0
+/dev/i2c-[0-9]*   u:object_r:iic_device:s0
+/dev/mmtuner   u:object_r:iic_device:s0
+/dev/tsif0   u:object_r:iic_device:s0
+/dev/sensorhub		u:object_r:sensors_device:s0
+/dev/motionhub		u:object_r:sensors_device:s0
+/dev/hifi_misc		u:object_r:audio_device:s0
+/dev/hi6402_hifi_misc   u:object_r:audio_device:s0
+/dev/speakerID		u:object_r:audio_device:s0
+/dev/maxim_smartpa_dev  u:object_r:audio_device:s0
+/dev/tfa9895            u:object_r:audio_device:s0
+/dev/ear_pa             u:object_r:audio_device:s0
+/dev/ttyAMA4		u:object_r:hci_attach_dev:s0
+/dev/ttyAMA3		u:object_r:gps_device:s0
+/dev/ttyGS6		u:object_r:gps_device:s0
+#V8R2 4752 gps use
+/dev/ttyAMA2		u:object_r:gps_device:s0
+# mali0-K3V3+, mali-V8R2
+/dev/mali0              u:object_r:gpu_device:s0
+/dev/mali               u:object_r:gpu_device:s0
+/dev/memory_throughput  u:object_r:gpu_device:s0
+/dev/media[0-9]		u:object_r:video_device:s0
+/dev/imgsysbrg_vdec0	u:object_r:video_device:s0
+/dev/k3vpp0    u:object_r:video_device:s0
+/dev/anc_hs		u:object_r:audio_device:s0
+# teecd
+/dev/tc_ns_client	u:object_r:teecd_device:s0
+/dev/block/mmcblk0rpmb  u:object_r:teecd_blkdev:s0
+# oeminfo_nvm
+/dev/socket/oeminfo_nvm	u:object_r:oeminfo_nvm_socket:s0
+# ---- this need to be analyze again, not go into effect.----
+/dev/block/platform/hi_mci.0/by-name/oeminfo	u:object_r:oeminfo_nvm_device:s0
+
+# modem device partiton
+
+# rild-balong-test
+# rild-debug1
+# rild-ims
+# rild2
+# rild3
+# ---- is there any more ? -----
+/dev/socket/rild3	u:object_r:rild_socket:s0
+/dev/socket/rild2	u:object_r:rild_socket:s0
+/dev/socket/rild.*      u:object_r:rild_socket:s0
+/dev/socket/rild-ims	u:object_r:rild_socket:s0
+/dev/socket/rild-debug1		u:object_r:rild_debug_socket:s0
+/dev/socket/rild-balong-test	u:object_r:rild_debug_socket:s0
+/dev/ttyAMA5		u:object_r:radio_device:s0
+/dev/ttySPI.*		u:object_r:radio_device:s0
+/dev/ttySPI6		u:object_r:modem_device:s0
+/dev/vmodem         u:object_r:modem_device:s0
+
+#tee-multiuser
+/dev/socket/tee-multi-user u:object_r:tee_multi_user_socket:s0
+
+# vold
+/dev/dsm		u:object_r:dmd_device:s0
+
+#act for vt
+/dev/act                u:object_r:act_device:s0
+# logcat
+/dev/hwlog_switch	u:object_r:logcat_device:s0
+/dev/hwlog_exception    u:object_r:exception_device:s0
+/dev/cshell_log         u:object_r:cshell_log_device:s0
+/dev/hwlog_jank         u:object_r:jank_device:s0
+
+# zram
+/dev/block/zram0	u:object_r:zram_device:s0
+# aoovcom*
+/dev/appvcom.*		u:object_r:radio_device:s0
+/dev/appvcom2		u:object_r:modem_device:s0
+/dev/appvcom8		u:object_r:modem_device:s0
+/dev/appvcom17		u:object_r:modem_device:s0
+/dev/appvcomERRLOG	u:object_r:modem_device:s0
+/dev/ttyGS0		u:object_r:modem_device:s0
+/dev/ttyGS1		u:object_r:modem_device:s0
+/dev/ttyGS2		u:object_r:modem_device:s0
+/dev/ttyGS3		u:object_r:modem_device:s0
+/dev/ttyGS4		u:object_r:modem_device:s0
+/dev/ttyGS5		u:object_r:modem_device:s0
+
+# powergenie
+/dev/socket/powerlogd	u:object_r:powerlogd_socket:s0
+/dev/socket/powerlogdr	u:object_r:powerlogdr_socket:s0
+/dev/socket/powerlogdw	u:object_r:powerlogdw_socket:s0
+/sys/devices/system/cpu/cpu0/cpufreq/scaling_available_frequencies  u:object_r:sysfs_pg:s0
+/sys/devices/system/cpu/cpu4/cpufreq/scaling_available_frequencies  u:object_r:sysfs_pg:s0
+/sys/devices/ddrfreq/devfreq/ddrfreq/min_freq   u:object_r:sysfs_pg:s0
+/sys/devices/ddrfreq/devfreq/ddrfreq/max_freq   u:object_r:sysfs_pg:s0
+/sys/devices/ddrfreq/devfreq/ddrfreq/available_frequencies  u:object_r:sysfs_pg:s0
+
+/dev/socket/logcontrol  u:object_r:logserver_socket:s0
+/dev/socket/himreg	u:object_r:himreg_socket:s0
+/dev/socket/hwnff	u:object_r:hwnff_socket:s0
+/dev/socket/dmd-recv-command	u:object_r:dmd_socket:s0
+/dev/socket/MsgHubSock	u:object_r:msghub_socket:s0
+
+# oeminfo  create
+/dev/oinv(/.*)?         u:object_r:oeminfo_file:s0
+
+# recovery
+/dev/nve0		u:object_r:recovery_device:s0
+/dev/ttyHwGS2	u:object_r:recovery_device:s0
+/dev/pmom			u:object_r:pmom_device:s0
+/dev/hisi_teelog	u:object_r:teelog_device:s0
+/dev/isp_log    u:object_r:isplog_device:s0
+
+# for hdbd,same as hdbd
+/dev/socket/hdbd	u:object_r:adbd_socket:s0
+/dev/android_hdb        u:object_r:adb_device:s0
+
+# atcmdserver
+/dev/block/mmcblk0		u:object_r:atcmdserver_blkdev:s0
+/dev/block/mmcblk1              u:object_r:atcmdserver_blkdev:s0
+/dev/block/mmcblk1p1	u:object_r:atcmdserver_blkdev:s0
+/dev/block/mmcblk0p19	u:object_r:atcmdserver_blkdev:s0
+/dev/block/mmcblk0p20	u:object_r:atcmdserver_blkdev:s0
+/dev/ttyHwGS1           u:object_r:atcmdserver_blkdev:s0
+/dev/efuse           u:object_r:atcmdserver_blkdev:s0
+
+#DTS2015052502549 z00284161 2015/05/26 add security context for /dev/hilog file start.
+/dev/log/hilog      u:object_r:log_device:s0
+#DTS2015052502549 z00284161 2015/05/26 add security context for /dev/hilog file end.
+/dev/srecorder      u:object_r:log_device:s0
+
+# for usbshell
+/dev/acm_.*	u:object_r:acm_device:s0
+
+# for VR devices
+/dev/hwvr[0-9]	u:object_r:vr_device:s0
+/dev/hidraw[0-9]	u:object_r:hidraw_device:s0
+
+# bastet
+/dev/bastet			u:object_r:bastet_device:s0
+
+# for flp
+/dev/flp           	u:object_r:flp_device:s0
+
+#############################
+# System files
+#
+/system/bin/HwCamCfgSvr		u:object_r:hwcamcfgsvr_exec:s0
+/system/bin/himreg		u:object_r:himreg_exec:s0
+/system/bin/device_monitor	u:object_r:device_monitor_exec:s0
+/system/bin/goldeneye		u:object_r:goldeneye_exec:s0
+/data/hw_init/system/bin/goldeneye		u:object_r:goldeneye_exec:s0
+/system/bin/logserver		u:object_r:logserver_exec:s0
+/data/hw_init/system/bin/logserver		u:object_r:logserver_exec:s0
+/system/bin/hiscoutmanager  u:object_r:hiscoutmanager_exec:s0
+/system/bin/dumptool		u:object_r:logserver_exec:s0
+/system/bin/chargelogcat	u:object_r:logcat_exec:s0
+/system/bin/chargemonitor	u:object_r:logcat_exec:s0
+/system/bin/sleeplogcat		u:object_r:logcat_exec:s0
+/system/bin/factory_log_service	u:object_r:logcat_exec:s0
+/system/bin/powerlogd		u:object_r:powerlogd_exec:s0
+/system/bin/mac_addr_normalization	u:object_r:mac_addr_normalization_exec:s0
+/system/bin/wifiwakeupsrc	u:object_r:wifiwakeupsrc_exec:s0
+/system/bin/hw_ueventd		u:object_r:hw_ueventd_exec:s0
+/system/bin/atcmdserver		u:object_r:atcmdserver_exec:s0
+# DTS2015051508182 z00284161 2015/05/15 Add HiLOGE feature start.
+/system/bin/hilogcat u:object_r:logcat_exec:s0
+# DTS2015051508182 z00284161 2015/05/15 Add HiLOGE feature end.
+/system/bin/isplogcat u:object_r:logcat_exec:s0
+/system/bin/tlogcat             u:object_r:logcat_exec:s0
+/system/bin/modemlogcat_lte	u:object_r:modemlogcat_lte_exec:s0
+/system/bin/modemlogcat_via	u:object_r:modemlogcat_via_exec:s0
+/system/bin/thermal-daemon	u:object_r:thermal-daemon_exec:s0
+/system/bin/tempmonitor		u:object_r:tempmonitor_exec:s0
+/system/bin/mappersh		u:object_r:mapper_exec:s0
+/system/bin/hw_cdmamodem_service	u:object_r:hw_cdma_exec:s0
+/system/bin/preparesd.sh	u:object_r:preparesd_exec:s0
+/system/bin/eventcat		u:object_r:logcat_exec:s0
+/system/bin/secure_storage	u:object_r:secure_storage_exec:s0
+
+/system/bin/diagserver		u:object_r:diagserver_exec:s0
+/system/bin/hwnffserver		u:object_r:hwnffserver_exec:s0
+/system/bin/check_longpress	u:object_r:check_longpress_exec:s0
+/system/bin/jankservice		u:object_r:jankservice_exec:s0
+/system/bin/hwpged		u:object_r:hwpged_exec:s0
+/system/bin/statusd       u:object_r:statusd_exec:s0
+
+# gps
+/system/bin/gpsdaemon		u:object_r:gpsdaemon_exec:s0
+/system/bin/glgps47531		u:object_r:gpsd_exec:s0
+/system/bin/glgps47531cl	u:object_r:gpsd_exec:s0
+/system/bin/glgps4752		u:object_r:gpsd_exec:s0
+/system/bin/glgps4752cl         u:object_r:gpsd_exec:s0
+/system/bin/gps4752logd		u:object_r:gpslogd_exec:s0
+/system/bin/gpslogd		u:object_r:gpslogd_exec:s0
+/system/bin/glgps4774		u:object_r:gpsd_exec:s0
+/system/bin/glgps4774cl		u:object_r:gpsd_exec:s0
+/system/bin/lhd4774		u:object_r:gpsd_exec:s0
+/system/bin/lhd4774cl		u:object_r:gpsd_exec:s0
+
+# bastet daemon
+/system/bin/bastetd		u:object_r:bastetd_exec:s0
+
+# for zygote link file
+/system/bin/app_process                         u:object_r:zygote_exec:s0
+/system/bin/perfhub     u:object_r:perfhub_exec:s0
+
+/system/bin/data_cleaner       u:object_r:data_cleaner_exec:s0
+
+# file system tools
+/system/bin/make_ext4fs        u:object_r:make_ext4fs_exec:s0
+/dev/block/platform/hi_mci.0/by-name/modemnvm_img u:object_r:make_ext4fs_blkdev:s0
+/dev/block/platform/hi_mci.0/by-name/modem_om u:object_r:make_ext4fs_blkdev:s0
+
+#############################
+# Data files
+#
+/sec_storage		u:object_r:teecd_data_file:s0
+/sec_storage(/.*)?		u:object_r:teecd_data_file:s0
+/data/sec_storage_data		u:object_r:teecd_data_file:s0
+/data/sec_storage_data(/.*)?	u:object_r:teecd_data_file:s0
+/data/sec_storage_data_users	u:object_r:teecd_data_file:s0
+/data/sec_storage_data_users(/.*)?	u:object_r:teecd_data_file:s0
+/data/android_logs(/.*)?	u:object_r:logcat_data_file:s0
+/data/hwzd_logs(/.*)?	u:object_r:logcat_data_file:s0
+/data/hisi_logs(/.*)?	u:object_r:logcat_data_file:s0
+/data/log(/.*)?	u:object_r:logcat_data_file:s0
+/data/share(/.*)?		u:object_r:media_rw_data_file:s0
+#nfc
+/data/nfc(/.*)?			u:object_r:nfc_data_file:s0
+/data/helix(/.*)?		u:object_r:media_data_file:s0
+
+#surfaceflinger dump
+/data/hwcdump(/.*)?		u:object_r:hwcdump_data_file:s0
+
+/data/offlinelogs/balong_modem2_simoffline.txt u:object_r:radio_data_file:s0
+/data/offlinelogs/balong_modem1_simoffline.txt u:object_r:radio_data_file:s0
+/splash2/sim(/.*)?              u:object_r:radio_data_file:s0
+# DTS2015111101542 yangkun/wx214936 20151128 add
+/data/dontpanic(/.*)?	 	u:object_r:apanic_data_file:s0
+
+# what's this ???
+/data/system/deviceid		u:object_r:radio_file:s0
+
+/data/__lzftmp__   u:object_r:lzftmp:s0
+
+# for usbshell
+/data/usbshell(/.*)?	u:object_r:usbshell_data_file:s0
+
+# for hiscoutmanager
+/data/hsm               u:object_r:hsm_data_file:s0
+/data/hsm(/.*)?         u:object_r:hsm_data_file:s0
+
+#############################
+# sysfs files
+#
+/sys/block/zram0(/.*)?			u:object_r:sysfs_zram:s0
+/sys/devices/virtual/block/zram0(/.*)?	u:object_r:sysfs_zram:s0
+/sys/devices/e8600000.mali(/.*)?	u:object_r:sysfs_gpu:s0
+/sys/devices/e8600000.mali/uevent	u:object_r:sysfs:s0
+/sys/devices/virtual/usbswitch/usbsw/swstate	u:object_r:sysfs_swstate:s0
+/sys/devices/bluetooth_power\..*	u:object_r:sysfs_bluetooth_writable:s0
+/sys/devices/bluetooth_sleep\..*	u:object_r:sysfs_bluetooth_writable:s0
+/sys/class/leds/lcd_backlight0/brightness	u:object_r:sysfs_backlight:s0
+/sys/devices/platform/hisi_fb.*/leds/lcd_backlight0/brightness u:object_r:sysfs_backlight:s0
+/sys/devices/platform/huawei_tp_color/tp_color_info	u:object_r:sysfs_tp_color:s0
+/sys/class/graphics/fb0/lcd_test_config 	u:object_r:sysfs_framebuffer:s0
+/sys/class/graphics/fb0/amoled_pcd_errflag_check	u:object_r:sysfs_framebuffer:s0
+/sys/class/ina231/ina231_0/ina231_debug 	u:object_r:sysfs_framebuffer:s0
+/sys/class/ina231/ina231_0/ina231_set	u:object_r:sysfs_framebuffer:s0
+/sys/class/ina231/ina231_0/ina231_value 	u:object_r:sysfs_framebuffer:s0
+/sys/class/ina231/ina231_1/ina231_debug 	u:object_r:sysfs_framebuffer:s0
+/sys/class/ina231/ina231_1/ina231_set 	u:object_r:sysfs_framebuffer:s0
+/sys/class/ina231/ina231_1/ina231_value 	u:object_r:sysfs_framebuffer:s0
+/sys/class/graphics/fb0/amoled_acl  	u:object_r:sysfs_framebuffer:s0
+/sys/class/graphics/fb0/amoled_hbm  	u:object_r:sysfs_framebuffer:s0
+/sys/class/timed_output/vibrator/vibrator_calib  	u:object_r:sysfs_vibrator:s0
+/sys/devices/virtual/timed_output/vibrator/vibrator_calib    u:object_r:sysfs_vibrator:s0
+/sys/devices/virtual/graphics/fb0/lcd_test_config 	u:object_r:sysfs_framebuffer:s0
+/sys/class/graphics/fb0/lcd_support_mode       u:object_r:sysfs_framebuffer:s0
+/sys/class/graphics/fb0/pic_enhance_mode       u:object_r:sysfs_framebuffer:s0
+
+# sys/devices/huawei,camcfgdev.18/video4linux/v4l-subdev4/torch/flash_thermal_protect
+
+/sys/class/leds/torch/brightness u:object_r:sysfs_brightness:s0
+/sys/class/leds/torch_front/brightness u:object_r:sysfs_brightness:s0
+/sys/kernel/set_hmp_thresholds/policy		u:object_r:sysfs_pg:s0
+/sys/class/leds/torch/flash_thermal_protect	u:object_r:sysfs_pg:s0
+/sys/class/graphics/fb0/lcd_cabc_mode          u:object_r:sysfs_pg:s0
+/sys/devices/virtual/graphics/fb0/lcd_cinema_mode		u:object_r:sysfs_pg:s0
+/sys/class/devfreq/ddrfreq/max_freq		u:object_r:sysfs_pg:s0
+/sys/class/devfreq/ddrfreq/min_freq		u:object_r:sysfs_pg:s0
+/sys/class/devfreq/gpufreq/max_freq		u:object_r:sysfs_pg:s0
+/sys/class/devfreq/gpufreq/min_freq		u:object_r:sysfs_pg:s0
+/sys/class/hw_power/charger/charge_data/ichg_thermal    u:object_r:sysfs_pg:s0
+/sys/class/hw_power/charger/charge_data/iin_thermal    u:object_r:sysfs_pg:s0
+/sys/devices/virtual/graphics/fb0/lcd_cabc_mode		u:object_r:sysfs_pg:s0
+/sys/devices/huawei_charger.*/ichg_thermal		u:object_r:sysfs_pg:s0
+/sys/devices/huawei_charger.*/iin_thermal		u:object_r:sysfs_pg:s0
+/sys/devices/fffc0000.ddr_devfreq/devfreq/ddrfreq/max_freq		u:object_r:sysfs_pg:s0
+/sys/devices/fffc0000.ddr_devfreq/devfreq/ddrfreq/min_freq		u:object_r:sysfs_pg:s0
+/sys/devices/fffc0000.ddr_devfreq/devfreq/ddrfreq/available_frequencies	u:object_r:sysfs_pg:s0
+/sys/devices/e8970000.mali/devfreq/gpufreq/max_freq			u:object_r:sysfs_pg:s0
+/sys/devices/e8970000.mali/devfreq/gpufreq/min_freq			u:object_r:sysfs_pg:s0
+/sys/devices/e8970000.mali/devfreq/gpufreq/available_frequencies	u:object_r:sysfs_pg:s0
+
+/sys/devices/huawei,camcfgdev.*/video4linux/v4l-subdev[0-9]/torch/brightness u:object_r:sysfs_brightness:s0
+/sys/devices/huawei,camcfgdev.*/video4linux/v4l-subdev[0-9]/torch/max_brightness u:object_r:sysfs_brightness:s0
+/sys/devices/huawei,camcfgdev.*/video4linux/v4l-subdev[0-9]/torch/flash_thermal_protect u:object_r:sysfs_brightness:s0
+
+#############################
+# proc files
+#
+/proc/touchscreen/rawdata	u:object_r:sysfs_touchscreen:s0
+
+#############################
+# Cust files 
+#
+/cust(/.*)?		u:object_r:system_data_file:s0
+
+#############################
+# splash2 files 
+#
+/splash2(/.*)?		u:object_r:splash2_data_file:s0
+/splash2/ares		u:object_r:system_data_file:s0
+
+#############################
+# 3rdmodem files 
+#
+/3rdmodem(/.*)?		u:object_r:radio_data_file:s0
+
+#############################
+# 3rdmodemnvm files 
+#
+/3rdmodemnvm(/.*)?		u:object_r:radio_data_file:s0
+
+#############################
+# 3rdmodemnvmbkp files 
+#
+/3rdmodemnvmbkp(/.*)?		u:object_r:radio_data_file:s0
+
+#############################
+#DTS2015042810167 j00172194 add begin
+# modem_log files 
+#
+
+/modemom(/.*)?		u:object_r:modem_log_file:s0
+/modem_log(/.*)?	u:object_r:modem_log_file:s0
+
+#############################
+# mnvm2:0 files 
+#
+/mnvm2:0(/.*)?      u:object_r:modem_nv_file:s0
+/modemnv(/.*)?		u:object_r:modem_nv_file:s0
+
+#DTS2015042810167 j00172194 add end 
+
+/dev/block/mmcblk0p4 u:object_r:frp_block_device:s0
+
+#fsck
+/dev/block/mmcblk0p39	u:object_r:cust_block_device:s0
+/dev/block/mmcblk0p40	u:object_r:userdata_block_device:s0
+/dev/block/mmcblk0p34	u:object_r:cache_block_device:s0
+/dev/block/mmcblk0p33	u:object_r:thirdmodem_block_device:s0
+/dev/block/mmcblk0p14	u:object_r:thirdmodemnvm_block_device:s0
+/dev/block/mmcblk0p15	u:object_r:thirdmodemnvmbkp_block_device:s0
+/dev/block/mmcblk0p13	u:object_r:secure_storage_block_device:s0
+
+/dev/block/platform/hi_mci.0/by-name/cust       u:object_r:cust_block_device:s0
+/dev/block/platform/hi_mci.0/by-name/userdata       u:object_r:userdata_block_device:s0
+/dev/block/platform/hi_mci.0/by-name/cache       u:object_r:cache_block_device:s0
+/dev/block/platform/hi_mci.0/by-name/splash2       u:object_r:splash2_block_device:s0
+/dev/block/platform/hi_mci.0/by-name/3rdmodem       u:object_r:thirdmodem_block_device:s0
+/dev/block/platform/hi_mci.0/by-name/3rdmodemnvm       u:object_r:thirdmodemnvm_block_device:s0
+/dev/block/platform/hi_mci.0/by-name/3rdmodemnvmbkp       u:object_r:thirdmodemnvmbkp_block_device:s0
+/dev/block/platform/hi_mci.0/by-name/secure_storage       u:object_r:secure_storage_block_device:s0
+
+#sensor mmi test node
+/sys/devices/platform/huawei_sensor/mag_selfTest        u:object_r:sysfs_huawei_sensor:s0  
+/sys/devices/platform/huawei_sensor/gyro_selfTest        u:object_r:sysfs_huawei_sensor:s0
+/sys/devices/platform/huawei_sensor/mag_info        u:object_r:sysfs_huawei_sensor:s0
+/sys/devices/platform/huawei_sensor/acc_info        u:object_r:sysfs_huawei_sensor:s0
+/sys/devices/platform/huawei_sensor/als_info        u:object_r:sysfs_huawei_sensor:s0
+
+/sys/class/sensors/ps_sensor/calibrate              u:object_r:sysfs_huawei_sensor:s0
+/sys/class/sensors/ps_sensor/calibrate_timeout      u:object_r:sysfs_huawei_sensor:s0
+/sys/class/sensors/acc_sensor/info                  u:object_r:sysfs_huawei_sensor:s0
+/sys/class/sensors/acc_sensor/self_test             u:object_r:sysfs_huawei_sensor:s0
+/sys/class/sensors/acc_sensor/calibrate            u:object_r:sysfs_huawei_sensor:s0
+/sys/class/sensors/acc_sensor/calibrate_timeout            u:object_r:sysfs_huawei_sensor:s0
+/sys/class/sensors/acc_sensor/self_test_timeout             u:object_r:sysfs_huawei_sensor:s0
+/sys/class/sensors/gyro_sensor/self_test            u:object_r:sysfs_huawei_sensor:s0
+/sys/class/sensors/gyro_sensor/self_test_timeout             u:object_r:sysfs_huawei_sensor:s0
+/sys/class/sensors/mag_sensor/self_test             u:object_r:sysfs_huawei_sensor:s0
+/sys/class/sensors/mag_sensor/info            u:object_r:sysfs_huawei_sensor:s0
+/sys/class/sensors/mag_sensor/self_test_timeout             u:object_r:sysfs_huawei_sensor:s0
+/sys/class/sensors/airpress_sensor/read_airpress            u:object_r:sysfs_huawei_sensor:s0
+/sys/class/sensors/airpress_sensor/set_calidata           u:object_r:sysfs_huawei_sensor:s0
+
+
+/sys/class/leds/red/brightness	u:object_r:sysfs_led:s0
+/sys/class/leds/green/brightness u:object_r:sysfs_led:s0
+/sys/class/leds/blue/brightness  u:object_r:sysfs_led:s0
+/sys/devices/fff34000.pmic/pmic_led.*/leds/blue/brightness   u:object_r:sysfs_led:s0
+/sys/devices/fff34000.pmic/pmic_led.*/leds/red/brightness    u:object_r:sysfs_led:s0
+/sys/devices/fff34000.pmic/pmic_led.*/leds/green/brightness    u:object_r:sysfs_led:s0
+/sys/class/hw_power/charger/charge_data/enable_charger u:object_r:sysfs_charger:s0
+/sys/devices/huawei_charger.[0-9]*/enable_charger		u:object_r:sysfs_charger:s0
+/sys/touchscreen/gpio_reset   u:object_r:sysfs_gpio_reset:s0
+
+#hw_cdma
+/dev/acm_cdma_log         u:object_r:cdma_log_device:s0
+
+#vr
+/system/bin/vr_daemon  u:object_r:vr_daemon_exec:s0
+/dev/socket/vr_daemon  u:object_r:vr_daemon_socket:s0
+
+#add for camera
+/dev/v4l-subdev.*         u:object_r:video_device:s0
+/dev/hisi-ivp             u:object_r:ivp_device:s0
+/dev/ivp-ipc             u:object_r:ivp_device:s0
+#/data/camera/*
+/data/camera(/.*)?        u:object_r:huawei_camera_info:s0
+# #/data/img/*
+/data/img(/.*)?        u:object_r:huawei_camera_info:s0
+#/data/data/com.huawei.camera/app_meiwo/*
+/data/data/com.huawei.camera/app_meiwo(/*)?        u:object_r:app_meiwo_info:s0
+/sbin/emmc_partation u:object_r:emmc_partation_exec:s0
+
+/sys/kernel/debug/key_mask u:object_r:debugfs_key:s0
+/system/etc/kerneldump.sh	u:object_r:kerneldump_exec:s0
+#line 1 "device/hisi/common/sepolicy/hi6210sft/file_contexts"
+# for hi6210sft
+
+/system/bin/glgps	u:object_r:gpsd_exec:s0
+/system/etc/log/android_panic.sh	u:object_r:exch_exec:s0
+/system/bin/akmd09911	u:object_r:akmd_exec:s0
+/system/bin/dmesgcat	u:object_r:balonglogcat_exec:s0
+/system/bin/sensors_load	u:object_r:sload_exec:s0
+
+/dev/ttyAMA1            u:object_r:hci_attach_dev:s0
+
+# video decoder
+/dev/cnm_vpu		u:object_r:video_device:s0
+/dev/cnm_jpu            u:object_r:jpu_device:s0
+/data/k3_camera(/.*)?   u:object_r:k3_camera_file:s0
+
+#hi110x exec
+/system/bin/chr_logd              u:object_r:hi110x_daemon_exec:s0
+/system/xbin/watchlssd            u:object_r:watchlssd_exec:s0
+/system/bin/octty                 u:object_r:hi110x_daemon_exec:s0
+/system/bin/oam_app               u:object_r:hi110x_daemon_exec:s0
+/system/bin/hi110x_logd           u:object_r:hi110x_daemon_exec:s0
+/system/bin/gnss_engine           u:object_r:hi110x_daemon_exec:s0
+/system/bin/agnsscontrol          u:object_r:hi110x_daemon_exec:s0
+/system/bin/supl20clientd         u:object_r:hi110x_daemon_exec:s0
+/system/bin/agnsslog              u:object_r:hi110x_daemon_exec:s0
+/system/bin/hi110x_except_logd    u:object_r:hi110x_daemon_exec:s0
+/system/bin/set_log               u:object_r:hi110x_daemon_exec:s0
+/system/bin/hisi_connectivity.sh  u:object_r:hi110x_daemon_exec:s0
+/system/bin/wpa_supplicant_hisi   u:object_r:wpa_hisi_exec:s0
+/system/bin/hostapd_hisi          u:object_r:hostapd_exec:s0
+
+# BEGIN PN:DTS2015112003205 ,added by swx314068 ,20151125
+/sys/devices/amba.12/f7101000.i2c/i2c-1/1-001c/command    u:object_r:sysfs_huawei_sensor:s0
+/sys/devices/amba.13/f7101000.i2c/i2c-1/1-001c/command    u:object_r:sysfs_huawei_sensor:s0
+/sys/devices/f8000000.hisi_led/leds/blue/brightness    u:object_r:sysfs_huawei_sensor:s0
+/sys/devices/f8000000.hisi_led/leds/red/brightness    u:object_r:sysfs_huawei_sensor:s0
+/sys/devices/f8000000.hisi_led/leds/green/brightness    u:object_r:sysfs_huawei_sensor:s0
+/sys/devices/platform/balong_fb.1/leds/lcd_backlight0/brightness    u:object_r:sysfs_huawei_sensor:s0
+/sys/devices/virtual/leds/torch/brightness    u:object_r:sysfs_huawei_sensor:s0
+# END PN:DTS2015112003205 ,added by swx314068 ,20151125
+
+#hi110x chr dev
+/dev/hwbt                         u:object_r:hi110x_dev:s0
+/dev/hwfm                         u:object_r:hi110x_dev:s0
+/dev/hwgnss                       u:object_r:hi110x_dev:s0
+/dev/hwbfgdbg                     u:object_r:hi110x_dev:s0
+/dev/hwcoexist                    u:object_r:hi110x_dev:s0
+/dev/chrAppBt                     u:object_r:hi110x_dev:s0
+/dev/chrAppGnss                   u:object_r:hi110x_dev:s0
+/dev/chrAppWifi                   u:object_r:hi110x_dev:s0
+/dev/chrKmsgBFG                   u:object_r:hi110x_dev:s0
+/dev/chrKmsgWifi                  u:object_r:hi110x_dev:s0
+
+#hi110x unix socket
+/dev/socket/hi110xlog             u:object_r:hi110x_socket:s0
+/dev/socket/exception_logd_ctrl   u:object_r:hi110x_socket:s0
+/dev/socket/exception_logd_msg    u:object_r:hi110x_socket:s0
+/dev/socket/agnss_log_socket      u:object_r:hi110x_socket:s0
+/dev/socket/ctrladapter           u:object_r:hi110x_socket:s0
+/dev/socket/ea2engine_soc         u:object_r:hi110x_socket:s0
+/data/gnss/pcm_soc                u:object_r:hi110x_socket:s0
+/data/gnss/scm_soc                u:object_r:hi110x_socket:s0
+
+#Data file
+/data/memdump(/.*)?               u:object_r:hi110x_data_file:s0
+/data/gnss(/.*)?                  u:object_r:hi110x_data_file:s0
+/data/hwlogdir(/.*)?              u:object_r:hi110x_data_file:s0
+#DTS2015110300838 lWX206033 add begin
+/sys/devices/amba.13/f7102000.i2c/i2c-2/2-0039/ps_phone_status        u:object_r:sysfs_ps_phone_status:s0

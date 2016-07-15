@@ -1,0 +1,23 @@
+#
+# ADDITIONAL_DEFAULT_PROPERTIES
+#
+ro.secure=1
+ro.allow.mock.location=0
+ro.debuggable=0
+ro.adb.secure=1
+ro.zygote=zygote64_32
+dalvik.vm.image-dex2oat-Xms=64m
+dalvik.vm.image-dex2oat-Xmx=64m
+dalvik.vm.dex2oat-Xms=64m
+dalvik.vm.dex2oat-Xmx=512m
+ro.dalvik.vm.native.bridge=0
+ro.magic.api.version=0.1
+debug.atrace.tags.enableflags=0
+persist.sys.usb.config=manufacture,adb
+#
+# BOOTIMAGE_BUILD_PROPERTIES
+#
+ro.bootimage.build.date=Fri Jan 15 10:50:56 CST 2016
+ro.bootimage.build.date.utc=1452826256
+ro.bootimage.build.fingerprint=hi6210sft/hi6210sft/hi6210sft:6.0/MRA58K/jenkins01151048:user/test-keys
+ro.confg.hw_bootversion=DailyBuild_201601151042_BOOT

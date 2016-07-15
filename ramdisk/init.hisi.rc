@@ -1,0 +1,120 @@
+on early-init
+
+on init
+    write /sys/module/block2mtd/parameters/block2mtd /dev/block/mmcblk0p7
+    wait /dev/nve0
+    chmod 0770 /dev/nve0
+    chown root system /dev/nve0
+
+on early-fs
+
+on fs
+
+on post-fs
+    chown system system /proc/uid_cputime/show_uid_stat
+    chmod 0440 /proc/uid_cputime/show_uid_stat
+    chown system system /proc/uid_cputime/remove_uid_range
+    chmod 0660 /proc/uid_cputime/remove_uid_range
+
+on post-fs-data
+    mkdir /data/offlinelogs
+    chmod 770 /data/offlinelogs
+
+on early-boot
+    chmod 660 /dev/appvcom
+    chmod 660 /dev/appvcom1
+    chmod 660 /dev/appvcom2
+    chmod 660 /dev/appvcom3
+    chmod 660 /dev/appvcom4
+    chmod 660 /dev/appvcom5
+    chmod 660 /dev/appvcom6
+    chmod 660 /dev/appvcom7
+    chmod 660 /dev/appvcom8
+    chmod 660 /dev/appvcom9
+    chmod 660 /dev/appvcom10
+    chmod 660 /dev/appvcom11
+    chmod 660 /dev/appvcom12
+    chmod 660 /dev/appvcom13
+    chmod 660 /dev/appvcom14
+    chmod 660 /dev/appvcom15
+    chmod 660 /dev/appvcom16
+    chmod 660 /dev/appvcom17
+    chmod 660 /dev/appvcom18
+    chmod 660 /dev/appvcom19
+    chmod 660 /dev/appvcom20
+    chmod 660 /dev/appvcom21
+    chmod 660 /dev/appvcom22
+    chmod 660 /dev/appvcom23
+    chmod 660 /dev/appvcom24
+    chmod 660 /dev/appvcom25
+    chmod 660 /dev/appvcom26
+    chmod 660 /dev/appvcom27
+    chmod 660 /dev/appvcomTLLOG
+    chmod 660 /dev/appvcomERRLOG
+    chmod 660 /dev/appvcomLOG
+    chmod 660 /dev/appvcomLOG1
+    
+    chown radio radio /dev/appvcom
+    chown radio radio /dev/appvcom1
+    chown radio radio /dev/appvcom5
+    chown radio radio /dev/appvcom6
+    chown radio radio /dev/appvcom10
+    chown radio radio /dev/appvcom13
+    chown radio radio /dev/appvcom14
+    chown radio radio /dev/appvcom15
+    
+    chown media media /dev/appvcom4
+    chown media media /dev/appvcom12
+    
+    chown system system /dev/appvcom2
+    chown system system /dev/appvcom8
+
+    chown system system /dev/appvcom17
+
+    chown system system /dev/appvcomERRLOG
+
+    chown system system /proc/portcfg
+
+    chown system system /proc/getslice
+
+    chown radio radio sys/devices/platform/balong_power/state
+
+on boot
+    write /sys/kernel/debug/kmemleak scan=14400
+
+
+
+
+service atcserver /system/bin/atc
+    class main
+    disabled
+
+service ril-daemon /system/bin/rild
+    class core
+    socket rild stream 660 root radio
+    socket rild-ims stream 660 root radio
+    socket rildm2 stream 660 root radio
+
+    socket rild-debug stream 660 radio system
+    socket rild-debug1 stream 660 radio system
+    user root
+    group radio cache inet misc audio sdcard_r sdcard_rw log system dsm irda
+
+service ril-daemon1 /system/bin/rild -c 1
+    disabled
+    class core
+    socket rilds2 stream 660 root radio
+    socket rild-debug1 stream 660 radio system
+    socket rild-balong-test stream 660 radio system
+    user root
+    group radio cache inet misc audio sdcard_r sdcard_rw log
+
+on property:rild.rild1_ready_to_start=true
+    start ril-daemon1
+    symlink /dev/socket/rilds2 /dev/socket/rild2
+
+on property:rild.rild1_ready_to_start=false
+    symlink /dev/socket/rildm2 /dev/socket/rild2
+
+on property:ro.hardware.alter=*
+    write /proc/sys/kernel/hardware_alter ${ro.hardware.alter}

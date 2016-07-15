@@ -1,0 +1,35 @@
+on early-init
+
+on init
+	chmod 0660 /dev/maxim_smartpa_dev
+	chown media media /dev/maxim_smartpa_dev
+	chmod 0660 /dev/speakerID
+	chown media media /dev/speakerID
+	chmod 0660 /dev/hi6402_hifi_misc
+	chown media media /dev/hi6402_hifi_misc
+	chmod 0660 /dev/ttyAMA0
+	chown media media /dev/ttyAMA0
+	chmod 0660 /dev/anc_hs
+	chown media media /dev/anc_hs
+	chmod 0660 /dev/tfa9895
+	chown media media /dev/tfa9895
+	chmod 0660 /dev/ear_pa
+	chown media media /dev/ear_pa
+
+on early-fs
+
+on fs
+
+on post-fs
+
+on post-fs-data
+
+on early-boot
+
+on boot
+
+
+
+
+
+

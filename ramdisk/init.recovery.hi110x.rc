@@ -1,0 +1,22 @@
+
+service gnss_engine /system/bin/gnss_engine -factory
+    class server
+    user root
+    oneshot
+
+service agnsscontrol /system/bin/agnsscontrol -factory
+    class server
+    user root
+    oneshot
+
+service octty /system/bin/octty
+    class server
+    user root
+    oneshot
+service hisi_bfg_rec /system/bin/hisi_connectivity.sh recovery
+    class server
+    user root
+    oneshot
+on property:init.svc.hisi_bfg_rec=stopped
+    write /proc/wifi_enable/wifi_start 1
+    write /proc/oam_enable/oam_start 1

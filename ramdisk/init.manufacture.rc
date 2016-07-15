@@ -1,0 +1,135 @@
+on early-init
+test
+
+
+on init
+    mkdir /cust
+    mkdir /splash2
+    mkdir /3rdmodem
+    mkdir /3rdmodemnvm
+    mkdir /3rdmodemnvmbkp
+
+on early-fs
+    fix_ext4
+    wait /dev/block/platform/hi_mci.0/by-name/oeminfo
+    start oeminfo_nvm
+
+on fs
+
+    mount ext4 /dev/block/platform/hi_mci.0/by-name/cust /cust wait ro nosuid nodev
+    mount_doul vfat-ext4 /dev/block/platform/hi_mci.0/by-name/splash2 /splash2 wait rw nosuid nodev uid=1000,gid=1000,fmask=0002,dmask=0002,context=u:object_r:splash2_data_file:s0
+    mount ext4 /dev/block/platform/hi_mci.0/by-name/3rdmodem /3rdmodem noatime nosuid nodev context=u:object_r:radio_data_file:s0
+    mount ext4 /dev/block/platform/hi_mci.0/by-name/3rdmodemnvm /3rdmodemnvm noatime nosuid nodev context=u:object_r:radio_data_file:s0
+    mount ext4 /dev/block/platform/hi_mci.0/by-name/3rdmodemnvmback /3rdmodemnvmbkp noatime nosuid nodev context=u:object_r:radio_data_file:s0
+
+    mkdir /splash2/log 0775 system log
+    symlink /splash2/fac_log /data/log/fac_log
+    symlink /splash2 /log
+    chown root system /splash2
+    chmod 0775 /splash2
+
+    wait /dev/block/mmcblk0p35
+    chown system system /dev/block/mmcblk0p35
+    chmod 0660 /dev/block/mmcblk0p35
+
+    wait /dev/block/mmcblk0p36
+    chown system system /dev/block/mmcblk0p36
+    chmod 0660 /dev/block/mmcblk0p36
+
+    restorecon       /sys/class/leds/red/brightness
+    restorecon       /sys/class/leds/green/brightness
+    restorecon       /sys/class/leds/blue/brightness
+    restorecon      /sys/class/leds/torch_front/brightness
+    restorecon      /sys/class/leds/torch/brightness
+    restorecon      /sys/class/hw_power/charger/charge_data/enable_charger
+    restorecon     /sys/class/leds/lcd_backlight0/brightness
+    restorecon     /sys/class/graphics/fb0/lcd_test_config
+    restorecon     /sys/class/graphics/fb0/amoled_pcd_errflag_check
+    restorecon     /sys/class/ina231/ina231_0/ina231_debug
+    restorecon     /sys/class/ina231/ina231_0/ina231_set
+    restorecon     /sys/class/ina231/ina231_0/ina231_value
+    restorecon     /sys/class/ina231/ina231_1/ina231_debug
+    restorecon    /sys/class/ina231/ina231_1/ina231_set
+    restorecon    /sys/class/ina231/ina231_1/ina231_value
+    restorecon    /sys/class/graphics/fb0/amoled_acl
+    restorecon    /sys/class/graphics/fb0/amoled_hbm
+    restorecon      /sys/kernel/set_hmp_thresholds/policy
+    restorecon      /sys/class/graphics/fb0/lcd_cabc_mode
+    restorecon      /sys/devices/system/cpu/cpu0/cpufreq/scaling_available_frequencies
+    restorecon      /sys/devices/system/cpu/cpu4/cpufreq/scaling_available_frequencies
+    restorecon      /sys/devices/ddrfreq/devfreq/ddrfreq/min_freq
+    restorecon      /sys/devices/ddrfreq/devfreq/ddrfreq/max_freq
+    restorecon      /sys/devices/ddrfreq/devfreq/ddrfreq/available_frequencies
+    restorecon    /sys/class/timed_output/vibrator/vibrator_calib
+    restorecon      /sys/class/leds/torch/flash_thermal_protect
+    restorecon      /sys/class/hw_power/charger/charge_data/iin_thermal
+    restorecon      /sys/class/hw_power/charger/charge_data/ichg_thermal
+    restorecon       /sys/devices/amba.12/f7101000.i2c/i2c-1/1-001c/command
+    restorecon       /sys/devices/amba.13/f7101000.i2c/i2c-1/1-001c/command
+    restorecon       /sys/devices/f8000000.hisi_led/leds/blue/brightness
+    restorecon       /sys/devices/f8000000.hisi_led/leds/red/brightness
+    restorecon       /sys/devices/f8000000.hisi_led/leds/green/brightness
+    restorecon       /sys/devices/platform/balong_fb.1/leds/lcd_backlight0/brightness
+    restorecon       /sys/devices/virtual/leds/torch/brightness
+on post-fs
+
+on post-fs-data
+    mkdir /data/log 0755 system log
+
+on early-boot
+
+on boot
+
+
+
+
+
+service atcmdserver  /system/bin/atcmdserver
+    class main
+    disabled
+    seclabel u:r:atcmdserver:s0
+
+service oeminfo_nvm /sbin/oeminfo_nvm_server
+    class core
+    critical 
+    ioprio rt 4
+    seclabel u:r:oeminfo_nvm:s0
+
+service diagserver /system/bin/diagserver
+    class main
+    user root
+
+service goldeneye /system/bin/goldeneye
+    class main
+    user root
+
+service check_root /sbin/check_root
+    class main
+    oneshot
+    seclabel u:r:check_root:s0
+
+service check_longpress /system/bin/check_longpress
+    class main
+    oneshot
+
+on property:sys.boot_completed=1
+    start check_root
+
+on property:ro.runmode=factory
+    chmod 0775 /data/media/0/Music
+    chmod 0775 /data/media/0/Pictures
+    chown media_rw media_rw /data/media/0
+    chown media_rw media_rw /data/media/0/Music
+    chown media_rw media_rw /data/media/0/Pictures
+
+service hwnffserver  /system/bin/hwnffserver
+    class main
+    socket hwnff stream 0660 root mount
+
+service data_cleanner /system/bin/data_cleaner
+    class core
+    oneshot
+
+service check_hota /system/bin/sh /system/etc/check_hota.sh
+    class core
+    oneshot

@@ -1,0 +1,308 @@
+import /init.recovery.@{/proc/connectivity/chiptype}.rc
+import /init.recovery.connectivity.rc
+import /init.chip.usb.rc
+on early-init
+    write /sys/fs/selinux/checkreqprot 0
+
+    setcon u:r:init:s0
+
+    start ueventd
+    start healthd
+
+on init
+
+
+    symlink /system/vendor /vendor
+
+    mkdir /usb
+
+    mkdir /cust
+    mkdir /splash2
+    mkdir /3rdmodem
+    mkdir /3rdmodemnvm
+    mkdir /3rdmodemnvmbkp
+    mkdir /newsys
+    chown system system /dev/cpuctl
+    chown system system /dev/cpuctl/tasks
+
+    write /sys/module/block2mtd/parameters/block2mtd /dev/block/mmcblk0p7
+    mount /tmp /tmp tmpfs
+    wait /dev/nve0
+    chmod 0640 /dev/nve0
+
+
+on fs
+
+    wait /dev/block/platform/hi_mci.0/by-name/oeminfo
+    start oeminfo_nvm  
+    wait /dev/block/platform/hi_mci.0/by-name/system
+	mount_doul vfat-ext4 /dev/block/platform/hi_mci.0/by-name/splash2 /splash2 wait rw nosuid nodev uid=1000,gid=1000,fmask=0002,dmask=0002,context=u:object_r:splash2_data_file:s0
+    
+
+
+on property:vold.decrypt=trigger_shutdown_framework
+    class_reset server
+
+on property:vold.decrypt=trigger_load_persist_props
+    load_persist_props
+
+on property:vold.decrypt=trigger_post_fs_data
+    trigger post-fs-data
+
+on post-fs-data
+    trigger post-fs-data_hw
+
+on post-fs-data_hw
+    mkdir /data/hwzd_logs/3rdcp-log 0775 radio radio
+    mkdir /data/nvram/md_via 0770 root radio
+
+    chmod 0660 /dev/vmodem
+    chown radio radio /dev/vmodem
+
+    mkdir /data/pppd_via 0770 radio system
+
+	mkdir /storage
+	symlink /data/media/0 /storage/sdcard0
+	symlink /sdcard /storage/sdcard1
+    setprop vold.post_fs_data_done 1
+    
+on early-boot_hw
+    setprop viatel.device.fls  spi.2.ttySPI
+    setprop viatel.device.at   spi.10.ttySPI
+    setprop viatel.device.data spi.0.ttySPI
+    setprop viatel.device.pcv spi.4.ttySPI
+    setprop viatel.device.gps spi.5.ttySPI
+
+    chmod 0750 /3rdmodem/
+    chmod 0750 /3rdmodemnvm/
+    chmod 0750 /3rdmodemnvmbkp/
+
+    mkdir /3rdmodemnvm/viacbp82d 0740 radio radio
+    mkdir /3rdmodemnvmbkp/viacbp82d 0740 radio radio
+
+    chmod 0740 /3rdmodem/modem_image
+    chmod 0740 /3rdmodem/modem_image/viacbp82d
+    chmod 0740 /3rdmodemnvm/viacbp82d
+    chmod 0740 /3rdmodemnvmbkp/viacbp82d
+    chmod 0640 /3rdmodem/modem_image/viacbp82d/boot.rom
+    chmod 0640 /3rdmodem/modem_image/viacbp82d/cp.rom
+    chmod 0640 /3rdmodem/modem_image/viacbp82d/fsm_df.img
+    chmod 0640 /3rdmodem/modem_image/viacbp82d/RfsTable
+    chmod 0640 /3rdmodemnvm/viacbp82d/fsm_0.img
+    chmod 0640 /3rdmodemnvm/viacbp82d/fsm_1.img
+    chmod 0640 /3rdmodemnvm/viacbp82d/fsm_cl.img
+    chmod 0640 /3rdmodemnvmbkp/viacbp82d/fsm_cl_backup.img
+
+    chown radio radio /3rdmodem/
+    chown radio radio /3rdmodem/modem_image
+    chown radio radio /3rdmodem/modem_image/viacbp82d
+    chown radio radio /3rdmodemnvm
+    chown radio radio /3rdmodemnvm/viacbp82d
+    chown radio radio /3rdmodemnvmbkp
+    chown radio radio /3rdmodemnvmbkp/viacbp82d
+    chown radio radio /3rdmodem/modem_image/viacbp82d/boot.rom
+    chown radio radio /3rdmodem/modem_image/viacbp82d/cp.rom
+    chown radio radio /3rdmodem/modem_image/viacbp82d/fsm_df.img
+    chown radio radio /3rdmodem/modem_image/viacbp82d/RfsTable
+    chown radio radio /3rdmodemnvm/viacbp82d/fsm_0.img
+    chown radio radio /3rdmodemnvm/viacbp82d/fsm_1.img
+    chown radio radio /3rdmodemnvm/viacbp82d/fsm_cl.img
+    chown radio radio /3rdmodemnvmbkp/viacbp82d/fsm_cl_backup.img
+
+    chmod 0660 /sys/devices/platform/viacbp82d_boot/state
+    chown root radio /sys/devices/platform/viacbp82d_boot/state
+    chmod 0660 /sys/devices/platform/viacbp82d_boot/modem_state
+    chown root radio /sys/devices/platform/viacbp82d_boot/modem_state
+    mkdir /data/hisi_logs/hifi_log 0755 root system
+    mkdir /data/hisi_logs/hifi_log/coredump 0755 root system
+    symlink /splash2/fac_log /data/log/fac_log
+    symlink /splash2 /log
+
+on property:sys.system.serv=up
+    write /sys/devices/platform/antennafpga.0/ice40bin_download_dir "start"
+
+on property:androidboot.start_services=true
+    wait /dev/block/platform/hi_mci.0/by-name/system
+    mount ext4 /dev/block/platform/hi_mci.0/by-name/system /newsys wait ro
+    mount ext4 /dev/block/platform/hi_mci.0/by-name/cache /cache
+    wait /dev/block/platform/hi_mci.0/by-name/userdata
+    mount ext4 /dev/block/platform/hi_mci.0/by-name/userdata /data
+    wait /dev/block/platform/hi_mci.0/by-name/cust
+    mount ext4 /dev/block/platform/hi_mci.0/by-name/cust /cust wait rw
+    write /sys/class/android_usb/android0/iManufacturer ${ro.product.manufacturer}
+    write /sys/class/android_usb/android0/iProduct ${ro.product.model}
+    mount ext4 /dev/block/platform/hi_mci.0/by-name/dsp /dsp:0
+    mount ext4 /dev/block/platform/hi_mci.0/by-name/splash2 /splash2 wait rw nosuid nodev
+    mount ext4 /dev/block/platform/hi_mci.0/by-name/3rdmodem /3rdmodem nosuid nodev
+    mount ext4 /dev/block/platform/hi_mci.0/by-name/3rdmodemnvm /3rdmodemnvm noatime nosuid nodev
+    mount ext4 /dev/block/platform/hi_mci.0/by-name/3rdmodemnvmbkp /3rdmodemnvmbkp noatime nosuid nodev
+    trigger post-fs_hw
+    trigger post-fs-data_hw
+
+    trigger load_all_props_action
+
+    trigger early-boot_hw
+    trigger boot
+    setprop recovery.load_finish true
+
+on property:recovery.start_all_srv=true
+    setprop sys.system.serv run
+    start logd
+    start atcmdserver
+    start hw_ueventd
+    start statusd
+    
+on property:vold.decrypt=trigger_shutdown_framework
+    class_reset server
+
+on property:vold.decrypt=trigger_load_persist_props
+    load_persist_props
+
+on property:vold.decrypt=trigger_post_fs_data
+    trigger post-fs-data
+
+
+service hdbd /sbin/hdbd --root_seclabel=u:r:su:s0 --device_banner=recovery
+    disabled
+    socket hdbd stream 660 system system
+    seclabel u:r:hdbd:s0
+
+service logd /system/bin/logd
+    socket logd stream 0666 logd logd
+    socket logdr seqpacket 0666 logd logd
+    socket logdw dgram 0222 logd logd
+    seclabel u:r:logd:s0
+    disabled
+
+service teecd /sbin/teecd
+    disabled
+    user root
+    group root
+    seclabel u:r:teecd:s0
+
+on property:ro.board.platform=hi6210sft
+    start teecd
+
+on property:sys.usb.config=none
+    stop adbd
+    stop hdbd
+    write /sys/class/android_usb/android0/enable 0
+    write /sys/class/android_usb/android0/bDeviceClass 0
+    write /sys/devices/virtual/android_usb/android0/port_mode 1
+    setprop sys.usb.state ${sys.usb.config}
+
+on property:sys.usb.config=manufacture,adb
+    write /sys/class/android_usb/android0/enable 0
+    write /sys/class/android_usb/android0/idVendor 12d1
+    write /sys/class/android_usb/android0/idProduct 105c
+    write /sys/class/android_usb/android0/iSerial ${ro.serialno}
+    write /sys/class/android_usb/f_mass_storage/luns sdcard
+    write /sys/class/android_usb/f_mass_storage/lun/file none
+    write /sys/class/android_usb/android0/f_hw_acm/hw_instances 3
+    write /sys/class/android_usb/android0/functions hw_acm,mass_storage,adb,hdb
+    write /sys/devices/virtual/android_usb/android0/port_mode 14
+    write /sys/class/android_usb/android0/enable 1
+    start adbd
+    start hdbd
+    setprop sys.usb.state ${sys.usb.config}
+
+on property:sys.usb.config=mass_storage
+    write /sys/class/android_usb/android0/enable 0
+    write /sys/class/android_usb/android0/idVendor 12d1
+    write /sys/class/android_usb/android0/idProduct 1037
+    write /sys/class/android_usb/android0/iSerial ${ro.serialno}
+    write /sys/class/android_usb/f_mass_storage/luns sdcard
+    write /sys/class/android_usb/f_mass_storage/lun/file none
+    write /sys/class/android_usb/android0/functions ${sys.usb.config}
+    write /sys/devices/virtual/android_usb/android0/port_mode 7
+    write /sys/class/android_usb/android0/enable 1
+    setprop sys.usb.state ${sys.usb.config}
+
+service console /system/bin/sh
+    class core
+    console
+    disabled
+    user root
+    group root
+
+on property:ro.debuggable=1
+    start console
+
+
+
+on property:sys.system.serv=run
+    class_start server
+    setprop sys.system.serv up
+service atcmdserver  /system/bin/atcmdserver
+    class server
+    user root
+    oneshot
+    disabled
+    
+service oeminfo_nvm /sbin/oeminfo_nvm_server
+    critical
+    ioprio rt 4
+    seclabel u:r:oeminfo_nvm:s0
+service hw_ueventd /system/bin/hw_ueventd
+    class server
+    user root
+    disabled
+
+service statusd /system/bin/statusd -f [/system/bin/flashlessd -m 0]
+    class server
+    user root
+    group radio cache inet misc system
+    disabled
+
+service logctl_service /sbin/logctl_service -m 2
+    class server
+    user root
+    oneshot
+    seclabel u:r:hisilogcat:s0
+
+service modemlogcat  /system/bin/modemlogcat_lte -l
+    class server
+
+    disabled
+    oneshot
+
+service modemlogcat_VIA /system/bin/modemlogcat_via -t /dev/ttySPI1 -c /system/etc/modemConfig/viacbp82d_log.bcfg -p /data/hwzd_logs/cp_log/ -r 30 -n 9
+    class server
+    disabled
+    oneshot
+
+service applogcat /system/bin/logcat -v threadtime -r4096 -z 10 -n 5 -f /data/android_logs/applogcat-log
+    class server
+    user root
+    disabled
+    seclabel u:r:hisilogcat:s0
+
+service rillogcat /system/bin/logcat -b radio -v threadtime -r4096 -z 5 -n 5 -f /data/android_logs/rillogcat-log
+    class server
+    user root
+    disabled
+    seclabel u:r:hisilogcat:s0
+
+service kmsglogcat /sbin/kmsgcat -r 4096 -z 2 -n 2 -f /splash2/kmsg_log
+    class server
+    user root
+    disabled
+    seclabel u:r:hisilogcat:s0
+
+service chargelogcat /system/bin/chargelogcat -r 2048 -n 2 -z 2 -t 5 -p /splash2/
+    class server
+    user root
+    disabled
+    seclabel u:r:hisilogcat:s0
+
+service sleeplogcat /system/bin/sleeplogcat -t 10 -p /data/android_logs/
+    class server
+    user root
+    disabled
+    seclabel u:r:hisilogcat:s0
+
+service kmsgcat_cp /sbin/kmsgcat -r 4096 -n 25 -i /dev/cshell_log  -f /data/hwzd_logs/cp_log/modemlog/modemkmsg-log
+    class server
+    user root
+    disabled
+    seclabel u:r:hisilogcat:s0

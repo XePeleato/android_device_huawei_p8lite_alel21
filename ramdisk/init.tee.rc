@@ -1,0 +1,12 @@
+on init
+    mkdir /sec_storage
+    mount ext4 /dev/block/platform/hi_mci.0/by-name/securetystorage /sec_storage nosuid nodev noatime wait crypt discard,auto_da_alloc,mblk_io_submit,data=journal,context=u:object_r:teecd_data_file:s0
+    chown root root /sec_storage
+    chmod 600 /sec_storage
+
+service teecd /sbin/teecd
+    socket tee-multi-user stream 660 root system
+    class core
+    user root
+    group root
+    seclabel u:r:tee:s0

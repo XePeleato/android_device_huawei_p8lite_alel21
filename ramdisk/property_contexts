@@ -1,0 +1,151 @@
+#line 1 "external/sepolicy/property_contexts"
+##########################
+# property service keys
+#
+#
+net.rmnet               u:object_r:net_radio_prop:s0
+net.gprs                u:object_r:net_radio_prop:s0
+net.ppp                 u:object_r:net_radio_prop:s0
+net.qmi                 u:object_r:net_radio_prop:s0
+net.lte                 u:object_r:net_radio_prop:s0
+net.cdma                u:object_r:net_radio_prop:s0
+net.dns                 u:object_r:net_radio_prop:s0
+sys.usb.config          u:object_r:system_radio_prop:s0
+ril.                    u:object_r:radio_prop:s0
+gsm.                    u:object_r:radio_prop:s0
+persist.radio           u:object_r:radio_prop:s0
+
+net.                    u:object_r:system_prop:s0
+dev.                    u:object_r:system_prop:s0
+runtime.                u:object_r:system_prop:s0
+hw.                     u:object_r:system_prop:s0
+sys.                    u:object_r:system_prop:s0
+sys.powerctl            u:object_r:powerctl_prop:s0
+sys.usb.ffs.            u:object_r:ffs_prop:s0
+service.                u:object_r:system_prop:s0
+wlan.                   u:object_r:system_prop:s0
+dhcp.                   u:object_r:dhcp_prop:s0
+dhcp.bt-pan.result      u:object_r:pan_result_prop:s0
+bluetooth.              u:object_r:bluetooth_prop:s0
+
+debug.                  u:object_r:debug_prop:s0
+debug.db.               u:object_r:debuggerd_prop:s0
+log.                    u:object_r:shell_prop:s0
+service.adb.root        u:object_r:shell_prop:s0
+service.adb.tcp.port    u:object_r:shell_prop:s0
+
+persist.audio.          u:object_r:audio_prop:s0
+persist.logd.           u:object_r:logd_prop:s0
+persist.sys.            u:object_r:system_prop:s0
+persist.service.        u:object_r:system_prop:s0
+persist.service.bdroid. u:object_r:bluetooth_prop:s0
+persist.security.       u:object_r:system_prop:s0
+
+# selinux non-persistent properties
+selinux.restorecon_recursive   u:object_r:restorecon_prop:s0
+selinux.                       u:object_r:security_prop:s0
+
+# default property context
+*                       u:object_r:default_prop:s0
+
+# data partition encryption properties
+vold.                   u:object_r:vold_prop:s0
+crypto.                 u:object_r:vold_prop:s0
+
+# ro.build.fingerprint is either set in /system/build.prop, or is
+# set at runtime by system_server.
+build.fingerprint       u:object_r:fingerprint_prop:s0
+
+# ctl properties
+ctl.bootanim            u:object_r:ctl_bootanim_prop:s0
+ctl.dumpstate           u:object_r:ctl_dumpstate_prop:s0
+ctl.fuse_               u:object_r:ctl_fuse_prop:s0
+ctl.mdnsd               u:object_r:ctl_mdnsd_prop:s0
+ctl.ril-daemon          u:object_r:ctl_rildaemon_prop:s0
+ctl.bugreport           u:object_r:ctl_bugreport_prop:s0
+ctl.dhcpcd_bt-pan       u:object_r:ctl_dhcp_pan_prop:s0
+ctl.console             u:object_r:ctl_console_prop:s0
+ctl.                    u:object_r:ctl_default_prop:s0
+
+# NFC properties
+nfc.                    u:object_r:nfc_prop:s0
+
+# These properties are not normally set by processes other than init.
+# They are only distinguished here for setting by qemu-props on the
+# emulator/goldfish.
+config.                 u:object_r:config_prop:s0
+dalvik.                 u:object_r:dalvik_prop:s0
+#line 1 "vendor/huawei/Emui/sepolicy/property_contexts"
+
+persist.hw.power.shutdown       u:object_r:bootanim_prop:s0
+
+
+#line 1 "device/hisi/common/sepolicy/common/property_contexts"
+# hisi property
+
+trustedcore_sfs_property	u:object_r:teecd_prop:s0
+ctl.logserver			u:object_r:logserver_prop:s0
+ctl.logctl_service		u:object_r:logcat_prop:s0
+ctl.logcat_service		u:object_r:logcat_prop:s0
+ctl.chargelogcat		u:object_r:logcat_prop:s0
+ctl.kmsglogcat			u:object_r:logcat_prop:s0
+ctl.applogcat			u:object_r:logcat_prop:s0
+ctl.sleeplogcat			u:object_r:logcat_prop:s0
+ctl.rillogcat			u:object_r:logcat_prop:s0
+ctl.kmsgcat_cp			u:object_r:logcat_prop:s0
+ctl.hilogcat			u:object_r:logcat_prop:s0
+ctl.isplogcat           u:object_r:logcat_prop:s0
+ctl.chargemonitor               u:object_r:logcat_prop:s0
+hw_chargemonitor.log            u:object_r:logcat_prop:s0
+ctl.hw_cdma_service	u:object_r:hw_cdma_prop:s0
+ctl.fac_log_service		u:object_r:logcat_prop:s0
+hw.factorystart 		u:object_r:logcat_prop:s0
+hw.factorytestresult	u:object_r:logcat_prop:s0
+persist.config.hw.lca.region	u:object_r:logcat_prop:s0
+ctl.gpsd_47531			u:object_r:gpsd_prop:s0
+ctl.gpsd			u:object_r:gpsd_prop:s0
+ctl.gpsd_4774			u:object_r:gpsd_prop:s0
+ctl.gpsdcl_4774			u:object_r:gpsd_prop:s0
+ctl.lhd_4774			u:object_r:gpsd_prop:s0
+ctl.lhdcl_4774			u:object_r:gpsd_prop:s0
+huawei.check_root.		u:object_r:check_root_prop:s0
+ctl.modematserver		u:object_r:modemlogcat_prop:s0
+sensor.dual.mode		u:object_r:hwcamcfgsvr_prop:s0
+sensor.otp.checksum		u:object_r:hwcamcfgsvr_prop:s0
+is.mini.af.support		u:object_r:hwcamcfgsvr_prop:s0
+ctl.inputlogcat			u:object_r:system_prop:s0
+user.language			u:object_r:system_prop:s0
+user.region				u:object_r:system_prop:s0
+reduce.sar.imsi.mnc		u:object_r:radio_prop:s0
+persist.sys.smart_power		u:object_r:powergenie_prop:s0
+hw.flash.disabled.by.low_temp   u:object_r:powergenie_prop:s0
+persist.sys.jankdb		u:object_r:jankservice_prop:s0
+persist.sys.jankenable          u:object_r:jankservice_prop:s0
+persist.sys.huawei.debug.on	u:object_r:logcat_prop:s0
+persist.ims.			u:object_r:ims_prop:s0
+persist.ut. 			u:object_r:ims_prop:s0
+hifi.watchdog.come     u:object_r:hifiwatchdog_prop:s0
+factory.recovery.succssful_flg     u:object_r:recovery_prop:s0
+recovery.hw_resize_userdata_flg     u:object_r:recovery_prop:s0
+modem_update     u:object_r:recovery_prop:s0
+ctl.telemntncat		u:object_r:telemntncat_prop:s0
+ctl.start		u:object_r:atcmdserver_prop:s0
+ctl.stop		u:object_r:atcmdserver_prop:s0
+ctl.modemlogcat		u:object_r:modemlogcat_prop:s0
+ctl.modemlogcat_cdma		u:object_r:modemlogcat_prop:s0
+ctl.modemlogcat_VIA		u:object_r:modemlogcat_prop:s0
+service.hdb.rand		u:object_r:shell_prop:s0
+ctl.tcpdump_service		u:object_r:tcpdump_prop:s0
+sys.adb.authpass		u:object_r:authpass_prop:s0
+goldeneye.				u:object_r:goldeneye_prop:s0
+androidboot.start_services   u:object_r:recovery_prop:s0
+recovery.start_all_srv u:object_r:recovery_prop:s0
+camera.tunning.support        u:object_r:cameradump_prop:s0
+camera.tunning.dump        u:object_r:cameradump_prop:s0
+camera3.zsl.switch        u:object_r:cameradump_prop:s0
+camera.dump.raw2yuv        u:object_r:cameradump_prop:s0
+camera.fbcdraw.enable        u:object_r:cameradump_prop:s0
+#line 1 "device/hisi/common/sepolicy/hi6210sft/property_contexts"
+
+ctl.hostapd_bin					u:object_r:hi110x_prop:s0
+ctl.oam_app    					u:object_r:hi110x_prop:s0

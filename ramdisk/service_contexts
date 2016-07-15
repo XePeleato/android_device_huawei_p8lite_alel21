@@ -1,0 +1,239 @@
+#line 1 "external/sepolicy/service_contexts"
+accessibility                             u:object_r:accessibility_service:s0
+account                                   u:object_r:account_service:s0
+activity                                  u:object_r:activity_service:s0
+alarm                                     u:object_r:alarm_service:s0
+android.security.keystore                 u:object_r:keystore_service:s0
+android.service.gatekeeper.IGateKeeperService    u:object_r:gatekeeper_service:s0
+appops                                    u:object_r:appops_service:s0
+appwidget                                 u:object_r:appwidget_service:s0
+assetatlas                                u:object_r:assetatlas_service:s0
+audio                                     u:object_r:audio_service:s0
+backup                                    u:object_r:backup_service:s0
+batteryproperties                         u:object_r:healthd_service:s0
+batterypropreg                            u:object_r:healthd_service:s0
+batterystats                              u:object_r:batterystats_service:s0
+battery                                   u:object_r:battery_service:s0
+bluetooth_manager                         u:object_r:bluetooth_manager_service:s0
+bluetooth                                 u:object_r:bluetooth_service:s0
+carrier_config                            u:object_r:radio_service:s0
+clipboard                                 u:object_r:clipboard_service:s0
+com.android.net.IProxyService             u:object_r:IProxyService_service:s0
+commontime_management                     u:object_r:commontime_management_service:s0
+common_time.clock                        u:object_r:mediaserver_service:s0
+common_time.config                       u:object_r:mediaserver_service:s0
+connectivity                              u:object_r:connectivity_service:s0
+consumer_ir                               u:object_r:consumer_ir_service:s0
+content                                   u:object_r:content_service:s0
+country_detector                          u:object_r:country_detector_service:s0
+cpuinfo                                   u:object_r:cpuinfo_service:s0
+dbinfo                                    u:object_r:dbinfo_service:s0
+device_policy                             u:object_r:device_policy_service:s0
+deviceidle                                u:object_r:deviceidle_service:s0
+devicestoragemonitor                      u:object_r:devicestoragemonitor_service:s0
+diskstats                                 u:object_r:diskstats_service:s0
+display.qservice                          u:object_r:surfaceflinger_service:s0
+display                                   u:object_r:display_service:s0
+DockObserver                              u:object_r:DockObserver_service:s0
+dreams                                    u:object_r:dreams_service:s0
+drm.drmManager                            u:object_r:drmserver_service:s0
+dropbox                                   u:object_r:dropbox_service:s0
+ethernet                                  u:object_r:ethernet_service:s0
+fingerprint                               u:object_r:fingerprint_service:s0
+android.hardware.fingerprint.IFingerprintDaemon u:object_r:fingerprintd_service:s0
+gfxinfo                                   u:object_r:gfxinfo_service:s0
+graphicsstats                             u:object_r:graphicsstats_service:s0
+hardware                                  u:object_r:hardware_service:s0
+hdmi_control                              u:object_r:hdmi_control_service:s0
+inputflinger                              u:object_r:inputflinger_service:s0
+input_method                              u:object_r:input_method_service:s0
+input                                     u:object_r:input_service:s0
+iphonesubinfo_msim                        u:object_r:radio_service:s0
+iphonesubinfo2                            u:object_r:radio_service:s0
+iphonesubinfo                             u:object_r:radio_service:s0
+ims                                       u:object_r:radio_service:s0
+imms                                      u:object_r:imms_service:s0
+isms_msim                                 u:object_r:radio_service:s0
+isms2                                     u:object_r:radio_service:s0
+isms                                      u:object_r:radio_service:s0
+isub                                      u:object_r:radio_service:s0
+jobscheduler                              u:object_r:jobscheduler_service:s0
+launcherapps                              u:object_r:launcherapps_service:s0
+location                                  u:object_r:location_service:s0
+lock_settings                             u:object_r:lock_settings_service:s0
+media.audio_flinger                       u:object_r:mediaserver_service:s0
+media.audio_policy                        u:object_r:mediaserver_service:s0
+media.camera                              u:object_r:mediaserver_service:s0
+media.camera.proxy                        u:object_r:cameraproxy_service:s0
+media.log                                 u:object_r:mediaserver_service:s0
+media.player                              u:object_r:mediaserver_service:s0
+media.resource_manager                    u:object_r:mediaserver_service:s0
+media.radio                               u:object_r:mediaserver_service:s0
+media.sound_trigger_hw                    u:object_r:mediaserver_service:s0
+media_projection                          u:object_r:media_projection_service:s0
+media_router                              u:object_r:media_router_service:s0
+media_session                             u:object_r:media_session_service:s0
+meminfo                                   u:object_r:meminfo_service:s0
+midi                                      u:object_r:midi_service:s0
+mount                                     u:object_r:mount_service:s0
+netpolicy                                 u:object_r:netpolicy_service:s0
+netstats                                  u:object_r:netstats_service:s0
+network_management                        u:object_r:network_management_service:s0
+network_score                             u:object_r:network_score_service:s0
+nfc                                       u:object_r:nfc_service:s0
+notification                              u:object_r:notification_service:s0
+package                                   u:object_r:package_service:s0
+permission                                u:object_r:permission_service:s0
+persistent_data_block                     u:object_r:persistent_data_block_service:s0
+phone_msim                                u:object_r:radio_service:s0
+phone1                                    u:object_r:radio_service:s0
+phone2                                    u:object_r:radio_service:s0
+phone                                     u:object_r:radio_service:s0
+power                                     u:object_r:power_service:s0
+print                                     u:object_r:print_service:s0
+processinfo                               u:object_r:processinfo_service:s0
+procstats                                 u:object_r:procstats_service:s0
+radio.phonesubinfo                        u:object_r:radio_service:s0
+radio.phone                               u:object_r:radio_service:s0
+radio.sms                                 u:object_r:radio_service:s0
+restrictions                              u:object_r:restrictions_service:s0
+rttmanager                                u:object_r:rttmanager_service:s0
+samplingprofiler                          u:object_r:samplingprofiler_service:s0
+scheduling_policy                         u:object_r:scheduling_policy_service:s0
+search                                    u:object_r:search_service:s0
+sensorservice                             u:object_r:sensorservice_service:s0
+serial                                    u:object_r:serial_service:s0
+servicediscovery                          u:object_r:servicediscovery_service:s0
+simphonebook_msim                         u:object_r:radio_service:s0
+simphonebook2                             u:object_r:radio_service:s0
+simphonebook                              u:object_r:radio_service:s0
+sip                                       u:object_r:radio_service:s0
+statusbar                                 u:object_r:statusbar_service:s0
+SurfaceFlinger                            u:object_r:surfaceflinger_service:s0
+task                                      u:object_r:task_service:s0
+telecom                                   u:object_r:telecom_service:s0
+telephony.registry                        u:object_r:registry_service:s0
+textservices                              u:object_r:textservices_service:s0
+trust                                     u:object_r:trust_service:s0
+tv_input                                  u:object_r:tv_input_service:s0
+uimode                                    u:object_r:uimode_service:s0
+updatelock                                u:object_r:updatelock_service:s0
+usagestats                                u:object_r:usagestats_service:s0
+usb                                       u:object_r:usb_service:s0
+user                                      u:object_r:user_service:s0
+vibrator                                  u:object_r:vibrator_service:s0
+voiceinteraction                          u:object_r:voiceinteraction_service:s0
+wallpaper                                 u:object_r:wallpaper_service:s0
+webviewupdate                             u:object_r:webviewupdate_service:s0
+wifip2p                                   u:object_r:wifip2p_service:s0
+wifiscanner                               u:object_r:wifiscanner_service:s0
+wifi                                      u:object_r:wifi_service:s0
+window                                    u:object_r:window_service:s0
+*                                         u:object_r:default_android_service:s0
+#line 1 "vendor/huawei/Emui/sepolicy/service_contexts"
+
+# DTS2015082101822 malijuan kf67138 20150821 begin
+internet_audio                                                         u:object_r:internet_audio_service:s0
+# DTS2015082101822 malijuan kf67138 20150821 end
+# add hwGeneralService DTS2015052502269 begin
+hwGeneralService                                                       u:object_r:hw_general_service:s0
+# add hwGeneralService DTS2015052502269 end
+# DTS2015080307994 liutie/00176215 20150805 begin
+hwAntiTheftService                                                       u:object_r:hw_antitheft_service:s0
+# DTS2015080307994 liutie/00176215 20150805 end
+# add system.hsmcore on DTS2015031701911
+# add hwBootanimExService DTS2015042406452 begin
+hwBootanimExService                                                       u:object_r:hw_bootanimex_service:s0
+# add hwBootanimExService DTS2015042406452 end
+system.hsmcore  u:object_r:system_hsmcore_service:s0
+# add com.huawei.cryptosms.service on DTS2015042005211
+# com.huawei.cryptosms.service begin
+com.huawei.cryptosms.service            u:object_r:crypto_sms_service:s0
+# com.huawei.cryptosms.service end
+
+# com.huawei.cryptosms.service                            u:object_r:system_app_service:s0
+smartDisplay_service                                    u:object_r:smart_display_service:s0
+# PFW add hwPfwService on DTS2015062405732
+hwPfwService                                            u:object_r:hw_pfw_service:s0
+
+# telephony services begin
+# DTS2014101006257 jiayanhong/00176905 20141105 begin
+phone_apdu                                u:object_r:radio_service:s0
+# DTS2014101006257 jiayanhong/00176905 20141105 end
+# DTS2015082803406 jiayanhong/00176905 20150828 begin
+phone_huawei                              u:object_r:radio_service:s0
+# DTS2015082803406 jiayanhong/00176905 20150828 end
+# DTS2015091410126 jiayanhong/00176905 20150915 begin
+isms_interception                         u:object_r:radio_service:s0
+# DTS2015091410126 jiayanhong/00176905 20150915 end
+# telephony services end
+
+# HwSystemManager services begin
+com.huawei.harassmentinterception.service.HarassmentInterceptionService         u:object_r:hsm_harassmentinterception_service:s0
+com.huawei.netassistant.service.netassistantservice                             u:object_r:hsm_netassistant_service:s0
+com.huawei.netassistant.binder.notificationcallbackbinder                       u:object_r:hsm_netassistant_callback_service:s0
+com.huawei.systemmanager.netassistant.netpolicy.NatNetworkPolicyService         u:object_r:hsm_natnetworkpolicy_service:s0
+com.huawei.systemmanager.netassistant.netnotify.policy.NatTrafficNotifyService  u:object_r:hsm_nattrafficnotify_service:s0
+com.huawei.systemmanager.rainbow.service                          u:object_r:hsm_rainbow_service:s0
+HsmStat                                                           u:object_r:hsm_stat_service:s0
+com.huawei.systemmanager.preventmode.PreventModeService           u:object_r:hsm_dnd_service:s0
+com.huawei.permissionmanager.service.holdservice                  u:object_r:hsm_hold_service:s0
+# HwSystemManager services end
+# DTS2015082100482 hanmincheng/00178881 20150822 begin
+attestation_service                                     u:object_r:attestation_service:s0
+cover                                                   u:object_r:cover_service:s0
+SelfbuildIRService                                      u:object_r:SelfbuildIR_service:s0
+hwUsbExService                                          u:object_r:hwUsbEx_service:s0
+hwAlarmService                                          u:object_r:hwAlarm_service:s0
+hwConnectivityExService                                 u:object_r:hwConnectivityEx_service:s0
+easywakeup                                              u:object_r:easywakeup_service:s0
+smartcardservice                                        u:object_r:smartcard_service:s0
+# DTS2015082100482 hanmincheng/00178881 20150822 end
+# DTS2015082102920 xiaocong/00173384 20150825 begin
+com.huawei.bd.BDService                                 u:object_r:hwue_bdservice:s0
+# DTS2015082102920 xiaocong/00173384 20150825 end
+# DTS2015082510916 hanmincheng/00178881 20150822 begin
+pgservice                                               u:object_r:pgservice_service:s0
+# DTS2015082510916 hanmincheng/00178881 20150822 end
+
+#DTS2015082603024 liyu/00304948 20150826 begin
+hwsysresmanager                                         u:object_r:hwsysresmanager_service:s0
+#DTS2015082603024 liyu/00304948 20150826 end
+
+# fido authentication service
+fido_authenticator  u:object_r:fido_authenticator_service:s0
+# add s00356424 20151022 end
+
+# MW Integration : DTS2015041101215 Magesh/mwx209439 20150411 begin
+# Added to register multi window service
+multiwin                                                u:object_r:hw_multiwin_service:s0
+# MW Integration : DTS2015041101215 Magesh/mwx209439 20150411 end
+# DTS2015031908073 c00287748 20151010 begin
+# Add for postCamera
+post.camera                                             u:object_r:mediaserver_service:s0
+# DTS2015031908073 c00287748 20151010 end
+
+#DTS2015102201700 lijiechun/00101002 20151022 begin
+# multitask add a service 
+multi_task                                              u:object_r:hw_multitask_service:s0
+#DTS2015102201700 lijiechun/00101002 20151022 end
+#line 1 "device/hisi/common/sepolicy/common/service_contexts"
+com.huawei.goldeneye                                    u:object_r:goldeneye_service:s0
+huawei.camera.cfgsvr					u:object_r:hwcamcfg_service:s0
+hwext_device_service					u:object_r:hwext_device_service:s0
+audio.om						u:object_r:mediaserver_service:s0
+jank							u:object_r:jankservice_service:s0
+ioinfo                                                  u:object_r:ioinfo_service:s0
+ProtocolParaManagerService				u:object_r:ProtocolParaManager_service:s0
+netdetect.aidl                                          u:object_r:netdetect_aidl_service:s0
+Binder.Pged						u:object_r:hwpged_service:s0
+BastetService						u:object_r:bastetd_service:s0
+perfhub                                   u:object_r:perfhub_service:s0
+HwChrService                                            u:object_r:system_app_service:s0
+vr_display                                             u:object_r:vr_service:s0
+tui                                                     u:object_r:tui_service:s0
+nonhardaccelpkgs                          u:object_r:nonhardaccelpkgs_service:s0
+jankshield                                u:object_r:jankshield_service:s0
+huawei.audioalgoservice                   u:object_r:mediaserver_service:s0
+#line 1 "device/hisi/common/sepolicy/hi6210sft/service_contexts"
+com.nokia.location.slpgwd                                            u:object_r:nokialoc_service:s0

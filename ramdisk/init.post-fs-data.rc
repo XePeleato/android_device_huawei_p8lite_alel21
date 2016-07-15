@@ -1,0 +1,3 @@
+
+on post-fs-data
+    setprop vold.post_fs_data_done 1

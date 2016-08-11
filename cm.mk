@@ -13,16 +13,19 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 $(call inherit-product, device/HUAWEI/hi6210sft/cm_hi6210sft.mk)
+$(call inherit-product, vendor/cm/config/common_full_phone.mk)
+$(call inherit-product, vendor/cm/config/nfc_enhanced.mk)
 include $(call all-makefiles-under,$(LOCAL_PATH))
 
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/cm_hi6210sft.mk
-
+    $(LOCAL_DIR)/cm_hi6210sft.mk \
+    $(LOCAL_DIR)/kernel/HUAWEI/hi6210sft/Android.mk
 
 PRODUCT_NAME := cm_hi6210sft
 PRODUCT_DEVICE := hi6210sft
 PRODUCT_BRAND := Android
-PRODUCT_MODEL := CM by vAndrej
+PRODUCT_MODEL := CM by XePeleato
+TARGET_VENDOR := HUAWEI
 PRODUCT_MANUFACTURER := Huawei
 PRODUCT_RESTRICT_VENDOR_FILES := false

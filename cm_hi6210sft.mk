@@ -29,4 +29,5 @@ DEVICE_PACKAGE_OVERLAYS := device/HUAWEI/hi6210sft/overlay
 
 
 PRODUCT_PACKAGES += \
-Launcher3
+Launcher3\
+Snap

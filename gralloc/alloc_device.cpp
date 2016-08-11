@@ -1,5 +1,4 @@
-/*
- * Copyright (C) 2010 ARM Limited. All rights reserved.
+/*Copyright (C) 2010 ARM Limited. All rights reserved.
  *
  * Copyright (C) 2008 The Android Open Source Project
  *
@@ -102,11 +101,28 @@ static int gralloc_alloc_buffer(alloc_device_t *dev, size_t size, int usage, buf
 	{
 		private_module_t *m = reinterpret_cast<private_module_t *>(dev->common.module);
 		ion_user_handle_t ion_hnd;
-		unsigned char *cpu_ptr;
+		void *cpu_ptr = MAP_FAILED;
 		int shared_fd;
 		int ret;
+		unsigned int heap_mask;
+		int lock_state = 0;
+		int map_mask = 0;
 
-		ret = ion_alloc(m->ion_client, size, 0, ION_HEAP_SYSTEM_MASK, 0, &(ion_hnd));
+		if (usage & GRALLOC_USAGE_PROTECTED)
+		{
+#if defined(ION_HEAP_SECURE_MASK)
+			heap_mask = ION_HEAP_SECURE_MASK;
+#else
+			AERR("The platform does NOT support protected ION memory.");
+			return -1;
+#endif
+		}
+		else
+		{
+			heap_mask = ION_HEAP_SYSTEM_MASK;
+		}
+
+		ret = ion_alloc(m->ion_client, size, 0, heap_mask, 0, &(ion_hnd));
 
 		if (ret != 0)
 		{
@@ -128,7 +144,16 @@ static int gralloc_alloc_buffer(alloc_device_t *dev, size_t size, int usage, buf
 			return -1;
 		}
 
-		cpu_ptr = (unsigned char *)mmap(NULL, size, PROT_READ | PROT_WRITE, MAP_SHARED, shared_fd, 0);
+		if (!(usage & GRALLOC_USAGE_PROTECTED))
+		{
+			map_mask = PROT_READ | PROT_WRITE;
+		}
+		else
+		{
+			map_mask = PROT_WRITE;
+		}
+
+		cpu_ptr = mmap(NULL, size, map_mask, MAP_SHARED, shared_fd, 0);
 
 		if (MAP_FAILED == cpu_ptr)
 		{
@@ -143,7 +168,9 @@ static int gralloc_alloc_buffer(alloc_device_t *dev, size_t size, int usage, buf
 			return -1;
 		}
 
-		private_handle_t *hnd = new private_handle_t(private_handle_t::PRIV_FLAGS_USES_ION, usage, size, cpu_ptr, private_handle_t::LOCK_STATE_MAPPED);
+		lock_state = private_handle_t::LOCK_STATE_MAPPED;
+
+		private_handle_t *hnd = new private_handle_t(private_handle_t::PRIV_FLAGS_USES_ION, usage, size, cpu_ptr, lock_state);
 
 		if (NULL != hnd)
 		{
@@ -158,6 +185,7 @@ static int gralloc_alloc_buffer(alloc_device_t *dev, size_t size, int usage, buf
 		}
 
 		close(shared_fd);
+
 		ret = munmap(cpu_ptr, size);
 
 		if (0 != ret)
@@ -205,48 +233,55 @@ static int gralloc_alloc_buffer(alloc_device_t *dev, size_t size, int usage, buf
 		else
 #endif
 		{
-			ump_mem_handle = ump_ref_drv_allocate(size, constraints);
-
-			if (UMP_INVALID_MEMORY_HANDLE != ump_mem_handle)
+			if (usage & GRALLOC_USAGE_PROTECTED)
 			{
-				cpu_ptr = ump_mapped_pointer_get(ump_mem_handle);
-
-				if (NULL != cpu_ptr)
-				{
-					ump_id = ump_secure_id_get(ump_mem_handle);
-
-					if (UMP_INVALID_SECURE_ID != ump_id)
-					{
-						private_handle_t *hnd = new private_handle_t(private_handle_t::PRIV_FLAGS_USES_UMP, usage, size, cpu_ptr,
-						        private_handle_t::LOCK_STATE_MAPPED, ump_id, ump_mem_handle);
-
-						if (NULL != hnd)
-						{
-							*pHandle = hnd;
-							return 0;
-						}
-						else
-						{
-							AERR("gralloc_alloc_buffer() failed to allocate handle. ump_handle = %p, ump_id = %d", ump_mem_handle, ump_id);
-						}
-					}
-					else
-					{
-						AERR("gralloc_alloc_buffer() failed to retrieve valid secure id. ump_handle = %p", ump_mem_handle);
-					}
-
-					ump_mapped_pointer_release(ump_mem_handle);
-				}
-				else
-				{
-					AERR("gralloc_alloc_buffer() failed to map UMP memory. ump_handle = %p", ump_mem_handle);
-				}
-
-				ump_reference_release(ump_mem_handle);
+				AERR("gralloc_alloc_buffer() does not support to allocate protected UMP memory.");
 			}
 			else
 			{
-				AERR("gralloc_alloc_buffer() failed to allocate UMP memory. size:%d constraints: %d", size, constraints);
+				ump_mem_handle = ump_ref_drv_allocate(size, constraints);
+
+				if (UMP_INVALID_MEMORY_HANDLE != ump_mem_handle)
+				{
+					cpu_ptr = ump_mapped_pointer_get(ump_mem_handle);
+
+					if (NULL != cpu_ptr)
+					{
+						ump_id = ump_secure_id_get(ump_mem_handle);
+
+						if (UMP_INVALID_SECURE_ID != ump_id)
+						{
+							private_handle_t *hnd = new private_handle_t(private_handle_t::PRIV_FLAGS_USES_UMP, usage, size, cpu_ptr,
+							        private_handle_t::LOCK_STATE_MAPPED, ump_id, ump_mem_handle);
+
+							if (NULL != hnd)
+							{
+								*pHandle = hnd;
+								return 0;
+							}
+							else
+							{
+								AERR("gralloc_alloc_buffer() failed to allocate handle. ump_handle = %p, ump_id = %d", ump_mem_handle, ump_id);
+							}
+						}
+						else
+						{
+							AERR("gralloc_alloc_buffer() failed to retrieve valid secure id. ump_handle = %p", ump_mem_handle);
+						}
+
+						ump_mapped_pointer_release(ump_mem_handle);
+					}
+					else
+					{
+						AERR("gralloc_alloc_buffer() failed to map UMP memory. ump_handle = %p", ump_mem_handle);
+					}
+
+					ump_reference_release(ump_mem_handle);
+				}
+				else
+				{
+					AERR("gralloc_alloc_buffer() failed to allocate UMP memory. size:%d constraints: %d", size, constraints);
+				}
 			}
 		}
 

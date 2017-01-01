@@ -35,12 +35,11 @@ PRODUCT_COPY_FILES += \
 		vendor/hi6210sft/etc/media_profiles.xml:system/etc/media_codecs.xml
 
 #Bluetooth
-#PRODUCT_COPY_FILES += \
-device/HUAWEI/hi6210sft/bluetooth/auto_pair_devlist.conf:system/etc/bluetooth/auto_pair_devlist.conf \
-device/HUAWEI/hi6210sft/bluetooth/bt_did.conf:system/etc/bluetooth/bt_did.conf \
-device/HUAWEI/hi6210sft/bluetooth/bt_stack.conf:system/etc/bluetooth/bt_stack.conf
-
-
+PRODUCT_COPY_FILES += \
+		vendor/hi6210sft/lib/hw/bluetooth.default.so:system/lib/hw/bluetooth.default.so \
+		vendor/hi6210sft/vendor/lib/libbt-vendor-hi110x.so:system/vendor/lib/libbt-vendor-hi110x.so \
+		vendor/hi6210sft/vendor/lib/libbt-vendor.so:system/vendor/lib/libbt-vendor.so \
+		vendor/hi6210sft/vendor/lib/libbt-vendor-hi110x.so:system/vendor/lib/libbt-vendor-hi110x.so \
 # Graphics
 PRODUCT_COPY_FILES += \
 		vendor/hi6210sft/lib/egl/libGLES_mali.so:system/lib/egl/libGLES_mali.so \

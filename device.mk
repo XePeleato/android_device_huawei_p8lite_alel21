@@ -58,7 +58,7 @@ PRODUCT_COPY_FILES += \
 #RIL
 PRODUCT_PROPERTY_OVERRIDES += \
      audioril.lib=libhuawei-audio-ril.so \
-     ro.telephony.ril_class=HuaweiRIL
+     ro.telephony.ril_class=HwHisiRIL
 
 
 #Audio Config

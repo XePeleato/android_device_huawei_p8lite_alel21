@@ -1,0 +1,52 @@
+# This overrides settings in the products/generic/system.prop file
+#
+# rild.libpath=/system/lib/libreference-ril.so
+# rild.libargs=-d /dev/ttyS0
+qemu.hw.mainkeys=0
+
+ro.sf.lcd_density=320
+hw.lcd.density=320
+ro.hwui.texture_cache_size=72
+ro.hwui.texture_cache_flushrate=0.4
+ro.hwui.layer_cache_size=48
+ro.hwui.path_cache_size=32
+ro.hwui.shape_cache_size=2
+ro.hwui.drop_shadow_cache_size=6
+ro.hwui.gradient_cache_size=1
+ro.hwui.text_large_cache_height=1024
+ro.hwui.text_large_cache_width=2048
+ro.hwui.text_small_cache_height=1024
+ro.hwui.text_small_cache_width=1024
+ro.hwui.r_buffer_cache_size=8
+#RIL Properties
+gsm.version.ril-impl=android hisilicon balong-ril 1.0
+persist.radio.commril_mode=ULG_MODE
+ril.balong_cid=0
+ril.ecclist=112,911,000,08,110,118,119,999,112,911,118
+ril.hw_modem0.rssi=-1
+ril.hw_modem1.rssi=-1
+ril.modem.balong_nvm_server=true
+ril.operator.numeric=22288
+rild.libargs=-m modem0
+rild.libargs1=-m modem1
+rild.libpath=/system/lib64/libbalong-ril.so
+rild.libpath1=/system/lib64/libbalong-ril-1.so
+#persist.radio.multisim.config=single
+persist.dsds.enabled=true
+rild.rild1_ready_to_start=true
+ro.multi.rild=true
+ro.telephony.default_network=9
+ro.config.dsds_mode=umts_gsm
+ro.ril.ecclist=112,911,#911,*911
+persist.sys.dualcards=true
+ro.config.hw_dsdspowerup=true
+ro.lte.goodstd=-105
+ro.lte.greatstd=-97
+ro.lte.modstd=-113
+ro.lte.poorstd=-120
+ro.config.hw_globalEcc=true
+ro.config.attach_apn_enabled=true
+ro.config.ecc_from_cust_enable=true
+ro.config.hw_lte_support=true
+ro.config.hw_show_4G_Plus_icon=true
+ro.config.hw_show_network_icon=true

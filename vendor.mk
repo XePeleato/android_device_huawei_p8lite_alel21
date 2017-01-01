@@ -70,6 +70,7 @@ PRODUCT_COPY_FILES += \
 		vendor/hi6210sft/lib64/libhsa_hdlc.so:system/lib64/libhsa_hdlc.so \
 		vendor/hi6210sft/lib64/libhsa_msgprocess.so:system/lib64/libhsa_msgprocess.so \
 		vendor/hi6210sft/lib64/libnvme.so:system/lib64/libnvme.so \
+		vendor/hi6210sft/lib/libnvme.so:system/lib/libnvme.so \
 		vendor/hi6210sft/lib64/libHiSiUEAgent.so:system/lib64/libHiSiUEAgent.so \
 		vendor/hi6210sft/lib64/libHisiEncClientDll.so:system/lib64/libHisiEncClientDll.so \
 		vendor/hi6210sft/lib64/libconn_factory_test.so:system/lib64/libconn_factory_test.so \
@@ -89,48 +90,34 @@ PRODUCT_COPY_FILES += \
 		device/linaro/hi6210sft/etc/rild.rc:system/etc/init/rild.rc
 
 #Audio Libs
-#PRODUCT_COPY_FILES += \
-		vendor/lib/libaudioflinger.so:system/lib/libaudioflinger.so \
-		vendor/lib/libaudioflinger.huawei.so:system/lib/libaudioflinger.hauwei.so \
-		vendor/lib/libaudiopolicyenginedefault.so:system/lib/libaudiopolicyenginedefault.so \
-		vendor/lib/libaudiopolicyservice.so:system/lib/libaudiopolicyservice.so \
-		vendor/lib/libaudiopolicymanager.so:system/lib/libaudiopolicymanager.so \
-		vendor/lib/libaudiopolicymanagerdefault.so:system/lib/libaudiopolicymanagerdefault.so \
-		vendor/lib/libaudio_custom.so:system/lib/libaudio_custom.so \
-		vendor/lib/libaudioalgoservice_jni.so:system/lib/libaudioalgoservice_jni.so \
-		vendor/lib/libaudio-resampler.so:system/lib/libaudio-resampler.so \
-		vendor/lib/libswsprocessing.so:system/lib/libswsprocessing.so \
-		vendor/lib64/libswsprocessing.so:system/lib64/libswsprocessing.so \
-		vendor/lib/libsonic.so:system/lib/libsonic.so \
-		vendor/lib64/libsonic.so:system/lib64/libsonic.so \
-		vendor/lib/hw/audio.primary.hi6210sft.so:system/lib/hw/audio.primary.hi6210sft.so \
-		vendor/lib64/hw/audio.primary.hi6210sft.so:system/lib64/hw/audio.primary.hi6210sft.so \
-		vendor/lib/libaudioroute.so:system/lib/libaudioroute.so \
-		vendor/lib64/libaudioroute.so:system/lib64/libaudioroute.so \
-		vendor/lib/hw/hw_af_extend.default.so:system/lib/hw/hw_af_extend.default.so \
-		vendor/lib/hw/audio.r_submix.default.so:system/lib/hw/audio.r_submix.so \
-		vendor/lib64/hw/audio.r_submix.default.so:system/lib64/hw/audio.r_submix.so \
-		vendor/lib/libtfa9895.so:system/lib/libtfa9895.so \
-		vendor/lib64/libtfa9895.so:system/lib64/libtfa9895.so \
-		vendor/lib/libsrsprocessing.so:system/lib/libsrsprocessing.so \
-		vendor/lib/libswsprocessing.so:system/lib/libswsprocessing.so \
-		vendor/lib64/libswsprocessing.so:system/lib64/libswsprocessing.so \
-		vendor/lib/libbalong_audio_ril.so:system/lib/libbalong_audio_ril.so \
-		vendor/lib64/libbalong_audio_ril.so:system/lib64/libbalong_audio_ril.so \
-		vendor/lib/libmax98925.so:system/lib/libmax98925.so \
-		vendor/lib64/libmax98925.so:system/lib64/libmax98925.so \
-		vendor/lib/libOpenMAXAL.so:system/lib/libOpenMAXAL.so \
-		vendor/lib64/libOpenMAXAL.so:system/lib64/libOpenMAXAL.so \
-		vendor/lib/libOpenSLES.so:system/lib/libOpenSLES.so \
-		vendor/lib64/libOpenSLES.so:system/lib64/libOpenSLES.so \
-		vendor/lib/libsoundtrigger.so:system/lib/libsoundtrigger.so \
-		vendor/lib64/libsoundtrigger.so:system/lib64/libsoundtrigger.so \
-		vendor/lib/libsoundtriggerservice.so:system/lib/libsoundtriggerservice.so \
-		vendor/lib64/libsoundtriggerservice.so:system/lib64/libsoundtriggerservice.so \
-		vendor/lib/libmedia.so:system/lib/libmedia.so \
-		vendor/lib/libHwExtendedExtractor.so:system/lib/libHwExtendedExtractor.so
-
-
+PRODUCT_COPY_FILES += \
+		vendor/hi6210sft/lib/libaudioflinger.huawei.so:system/lib/libaudioflinger.hauwei.so \
+		vendor/hi6210sft/lib/libaudio_custom.so:system/lib/libaudio_custom.so \
+		vendor/hi6210sft/lib/libaudioalgoservice_jni.so:system/lib/libaudioalgoservice_jni.so \
+		vendor/hi6210sft/lib/libswsprocessing.so:system/lib/libswsprocessing.so \
+		vendor/hi6210sft/lib64/libswsprocessing.so:system/lib64/libswsprocessing.so \
+		vendor/hi6210sft/lib/hw/audio.primary.hi6210sft.so:system/lib/hw/audio.primary.hi6210sft.so \
+		vendor/hi6210sft/lib64/hw/audio.primary.hi6210sft.so:system/lib64/hw/audio.primary.hi6210sft.so \
+		vendor/hi6210sft/lib/hw/hw_af_extend.default.so:system/lib/hw/hw_af_extend.default.so \
+		vendor/hi6210sft/lib/hw/audio.r_submix.default.so:system/lib/hw/audio.r_submix.so \
+		vendor/hi6210sft/lib64/hw/audio.r_submix.default.so:system/lib64/hw/audio.r_submix.so \
+		vendor/hi6210sft/lib/libtfa9895.so:system/lib/libtfa9895.so \
+		vendor/hi6210sft/lib64/libtfa9895.so:system/lib64/libtfa9895.so \
+		vendor/hi6210sft/lib/libsrsprocessing.so:system/lib/libsrsprocessing.so \
+		vendor/hi6210sft/lib/libswsprocessing.so:system/lib/libswsprocessing.so \
+		vendor/hi6210sft/lib64/libswsprocessing.so:system/lib64/libswsprocessing.so \
+		vendor/hi6210sft/lib/libbalong_audio_ril.so:system/lib/libbalong_audio_ril.so \
+		vendor/hi6210sft/lib64/libbalong_audio_ril.so:system/lib64/libbalong_audio_ril.so \
+		vendor/hi6210sft/lib/libmax98925.so:system/lib/libmax98925.so \
+		vendor/hi6210sft/lib64/libmax98925.so:system/lib64/libmax98925.so \
+		vendor/hi6210sft/lib/libOpenMAXAL.so:system/lib/libOpenMAXAL.so \
+		vendor/hi6210sft/lib64/libOpenMAXAL.so:system/lib64/libOpenMAXAL.so \
+		vendor/hi6210sft/lib/libOpenSLES.so:system/lib/libOpenSLES.so \
+		vendor/hi6210sft/lib64/libOpenSLES.so:system/lib64/libOpenSLES.so \
+		vendor/hi6210sft/lib/libsoundtrigger.so:system/lib/libsoundtrigger.so \
+		vendor/hi6210sft/lib64/libsoundtrigger.so:system/lib64/libsoundtrigger.so \
+		vendor/hi6210sft/lib/libsoundtriggerservice.so:system/lib/libsoundtriggerservice.so \
+		vendor/hi6210sft/lib64/libsoundtriggerservice.so:system/lib64/libsoundtriggerservice.so \
 #Camera
 #PRODUCT_COPY_FILES += \
 		vendor/lib/libjpegenchw.so:system/lib/libjpegenchw.so \
@@ -179,43 +166,43 @@ PRODUCT_COPY_FILES += \
 		vendor/hi6210sft/lib64/libhisi_ini.so:system/lib64/libhisi_ini.so
 
 #Audio Codecs (Don't worry, these are just text files)
-#PRODUCT_COPY_FILES += \
+PRODUCT_COPY_FILES += \
 		device/HUAWEI/hi6210sft/audio/audio_effects.conf:system/etc/audio_effects.conf \
 		device/HUAWEI/hi6210sft/audio/audio_policy.conf:system/etc/audio_policy.conf \
-		vendor/etc/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
-		vendor/etc/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
-		vendor/etc/media_codecs_performance.xml:system/etc/media_codecs_performance.xml \
-		vendor/etc/audio/algorithm/algorithm_ALICEPA_normal.xml:system/etc/audio/algorithm/algorithm_ALICEPA_normal.xml \
-		vendor/etc/audio/algorithm/ascend_algorithm_default.xml:system/etc/audio/algorithm/ascend_algorithm_default.xml \
-		vendor/etc/audio/dts/dts_ALICEPA_normal.xml:system/etc/audio/dts/dts_ALICEPA_normal.xml \
-		vendor/etc/audio/dts/dts_default.xml:system/etc/audio/dts/dts_default.xml \
-		vendor/etc/audio/hissc/mixer_paths_default.xml:system/etc/audio/hissc/mixer_paths_default.xml \
-		vendor/etc/audio/hissc/mixer_volumes_default.xml:system/etc/audio/hissc/mixer_volumes_default.xml \
-		vendor/etc/audio/hissc/pop_seq_default.xml:system/etc/audio/hissc/pop_seq_default.xml \
-		vendor/etc/audio/hissc/mixer_paths_ALICEPA.xml:system/etc/audio/hissc/mixer_paths_ALICEPA.xml \
-		vendor/etc/audio/hissc/mixer_volumes_ALICEPA_ce.xml:system/etc/audio/hissc/mixer_volumes_ALICEPA_ce.xml \
-		vendor/etc/audio/hissc/mixer_volumes_ALICEPA_cmcciot.xml:system/etc/audio/hissc/mixer_volumes_ALICEPA_cmcciot.xml \
-		vendor/etc/audio/hissc/mixer_volumes_ALICEPA_normal.xml:system/etc/audio/hissc/mixer_volumes_ALICEPA_normal.xml \
-		vendor/etc/audio/hissc/mixer_volumes_ALICEPA_telecomiot.xml:system/etc/audio/hissc/mixer_volumes_ALICEPA_telecomiot.xml \
-		vendor/etc/audio/hissc/mixer_volumes_ALICEPA_unicomiot.xml:system/etc/audio/hissc/mixer_volumes_ALICEPA_unicomiot.xml \
-		vendor/etc/audio/hissc/pop_seq_ALICEPA.xml:system/etc/audio/hissc/pop_seq_ALICEPA.xml \
-		vendor/etc/audio/mbdrc/mbdrc_ALICEPA_normal.xml:system/etc/audio/mbdrc/mbdrc_ALICEPA_normal.xml \
-		vendor/etc/audio/mbdrc/mbdrc_default.xml:system/etc/audio/mbdrc/mbdrc_default.xml \
-		vendor/etc/audio/modem/modem_default.xml:system/etc/audio/modem/modem_default.xml \
-		vendor/etc/audio/modem/modem_ALICEPA_cmcciot.xml:system/etc/audio/modem/modem_ALICEPA_cmcciot.xml \
-		vendor/etc/audio/modem/modem_ALICEPA_normal.xml:system/etc/audio/modem/modem_ALICEPA_normal.xml \
-		vendor/etc/audio/modem/modem_ALICEPA_telecomiot.xml:system/etc/audio/modem/modem_ALICEPA_telecomiot.xml \
-		vendor/etc/audio/modem/modem_ALICEPA_unicomiot.xml:system/etc/audio/modem/modem_ALICEPA_unicomiot.xml \
-		vendor/etc/audio/nxp/Tfa9895_ALICEPA.cnt:system/etc/audio/nxp/Tfa9895_ALICEPA.cnt \
-		vendor/etc/audio/nxp/Tfa9895_ALICEPA_coefficient.config:system/etc/audio/nxp/Tfa9895_ALICEPA_coefficient.config \
-		vendor/etc/audio/nxp/Tfa9895_default.cnt:system/etc/audio/nxp/Tfa9895_default.cnt \
-		vendor/etc/audio/sws/sws_ALICEPA_normal.xml:system/etc/audio/sws/sws_ALICEPA_normal.xml \
-		vendor/etc/audio/sws/sws_default.xml:system/etc/audio/sws/sws_default.xml \
-		vendor/etc/sws/sws_config.txt:system/etc/sws/sws_config.txt \
-		vendor/etc/srs/srsmodels.lic:system/etc/srs/srsmodels.lic \
-		vendor/etc/srs/srs_processing.cfg:system/etc/srs/srs_processing.cfg \
-		vendor/etc/srs/models.txt:system/etc/srs/models.txt \
-		vendor/etc/hisi_omx.cfg:system/etc/hisi_omx.cfg
+		vendor/hi6210sft/etc/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
+		vendor/hi6210sft/etc/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
+		vendor/hi6210sft/etc/media_codecs_performance.xml:system/etc/media_codecs_performance.xml \
+		vendor/hi6210sft/etc/audio/algorithm/algorithm_ALICEPA_normal.xml:system/etc/audio/algorithm/algorithm_ALICEPA_normal.xml \
+		vendor/hi6210sft/etc/audio/algorithm/ascend_algorithm_default.xml:system/etc/audio/algorithm/ascend_algorithm_default.xml \
+		vendor/hi6210sft/etc/audio/dts/dts_ALICEPA_normal.xml:system/etc/audio/dts/dts_ALICEPA_normal.xml \
+		vendor/hi6210sft/etc/audio/dts/dts_default.xml:system/etc/audio/dts/dts_default.xml \
+		vendor/hi6210sft/etc/audio/hissc/mixer_paths_default.xml:system/etc/audio/hissc/mixer_paths_default.xml \
+		vendor/hi6210sft/etc/audio/hissc/mixer_volumes_default.xml:system/etc/audio/hissc/mixer_volumes_default.xml \
+		vendor/hi6210sft/etc/audio/hissc/pop_seq_default.xml:system/etc/audio/hissc/pop_seq_default.xml \
+		vendor/hi6210sft/etc/audio/hissc/mixer_paths_ALICEPA.xml:system/etc/audio/hissc/mixer_paths_ALICEPA.xml \
+		vendor/hi6210sft/etc/audio/hissc/mixer_volumes_ALICEPA_ce.xml:system/etc/audio/hissc/mixer_volumes_ALICEPA_ce.xml \
+		vendor/hi6210sft/etc/audio/hissc/mixer_volumes_ALICEPA_cmcciot.xml:system/etc/audio/hissc/mixer_volumes_ALICEPA_cmcciot.xml \
+		vendor/hi6210sft/etc/audio/hissc/mixer_volumes_ALICEPA_normal.xml:system/etc/audio/hissc/mixer_volumes_ALICEPA_normal.xml \
+		vendor/hi6210sft/etc/audio/hissc/mixer_volumes_ALICEPA_telecomiot.xml:system/etc/audio/hissc/mixer_volumes_ALICEPA_telecomiot.xml \
+		vendor/hi6210sft/etc/audio/hissc/mixer_volumes_ALICEPA_unicomiot.xml:system/etc/audio/hissc/mixer_volumes_ALICEPA_unicomiot.xml \
+		vendor/hi6210sft/etc/audio/hissc/pop_seq_ALICEPA.xml:system/etc/audio/hissc/pop_seq_ALICEPA.xml \
+		vendor/hi6210sft/etc/audio/mbdrc/mbdrc_ALICEPA_normal.xml:system/etc/audio/mbdrc/mbdrc_ALICEPA_normal.xml \
+		vendor/hi6210sft/etc/audio/mbdrc/mbdrc_default.xml:system/etc/audio/mbdrc/mbdrc_default.xml \
+		vendor/hi6210sft/etc/audio/modem/modem_default.xml:system/etc/audio/modem/modem_default.xml \
+		vendor/hi6210sft/etc/audio/modem/modem_ALICEPA_cmcciot.xml:system/etc/audio/modem/modem_ALICEPA_cmcciot.xml \
+		vendor/hi6210sft/etc/audio/modem/modem_ALICEPA_normal.xml:system/etc/audio/modem/modem_ALICEPA_normal.xml \
+		vendor/hi6210sft/etc/audio/modem/modem_ALICEPA_telecomiot.xml:system/etc/audio/modem/modem_ALICEPA_telecomiot.xml \
+		vendor/hi6210sft/etc/audio/modem/modem_ALICEPA_unicomiot.xml:system/etc/audio/modem/modem_ALICEPA_unicomiot.xml \
+		vendor/hi6210sft/etc/audio/nxp/Tfa9895_ALICEPA.cnt:system/etc/audio/nxp/Tfa9895_ALICEPA.cnt \
+		vendor/hi6210sft/etc/audio/nxp/Tfa9895_ALICEPA_coefficient.config:system/etc/audio/nxp/Tfa9895_ALICEPA_coefficient.config \
+		vendor/hi6210sft/etc/audio/nxp/Tfa9895_default.cnt:system/etc/audio/nxp/Tfa9895_default.cnt \
+		vendor/hi6210sft/etc/audio/sws/sws_ALICEPA_normal.xml:system/etc/audio/sws/sws_ALICEPA_normal.xml \
+		vendor/hi6210sft/etc/audio/sws/sws_default.xml:system/etc/audio/sws/sws_default.xml \
+		vendor/hi6210sft/etc/sws/sws_config.txt:system/etc/sws/sws_config.txt \
+		vendor/hi6210sft/etc/srs/srsmodels.lic:system/etc/srs/srsmodels.lic \
+		vendor/hi6210sft/etc/srs/srs_processing.cfg:system/etc/srs/srs_processing.cfg \
+		vendor/hi6210sft/etc/srs/models.txt:system/etc/srs/models.txt \
+		vendor/hi6210sft/etc/hisi_omx.cfg:system/etc/hisi_omx.cfg
 
 #OMX & k3 Codecs
 #PRODUCT_COPY_FILES += \

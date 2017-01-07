@@ -117,18 +117,17 @@ PRODUCT_COPY_FILES += \
 		vendor/hi6210sft/lib64/libsoundtrigger.so:system/lib64/libsoundtrigger.so \
 		vendor/hi6210sft/lib/libsoundtriggerservice.so:system/lib/libsoundtriggerservice.so \
 		vendor/hi6210sft/lib64/libsoundtriggerservice.so:system/lib64/libsoundtriggerservice.so \
+
 #Camera
-#PRODUCT_COPY_FILES += \
-		vendor/lib/libjpegenchw.so:system/lib/libjpegenchw.so \
-		vendor/lib/libjpu.so:system/lib/libjpu.so \
-		vendor/lib/hw/camera.hi6210sft.so:system/lib/hw/camera.vendor.hi6210sft.so \
-		vendor/lib/libcamera_core.so:system/lib/libcamera_core.so \
-		vendor/lib/libcamera_client.so:system/lib/libcamera_client.so \
-		vendor/lib/libcamera_post_mediaserver.so:system/lib/libcamera_post_mediaserver.so \
-		vendor/lib/libcameraservice.so:system/lib/libcameraservice.so \
-		vendor/lib/libCameraHwExtend.so:system/lib/libCameraHwExtend.so \
-		vendor/etc/camera_orientation.cfg:system/etc/camera_orientation.cfg \
-		vendor/etc/camera_resolutions.cfg:system/etc/camera_resolutions.cfg
+PRODUCT_COPY_FILES += \
+		vendor/hi6210sft/lib/libjpegenchw.so:system/lib/libjpegenchw.so \
+		vendor/hi6210sft/lib/libjpu.so:system/lib/libjpu.so \
+		vendor/hi6210sft/lib/hw/camera.hi6210sft.so:system/lib/hw/camera.hi6210sft.so \
+		vendor/hi6210sft/lib64/hw/camera.hi6210sft.so:system/lib64/hw/camera.hi6210sft.so \
+		vendor/hi6210sft/lib/libCameraHwExtend.so:system/lib/libCameraHwExtend.so \
+		vendor/hi6210sft/lib/libcamera_core.so:system/lib/libcamera_core.so \
+		vendor/hi6210sft/etc/camera_orientation.cfg:system/etc/camera_orientation.cfg \
+		vendor/hi6210sft/etc/camera_resolutions.cfg:system/etc/camera_resolutions.cfg
 
 #Hardware CFG
 #PRODUCT_COPY_FILES += \

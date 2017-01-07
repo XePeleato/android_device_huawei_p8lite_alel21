@@ -40,6 +40,15 @@ PRODUCT_COPY_FILES += \
 		vendor/hi6210sft/vendor/lib/libbt-vendor-hi110x.so:system/vendor/lib/libbt-vendor-hi110x.so \
 		vendor/hi6210sft/vendor/lib/libbt-vendor.so:system/vendor/lib/libbt-vendor.so \
 		vendor/hi6210sft/vendor/lib/libbt-vendor-hi110x.so:system/vendor/lib/libbt-vendor-hi110x.so \
+		vendor/hi6210sft/etc/bluetooth/auto_pair_devlist.conf:system/etc/bluetooth/auto_pair_devlist.conf \
+		vendor/hi6210sft/etc/bluetooth/bt_did.conf:system/etc/bluetooth/bt_did.conf \
+		vendor/hi6210sft/etc/bluetooth/bt_stack.conf:system/etc/bluetooth/bt_stack.conf \
+		vendor/hi6210sft/etc/bluetooth/bt_stack_beta.conf:system/etc/bluetooth/bt_stack_beta.conf \
+		vendor/hi6210sft/etc/bluetooth/bt_stack_log.conf:system/etc/bluetooth/bt_stack_log.conf \
+		vendor/hi6210sft/etc/bluetooth/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf \
+		vendor/hi6210sft/lib/libbluetoothex_jni.so:system/lib/libbluetoothex_jni.so \
+		vendor/hi6210sft/lib64/libbluetoothex_jni.so:system/lib64/libbluetoothex_jni.so
+
 # Graphics
 PRODUCT_COPY_FILES += \
 		vendor/hi6210sft/lib/egl/libGLES_mali.so:system/lib/egl/libGLES_mali.so \

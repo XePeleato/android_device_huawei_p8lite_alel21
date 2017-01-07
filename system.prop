@@ -65,10 +65,14 @@ ro.hwui.text_large_cache_width=2048
 ro.hwui.text_small_cache_height=1024
 ro.hwui.text_small_cache_width=1024
 ro.hwui.r_buffer_cache_size=8
-#dalvik heap
+
+#Dalvik heap
 dalvik.vm.heaptargetutilization=0.75
 dalvik.vm.heapmaxfree=8m
 dalvik.vm.heapgrowthlimit=192m
 dalvik.vm.heapminfree=2m
 dalvik.vm.heapstartsize=8m
 dalvik.vm.heapsize=512m
+
+#Bluetooth
+ro.bt.bdaddr_path=/data/misc/bluedroid/macbt

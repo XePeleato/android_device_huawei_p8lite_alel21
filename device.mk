@@ -54,6 +54,7 @@ PRODUCT_COPY_FILES += \
         frameworks/native/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
         frameworks/native/data/etc/android.hardware.bluetooth.xml:system/etc/permissions/android.hardware.bluetooth.xml \
         frameworks/native/data/etc/android.hardware.bluetooth_le.xml:system/etc/permissions/android.hardware.bluetooth_le.xml \
+	frameworks/native/data/etc/android.hardware.sensor.gyroscope.xml:system/etc/permissions/android.hardware.sensor.gyroscope.xml
 
 #RIL
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -103,3 +104,4 @@ BOARD_SEPOLICY_DIRS += \
 
 # Call vendor files (by now just put all files in /vendor dir and adjust vendor.mk file)
 $(call inherit-product, $(LOCAL_PATH)/vendor.mk)
+

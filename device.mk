@@ -36,6 +36,9 @@ PRODUCT_PACKAGES += libion
 
 PRODUCT_PACKAGES += lights.hi6210sft libhi6210sft
 
+# Build Snap
+PRODUCT_PACKAGES += Snap
+
 # Include ION tests
 PRODUCT_PACKAGES += iontest \
                     ion-unit-tests

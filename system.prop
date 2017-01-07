@@ -50,3 +50,25 @@ ro.config.ecc_from_cust_enable=true
 ro.config.hw_lte_support=true
 ro.config.hw_show_4G_Plus_icon=true
 ro.config.hw_show_network_icon=true
+
+#UI
+debug.hwui.render_dirty_regions=false
+ro.hwui.texture_cache_size=72
+ro.hwui.texture_cache_flushrate=0.4
+ro.hwui.layer_cache_size=48
+ro.hwui.path_cache_size=32
+ro.hwui.shape_cache_size=2
+ro.hwui.drop_shadow_cache_size=6
+ro.hwui.gradient_cache_size=1
+ro.hwui.text_large_cache_height=1024
+ro.hwui.text_large_cache_width=2048
+ro.hwui.text_small_cache_height=1024
+ro.hwui.text_small_cache_width=1024
+ro.hwui.r_buffer_cache_size=8
+#dalvik heap
+dalvik.vm.heaptargetutilization=0.75
+dalvik.vm.heapmaxfree=8m
+dalvik.vm.heapgrowthlimit=192m
+dalvik.vm.heapminfree=2m
+dalvik.vm.heapstartsize=8m
+dalvik.vm.heapsize=512m

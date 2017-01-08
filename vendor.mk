@@ -60,6 +60,16 @@ PRODUCT_COPY_FILES += \
 		vendor/hi6210sft/lib/libion.so:system/lib/libion.so \
 		vendor/hi6210sft/lib64/libion.so:system/lib64/libion.so
 
+#Sensors
+PRODUCT_COPY_FILES += \
+		vendor/hi6210sft/lib/hw/sensors.default.so:system/lib/hw/sensors.default.so \
+		vendor/hi6210sft/lib64/hw/sensors.default.so:system/lib64/hw/sensors.default.so \
+		vendor/hi6210sft/lib/hw/sensorcaps.default.so:system/lib/hw/sensorcaps.default.so \
+		vendor/hi6210sft/lib64/hw/sensorcaps.default.so:system/lib64/hw/sensorcaps.default.so \
+		vendor/hi6210sft/lib64/hw/lights.default.so:system/lib64/hw/lights.hi6210sft.so \
+		vendor/hi6210sft/vendor/lib/libcalmodule_akm.so:system/vendor/lib/libcalmodule_akm.so \
+		vendor/hi6210sft/vendor/lib64/libcalmodule_akm.so:system/vendor/lib64/libcalmodule_akm.so
+
 #RIL
 PRODUCT_COPY_FILES += \
 		vendor/hi6210sft/lib64/libbalong_audio_ril.so:system/lib64/libbalong_audio_ril.so \

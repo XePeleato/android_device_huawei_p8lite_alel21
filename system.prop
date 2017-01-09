@@ -76,3 +76,6 @@ dalvik.vm.heapsize=512m
 
 #Bluetooth
 ro.bt.bdaddr_path=/data/misc/bluedroid/macbt
+
+#PlayStore
+ro.com.google.clientidbase=android-huawei

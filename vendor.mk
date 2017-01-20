@@ -19,6 +19,7 @@ PRODUCT_COPY_FILES += \
 		device/linaro/hi6210sft/rootdir/init.hi6210sft.rc:root/init.hi6210sft.rc \
 		device/linaro/hi6210sft/rootdir/init.hwconfig.rc:root/init.hwconfig.rc \
 		device/linaro/hi6210sft/rootdir/ueventd.hi6210sft.rc:root/ueventd.hi6210sft.rc \
+		device/linaro/hi6210sft/rootdir/init.hi6210sft.usb.rc:root/init.hi6210sft.usb.rc \
 		device/linaro/hi6210sft/rootdir/sbin/oeminfo_nvm_server:root/sbin/oeminfo_nvm_server \
 		device/linaro/hi6210sft/rootdir/sbin/volisnotd:root/sbin/volisnotd \
 		device/linaro/hi6210sft/rootdir/sbin/teecd:root/sbin/teecd \

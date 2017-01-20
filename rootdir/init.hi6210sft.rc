@@ -1,4 +1,5 @@
 import /init.hwconfig.rc
+import /init.hi6210sft.usb.rc
 import /init.connectivity.rc
 
 on early-boot

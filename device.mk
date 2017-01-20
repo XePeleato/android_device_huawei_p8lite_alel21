@@ -49,15 +49,16 @@ PRODUCT_PROPERTY_OVERRIDES += \
          debug.sf.no_hw_vsync=1 \
          ro.secure=0 \
          ro.adb.secure=0 \
-	 persist.sys.usb.config=adb \
-	 sys.usb.configfs=1
+	 persist.sys.usb.config=mtp \
+	 sys.usb.configfs=0
 
 
 PRODUCT_COPY_FILES += \
         frameworks/native/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
         frameworks/native/data/etc/android.hardware.bluetooth.xml:system/etc/permissions/android.hardware.bluetooth.xml \
         frameworks/native/data/etc/android.hardware.bluetooth_le.xml:system/etc/permissions/android.hardware.bluetooth_le.xml \
-	frameworks/native/data/etc/android.hardware.sensor.gyroscope.xml:system/etc/permissions/android.hardware.sensor.gyroscope.xml
+	frameworks/native/data/etc/android.hardware.sensor.gyroscope.xml:system/etc/permissions/android.hardware.sensor.gyroscope.xml \
+	frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
 
 #RIL
 PRODUCT_PROPERTY_OVERRIDES += \

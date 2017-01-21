@@ -137,6 +137,8 @@ PRODUCT_COPY_FILES += \
 		vendor/hi6210sft/lib64/libsoundtrigger.so:system/lib64/libsoundtrigger.so \
 		vendor/hi6210sft/lib/libsoundtriggerservice.so:system/lib/libsoundtriggerservice.so \
 		vendor/hi6210sft/lib64/libsoundtriggerservice.so:system/lib64/libsoundtriggerservice.so \
+		vendor/hi6210sft/lib/libearpa.so:system/lib/libearpa.so \
+		vendor/hi6210sft/lib64/libearpa.so:system/lib64/libearpa.so
 
 #Camera
 PRODUCT_COPY_FILES += \

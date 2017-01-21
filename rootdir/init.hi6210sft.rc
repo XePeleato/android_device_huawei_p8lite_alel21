@@ -17,13 +17,13 @@ on fs
 	
     setprop ro.crypto.fuse_sdcard true
     symlink /splash2/fac_log /data/log/fac_log
-    mount ext4 /dev/block/mmcblk0p34 /cache nosuid nodev noatime wait crypt discard,noauto_da_alloc,data=ordered,user_xattr,discard,barrier=1
+#    mount ext4 /dev/block/mmcblk0p34 /cache nosuid nodev noatime wait crypt discard,noauto_da_alloc,data=ordered,user_xattr,discard,barrier=1
 	
-    wait /dev/block/mmcblk0p38
-    mount ext4 /dev/block/mmcblk0p38 /system rw
+#    wait /dev/block/mmcblk0p38
+#    mount ext4 /dev/block/mmcblk0p38 /system rw
 
-    wait /dev/block/mmcblk0p40
-    mount_all /fstab.${ro.hardware}
+    wait /dev/block
+    mount_all /fstab.hi6210sft
     
     mount ext4 /dev/block/platform/hi_mci.0/by-name/cust /cust wait ro nosuid nodev
 

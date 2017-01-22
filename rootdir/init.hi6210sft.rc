@@ -300,7 +300,7 @@ on boot
      write /sys/class/net/rmnet4/queues/rx-0/rps_cpus f
      write /sys/class/net/rmnet_ims/queues/rx-0/rps_flow_cnt 0
      write /sys/class/net/rmnet_ims/queues/rx-0/rps_cpus f
-	 
+     chown root radio /proc/cmdline 
     write /sys/block/zram0/disksize 268435456
     swapon_all fstab.hi6210sft
 
@@ -310,6 +310,26 @@ service oeminfo_nvm /system/bin/oeminfo_nvm_server
 
 on property:ro.runmode=*
     start ccorecat
+
+on property:sys.userdata_is_ready=1
+    start ril-daemon2
+
+service ril-daemon2 /system/bin/rild 
+    disabled
+    class core
+    socket rild stream 660 root radio
+    socket rild-ims stream 660 root radio
+    socket rildm2 stream 660 root radio
+
+    socket rildc3 stream 660 radio system
+    socket rildm3 stream 660 root radio
+    socket rilds3 stream 660 root radio
+
+    socket rild-debug stream 660 radio system
+    socket rild-debug1 stream 660 radio system
+    user root
+    group radio cache inet misc audio sdcard_r sdcard_rw log system
+
 
 on property:ro.runmode=*
     start telemntncat

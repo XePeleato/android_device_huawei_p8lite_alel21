@@ -88,6 +88,11 @@ ENABLE_CPUSETS := true
 
 BOARD_SEPOLICY_DIRS := device/linaro/hi6210sft/sepolicy
 
+# Vendor Init
+TARGET_UNIFIED_DEVICE := true
+TARGET_INIT_VENDOR_LIB := libinit_hi6210sft
+TARGET_LIBINIT_DEFINES_FILE := device/linaro/hi6210sft/init/init_alice.cpp
+
 ifeq ($(HOST_OS), linux)
 ifeq ($(TARGET_SYSTEMIMAGES_USE_SQUASHFS), true)
 BOARD_SYSTEMIMAGE_FILE_SYSTEM_TYPE := squashfs

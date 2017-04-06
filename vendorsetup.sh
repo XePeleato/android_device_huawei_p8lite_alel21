@@ -20,4 +20,4 @@
 # In particular, you can add lunch options with the add_lunch_combo
 # function: add_lunch_combo generic-eng
 
-add_lunch_combo cm_hi6210sft-userdebug
+add_lunch_combo lineage_hi6210sft-userdebug

@@ -22,7 +22,7 @@ $(call inherit-product, device/linaro/hi6210sft/device.mk)
 # Inherit some common CM stuff.
 $(call inherit-product, vendor/cm/config/common_full_phone.mk)
 
-PRODUCT_NAME := cm_hi6210sft
+PRODUCT_NAME := lineage_hi6210sft
 PRODUCT_DEVICE := hi6210sft
 PRODUCT_MANUFACTURER := Huawei
 PRODUCT_BRAND := Huawei

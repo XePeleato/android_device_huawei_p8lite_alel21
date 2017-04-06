@@ -9,9 +9,6 @@ on early-boot
     mkdir /mnt/pstore 0770 root system
     mount pstore pstore /mnt/pstore
 
-on charger
-#    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor optdemand
-
 on fs
     loglevel 9
 	
@@ -303,6 +300,18 @@ on boot
      chown root radio /proc/cmdline 
     write /sys/block/zram0/disksize 268435456
     swapon_all fstab.hi6210sft
+
+on charger
+    mount_all /fstab.hi6210sft
+    chown system system /sys/class/android_usb/android0/switch_request
+    chmod 0664 /sys/class/android_usb/android0/switch_request
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor optdemand
+    start hw_charger
+
+service hw_charger /sbin/healthd -c
+    class charger
+    user root
+    disabled
 
 service oeminfo_nvm /system/bin/oeminfo_nvm_server
     class core

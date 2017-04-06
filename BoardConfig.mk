@@ -29,6 +29,11 @@ ANDROID_ENABLE_RENDERSCRIPT := true
 #BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := "device/linaro/hi6210sft/bluetooth"
 BOARD_HAVE_BLUETOOTH := true
 
+# Charger
+BOARD_CHARGER_DISABLE_INIT_BLANK := true
+BOARD_RECOVERY_NEEDS_FBIOPAN_DISPLAY := true
+BACKLIGHT_PATH := /sys/class/leds/lcd_backlight0/brightness
+
 # RIL
 BOARD_RIL_CLASS := ../../../device/linaro/hi6210sft/ril
 

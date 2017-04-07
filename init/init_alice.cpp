@@ -60,7 +60,7 @@ void init_target_properties()
     else if (buf.find("ALICE_TL21") != std::string::npos) {
         property_set("ro.product.model", "ALE-L21");
         property_set("ro.build.description", "ALE-L21-user 6.0 HuaweiALE-L21 C432B596 release-keys");
-        property_set("ro.build.fingerprint", "HONOR/FRD-L04/HWFRD:7.0/HUAWEIFRD-L04/C567B360:user/release-keys");	
+        property_set("ro.build.fingerprint", "Huawei/ALE-L21/hwALE-H:6.0/HuaweiALE-L21/C432B596:user/release-keys");	
     }
     else if (buf.find("ALICE_TL23") != std::string::npos) {
         property_set("ro.product.model", "ALE-L23");
